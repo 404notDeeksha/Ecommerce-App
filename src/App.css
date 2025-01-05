@@ -1,0 +1,205 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer components {
+  .hover-header {
+    @apply hover:border-white border-transparent border-[1px];
+  }
+ 
+.header-top{
+  @apply h-[60px] bg-amazon_blue border-0 p-0 m-0 flex justify-evenly relative z-[5]
+}
+
+.header-bottom{
+    @apply max-h-[39px] bg-amazon_light 
+    text-white text-[14px] 
+    min-w-[1000px] 
+    flex    
+    relative z-[3]
+}
+
+  .arrow-carousel {
+    @apply w-20 h-full max-h-[250px] absolute top-[100px] cursor-pointer z-[50] pl-[3px] visible;
+  }
+
+  .card-grids {
+    @apply py-2.5 w-full max-w-[1480px] ms-auto me-auto flex justify-between gap-4 z-[5];
+  }
+
+  .card-grid {
+    @apply flex flex-col px-5  max-w-[350px] min-w-[300px] h-full min-h-[330px] bg-white pt-5 pb-[15px] justify-between;
+  }
+
+  .card-grid-data {
+    @apply grid gap-3 grid-cols-2 grid-flow-row;
+  }
+
+  .shopContent {
+    @apply w-full max-w-[1480px] px-2.5 ms-auto me-auto;
+  }
+
+  .slider {
+    @apply max-w-[1500px]  mx-auto  max-h-[300px] overflow-visible;
+  }
+
+  .carousel-container{
+    @apply custom-scrollbar relative flex gap-3 overflow-auto scroll-smooth snap-x snap-mandatory touch-pan-x z-0 pb-3.5
+  }
+
+  .carousel-swipe {
+    @apply hover:bg-white transition-all duration-300 absolute top-[900px] w-12 h-24 cursor-pointer;
+  }
+  .carousel-swipe-arrow {
+    @apply z-[5] mt-9 ml-3;
+  }
+
+  .nav-left-footer{
+    @apply my-0 pb-0
+    bg-[#232F3E]  text-white   min-w-[1000px] relative
+  }
+
+  .navFooterBackToTop{
+    @apply mb-10 bg-[#37475A] text-center py-[15px] leading-[17px]
+  }
+
+  .amazon-logo{
+    @apply flex  cursor-pointer hover-header pb-2.5
+    laptop:ml-2 tablet:ml-1         
+    laptop:mr-[1px] laptop:my-[1px]
+    laptop:pl-[26px] pr-2 pt-[5px] p-[10px_40px_0px_0px]
+    mobile:pt-[0px]
+  }
+
+  .amazon-logo-image{
+    @apply object-contain 
+    h-[30px] min-h-[27px] 
+    w-[97px]
+     laptop:min-w-[97px] mobile:min-w-20 tablet:min-w-20 mobile:h-[27px]
+     mt-[12px] scale-95
+  }
+
+  .amazon-logo-in{
+    @apply text-[13.5px] font-[500] text-white mt-[12px] mobile:mt-[10px] ml-[1px] 
+  }
+}
+
+body {
+  background-color: #e3e6e6;
+  display: block;
+}
+.mask-image {
+  background: linear-gradient(-180deg, rgba(234, 237, 237, 0), #e3e6e6);
+}
+.custom-scrollbar {
+  overscroll-behavior-inline: contain;
+}
+.custom-scrollbar::-webkit-scrollbar {
+  height: 7px;
+}
+.custom-scrollbar::-webkit-scrollbar-track {
+  background-color: transparent;
+}
+.modal-zindex-fullScreen{
+  z-index:6;
+}
+.modal-zindex-navbarTop{
+  z-index:4
+}
+.modal-zindex-navbarFull{
+  z-index:2
+}
+
+/* :hover */
+.custom-scrollbar::-webkit-scrollbar-thumb {
+  background-color: #aaa;
+  /* height: 4px; */
+  border-radius: 4px;
+  /* width: 0; */
+  /* position: absolute; */
+  /* margin: 0; */
+  cursor: pointer;
+}
+
+/* @layer base {
+  html {
+    font-family: 'AmazonEmber';
+   src: url('../src//Resources/Fonts/all/AmazonEmber_Rg.ttf');
+  }
+} */
+
+/* 
+@font-face {
+  font-family: 'AmazonEmber';
+   src: url('../src//Resources/Fonts/amazon-ember-cufonfonts/Amazon\ Ember.ttf'); Locate the .ttf file within your directory} */
+
+/* 
+:root {
+  font-family: Inter, system-ui, Avenir, Helvetica, Arial, sans-serif;
+  line-height: 1.5;
+  font-weight: 400;
+
+  color-scheme: light dark;
+  color: rgba(255, 255, 255, 0.87);
+  background-color: #242424;
+
+  font-synthesis: none;
+  text-rendering: optimizeLegibility;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+
+a {
+  font-weight: 500;
+  color: #646cff;
+  text-decoration: inherit;
+}
+a:hover {
+  color: #535bf2;
+}
+
+body {
+  margin: 0;
+  display: flex;
+  place-items: center;
+  min-width: 320px;
+  min-height: 100vh;
+}
+
+h1 {
+  font-size: 3.2em;
+  line-height: 1.1;
+}
+
+button {
+  border-radius: 8px;
+  border: 1px solid transparent;
+  padding: 0.6em 1.2em;
+  font-size: 1em;
+  font-weight: 500;
+  font-family: inherit;
+  background-color: #1a1a1a;
+  cursor: pointer;
+  transition: border-color 0.25s;
+}
+button:hover {
+  border-color: #646cff;
+}
+button:focus,
+button:focus-visible {
+  outline: 4px auto -webkit-focus-ring-color;
+}
+
+@media (prefers-color-scheme: light) {
+  :root {
+    color: #213547;
+    background-color: #ffffff;
+  }
+  a:hover {
+    color: #747bff;
+  }
+  button {
+    background-color: #f9f9f9;
+  }
+} */
