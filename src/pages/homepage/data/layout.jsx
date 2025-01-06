@@ -2,7 +2,7 @@ export const layoutData = [
   {
     name: "single-slide-carousel",
     id: 1,
-    type: "ROTATING_BANNER_IMAGES",
+    type: "AUTOMATIC_RUNNING_CAROUSEL",
     data: [
       {
         id: 1,

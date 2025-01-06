@@ -3,6 +3,7 @@ import { useState } from "react";
 import ArrowForwardIosIcon from "@mui/icons-material/ArrowForwardIos";
 
 export const Slider = ({ imageData }) => {
+  
   const [currentIndex, setCurrentIndex] = useState(0);
   const [buttonClicked, setButtonClicked] = useState(false);
 
@@ -43,7 +44,7 @@ export const Slider = ({ imageData }) => {
         handleLeft={() => updateIndex(currentIndex - 1)}
         handleRight={() => updateIndex(currentIndex + 1)}
       />
-      <SlidesImages data={imageData[currentIndex]} />
+      <SlidesImages data={imageData} />
     </div>
   );
 };
@@ -73,7 +74,7 @@ const SliderArrows = ({ handleLeft, handleRight }) => {
 const SlidesImages = ({ data }) => {
   return (
     <div className="flex h-full overflow-x-hidden ">
-      <img src={data.src} className="w-full max-h-full object-fill" />
+      <img src={data} className="w-full max-h-full object-fill" />
     </div>
   );
 };
