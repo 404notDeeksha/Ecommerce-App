@@ -3,6 +3,7 @@ import React, { useEffect, useState } from "react";
 
 export const ProductCardCart = () => {
   const [productData, setProductData] = useState([]);
+  // const [totalQty, setTotalQty] = useState(0);
   const backend_url = "http://localhost:8000/api/cart";
   const user_id = "64a57e6e8f1a7d123456789a";
 
@@ -10,13 +11,19 @@ export const ProductCardCart = () => {
     axios
       .get(`${backend_url}/${user_id}`)
       .then((response) => {
-        console.log(response.data);
-        setProductData(response.data.items);
+        console.log("Product core data", response.data);
+        setProductData(response.data.items || []);
+        // setTotalQty(response.data.items[0].quantity);
       })
       .catch((error) => {
         console.error("Error in retrieving data ", error);
       });
   }, []);
+
+  // const TotalQty=(productData)=>{
+  //   productData.items.map(ele=>{})
+  //   return
+  // }
 
   console.log("Products", productData);
 
@@ -24,22 +31,28 @@ export const ProductCardCart = () => {
     <div className="mr-5 mb-5 p-5 bg-white">
       <div className="text-3xl mb-4">Shopping Cart</div>
       <div className="border-b-2 border-gray-300"></div>
-      {productData.map((item) => {
-        return <ProductCard productData={item} />;
+      {productData.map((ele) => {
+        return <ProductCard key={ele.ProductId} productData={ele} index={0} />;
       })}
-      <div className="border-b-2 border-gray-300 my-4"></div>
+      <div className="text-lg text-right">
+        <div className="">
+          Subtotal (3 items):
+          {/* <span className="font-bold ml-4 ">{productData.totalPrice}</span> */}
+        </div>
+      </div>
     </div>
   );
 };
 
-const ProductCard = ({ productData }) => {
+const ProductCard = ({ productData, index }) => {
   return (
     <>
       <div className="p-3 flex justify-between">
-        <img src={productData.Images[0]} className="w-44 h-44" />
+        <img src={productData.Images[index++]} className="w-44 h-44" />
         <div className="text-lg flex-1">{productData.ProductDescription}</div>
         <div className="font-bold text-base ">{productData.Price}</div>
       </div>
+      <div className="border-b-2 border-gray-300 my-4"></div>
     </>
   );
 };
