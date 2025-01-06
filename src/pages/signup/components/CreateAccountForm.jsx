@@ -32,14 +32,14 @@ export const CreateAccountForm = () => {
 
     // check if email is already present in database.. throw err
     axios
-      .post("http://localhost:8000/api/create", backendReqBody)
+      .post("http://localhost:8000/api/account/create", backendReqBody)
       .then((res) => {
         console.log("Data sent successfully", res);
         setIsEmailValid(false);
         setEmailErrMsg("Email already Registered");
       })
       .catch((err) => {
-        console.log("Issue sending data", err);
+        console.log("Issue sending data email", err);
       });
     return true;
   };
@@ -85,7 +85,7 @@ export const CreateAccountForm = () => {
     if (emailCheck && passwordCheck && passwordDuplicationCheck) {
       console.log("Data Logging successfully");
       axios
-        .post("http://localhost:8000/api/", backendReqBody)
+        .post("http://localhost:8000/api/account/", backendReqBody)
         .then((res) => {
           console.log("Data sent successfully", res);
         })
@@ -93,7 +93,7 @@ export const CreateAccountForm = () => {
           console.log("Issue sending data", err);
         });
       // navigate to /home (private) page with looged in session with local storage
-      navigate("/", { state: { name: nameDetail, email: email } });
+      navigate("/home", { state: { name: nameDetail, email: email } });
     }
   };
 

@@ -1,5 +1,6 @@
 import React from "react";
 import { images } from "../../../assets/images/index";
+import { Link } from "react-router-dom";
 
 export const Cartpage = () => {
   return (
@@ -17,11 +18,11 @@ export const Cartpage = () => {
                 Your Amazon Cart is empty{" "}
               </h3>
               <div className="flex mt-10 gap-2">
-                <div className="rounded-3xl border-black border-2 bg-orange-400 text-sm px-4 py-1">
-                  Sign in to your account
+                <div className="rounded-3xl border-black border-2 bg-orange-400 text-sm px-4 py-1 cursor-pointer">
+                  <Link to="/signin">Sign in to your account</Link>
                 </div>
-                <div className="rounded-3xl border-black border-2 text-sm px-4 py-1 ">
-                  Sign up now
+                <div className="rounded-3xl border-black border-2 text-sm px-4 py-1  cursor-pointer">
+                  <Link to="/create">Sign up now</Link>
                 </div>
               </div>
             </div>
