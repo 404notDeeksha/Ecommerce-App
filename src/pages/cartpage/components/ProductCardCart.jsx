@@ -1,5 +1,6 @@
 import axios from "axios";
 import React, { useEffect, useState } from "react";
+import { ConvertNumberInNumerals } from "./utils/ConvertNumberInNumerals";
 
 export const ProductCardCart = () => {
   const [productData, setProductData] = useState([]);
@@ -24,7 +25,7 @@ export const ProductCardCart = () => {
       });
   }, []);
 
-  console.log("Products", productData);
+  // console.log("Products", productData);
 
   return (
     <div className="mr-5 mb-5 p-5 bg-white">
@@ -63,24 +64,4 @@ const CalculateTotalQty = (data) => {
     total += ele.quantity;
   });
   return total;
-};
-
-const ConvertNumberInNumerals = (number) => {
-  // var number = 1234567.89;
-
-  // Define the formatting options
-  var options = {
-    minimumFractionDigits: 2,
-    maximumFractionDigits: 2,
-    style: "currency",
-    currency: "INR",
-  };
-
-  // Format the number using the toLocaleString() and the options
-  var formattedNum = number.toLocaleString("en-IN", options);
-
-  // Display the formatted number
-  console.log(formattedNum);
-  return formattedNum;
-  // Output: ₹ 12,34,567.89
 };
