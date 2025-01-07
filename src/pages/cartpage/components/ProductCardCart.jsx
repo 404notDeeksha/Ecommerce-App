@@ -16,7 +16,8 @@ export const ProductCardCart = () => {
         setProductData(response.data.items || []);
         const qty = CalculateTotalQty(response.data.items);
         setTotalQty(qty);
-        setTotalPrice(response.data.totalPrice);
+        const price = ConvertNumberInNumerals(response.data.totalPrice);
+        setTotalPrice(price);
       })
       .catch((error) => {
         console.error("Error in retrieving data ", error);
@@ -61,4 +62,24 @@ const CalculateTotalQty = (data) => {
     total += ele.quantity;
   });
   return total;
+};
+
+const ConvertNumberInNumerals = (number) => {
+  // var number = 1234567.89;
+
+  // Define the formatting options
+  var options = {
+    minimumFractionDigits: 2,
+    maximumFractionDigits: 2,
+    style: "currency",
+    currency: "INR",
+  };
+
+  // Format the number using the toLocaleString() and the options
+  var formattedNum = number.toLocaleString("en-IN", options);
+
+  // Display the formatted number
+  console.log(formattedNum);
+  return formattedNum;
+  // Output: ₹ 12,34,567.89
 };
