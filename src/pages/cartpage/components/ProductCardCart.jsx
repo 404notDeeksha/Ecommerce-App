@@ -1,6 +1,8 @@
 import axios from "axios";
 import React, { useEffect, useState } from "react";
 import { ConvertNumberInNumerals } from "./utils/ConvertNumberInNumerals";
+import { FaMinus } from "react-icons/fa6";
+import { FaPlus } from "react-icons/fa6";
 
 export const ProductCardCart = () => {
   const [productData, setProductData] = useState([]);
@@ -50,7 +52,30 @@ const ProductCard = ({ productData, index }) => {
     <>
       <div className="p-3 flex justify-between">
         <img src={productData.Images[index++]} className="w-44 h-44" />
-        <div className="text-lg flex-1">{productData.ProductDescription}</div>
+        <div className="text-lg flex-1">
+          <div className="font-bold">{productData.ProductDescription}</div>
+          <div className="text-sm mt-2">{productData.ProductName}</div>
+          <div className="text-xs mt-1">Gift Options not available</div>
+          <ul className="flex text-sm mt-2 items-center">
+            <li className="border-yellow-500 border-4 rounded-xl flex m-2 px-2 py-0.5 items-center ">
+              <div className="font-bold cursor-pointer">
+                <FaMinus />
+              </div>
+              <div className="mx-4 font-bold">{productData.quantity}</div>
+              <div className="font-bold p-1 cursor-pointer">
+                <FaPlus />
+              </div>
+            </li>
+            <li className="mx-2">|</li>
+            <li className="">Delete</li>
+            <li className="mx-2">|</li>
+            <li className="">Save for Later</li>
+            <li className="mx-2">|</li>
+            <li className="">See more like this</li>
+            <li className="mx-2">|</li>
+            <li className="">Share</li>
+          </ul>
+        </div>
         <div className="font-bold text-base ">{price}</div>
       </div>
       <div className="border-b-2 border-gray-300 my-4"></div>

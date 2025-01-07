@@ -5,9 +5,6 @@ export const ConvertNumberInNumerals = (number) => {
     style: "currency",
     currency: "INR",
   };
-
   var formattedNum = number.toLocaleString("en-IN", options);
-
-  console.log(formattedNum);
   return formattedNum;
 };
