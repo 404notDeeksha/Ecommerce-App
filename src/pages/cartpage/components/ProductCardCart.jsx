@@ -46,12 +46,13 @@ export const ProductCardCart = () => {
           </div>
         </div>
       </div>
-      <div className="bg-white font-bold text-lg p-3 h-44">
-        <div className=""></div>
-        <span className=""> Subtotal ({totalQty} items):</span>
-        <span className="ml-4 ">{totalPrice}</span>
-        <div className="font-normal text-sm bg-yellow-500 rounded-3xl px-4 py-2 text-center mt-3">
-          Proceed to Buy
+      <div className=" font-bold text-lg ">
+        <div className="bg-white p-4 pb-6">
+          <span className=""> Subtotal ({totalQty} items):</span>
+          <span className="ml-4 ">{totalPrice}</span>
+          <div className="font-normal text-sm bg-yellow-500 rounded-3xl px-4 py-2 text-center mt-3">
+            Proceed to Buy
+          </div>
         </div>
       </div>
     </div>

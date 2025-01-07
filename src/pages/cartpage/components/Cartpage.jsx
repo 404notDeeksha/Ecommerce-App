@@ -10,7 +10,7 @@ export const Cartpage = () => {
           {/* <EmptyCartPage /> */}
           <ProductCardCart />
 
-          <div className="max-w-[1500px] bg-[#fff]  h-[74px] pt-5 pb-[15px] mb-5 mr-5"></div>
+          {/* <div className="max-w-[1500px] bg-[#fff]  h-[74px] pt-5 pb-[15px] mb-5 mr-5"></div> */}
           <div className="text-xs">
             The price and availability of items at Amazon.in are subject to
             change. The shopping cart is a temporary place to store a list of
