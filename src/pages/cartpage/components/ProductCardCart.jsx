@@ -57,15 +57,7 @@ const ProductCard = ({ productData, index }) => {
           <div className="text-sm mt-2">{productData.ProductName}</div>
           <div className="text-xs mt-1">Gift Options not available</div>
           <ul className="flex text-sm mt-2 items-center">
-            <li className="border-yellow-500 border-4 rounded-xl flex m-2 px-2 py-0.5 items-center ">
-              <div className="font-bold cursor-pointer">
-                <FaMinus />
-              </div>
-              <div className="mx-4 font-bold">{productData.quantity}</div>
-              <div className="font-bold p-1 cursor-pointer">
-                <FaPlus />
-              </div>
-            </li>
+            <QuantityUpdationButton qty={productData.quantity} />
             <li className="mx-2">|</li>
             <li className="">Delete</li>
             <li className="mx-2">|</li>
@@ -89,4 +81,20 @@ const CalculateTotalQty = (data) => {
     total += ele.quantity;
   });
   return total;
+};
+
+const QuantityUpdationButton = ({ qty }) => {
+  return (
+    <>
+      <li className="border-yellow-500 border-4 rounded-xl flex m-2 px-2 py-0.5 items-center ">
+        <div className="font-bold cursor-pointer">
+          <FaMinus />
+        </div>
+        <div className="mx-4 font-bold">{qty}</div>
+        <div className="font-bold p-1 cursor-pointer">
+          <FaPlus />
+        </div>
+      </li>
+    </>
+  );
 };
