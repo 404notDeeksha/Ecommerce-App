@@ -30,16 +30,28 @@ export const ProductCardCart = () => {
   // console.log("Products", productData);
 
   return (
-    <div className="mr-5 mb-5 p-5 bg-white">
-      <div className="text-3xl mb-4">Shopping Cart</div>
-      <div className="border-b-2 border-gray-300"></div>
-      {productData.map((ele) => {
-        return <ProductCard key={ele.ProductId} productData={ele} index={0} />;
-      })}
-      <div className="text-lg text-right">
-        <div className="">
-          Subtotal ({totalQty} items):
-          <span className="font-bold ml-4 ">{totalPrice}</span>
+    <div className="flex justify-between">
+      <div className="mr-5 mb-5 p-5 bg-white flex-1">
+        <div className="text-3xl mb-4">Shopping Cart</div>
+        <div className="border-b-2 border-gray-300"></div>
+        {productData.map((ele) => {
+          return (
+            <ProductCard key={ele.ProductId} productData={ele} index={0} />
+          );
+        })}
+        <div className="text-lg text-right">
+          <div className="">
+            Subtotal ({totalQty} items):
+            <span className="font-bold ml-4 ">{totalPrice}</span>
+          </div>
+        </div>
+      </div>
+      <div className="bg-white font-bold text-lg p-3 h-44">
+        <div className=""></div>
+        <span className=""> Subtotal ({totalQty} items):</span>
+        <span className="ml-4 ">{totalPrice}</span>
+        <div className="font-normal text-sm bg-yellow-500 rounded-3xl px-4 py-2 text-center mt-3">
+          Proceed to Buy
         </div>
       </div>
     </div>
@@ -86,7 +98,7 @@ const CalculateTotalQty = (data) => {
 const QuantityUpdationButton = ({ qty }) => {
   return (
     <>
-      <li className="border-yellow-500 border-4 rounded-xl flex m-2 px-2 py-0.5 items-center ">
+      <li className="border-yellow-500 border-4 rounded-xl flex m-2 px-2 py-0.5 ml-0 items-center ">
         <div className="font-bold cursor-pointer">
           <FaMinus />
         </div>
