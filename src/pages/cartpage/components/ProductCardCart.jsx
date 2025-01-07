@@ -44,12 +44,13 @@ export const ProductCardCart = () => {
 };
 
 const ProductCard = ({ productData, index }) => {
+  const price = ConvertNumberInNumerals(productData.Price);
   return (
     <>
       <div className="p-3 flex justify-between">
         <img src={productData.Images[index++]} className="w-44 h-44" />
         <div className="text-lg flex-1">{productData.ProductDescription}</div>
-        <div className="font-bold text-base ">{productData.Price}</div>
+        <div className="font-bold text-base ">{price}</div>
       </div>
       <div className="border-b-2 border-gray-300 my-4"></div>
     </>
