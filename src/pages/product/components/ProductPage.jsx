@@ -5,7 +5,6 @@ import { CiDeliveryTruck } from "react-icons/ci";
 import { IoCalendarClearOutline } from "react-icons/io5";
 import { MdOutlineSecurity } from "react-icons/md";
 import { RiSecurePaymentLine } from "react-icons/ri";
-import { ProductCardCart } from "./../../cartpage/components/ProductCardCart";
 
 export const ProductPage = () => {
   const [productData, setProductData] = useState("");
