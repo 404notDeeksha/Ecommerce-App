@@ -12,6 +12,7 @@ import { SignIn } from "./pages/signin/SignIn";
 import { AccountCheck } from "./pages/signin/components/user/AccountCheck";
 import { CreateAccountForm } from "./pages/signup/components/CreateAccountForm";
 import { Cartpage } from "./pages/cartpage/components/Cartpage";
+import { ProductPage } from "./pages/product/components/ProductPage";
 
 function App() {
   const [modalVisibility, setModalVisibility] = useState(false);
@@ -69,6 +70,7 @@ function App() {
             }
           >
             <Route path="/home" element={<HomePage />} />
+            <Route path="/product" element={<ProductPage />} />
             <Route path="/cart" element={<Cartpage />} />
           </Route>
           <Route path="*" element={<Navigate to="/signin" />} />

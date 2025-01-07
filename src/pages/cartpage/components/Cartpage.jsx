@@ -4,7 +4,7 @@ import { ProductCardCart } from "./ProductCardCart";
 
 export const Cartpage = () => {
   return (
-    <div>
+    <>
       <div className="w-full min-w-[998px] bg-[#EAEDED] px-[18px] py-3.5 my-0 mx-auto">
         <div className="max-w-[1500px] m-auto text-sm leading-5 ">
           {/* <EmptyCartPage /> */}
@@ -20,6 +20,6 @@ export const Cartpage = () => {
           </div>
         </div>
       </div>
-    </div>
+    </>
   );
 };
