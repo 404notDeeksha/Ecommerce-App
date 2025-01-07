@@ -4,6 +4,7 @@ import React, { useEffect, useState } from "react";
 export const ProductCardCart = () => {
   const [productData, setProductData] = useState([]);
   const [totalQty, setTotalQty] = useState(0);
+  const [totalPrice, setTotalPrice] = useState(0);
   const backend_url = "http://localhost:8000/api/cart";
   const user_id = "64a57e6e8f1a7d123456789a";
 
@@ -15,16 +16,12 @@ export const ProductCardCart = () => {
         setProductData(response.data.items || []);
         const qty = CalculateTotalQty(response.data.items);
         setTotalQty(qty);
+        setTotalPrice(response.data.totalPrice);
       })
       .catch((error) => {
         console.error("Error in retrieving data ", error);
       });
   }, []);
-
-  // const TotalQty=(productData)=>{
-  //   productData.items.map(ele=>{})
-  //   return
-  // }
 
   console.log("Products", productData);
 
@@ -38,7 +35,7 @@ export const ProductCardCart = () => {
       <div className="text-lg text-right">
         <div className="">
           Subtotal ({totalQty} items):
-          {/* <span className="font-bold ml-4 ">{productData.totalPrice}</span> */}
+          <span className="font-bold ml-4 ">{totalPrice}</span>
         </div>
       </div>
     </div>
