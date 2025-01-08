@@ -26,7 +26,7 @@ export const Pagination = ({ products, itemsPerPage }) => {
           return <ProductGridCard key={ele.ProductId} ele={ele} />;
         })}
       </div>
-      <div className="flex border-gray-200 border items-center rounded-xl w-max mx-auto">
+      <div className="flex border-gray-200 border items-center rounded-xl w-max mx-auto mt-20">
         <div
           className={`flex items-center p-4 cursor-pointer ${
             currentPage === 1
