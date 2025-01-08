@@ -1,5 +1,5 @@
 export const ConvertNumberInNumerals = (number) => {
-  console.log("Number", number);
+  // console.log("Number", number);
   var options = {
     minimumFractionDigits: 0,
     maximumFractionDigits: 0,
@@ -7,6 +7,5 @@ export const ConvertNumberInNumerals = (number) => {
     currency: "INR",
   };
   var formattedNum = number?.toLocaleString("en-IN", options);
-  console.log("NUM", formattedNum);
   return formattedNum;
 };
