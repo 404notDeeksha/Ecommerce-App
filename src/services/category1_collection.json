@@ -1,0 +1,310 @@
+[{
+  "_id": {
+    "$oid": "677f8f0e0dc5e7e204b09c1f"
+  },
+  "category_id": "7B6H3G",
+  "category_name": "Skincare",
+  "products": [
+    {
+      "product_id": 1,
+      "product_heading": "Cetaphil Paraben Sulphate Free Gentle Skin Hydrating Face Wash Cleanser with Niacinamide Vitamin B5 for Dry to Normal Sensitive Skin 125ml",
+      "product_category": "Cleanser",
+      "data": {
+        "rating": 4.5,
+        "selling_price": 349,
+        "discount_percentage": 5,
+        "deliveryType": "free",
+        "brandname": "Cetaphil",
+        "features": [
+          "Paraben-free",
+          "Sulphate-free",
+          "Hydrating face wash",
+          "Contains Niacinamide",
+          "Suitable for sensitive skin"
+        ],
+        "details": {
+          "Brand": "Cetaphil",
+          "Item Weight": "125 Grams",
+          "Item dimensions L x W x H": "11 x 6.6 x 3.5 Centimeters",
+          "Scent": "Unscented",
+          "Age Range (Description)": "18 and above",
+          "Skin Type": "Sensitive, Dry, Normal",
+          "Item Package Quantity": 1,
+          "Product Benefits": "Cleansing",
+          "Special Feature": "Won't Clog Pores, Hypoallergenic, Unscented, pH balanced, Dermatologist tested",
+          "Active Ingredients": "Hydrating Glycerin, Panthenol (Vitamin B5), Niacinamide (Vitamin B3)"
+        }
+      }
+    },
+    {
+      "product_id": 2,
+      "product_heading": "Neutrogena Hydro Boost Hyaluronic Acid Water Gel Moisturizer 50g",
+      "product_category": "Moisturizer",
+      "data": {
+        "rating": 4.7,
+        "selling_price": 950,
+        "discount_percentage": 8,
+        "deliveryType": "paid",
+        "brandname": "Neutrogena",
+        "features": [
+          "Contains Hyaluronic Acid",
+          "Oil-free",
+          "Long-lasting hydration",
+          "Dermatologist tested"
+        ],
+        "details": {
+          "Brand": "Neutrogena",
+          "Item Weight": "50 Grams",
+          "Item dimensions L x W x H": "5 x 5 x 5 Centimeters",
+          "Scent": "Fresh",
+          "Age Range (Description)": "All Ages",
+          "Skin Type": "All",
+          "Item Package Quantity": 1,
+          "Product Benefits": "Hydration",
+          "Special Feature": "Oil-free, Lightweight, Dermatologist Tested",
+          "Active Ingredients": "Hyaluronic Acid"
+        }
+      }
+    },
+    {
+      "product_id": 3,
+      "product_heading": "The Body Shop Tea Tree Skin Clearing Facial Wash 250ml",
+      "product_category": "Cleanser",
+      "data": {
+        "rating": 4.4,
+        "selling_price": 645,
+        "discount_percentage": 7,
+        "deliveryType": "free",
+        "brandname": "The Body Shop",
+        "features": [
+          "Tea tree oil",
+          "Deep cleansing",
+          "Controls oil",
+          "Suitable for blemished skin"
+        ],
+        "details": {
+          "Brand": "The Body Shop",
+          "Item Weight": "250 Milliliters",
+          "Item dimensions L x W x H": "15 x 5 x 5 Centimeters",
+          "Scent": "Tea Tree",
+          "Age Range (Description)": "Teen and above",
+          "Skin Type": "Oily, Acne-Prone",
+          "Item Package Quantity": 1,
+          "Product Benefits": "Deep Cleansing",
+          "Special Feature": "Oil Control, Anti-Blemish, Dermatologist Approved",
+          "Active Ingredients": "Tea Tree Oil"
+        }
+      }
+    },
+    {
+      "product_id": 4,
+      "product_heading": "Mamaearth Ubtan Natural Face Scrub with Turmeric and Walnut for Tan Removal 100g",
+      "product_category": "Scrub",
+      "data": {
+        "rating": 4.3,
+        "selling_price": 249,
+        "discount_percentage": 6,
+        "deliveryType": "free",
+        "brandname": "Mamaearth",
+        "features": [
+          "Contains Turmeric and Walnut",
+          "Exfoliates skin",
+          "Removes tan",
+          "Dermatologically tested"
+        ],
+        "details": {
+          "Brand": "Mamaearth",
+          "Item Weight": "100 Grams",
+          "Item dimensions L x W x H": "10 x 5 x 5 Centimeters",
+          "Scent": "Turmeric",
+          "Age Range (Description)": "All Ages",
+          "Skin Type": "All",
+          "Item Package Quantity": 1,
+          "Product Benefits": "Exfoliation",
+          "Special Feature": "Natural Ingredients, Dermatologically Tested",
+          "Active Ingredients": "Turmeric, Walnut"
+        }
+      }
+    },
+    {
+      "product_id": 5,
+      "product_heading": "Olay Regenerist Micro-Sculpting Cream Fragrance-Free 50g",
+      "product_category": "Moisturizer",
+      "data": {
+        "rating": 4.8,
+        "selling_price": 1299,
+        "discount_percentage": 9,
+        "deliveryType": "paid",
+        "brandname": "Olay",
+        "features": [
+          "Fragrance-free",
+          "Reduces fine lines and wrinkles",
+          "Hydrates skin",
+          "Dermatologist tested"
+        ],
+        "details": {
+          "Brand": "Olay",
+          "Item Weight": "50 Grams",
+          "Item dimensions L x W x H": "7 x 7 x 5 Centimeters",
+          "Scent": "Fragrance-Free",
+          "Age Range (Description)": "18 and above",
+          "Skin Type": "All",
+          "Item Package Quantity": 1,
+          "Product Benefits": "Anti-aging",
+          "Special Feature": "Non-Greasy, Dermatologically Tested",
+          "Active Ingredients": "Amino-Peptides, Niacinamide"
+        }
+      }
+    },
+    {
+      "product_id": 6,
+      "product_heading": "Himalaya Herbals Purifying Neem Face Wash 150ml",
+      "product_category": "Cleanser",
+      "data": {
+        "rating": 4.6,
+        "selling_price": 210,
+        "discount_percentage": 5,
+        "deliveryType": "free",
+        "brandname": "Himalaya",
+        "features": [
+          "Contains Neem and Turmeric",
+          "Prevents acne",
+          "Controls oil",
+          "Dermatologist tested"
+        ],
+        "details": {
+          "Brand": "Himalaya",
+          "Item Weight": "150 Milliliters",
+          "Item dimensions L x W x H": "14 x 4 x 4 Centimeters",
+          "Scent": "Neem",
+          "Age Range (Description)": "Teen and above",
+          "Skin Type": "Oily, Acne-Prone",
+          "Item Package Quantity": 1,
+          "Product Benefits": "Cleansing",
+          "Special Feature": "Anti-Acne, Oil Control",
+          "Active Ingredients": "Neem, Turmeric"
+        }
+      }
+    },
+    {
+      "product_id": 7,
+      "product_heading": "L'Oréal Paris Revitalift Crystal Micro-Essence 130ml",
+      "product_category": "Essence",
+      "data": {
+        "rating": 4.5,
+        "selling_price": 899,
+        "discount_percentage": 8,
+        "deliveryType": "free",
+        "brandname": "L'Oréal Paris",
+        "features": [
+          "Reduces dark spots",
+          "Hydrates skin",
+          "Boosts radiance",
+          "Suitable for all skin types"
+        ],
+        "details": {
+          "Brand": "L'Oréal Paris",
+          "Item Weight": "130 Milliliters",
+          "Item dimensions L x W x H": "12 x 5 x 5 Centimeters",
+          "Scent": "Fragrance-Free",
+          "Age Range (Description)": "18 and above",
+          "Skin Type": "All",
+          "Item Package Quantity": 1,
+          "Product Benefits": "Hydration, Radiance",
+          "Special Feature": "Lightweight, Fast Absorbing",
+          "Active Ingredients": "Salicylic Acid, Niacinamide"
+        }
+      }
+    },
+    {
+      "product_id": 8,
+      "product_heading": "Pond's White Beauty Spot-less Fairness Day Cream with SPF 15 50g",
+      "product_category": "Moisturizer",
+      "data": {
+        "rating": 4.3,
+        "selling_price": 249,
+        "discount_percentage": 7,
+        "deliveryType": "free",
+        "brandname": "Pond's",
+        "features": [
+          "Contains SPF 15",
+          "Lightens dark spots",
+          "Fairness cream",
+          "Dermatologist tested"
+        ],
+        "details": {
+          "Brand": "Pond's",
+          "Item Weight": "50 Grams",
+          "Item dimensions L x W x H": "7 x 7 x 5 Centimeters",
+          "Scent": "Fragrance-Free",
+          "Age Range (Description)": "18 and above",
+          "Skin Type": "All",
+          "Item Package Quantity": 1,
+          "Product Benefits": "Fairness, Sun Protection",
+          "Special Feature": "SPF Protection, Lightening",
+          "Active Ingredients": "Niacinamide, Vitamin C"
+        }
+      }
+    },
+    {
+      "product_id": 9,
+      "product_heading": "Plum Green Tea Pore Cleansing Face Wash 75ml",
+      "product_category": "Cleanser",
+      "data": {
+        "rating": 4.5,
+        "selling_price": 350,
+        "discount_percentage": 6,
+        "deliveryType": "free",
+        "brandname": "Plum",
+        "features": [
+          "Contains Green Tea",
+          "Controls acne",
+          "Reduces pores",
+          "Suitable for oily skin"
+        ],
+        "details": {
+          "Brand": "Plum",
+          "Item Weight": "75 Milliliters",
+          "Item dimensions L x W x H": "12 x 5 x 5 Centimeters",
+          "Scent": "Green Tea",
+          "Age Range (Description)": "Teen and above",
+          "Skin Type": "Oily, Acne-Prone",
+          "Item Package Quantity": 1,
+          "Product Benefits": "Cleansing, Pore Reduction",
+          "Special Feature": "Anti-Acne, Pore Minimizing",
+          "Active Ingredients": "Green Tea Extract"
+        }
+      }
+    },
+    {
+      "product_id": 10,
+      "product_heading": "Biotique Bio Aloe Vera Face and Body Lotion 190ml",
+      "product_category": "Lotion",
+      "data": {
+        "rating": 4.4,
+        "selling_price": 250,
+        "discount_percentage": 5,
+        "deliveryType": "paid",
+        "brandname": "Biotique",
+        "features": [
+          "Contains Aloe Vera",
+          "Hydrates and nourishes skin",
+          "Non-greasy",
+          "Suitable for all skin types"
+        ],
+        "details": {
+          "Brand": "Biotique",
+          "Item Weight": "190 Milliliters",
+          "Item dimensions L x W x H": "12 x 7 x 7 Centimeters",
+          "Scent": "Aloe Vera",
+          "Age Range (Description)": "All Ages",
+          "Skin Type": "All",
+          "Item Package Quantity": 1,
+          "Product Benefits": "Hydration",
+          "Special Feature": "Natural Ingredients, Non-Greasy",
+          "Active Ingredients": "Aloe Vera"
+        }
+      }
+    }
+  ]
+}]

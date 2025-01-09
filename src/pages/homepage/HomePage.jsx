@@ -34,7 +34,9 @@ export const HomePage = () => {
       role="main"
       className="min-w-[1000px] mx-auto overflow-clip relative z-[2]"
     >
-      {automaticRotatingCarousel.map((ele) => {
+      <Slider imageData={automaticRotatingCarousel} />
+
+      {/* {automaticRotatingCarousel.map((ele) => {
         if (ele.display_type === BANNER_TYPE.AUTOMATIC_RUNNING_CAROUSEL) {
           return (
             <Slider
@@ -43,7 +45,7 @@ export const HomePage = () => {
             />
           );
         }
-      })}
+      })} */}
       <ShopItems data={layoutData} />
     </div>
   );

@@ -1,21 +1,30 @@
 import axios from "axios";
 import { useState, useEffect } from "react";
 import { Pagination } from "./../../../utils/Pagination";
+import { useLocation, useParams } from "react-router-dom";
 
 export const ProductsGridPage = () => {
   const [productCollection, setProductCollection] = useState([]);
-
+  const { filter } = useParams();
+  console.log("FILTER", filter);
+  // const location = useLocation();
+  // const { category_id } = location.state || {};
   useEffect(() => {
-    const fetchProductsGridData = async () => {
+    const fetchProducts = async () => {
       try {
-        const response = await axios.get(`http://localhost:8000/api/products`);
+        const endpoint = filter
+          ? `http://localhost:8000/api/products/${filter}` // Fetch filtered products
+          : `http://localhost:8000/api/products`; // Fetch all products
+        const response = await axios.get(endpoint);
         setProductCollection(response.data);
+        console.log("Fetched Products:", response.data);
       } catch (error) {
-        console.log("Error fetching product", error);
+        console.error("Error fetching products:", { filter, error });
       }
     };
-    fetchProductsGridData();
-  }, []);
+
+    fetchProducts();
+  }, [filter]);
 
   return (
     <div className="bg-white">

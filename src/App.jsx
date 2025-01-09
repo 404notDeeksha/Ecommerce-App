@@ -73,6 +73,10 @@ function App() {
           >
             <Route path="/home" element={<HomePage />} />
             <Route path="/productsgrid" element={<ProductsGridPage />} />
+            <Route
+              path="/productsgrid/:filter"
+              element={<ProductsGridPage />}
+            />
             <Route path="/product" element={<ProductPage />} />
             <Route path="/cart" element={<Cartpage />} />
           </Route>
