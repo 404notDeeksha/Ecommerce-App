@@ -49,6 +49,7 @@ function App() {
     <>
       <Router>
         <Routes>
+          <Route path="/" element={<Navigate to="/home" replace />} />
           <Route path="/signin" element={<SignIn />} />
           <Route path="/signin/auth" element={<AccountCheck />} />
           <Route path="/create" element={<CreateAccountForm />} />
