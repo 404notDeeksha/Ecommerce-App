@@ -1,27 +1,26 @@
 import axios from "axios";
 import React, { useEffect, useState } from "react";
-import { ConvertNumberInNumerals } from "../../product/utils/ConvertNumberInNumerals";
+import { convertNumberInNumerals } from "../../product/utils/ConvertNumberInNumerals";
 import { CiDeliveryTruck } from "react-icons/ci";
 import { IoCalendarClearOutline } from "react-icons/io5";
 import { MdOutlineSecurity } from "react-icons/md";
 import { RiSecurePaymentLine } from "react-icons/ri";
+import { useParams } from "react-router-dom";
+import { URL } from "../../../constant/url";
 
 export const ProductPage = () => {
   const [productData, setProductData] = useState("");
   const [productDataPrice, setProductDataPrice] = useState("");
-  const productId = "6741dae5-4430-4f99-b2e1-da4f03194ae4";
-
+  const { productid } = useParams();
   useEffect(() => {
     const fetchProductData = async () => {
       try {
-        const response = await axios.get(
-          `http://localhost:8000/api/products/product/${productId}`
-        );
+        const response = await axios.get(`${URL.PRODUCT_API}/${productid}`);
         setProductData(response.data);
-        let priceInNumerals = ConvertNumberInNumerals(response.data.Price);
+        let priceInNumerals = convertNumberInNumerals(response.data.Price);
         setProductDataPrice(priceInNumerals);
-        console.log("Price", priceInNumerals);
-        console.log("Data", response.data);
+        // console.log("Price", priceInNumerals);
+        // console.log("Data", response.data);
       } catch (error) {
         console.log("Error fetching product", error);
       }

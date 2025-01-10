@@ -7,7 +7,7 @@ import { Categories } from "./components/Categories";
 export const Sidebar = ({ sideBarToggle, onCloseSidebar, onClose }) => {
   // console.log(onCloseSidebar);
   const handleSideBarClose = () => {
-    onCloseSidebar();
+    // onCloseSidebar();
     onClose();
   };
   return (

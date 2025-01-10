@@ -7,6 +7,8 @@ export const SignInForm = () => {
   const [signinInput, setSigninInput] = useState("");
   const [errorMsg, setErrorMsg] = useState(false);
   const navigate = useNavigate();
+  const api_url = import.meta.env.VITE_API_BASE_URL + "signin";
+  // console.log("api_url", api_url);
 
   const handleSubmit = (e, value) => {
     e.preventDefault();
@@ -18,7 +20,7 @@ export const SignInForm = () => {
       console.log("Email -->", signinInput);
 
       axios
-        .post("http://localhost:8000/api/signin", { email: signinInput })
+        .post(api_url, { email: signinInput })
         .then((res) => {
           console.log("User registered", res);
           const key = res.data.data.password;

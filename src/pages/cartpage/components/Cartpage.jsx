@@ -1,6 +1,6 @@
 import React from "react";
 import { EmptyCartPage } from "./EmptyCart";
-import { ShoppingCartItems } from "./ShoppingCartItems";
+import { ShoppingCartItems } from "../components/ShoppingCartItems";
 
 export const Cartpage = () => {
   return (
@@ -10,7 +10,6 @@ export const Cartpage = () => {
           {/* <EmptyCartPage /> */}
           <ShoppingCartItems />
 
-         
           <div className="text-xs">
             The price and availability of items at Amazon.in are subject to
             change. The shopping cart is a temporary place to store a list of

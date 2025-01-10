@@ -1,12 +1,12 @@
 import React, { useState } from "react";
 import { ConvertNumberInNumerals } from "../pages/product/utils/ConvertNumberInNumerals";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import { MdOutlineKeyboardArrowLeft } from "react-icons/md";
 import { MdKeyboardArrowRight } from "react-icons/md";
 
 export const Pagination = ({ products, itemsPerPage }) => {
   const [currentPage, setCurrentPage] = useState(1);
-  const totalPages = Math.ceil(products.length / itemsPerPage);
+  const totalPages = Math.ceil(products?.length / itemsPerPage);
   const numberedPages = [1, 2, 3, 4];
   const indexOfLastProduct = currentPage * itemsPerPage;
   const indexOfFirstProduct = indexOfLastProduct - itemsPerPage;
@@ -19,12 +19,18 @@ export const Pagination = ({ products, itemsPerPage }) => {
     setCurrentPage(pageNumber);
   };
 
-  console.log("Products", products);
+  // console.log("Products", products);
   return (
     <div>
       <div className="flex flex-wrap gap-2">
         {currentProducts?.map((ele) => {
-          return <ProductGridCard key={ele.ProductId} ele={ele} />;
+          return (
+            <ProductGridCard
+              key={ele.ProductId}
+              product_id={ele.ProductId}
+              ele={ele}
+            />
+          );
         })}
       </div>
       <div className="flex border-gray-200 border items-center rounded-xl w-max mx-auto mt-20">
@@ -72,8 +78,16 @@ export const Pagination = ({ products, itemsPerPage }) => {
   );
 };
 
-const ProductGridCard = ({ ele }) => {
+const ProductGridCard = ({ product_id, ele }) => {
   const price = ConvertNumberInNumerals(ele.Price);
+  // console.log(product_id);
+  const navigate = useNavigate();
+  const data = { id: product_id };
+
+  const handleClick = () => {
+    navigate(`/products/product/${product_id}`, { state: data });
+  };
+
   return (
     <>
       <div className="border-4 border-gray-200 w-[290px]">
@@ -86,11 +100,12 @@ const ProductGridCard = ({ ele }) => {
           <div className="text-sm">rating</div>
           <div className="font-bold text-3xl mt-5">{price}</div>
           <div className="text-sm my-2">Free Delivery</div>
-          <Link to="/product">
-            <button className="border-yellow-500 rounded-3xl bg-yellow-500 text-black px-3 py-1 mx-auto inline text-sm">
-              AddtoCart
-            </button>
-          </Link>
+          <button
+            className="border-yellow-500 rounded-3xl bg-yellow-500 text-black px-3 py-1 mx-auto inline text-sm"
+            onClick={handleClick}
+          >
+            AddtoCart
+          </button>
         </div>
       </div>
     </>

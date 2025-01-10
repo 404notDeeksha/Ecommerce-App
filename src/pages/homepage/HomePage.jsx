@@ -15,9 +15,12 @@ export const HomePage = () => {
     []
   );
 
+  const api_url = import.meta.env.VITE_API_BASE_URL + "category";
+  // console.log("api_url", api_url);
+
   useEffect(() => {
     axios
-      .get("http://localhost:8000/api/category")
+      .get(api_url)
       .then((response) => {
         console.log("Categories:", response.data);
         setAutomaticRotatingCarousel(response.data);

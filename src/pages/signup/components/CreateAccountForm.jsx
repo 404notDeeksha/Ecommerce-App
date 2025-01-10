@@ -16,6 +16,7 @@ export const CreateAccountForm = () => {
   const [isPasswordDuplicate, setIsPasswordDuplicate] = useState(true);
 
   const navigate = useNavigate();
+  const api_url = import.meta.env.VITE_API_BASE_URL + "account/create";
 
   const CheckEmailValidation = (emailDetail) => {
     const backendReqBody = {
@@ -32,7 +33,7 @@ export const CreateAccountForm = () => {
 
     // check if email is already present in database.. throw err
     axios
-      .post("http://localhost:8000/api/account/create", backendReqBody)
+      .post(api_url, backendReqBody)
       .then((res) => {
         console.log("Data sent successfully", res);
         setIsEmailValid(false);

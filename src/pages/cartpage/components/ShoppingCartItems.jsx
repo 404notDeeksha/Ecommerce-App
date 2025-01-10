@@ -3,23 +3,23 @@ import React, { useEffect, useState } from "react";
 import { ConvertNumberInNumerals } from "./utils/ConvertNumberInNumerals";
 import { FaMinus } from "react-icons/fa6";
 import { FaPlus } from "react-icons/fa6";
-
+import { URL } from "../../../constant/url";
 export const ShoppingCartItems = () => {
   const [itemsInCart, setItemsInCart] = useState([]);
   const [totalQtyInCart, setTotalQtyInCart] = useState(0);
   const [totalPriceOfCart, setTotalPriceOfCart] = useState(0);
   const [userIdCart, setUserIdCart] = useState("");
-
-  const backend_url = "http://localhost:8000/api/cart";
   const user_id = "64a57e6e8f1a7d123456789a";
+  // const api_url = URL.CART_API + `/${user_id}`;
 
   useEffect(() => {
     axios
-      .get(`${backend_url}/${user_id}`)
+      .get(`${URL.CART_API}/${user_id}`)
       .then((response) => {
         console.log("Product core data", response.data);
         setUserIdCart(response.data.userId);
         setItemsInCart(response.data.items || []);
+        console.log("Items in cart", response.data);
         const qty = CalculateTotalQtyInCart(response.data.items);
         setTotalQtyInCart(qty);
         const price = ConvertNumberInNumerals(response.data.totalPrice);
