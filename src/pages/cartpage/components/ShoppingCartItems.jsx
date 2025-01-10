@@ -4,7 +4,7 @@ import { ConvertNumberInNumerals } from "./utils/ConvertNumberInNumerals";
 import { FaMinus } from "react-icons/fa6";
 import { FaPlus } from "react-icons/fa6";
 
-export const ProductCardCart = () => {
+export const ShoppingCartItems = () => {
   const [itemsInCart, setItemsInCart] = useState([]);
   const [totalQtyInCart, setTotalQtyInCart] = useState(0);
   const [totalPriceOfCart, setTotalPriceOfCart] = useState(0);
@@ -79,8 +79,10 @@ export const ProductCardCart = () => {
         <div className="bg-white p-4 pb-6">
           <span className=""> Subtotal ({totalQtyInCart} items):</span>
           <span className="ml-4 ">{totalPriceOfCart}</span>
-          <div className="font-normal text-sm bg-yellow-500 rounded-3xl px-4 py-2 text-center mt-3">
-            Proceed to Buy
+          <div className="text-center mt-2">
+            <button className="font-normal text-sm bg-yellow-500 rounded-3xl px-4 py-2 text-center mt-3">
+              Proceed to Buy
+            </button>
           </div>
         </div>
       </div>

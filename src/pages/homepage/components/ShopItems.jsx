@@ -7,7 +7,7 @@ export const ShopItems = ({ TYPE, data }) => {
     <div className="shopContent">
       <ShopGrid data={data} structure="GRID_TYPE" unit="home_decor_grid" />
 
-      {/* <ShopCarousel
+      <ShopCarousel
         data={data}
         structure="CAROUSEL_TYPE"
         unit="beauty_carousel"
@@ -42,7 +42,7 @@ export const ShopItems = ({ TYPE, data }) => {
         structure="CAROUSEL_TYPE"
         unit="home-kitchen-carousel"
       />
-      <ShopCarousel data={data} structure="CAROUSEL_TYPE" unit="car-carousel" /> */}
+      <ShopCarousel data={data} structure="CAROUSEL_TYPE" unit="car-carousel" />
     </div>
   );
 };

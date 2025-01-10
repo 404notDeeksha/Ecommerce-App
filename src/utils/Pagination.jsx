@@ -10,7 +10,7 @@ export const Pagination = ({ products, itemsPerPage }) => {
   const numberedPages = [1, 2, 3, 4];
   const indexOfLastProduct = currentPage * itemsPerPage;
   const indexOfFirstProduct = indexOfLastProduct - itemsPerPage;
-  const currentProducts = products.slice(
+  const currentProducts = products?.slice(
     indexOfFirstProduct,
     indexOfLastProduct
   );
@@ -19,6 +19,7 @@ export const Pagination = ({ products, itemsPerPage }) => {
     setCurrentPage(pageNumber);
   };
 
+  console.log("Products", products);
   return (
     <div>
       <div className="flex flex-wrap gap-2">
@@ -85,10 +86,10 @@ const ProductGridCard = ({ ele }) => {
           <div className="text-sm">rating</div>
           <div className="font-bold text-3xl mt-5">{price}</div>
           <div className="text-sm my-2">Free Delivery</div>
-          <Link to="/cart">
-            <div className="border-yellow-500 rounded-3xl bg-yellow-500 text-black px-3 py-1 mx-auto inline text-sm">
+          <Link to="/product">
+            <button className="border-yellow-500 rounded-3xl bg-yellow-500 text-black px-3 py-1 mx-auto inline text-sm">
               AddtoCart
-            </div>
+            </button>
           </Link>
         </div>
       </div>
