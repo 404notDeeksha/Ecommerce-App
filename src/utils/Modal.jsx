@@ -10,7 +10,7 @@ export const Modal = ({
   const handleClose = () => {
     onPopoverClose();
     onClose();
-    onCloseSideBar();
+    // onCloseSideBar();
   };
   if (!modalVisibility) return null;
 

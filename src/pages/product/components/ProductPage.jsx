@@ -5,33 +5,30 @@ import { CiDeliveryTruck } from "react-icons/ci";
 import { IoCalendarClearOutline } from "react-icons/io5";
 import { MdOutlineSecurity } from "react-icons/md";
 import { RiSecurePaymentLine } from "react-icons/ri";
-import { useParams } from "react-router-dom";
+import { useLocation, useParams } from "react-router-dom";
 import { URL } from "../../../constant/url";
 
 export const ProductPage = () => {
   const [productData, setProductData] = useState("");
-  const [productDataPrice, setProductDataPrice] = useState("");
-  const { productid } = useParams();
+  const { productId } = useParams();
+  const data = useLocation();
+
   useEffect(() => {
     const fetchProductData = async () => {
       try {
-        const response = await axios.get(`${URL.PRODUCT_API}/${productid}`);
+        const response = await axios.get(`${URL.PRODUCT_API}/${productId}`);
         setProductData(response.data);
-        let priceInNumerals = convertNumberInNumerals(response.data.Price);
-        setProductDataPrice(priceInNumerals);
-        // console.log("Price", priceInNumerals);
-        // console.log("Data", response.data);
       } catch (error) {
         console.log("Error fetching product", error);
       }
     };
-    fetchProductData();
-  }, []);
+    data.state ? setProductData(data.state) : fetchProductData();
+  }, [productId]);
+
   return (
     <div className="w-full min-w-[996px] bg-[#fff] px-[18px] py-3.5 my-0 mt-5 mx-auto ">
       <div className="flex">
         <img src={productData.ImageURL} className="w-[580px] h-[580px]" />
-
         <div className=" mx-8 flex-1">
           <h1 className="text-2xl">{productData.ProductName}</h1>
           <div className="text-sm">Brand: {productData.Brand}</div>
@@ -39,24 +36,24 @@ export const ProductPage = () => {
           <div className="border-b-2 border-gray-500 mt-2"></div>
           <div className="">Discount%</div>
           <div className="font-bold text-red-600 text-4xl">
-            {productDataPrice}
+            {convertNumberInNumerals(productData.Price)}
           </div>
           <div className="">Original Price</div>
           <div className="border-b-2 border-gray-500 my-4"></div>
           <ul className="flex gap-8 mb-2 mt-4">
-            <li>
+            <li key={`icon-1`}>
               <CiDeliveryTruck className="w-10 h-10 m-auto " />
               Free Delivery
             </li>
-            <li className=" w-16 mx-2">
+            <li className=" w-16 mx-2" key={`icon-2`}>
               <IoCalendarClearOutline className="w-10 h-10 m-auto " />
               <div className="text-center">7 days Replacement</div>
             </li>
-            <li>
+            <li key={`icon-3`}>
               <MdOutlineSecurity className="w-10 h-10 m-auto " />
               Warranty Policy
             </li>
-            <li>
+            <li key={`icon-4`}>
               <RiSecurePaymentLine className="w-10 h-10 m-auto " />
               Secure Transaction
             </li>
@@ -91,9 +88,9 @@ export const ProductPage = () => {
           <div className="border-b-2 border-gray-500 my-4"></div>
           <div className="font-bold mt-5 ">About this Item</div>
           <ul className="mb-20">
-            {productData?.AboutThisItem?.map((ele) => {
+            {productData?.AboutThisItem?.map((ele, index) => {
               return (
-                <li className="text-sm" key={ele.ProductId}>
+                <li className="text-sm" key={index}>
                   {ele}
                 </li>
               );

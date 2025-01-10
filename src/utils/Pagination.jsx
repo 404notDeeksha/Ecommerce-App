@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import { ConvertNumberInNumerals } from "../pages/product/utils/ConvertNumberInNumerals";
+import { convertNumberInNumerals } from "../pages/product/utils/ConvertNumberInNumerals";
 import { Link, useNavigate } from "react-router-dom";
 import { MdOutlineKeyboardArrowLeft } from "react-icons/md";
 import { MdKeyboardArrowRight } from "react-icons/md";
@@ -79,18 +79,20 @@ export const Pagination = ({ products, itemsPerPage }) => {
 };
 
 const ProductGridCard = ({ product_id, ele }) => {
-  const price = ConvertNumberInNumerals(ele.Price);
+  const price = convertNumberInNumerals(ele.Price);
   // console.log(product_id);
   const navigate = useNavigate();
-  const data = { id: product_id };
+  // const data = { id: product_id };
 
   const handleClick = () => {
-    navigate(`/products/product/${product_id}`, { state: data });
+    console.log("Clicking");
+    const product_id = ele.ProductId;
+    navigate(`/products/product/${product_id}`, { state: ele });
   };
 
   return (
     <>
-      <div className="border-4 border-gray-200 w-[290px]">
+      <div className="border-4 border-gray-200 w-[290px]" onClick={handleClick}>
         <img src={ele.Images[1]} className="w-full h-52" />
         <div className="p-4">
           <div className="font-bold text-lg text-wrap">
@@ -100,10 +102,7 @@ const ProductGridCard = ({ product_id, ele }) => {
           <div className="text-sm">rating</div>
           <div className="font-bold text-3xl mt-5">{price}</div>
           <div className="text-sm my-2">Free Delivery</div>
-          <button
-            className="border-yellow-500 rounded-3xl bg-yellow-500 text-black px-3 py-1 mx-auto inline text-sm"
-            onClick={handleClick}
-          >
+          <button className="border-yellow-500 rounded-3xl bg-yellow-500 text-black px-3 py-1 mx-auto inline text-sm">
             AddtoCart
           </button>
         </div>

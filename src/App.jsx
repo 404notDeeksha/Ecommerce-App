@@ -74,7 +74,7 @@ function App() {
             <Route path="/home" element={<HomePage />} />
             <Route path="/products/:filter?" element={<ProductsGridPage />} />
             <Route
-              path="/products/product/:productid?"
+              path="/products/product/:productId?"
               element={<ProductPage />}
             />
             <Route path="/cart" element={<Cartpage />} />
