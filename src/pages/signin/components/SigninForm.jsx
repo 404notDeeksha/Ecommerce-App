@@ -1,39 +1,41 @@
 import axios from "axios";
 import { useState } from "react";
 import { Link, useNavigate } from "react-router-dom";
-import { setToLocalStorage } from "./user/LocalStorage";
+import { URL } from "../../../constant/url";
 
 export const SignInForm = () => {
   const [signinInput, setSigninInput] = useState("");
   const [errorMsg, setErrorMsg] = useState(false);
   const navigate = useNavigate();
-  const api_url = import.meta.env.VITE_API_BASE_URL + "signin";
   // console.log("api_url", api_url);
 
-  const handleSubmit = (e, value) => {
+  const handleSubmit = async (e, value) => {
     e.preventDefault();
-    const val = CheckEmailOrPhoneNumber(value);
-
-    if (val === "number") {
-      navigate("/signin/auth", { state: { number: signinInput } });
-    } else if (val == "email") {
+    const val = checkEmailOrPhoneNumber(value);
+    // if (val === "number") {
+    //   navigate("/signin/auth", { state: { number: signinInput } });
+    // } else
+    if (val == "email") {
       console.log("Email -->", signinInput);
-
-      axios
-        .post(api_url, { email: signinInput })
-        .then((res) => {
-          console.log("User registered", res);
-          const key = res.data.data.password;
-          setToLocalStorage("authToken", res.data.data.token);
-          navigate("/signin/auth", {
-            state: { email: signinInput, password: key },
-          });
-          // console.log("User registered", res, key);
-        })
-        .catch((err) => {
-          console.log("User not Registered", err);
-          setErrorMsg("User is not Registered!");
+      try {
+        const response = await axios.post(`${URL.ACCOUNT_API}/check`, {
+          email: signinInput,
         });
+        console.log(response.data);
+        if (response.data.success) {
+          navigate("/signin/auth", {
+            state: {
+              email: signinInput,
+              password: response.data.data.password,
+              userId: response.data.data.userId,
+            },
+          });
+         
+        }
+      } catch (err) {
+        console.log("User not Registered", err);
+        setErrorMsg("User is not Registered!");
+      }
     } else {
       const message =
         "Wrong or Invalid email address or mobile phone number. Please correct and try again.";
@@ -78,7 +80,7 @@ export const SignInForm = () => {
   );
 };
 
-const CheckEmailOrPhoneNumber = (value) => {
+const checkEmailOrPhoneNumber = (value) => {
   const numberRegex = /^\+?[1-9]\d{1,14}$/;
   const emailRegex = /^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,})+$/;
 

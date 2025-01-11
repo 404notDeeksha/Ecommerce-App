@@ -4,6 +4,8 @@ import { LogoBlack } from "../../signin/components/Logo";
 import { CgFormatItalic } from "react-icons/cg";
 import { RiArrowDropRightFill } from "react-icons/ri";
 import axios from "axios";
+import { URL } from "../../../constant/url";
+import { setCookieId } from "../../../utils/CookieId";
 
 export const CreateAccountForm = () => {
   const [nameDetail, setNameDetail] = useState("");
@@ -16,36 +18,31 @@ export const CreateAccountForm = () => {
   const [isPasswordDuplicate, setIsPasswordDuplicate] = useState(true);
 
   const navigate = useNavigate();
-  const api_url = import.meta.env.VITE_API_BASE_URL + "account/create";
 
-  const CheckEmailValidation = (emailDetail) => {
-    const backendReqBody = {
-      email: emailDetail,
+  const checkEmailValidation = async (emailData) => {
+    const body = {
+      email: emailData,
     };
-
     const emailRegex = /^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,})+$/;
-
-    if (!emailRegex.test(emailDetail)) {
+    if (!emailRegex.test(emailData)) {
       setIsEmailValid(false);
       setEmailErrMsg("Enter valid email");
       return false;
     }
-
-    // check if email is already present in database.. throw err
-    axios
-      .post(api_url, backendReqBody)
-      .then((res) => {
-        console.log("Data sent successfully", res);
+    try {
+      const response = await axios.post(`${URL.ACCOUNT_API}/check`, body);
+      if (response.data.success) {
+        console.log("Data sent successfully", response);
         setIsEmailValid(false);
         setEmailErrMsg("Email already Registered");
-      })
-      .catch((err) => {
-        console.log("Issue sending data email", err);
-      });
+      }
+    } catch (err) {
+      console.log("Issue sending data email", err);
+    }
     return true;
   };
 
-  const CheckPasswordValidation = (password) => {
+  const checkPasswordValidation = (password) => {
     const passwordRegex =
       /^(?=.*[A-Z])(?=.*[a-z])(?=.*\d)(?=.*[@$!%*?&])[A-Za-z\d@$!%*?&]{6,}$/;
     if (!passwordRegex.test(password)) {
@@ -54,7 +51,7 @@ export const CreateAccountForm = () => {
     return passwordRegex.test(password);
   };
 
-  const CheckPasswordDuplicacy = (password, passwordAgain) => {
+  const checkPasswordDuplicacy = (password, passwordAgain) => {
     if (password !== passwordAgain) {
       setIsPasswordDuplicate(false);
       return false;
@@ -63,38 +60,32 @@ export const CreateAccountForm = () => {
     }
   };
 
-  const handleSubmit = (e) => {
+  const handleSubmit = async (e) => {
     e.preventDefault();
-
-    const backendReqBody = {
+    const body = {
       name: nameDetail,
       email: email,
       password: password,
     };
 
-    const emailCheck = CheckEmailValidation(email);
-    const passwordCheck = CheckPasswordValidation(password);
-    const passwordDuplicationCheck = CheckPasswordDuplicacy(
+    const emailCheck = checkEmailValidation(email);
+    const passwordCheck = checkPasswordValidation(password);
+    const passwordDuplicationCheck = checkPasswordDuplicacy(
       password,
       passwordAgain
     );
-    console.log("E", emailCheck);
-    console.log("PC", passwordCheck);
-    console.log("PDC", passwordDuplicationCheck);
 
-    // check and send port backend is working on
     if (emailCheck && passwordCheck && passwordDuplicationCheck) {
-      console.log("Data Logging successfully");
-      axios
-        .post("http://localhost:8000/api/account/", backendReqBody)
-        .then((res) => {
-          console.log("Data sent successfully", res);
-        })
-        .catch((err) => {
-          console.log("Issue sending data", err);
-        });
-      // navigate to /home (private) page with looged in session with local storage
-      navigate("/home", { state: { name: nameDetail, email: email } });
+      try {
+        const response = await axios.post(`${URL.ACCOUNT_API}/create`, body);
+        if (response.data.success) {
+          console.log("Data Logging successfully", response.data);
+          setCookieId(response.data.data.userId);
+          navigate("/home", { state: { name: nameDetail, email: email } });
+        }
+      } catch (err) {
+        console.log("Issue sending data", err);
+      }
     }
   };
 
@@ -158,7 +149,6 @@ export const CreateAccountForm = () => {
                 required
                 onChange={(e) => setPassword(e.target.value)}
               />
-              {/* start password encoding - coding */}
 
               <div
                 className={`text-[10px] items-center mb-2 flex

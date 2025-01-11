@@ -1,13 +1,14 @@
 import React, { useState } from "react";
 import { LogoBlack } from "../Logo";
 import { Link, useLocation, useNavigate } from "react-router-dom";
+import { setCookieId } from "../../../../utils/CookieId";
 
 //private route
 export const AccountCheck = () => {
   const [password, setPassword] = useState("");
   const [errorMsg, setErrorMsg] = useState(false);
   const location = useLocation();
-  const data = location.state.email || location.state.number;
+  const data = location.state;
 
   const navigate = useNavigate();
 
@@ -21,11 +22,12 @@ export const AccountCheck = () => {
     return true;
   };
 
-  // console.log("Data", data);
+  console.log("Data", data);
   const handleSubmit = (e) => {
     e.preventDefault();
     console.log("Password Check", checkRegisteredPassword(password));
     if (checkRegisteredPassword(password)) {
+      setCookieId(data.userId);
       navigate("/");
     }
   };
@@ -37,7 +39,7 @@ export const AccountCheck = () => {
         <h1 className="font-normal mb-3.5 text-[28px] leading-5 ">Sign in</h1>
 
         <div className="mt-7">
-          <span className="">{data}</span>
+          <span className="">{data.email}</span>
           <span className="ml-4 underline text-cyan-500">
             <Link to="/signin">Change</Link>
           </span>

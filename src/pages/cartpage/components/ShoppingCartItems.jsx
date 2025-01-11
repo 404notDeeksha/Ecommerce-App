@@ -1,34 +1,37 @@
 import axios from "axios";
 import React, { useEffect, useState } from "react";
-import { ConvertNumberInNumerals } from "./utils/ConvertNumberInNumerals";
+import { convertNumberInNumerals } from "./utils/ConvertNumberInNumerals";
 import { FaMinus } from "react-icons/fa6";
 import { FaPlus } from "react-icons/fa6";
 import { URL } from "../../../constant/url";
+import { getImages } from "../../../utils/common-utils";
+import { getCookieId } from "../../../utils/CookieId";
+
 export const ShoppingCartItems = () => {
-  const [itemsInCart, setItemsInCart] = useState([]);
-  const [totalQtyInCart, setTotalQtyInCart] = useState(0);
-  const [totalPriceOfCart, setTotalPriceOfCart] = useState(0);
-  const [userIdCart, setUserIdCart] = useState("");
-  const user_id = "64a57e6e8f1a7d123456789a";
-  // const api_url = URL.CART_API + `/${user_id}`;
+  const [cartData, setCartData] = useState({});
+  const userId = getCookieId();
+  console.log("Grid Page -> cart", userId);
 
   useEffect(() => {
-    axios
-      .get(`${URL.CART_API}/${user_id}`)
-      .then((response) => {
-        console.log("Product core data", response.data);
-        setUserIdCart(response.data.userId);
-        setItemsInCart(response.data.items || []);
-        console.log("Items in cart", response.data);
-        const qty = CalculateTotalQtyInCart(response.data.items);
-        setTotalQtyInCart(qty);
-        const price = ConvertNumberInNumerals(response.data.totalPrice);
-        setTotalPriceOfCart(price);
-      })
-      .catch((error) => {
+    const fetchCartData = async () => {
+      try {
+        const response = await axios.get(`${URL.CART_API}/${userId}`);
+        console.log("Data present in cart", response.data);
+        if (response.data.success) {
+          setCartData({
+            ...cartData,
+            userId: userId,
+            items: response.data.data.items || [],
+            totalQty: calculateTotalQtyInCart(response?.data.data.items),
+            totalPrice: convertNumberInNumerals(response?.data.data.totalPrice),
+          });
+        }
+      } catch (error) {
         console.error("Error in retrieving data ", error);
-      });
-  }, [userIdCart]);
+      }
+    };
+    fetchCartData();
+  }, []);
 
   // const updateCartOnBackend = async (userIdCart, updatedItems) => {
   // try {
@@ -65,20 +68,31 @@ export const ShoppingCartItems = () => {
       <div className="mr-5 mb-5 p-5 bg-white flex-1">
         <div className="text-3xl mb-4">Shopping Cart</div>
         <div className="border-b-2 border-gray-300"></div>
-        {itemsInCart.map((ele) => {
-          return <ProductCard key={ele.ProductId} itemData={ele} index={0} />;
+        {cartData?.items?.map((ele, index) => {
+          return (
+            <ProductCard
+              key={index}
+              itemData={ele}
+              index={0}
+              userId={cartData.userId}
+              productId={ele.ProductId}
+              setCartData={setCartData}
+            />
+          );
         })}
         <div className="text-lg text-right">
           <div className="">
-            Subtotal ({totalQtyInCart} items):
-            <span className="font-bold ml-4 ">{totalPriceOfCart}</span>
+            Subtotal ({cartData?.totalQty} items):
+            <span className="font-bold ml-4 ">{cartData?.totalPrice}</span>
           </div>
         </div>
       </div>
+
+      {/* ------------------------------SIDE SECTION CART -------------------------------- */}
       <div className=" font-bold text-lg ">
         <div className="bg-white p-4 pb-6">
-          <span className=""> Subtotal ({totalQtyInCart} items):</span>
-          <span className="ml-4 ">{totalPriceOfCart}</span>
+          <span className=""> Subtotal ({cartData?.totalQty} items):</span>
+          <span className="ml-4 ">{cartData?.totalPrice}</span>
           <div className="text-center mt-2">
             <button className="font-normal text-sm bg-yellow-500 rounded-3xl px-4 py-2 text-center mt-3">
               Proceed to Buy
@@ -90,25 +104,44 @@ export const ShoppingCartItems = () => {
   );
 };
 
-const ProductCard = ({ itemData, index }) => {
-  const price = ConvertNumberInNumerals(itemData.Price);
+const ProductCard = ({ itemData, index, userId, productId, setCartData }) => {
+  const handleDelete = async () => {
+    console.log("clicking");
+    try {
+      const response = await axios.delete(
+        `${URL.CART_API}/${userId}/${productId}`
+      );
+      if (response.data.success) {
+        setCartData(response.data.data);
+        console.log(
+          "Product Deletion Data from cart sent Successfully",
+          response.data
+        );
+      }
+    } catch (err) {
+      console.log("Error sending data", err);
+    }
+  };
+
   return (
     <>
       <div className="p-3 flex justify-between">
-        <img src={itemData.Images[index++]} className="w-44 h-44" />
-        <div className="text-lg flex-1">
+        <img src={getImages(itemData.Images[index++])} className="w-44" />
+        <div className="text-lg flex-1 pl-4">
           <div className="font-bold">{itemData.ProductDescription}</div>
           <div className="text-sm mt-2">{itemData.ProductName}</div>
           <div className="text-xs mt-1">Gift Options not available</div>
           <ul className="flex text-sm mt-2 items-center">
             <QuantityUpdationButton
-              // userIdCart={userIdCart}
-              qty={itemData.quantity}
-              // productId={itemData.ProductId}
-              // itemData={itemData}
+            // userIdCart={userIdCart}
+            // qty={ele.totalQty}
+            // productId={itemData.ProductId}
+            // itemData={itemData}
             />
             <li className="mx-2">|</li>
-            <li className="">Delete</li>
+            <li className="cursor-pointer" onClick={handleDelete}>
+              Delete
+            </li>
             <li className="mx-2">|</li>
             <li className="">Save for Later</li>
             <li className="mx-2">|</li>
@@ -117,7 +150,9 @@ const ProductCard = ({ itemData, index }) => {
             <li className="">Share</li>
           </ul>
         </div>
-        <div className="font-bold text-base ">{price}</div>
+        <div className="font-bold text-base ">
+          {convertNumberInNumerals(itemData.Price)}
+        </div>
       </div>
       <div className="border-b-2 border-gray-300 my-4"></div>
     </>
@@ -163,7 +198,7 @@ const QuantityUpdationButton = ({ qty }) =>
     );
   };
 
-const CalculateTotalQtyInCart = (data) => {
+const calculateTotalQtyInCart = (data) => {
   let total = 0;
   data.forEach((ele) => {
     total += ele.quantity;

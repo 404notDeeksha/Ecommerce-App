@@ -1,4 +1,4 @@
-export const ConvertNumberInNumerals = (number) => {
+export const convertNumberInNumerals = (number) => {
   // console.log("Number", number);
   var options = {
     minimumFractionDigits: 2,
