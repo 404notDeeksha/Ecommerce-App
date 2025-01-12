@@ -7,22 +7,23 @@ import { URL } from "../../../constant/url";
 export const ProductsGridPage = () => {
   const [productCollection, setProductCollection] = useState([]);
   const location = useLocation();
+  const filter = location.search;
+
   useEffect(() => {
     const fetchProducts = async () => {
       try {
-        const response = await axios.get(
-          `${URL.PRODUCTS_API}/${location.search}`
-        );
+        const response = await axios.get(`${URL.PRODUCTS_API}/${filter}`);
         console.log("Data", response.data);
         setProductCollection(response.data);
       } catch (error) {
-        console.error("Error fetching products:", { filter, error });
+        console.error("Error fetching products:", error);
       }
     };
 
     fetchProducts();
-  }, [location.search]);
+  }, [filter]);
 
+  console.log("PRODUCTS-GRID", productCollection, filter);
   return (
     <div className="bg-white">
       <div className="w-full min-w-[996px] max-w-[1800px]  my-0 py-3.5 bg-[#fff]  flex pt-5 mx-auto">

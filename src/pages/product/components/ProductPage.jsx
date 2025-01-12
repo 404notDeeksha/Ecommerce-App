@@ -5,7 +5,7 @@ import { CiDeliveryTruck } from "react-icons/ci";
 import { IoCalendarClearOutline } from "react-icons/io5";
 import { MdOutlineSecurity } from "react-icons/md";
 import { RiSecurePaymentLine } from "react-icons/ri";
-import { useLocation, useParams } from "react-router-dom";
+import { useLocation, useNavigate, useParams } from "react-router-dom";
 import { URL } from "../../../constant/url";
 import { getImages } from "../../../utils/common-utils";
 
@@ -13,23 +13,42 @@ export const ProductPage = () => {
   const [productData, setProductData] = useState({});
   const { productId } = useParams();
   const data = useLocation();
+  const navigate = useNavigate();
 
   useEffect(() => {
     const fetchProductData = async () => {
       try {
         const response = await axios.get(`${URL.PRODUCT_API}/${productId}`);
         console.log(`demo url ${URL.PRODUCT_API}/${productId}`);
-        console.log(response);
+        console.log("GET PRODUCT DATA", response.data);
         setProductData(response.data);
       } catch (error) {
         console.log("Error fetching product", error);
       }
     };
-    console.log(`My state`, data.state);
+    // console.log(`My state`, data.state);
     data.state ? setProductData(data.state) : fetchProductData();
   }, [productId]);
 
-  console.log(productData);
+  console.log("PRODUCT", productData);
+  const handleClick = async () => {
+    const userId = "64a57e6e8f1a7d123456789a";
+    const body = {
+      userId: userId,
+      items: [{ ...productData, quantity: 1 }],
+    };
+    console.log("Click to add in cart", body);
+    try {
+      const response = await axios.post(`${URL.CART_API}`, body);
+      if (response.data.success) {
+        console.log("Data added in cart", response.data);
+        navigate("/cart");
+      }
+    } catch (err) {
+      console.log("Error Updating data in cart", err);
+    }
+  };
+
   return (
     <div className="w-full min-w-[996px] max-w-[1500px] bg-[#fff] px-[18px] py-3.5 my-0 mt-5 mx-auto ">
       <div className="flex">
@@ -120,7 +139,11 @@ export const ProductPage = () => {
               return <option className="text-center">{item}</option>;
             })}
           </select>
-          <button className="px-5 py-1 my-5 mx-auto bg-yellow-500 rounded-xl text-center text-sm">
+
+          <button
+            className="px-5 py-1 my-5 mx-auto bg-yellow-500 rounded-xl text-center text-sm"
+            onClick={handleClick}
+          >
             Add to Cart
           </button>
         </div>

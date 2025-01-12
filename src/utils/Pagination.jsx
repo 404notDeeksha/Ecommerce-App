@@ -128,7 +128,10 @@ const ProductGridCard = ({ ele }) => {
       <div className="border-4 border-gray-200 w-[290px]">
         <img src={getImages(ele.Images[1])} className="w-full" />
         <div className="p-4">
-          <div className="font-bold text-xl text-wrap " onClick={handleClick}>
+          <div
+            className="font-bold text-xl text-wrap cursor-pointer "
+            onClick={handleClick}
+          >
             {ele.ProductDescription}
           </div>
           <div className="font-bold">{ele.ProductName}</div>

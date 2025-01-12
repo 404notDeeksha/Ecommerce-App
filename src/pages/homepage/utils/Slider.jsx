@@ -1,11 +1,12 @@
 import React, { useEffect } from "react";
 import { useState } from "react";
 import ArrowForwardIosIcon from "@mui/icons-material/ArrowForwardIos";
-// import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 
 export const Slider = ({ imageData }) => {
   const [currentIndex, setCurrentIndex] = useState(0);
   const [buttonClicked, setButtonClicked] = useState(false);
+  const navigate = useNavigate();
 
   useEffect(() => {
     const interval = setInterval(() => {
@@ -19,7 +20,7 @@ export const Slider = ({ imageData }) => {
   }, [buttonClicked, currentIndex]);
 
   const handleIndex = (newIndex) => {
-    console.log(`newIndex`, newIndex);
+    // console.log(`newIndex`, newIndex);
     const imageDataLength = imageData.length - 1;
     if (newIndex > imageDataLength) {
       return 0;
@@ -30,14 +31,20 @@ export const Slider = ({ imageData }) => {
   };
 
   const updateIndex = (index) => {
-    console.log(`Index updated`);
+    // console.log(`Index updated`);
     setButtonClicked(true);
     setCurrentIndex(handleIndex(index));
   };
-  console.log(imageData);
+
+  const clickCarousel = () => {
+    console.log("Clicking");
+    navigate("/products");
+  };
+  console.log("IMAGE DATA", imageData);
   let currentImage = imageData[currentIndex];
+
   return (
-    <div className="slider relative w-full">
+    <div className="slider relative w-full" onClick={clickCarousel}>
       <SliderArrows
         handleLeft={() => updateIndex(currentIndex - 1)}
         handleRight={() => updateIndex(currentIndex + 1)}
@@ -48,7 +55,6 @@ export const Slider = ({ imageData }) => {
           category_id={currentImage?.category_id}
         />
       )}
-      ;
     </div>
   );
 };
@@ -74,10 +80,10 @@ const SliderArrows = ({ handleLeft, handleRight }) => {
   );
   // transition-transform duration-500 ease-in-out
 };
-const SlidesImages = ({ data, category_id }) => {
+const SlidesImages = ({ data }) => {
   return (
-    // <Link to="/productsgrid" state={{ category_id: category_id }}>
-    <div className="">
+    // <Link to="/products">
+    <div className="cursor-pointer">
       <img
         src={data}
         className="w-full max-h-full object-cover"
