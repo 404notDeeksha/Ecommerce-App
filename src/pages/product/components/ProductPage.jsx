@@ -65,16 +65,19 @@ export const ProductPage = () => {
       ) : (
         <div className="w-full min-w-[996px] max-w-[1500px] bg-[#fff] px-[18px] py-3.5 my-0 mt-5 mx-auto ">
           <div className="flex">
-            <img
-              src={getImages(productData.Images && productData.Images[0])}
-              className="w-[580px] h-[580px]"
-            />
-            <div className=" mx-8 flex-1">
+            <div className="w-[540px]">
+              <img
+                src={getImages(productData.Images && productData.Images[0])}
+                className="w-full h-auto"
+              />
+            </div>
+
+            <div className=" mx-8 flex-1 flex flex-col gap-3">
               <h1 className="text-4xl font-[800]">{productData.ProductName}</h1>
               <div className="text-base">
                 Brand: <span className="underline">{productData.Brand}</span>
               </div>
-              <div className="flex flex-row gap-3 items-center pt-1">
+              <div className="flex flex-row gap-3 items-center">
                 <div className="text-sm">{productData.Rating}</div>
                 <StarRatings
                   rating={productData.Rating}
@@ -86,33 +89,31 @@ export const ProductPage = () => {
                   name="rating"
                 />
               </div>
-              <div className="border-b-2 border-gray-500 my-2"></div>
-              <div className="font-bold text-red-600 text-2xl my-2">
+              <div className="border-b-2 border-gray-400 my-1"></div>
+              <div className="font-bold text-red-600 text-2xl my-1">
                 {convertNumberInNumerals(productData.Price)}
               </div>
-              <div className="border-b-2 border-gray-500 my-4"></div>
-              <ul className="flex gap-8 mb-2 mt-4">
-                <li key={`icon-1`}>
+              <div className="border-b-2 border-gray-400 my-1"></div>
+              <ul className="flex gap-8 ">
+                <li key={`icon-1`} className="flex flex-col gap-2 align-middle">
                   <CiDeliveryTruck className="w-10 h-10 m-auto " />
-                  <div className="text-sm mt-2">Free Delivery</div>
+                  <div className="text-sm text-center">Free Delivery</div>
                 </li>
-                <li className=" w-16 mx-2" key={`icon-2`}>
+                <li className="flex flex-col gap-2 align-middle" key={`icon-2`}>
                   <IoCalendarClearOutline className="w-8 h-10 m-auto " />
-                  <div className="text-center text-sm mt-2">
-                    7 days Replacement
-                  </div>
+                  <div className="text-center text-sm">7 days Replacement</div>
                 </li>
-                <li key={`icon-3`}>
+                <li key={`icon-3`} className="flex flex-col gap-2 align-middle">
                   <MdOutlineSecurity className="w-8 h-10 m-auto " />
-                  <div className="text-sm mt-2">Warranty Policy</div>
+                  <div className="text-sm text-center">Warranty Policy</div>
                 </li>
-                <li key={`icon-4`}>
+                <li key={`icon-4`} className="flex flex-col gap-2 align-middle">
                   <RiSecurePaymentLine className="w-8 h-10 m-auto " />
-                  <div className="text-sm mt-2">Secure Transaction</div>
+                  <div className="text-sm text-center">Secure Transaction</div>
                 </li>
               </ul>
-              <div className="border-b-2 border-gray-500 my-4"></div>
-              <div className="text-sm">
+              <div className="border-b-2 border-gray-400 my-4"></div>
+              <div className="text-sm flex flex-col gap-3">
                 <div className="flex text-wrap ">
                   <div className="font-bold w-40">Colour:</div>
                   <div className="">{productData.Colour}</div>
@@ -138,40 +139,41 @@ export const ProductPage = () => {
                   <div className="">{productData.ItemDimensions}</div>
                 </div>
               </div>
-              <div className="border-b-2 border-gray-500 my-4"></div>
-              <div className="font-bold mt-5 ">About this Item</div>
-              <ul className="mb-20">
-                {productData?.AboutThisItem?.map((ele, index) => {
+              <div className="border-b-2 border-gray-400 my-4"></div>
+              <div className="font-bold ">About this Item</div>
+              <ul className="mb-20 flex flex-col gap-2">
+                {productData?.AboutThisItem?.map((description, index) => {
                   return (
-                    <li className="text-sm" key={index}>
-                      {ele}
+                    <li className="text-sm " key={index}>
+                      {description}
                     </li>
                   );
                 })}
               </ul>
             </div>
-            <div className="py-3.5 px-5 w-40 border border-gray-500">
-              <div className=" text-lg font-bold mb-2">
+
+            <div className="py-3.5 px-5 w-40 border border-gray-400 flex flex-col gap-4 gap-y-5">
+              <div className=" text-lg font-bold">
                 {convertNumberInNumerals(productData.Price)}
               </div>
-              <label for="qty" className="text-sm mb-0.5">
-                Quantity:{" "}
+              <label for="qty" className="text-sm">
+                Quantity:
               </label>
               <select
                 id="qty"
-                className=" w-28 border border-gray-500 rounded text-center text-sm py-1 px-5 bg-gray-200 "
+                className=" w-28 border border-gray-400 rounded text-center text-sm py-1 px-5 bg-gray-200 "
               >
-                {[1, 2, 3, 4, 5, 6, 7, 8, 9, 10].map((item, index) => {
+                {[...Array(20).keys()].map((item, index) => {
                   return (
                     <option className="text-center" key={index}>
-                      {item}
+                      {item + 1}
                     </option>
                   );
                 })}
               </select>
 
               <button
-                className="px-5 py-1 my-5 mx-auto bg-yellow-500 rounded-xl text-center text-sm"
+                className="px-5 py-1 mx-auto bg-yellow-500 rounded-xl text-center text-sm"
                 onClick={handleClick}
               >
                 Add to Cart
