@@ -2,11 +2,13 @@ import { useNavigate } from "react-router-dom";
 import { URL } from "../../../constant/url";
 import axios from "axios";
 import { v4 as uuid } from "uuid";
-import { getImages } from "../../../utils/common-utils";
-import { convertNumberInNumerals } from "../../product/utils/ConvertNumberInNumerals";
-import { setCookieId } from "../../../utils/CookieId";
+import {
+  setCookieId,
+  getImages,
+  convertNumberInNumerals,
+} from "../../../utils/common-utils";
 
-export const ProductCard = ({ product}) => {
+export const ProductCard = ({ product }) => {
   const navigate = useNavigate();
 
   const handleClick = () => {
@@ -76,4 +78,3 @@ export const ProductCard = ({ product}) => {
     </div>
   );
 };
-

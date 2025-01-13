@@ -1,6 +1,6 @@
 export const ShoppingCartSkeleton = () => {
   return (
-    <div className="flex justify-between">
+    <div className="flex justify-between animation-pulse">
       <div className="mr-5 mb-5 p-5 bg-white flex-1">
         <div className="text-3xl mb-4">Shopping Cart</div>
 

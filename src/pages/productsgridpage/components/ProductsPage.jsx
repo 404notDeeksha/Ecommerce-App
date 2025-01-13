@@ -1,12 +1,11 @@
 import axios from "axios";
 import { useState, useEffect } from "react";
-import { Pagination } from "../../../utils/Pagination";
+import { Pagination } from "./Pagination";
 import { useLocation } from "react-router-dom";
 import { URL } from "../../../constant/url";
 import { ProductCard } from "./ProductCard";
 import { ProductCardSkeleton } from "./ProductCardSkeleton";
-import { Skeleton } from "../../../utils/Skeleton";
-
+import { Skeleton } from "./../../../components/Skeleton";
 export const ProductsPage = () => {
   const [productsCollection, setProductsCollection] = useState([]);
   const [loading, setLoading] = useState(true);

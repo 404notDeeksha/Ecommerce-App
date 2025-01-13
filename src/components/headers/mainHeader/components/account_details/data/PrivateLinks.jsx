@@ -1,4 +1,3 @@
-import { AddId } from "../../../../../../utils/AddId";
 const yourLists = [
   {
     value: "wishlist",

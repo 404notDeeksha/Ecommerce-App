@@ -1,14 +1,15 @@
 import axios from "axios";
 import React, { useEffect, useState } from "react";
-import { convertNumberInNumerals } from "./utils/ConvertNumberInNumerals";
 import { FaMinus } from "react-icons/fa6";
 import { FaPlus } from "react-icons/fa6";
 import { URL } from "../../../constant/url";
-import { getImages } from "../../../utils/common-utils";
-import { getCookieId } from "../../../utils/CookieId";
-import { ShoppingCartSkeleton } from "./utils/ShoppingCartSkeleton";
-import { Skeleton } from "../../../utils/Skeleton";
-
+import {
+  getImages,
+  getCookieId,
+  convertNumberInNumerals,
+} from "../../../utils/common-utils";
+import { ShoppingCartSkeleton } from "./ShoppingCartSkeleton";
+import { Skeleton } from "../../../components/Skeleton";
 export const ShoppingCartItems = () => {
   const [cartData, setCartData] = useState({});
   const [loading, setLoading] = useState(true);

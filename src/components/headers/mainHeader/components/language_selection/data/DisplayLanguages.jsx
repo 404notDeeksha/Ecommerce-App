@@ -1,4 +1,4 @@
-import { AddId } from "../../../../../../utils/AddId";
+import { addUniqueIdToElements } from "../../../../../../utils/common-utils";
 
 const LangList = [
   { value: " EN", category: "English" },
@@ -12,6 +12,6 @@ const LangList = [
 ];
 
 export const getDropDownList = () => {
-  const LangListArray = AddId(LangList);
+  const LangListArray = addUniqueIdToElements(LangList);
   return LangListArray;
 };

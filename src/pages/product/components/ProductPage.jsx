@@ -10,8 +10,7 @@ import { URL } from "../../../constant/url";
 import { getImages } from "../../../utils/common-utils";
 import StarRatings from "react-star-ratings";
 import { ProductSkeleton } from "./ProductSkeleton";
-import { Skeleton } from "../../../utils/Skeleton";
-
+import { Skeleton } from "../../../components/Skeleton";
 export const ProductPage = () => {
   const [productData, setProductData] = useState({});
   const [loading, setLoading] = useState(true);

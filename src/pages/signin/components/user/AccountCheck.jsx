@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import { LogoBlack } from "../Logo";
 import { Link, useLocation, useNavigate } from "react-router-dom";
-import { setCookieId } from "../../../../utils/CookieId";
+import { setCookieId } from "../../../../utils/common-utils";
 
 //private route
 export const AccountCheck = () => {
