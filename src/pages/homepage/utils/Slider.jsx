@@ -6,6 +6,8 @@ import { Link, useNavigate } from "react-router-dom";
 export const Slider = ({ imageData }) => {
   const [currentIndex, setCurrentIndex] = useState(0);
   const [buttonClicked, setButtonClicked] = useState(false);
+  const [loading, setLoading] = useState(true);
+
   const navigate = useNavigate();
 
   useEffect(() => {
@@ -18,6 +20,13 @@ export const Slider = ({ imageData }) => {
     }, 5000);
     return () => clearInterval(interval);
   }, [buttonClicked, currentIndex]);
+
+  useEffect(() => {
+    setTimeout(() => {
+      // setData(automaticRotatingCarousel);
+      setLoading(false);
+    }, 2000);
+  }, []);
 
   const handleIndex = (newIndex) => {
     // console.log(`newIndex`, newIndex);
@@ -40,6 +49,7 @@ export const Slider = ({ imageData }) => {
     console.log("Clicking");
     navigate("/products");
   };
+
   console.log("IMAGE DATA", imageData);
   let currentImage = imageData[currentIndex];
 
@@ -53,6 +63,7 @@ export const Slider = ({ imageData }) => {
         <SlidesImages
           data={currentImage?.category_image_address}
           category_id={currentImage?.category_id}
+          loading={loading}
         />
       )}
     </div>
@@ -80,16 +91,19 @@ const SliderArrows = ({ handleLeft, handleRight }) => {
   );
   // transition-transform duration-500 ease-in-out
 };
-const SlidesImages = ({ data }) => {
+const SlidesImages = ({ data, loading }) => {
+  console.log(loading);
   return (
-    // <Link to="/products">
     <div className="cursor-pointer">
-      <img
-        src={data}
-        className="w-full max-h-full object-cover"
-        alt="carousel-image"
-      />
+      {loading ? (
+        <div className="bg-gray-300 animate-pulse w-full h-[600px]"></div>
+      ) : (
+        <img
+          src={data}
+          className="w-full max-h-full object-cover"
+          alt="carousel-image"
+        />
+      )}
     </div>
-    // </Link>
   );
 };

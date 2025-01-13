@@ -17,18 +17,20 @@ export const HomePage = () => {
   );
 
   useEffect(() => {
-    axios
-      .get(URL.CATEGORY_API)
-      .then((response) => {
+    const fetchData = async () => {
+      try {
+        const response = await axios.get(URL.CATEGORY_API);
         console.log("Categories:", response.data);
         if (response.data.success) {
           setAutomaticRotatingCarousel(response.data.data);
         }
-      })
-      .catch((error) => {
-        console.error("Error:", error);
-      });
+      } catch (err) {
+        console.error("Error:", err);
+      }
+    };
+    fetchData();
   }, []);
+
   // console.log("ROTATING CAROUISEL", automaticRotatingCarousel);
   return (
     <div
