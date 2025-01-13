@@ -40,7 +40,7 @@ export const ProductsPage = () => {
         <div className="flex-1">
           <h2 className="font-bold text-xl my-5 mb-10">Results</h2>
           <div className="flex flex-wrap gap-2">
-            <Pagination itemsPerPage={10} loading={loading}>
+            <Pagination itemsPerPage={ITEM_PER_PAGE} loading={loading}>
               {loading ? (
                 <ProductCardSkeleton />
               ) : (

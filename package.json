@@ -10,8 +10,8 @@
     "preview": "vite preview"
   },
   "dependencies": {
-    "@emotion/react": "^11.11.4",
-    "@emotion/styled": "^11.11.5",
+    "@coreui/coreui": "^5.2.0",
+    "@coreui/react": "^5.4.1",
     "@mui/icons-material": "^5.15.20",
     "axios": "^1.7.9",
     "framer-motion": "^11.2.12",
