@@ -6,9 +6,13 @@ import { FaPlus } from "react-icons/fa6";
 import { URL } from "../../../constant/url";
 import { getImages } from "../../../utils/common-utils";
 import { getCookieId } from "../../../utils/CookieId";
+import { ShoppingCartSkeleton } from "./utils/ShoppingCartSkeleton";
+import { Skeleton } from "../../../utils/Skeleton";
 
 export const ShoppingCartItems = () => {
   const [cartData, setCartData] = useState({});
+  const [loading, setLoading] = useState(true);
+
   const userId = getCookieId();
   console.log("Grid Page -> cart", userId);
 
@@ -17,14 +21,19 @@ export const ShoppingCartItems = () => {
       try {
         const response = await axios.get(`${URL.CART_API}/${userId}`);
         console.log("Data present in cart", response.data);
-        if (response.data.success) {
-          setCartData({
-            ...cartData,
-            userId: userId,
-            items: response.data.data.items || [],
-            totalQty: calculateTotalQtyInCart(response?.data.data.items),
-            totalPrice: convertNumberInNumerals(response?.data.data.totalPrice),
-          });
+        if (response) {
+          setLoading(false);
+          if (response.data.success) {
+            setCartData({
+              ...cartData,
+              userId: userId,
+              items: response.data.data.items || [],
+              totalQty: calculateTotalQtyInCart(response?.data.data.items),
+              totalPrice: convertNumberInNumerals(
+                response?.data.data.totalPrice
+              ),
+            });
+          }
         }
       } catch (error) {
         console.error("Error in retrieving data ", error);
@@ -33,74 +42,50 @@ export const ShoppingCartItems = () => {
     fetchCartData();
   }, []);
 
-  // const updateCartOnBackend = async (userIdCart, updatedItems) => {
-  // try {
-  //   const response = await axios.put(
-  //     "http://localhost:8000/api/cart/update",
-  //     {
-  //       userIdCart,
-  //       items: updatedItems,
-  //     }
-  //   );
-  //   console.log("Cart updated successfully:", response.data);
-  //   return response.data; // Return data for further processing if needed
-  // } catch (error) {
-  //   console.error(
-  //     "Error updating cart:",
-  //     error.response?.data || error.message
-  //   );
-  //   throw error;
-  // }
-  // };
-
-  // const updateQuantity = ({ ProductId, newQuantity, itemsInCart }) => {
-  //   const updatedCart = itemsInCart.map((item) =>
-  //     item.ProductId === ProductId ? { ...item, quantity: newQuantity } : item
-  //   );
-  //   setItemsInCart(updatedCart);
-  //   updateCartOnBackend(updatedCart); // Sync updated cart with backend
-  // };
-
-  // console.log("Products", itemsInCart);
-
   return (
-    <div className="flex justify-between">
-      <div className="mr-5 mb-5 p-5 bg-white flex-1">
-        <div className="text-3xl mb-4">Shopping Cart</div>
-        <div className="border-b-2 border-gray-300"></div>
-        {cartData?.items?.map((ele, index) => {
-          return (
-            <ProductCard
-              key={index}
-              itemData={ele}
-              index={0}
-              userId={cartData.userId}
-              productId={ele.ProductId}
-              setCartData={setCartData}
-            />
-          );
-        })}
-        <div className="text-lg text-right">
-          <div className="">
-            Subtotal ({cartData?.totalQty} items):
-            <span className="font-bold ml-4 ">{cartData?.totalPrice}</span>
+    <>
+      {loading ? (
+        <Skeleton Component={ShoppingCartSkeleton} repeatations={1} />
+      ) : (
+        <div className="flex justify-between">
+          <div className="mr-5 mb-5 p-5 bg-white flex-1">
+            <div className="text-3xl mb-4">Shopping Cart</div>
+            <div className="border-b-2 border-gray-300"></div>
+            {cartData?.items?.map((ele, index) => {
+              return (
+                <ProductCard
+                  key={index}
+                  itemData={ele}
+                  index={0}
+                  userId={cartData.userId}
+                  productId={ele.ProductId}
+                  setCartData={setCartData}
+                />
+              );
+            })}
+            <div className="text-lg text-right">
+              <div className="">
+                Subtotal ({cartData?.totalQty} items):
+                <span className="font-bold ml-4 ">{cartData?.totalPrice}</span>
+              </div>
+            </div>
           </div>
-        </div>
-      </div>
 
-      {/* ------------------------------SIDE SECTION CART -------------------------------- */}
-      <div className=" font-bold text-lg ">
-        <div className="bg-white p-4 pb-6">
-          <span className=""> Subtotal ({cartData?.totalQty} items):</span>
-          <span className="ml-4 ">{cartData?.totalPrice}</span>
-          <div className="text-center mt-2">
-            <button className="font-normal text-sm bg-yellow-500 rounded-3xl px-4 py-2 text-center mt-3">
-              Proceed to Buy
-            </button>
+          {/* ------------------------------SIDE SECTION CART -------------------------------- */}
+          <div className=" font-bold text-lg ">
+            <div className="bg-white p-4 pb-6">
+              <span className=""> Subtotal ({cartData?.totalQty} items):</span>
+              <span className="ml-4 ">{cartData?.totalPrice}</span>
+              <div className="text-center mt-2">
+                <button className="font-normal text-sm bg-yellow-500 rounded-3xl px-4 py-2 text-center mt-3">
+                  Proceed to Buy
+                </button>
+              </div>
+            </div>
           </div>
         </div>
-      </div>
-    </div>
+      )}
+    </>
   );
 };
 
