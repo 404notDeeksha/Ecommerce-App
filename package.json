@@ -10,8 +10,6 @@
     "preview": "vite preview"
   },
   "dependencies": {
-    "@coreui/coreui": "^5.2.0",
-    "@coreui/react": "^5.4.1",
     "@mui/icons-material": "^5.15.20",
     "axios": "^1.7.9",
     "framer-motion": "^11.2.12",
@@ -19,6 +17,7 @@
     "react-dom": "^18.2.0",
     "react-icons": "^5.2.1",
     "react-router-dom": "^6.24.0",
+    "react-star-ratings": "^2.3.0",
     "tailwind-gradient-mask-image": "^1.2.0",
     "unplugin-fonts": "^1.1.1",
     "uuid": "^10.0.0"

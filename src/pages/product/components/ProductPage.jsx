@@ -8,9 +8,13 @@ import { RiSecurePaymentLine } from "react-icons/ri";
 import { useLocation, useNavigate, useParams } from "react-router-dom";
 import { URL } from "../../../constant/url";
 import { getImages } from "../../../utils/common-utils";
+import StarRatings from "react-star-ratings";
+import { ProductSkeleton } from "./ProductSkeleton";
+import { Skeleton } from "../../../utils/Skeleton";
 
 export const ProductPage = () => {
   const [productData, setProductData] = useState({});
+  const [loading, setLoading] = useState(true);
   const { productId } = useParams();
   const data = useLocation();
   const navigate = useNavigate();
@@ -19,25 +23,30 @@ export const ProductPage = () => {
     const fetchProductData = async () => {
       try {
         const response = await axios.get(`${URL.PRODUCT_API}/${productId}`);
-        console.log(`demo url ${URL.PRODUCT_API}/${productId}`);
-        console.log("GET PRODUCT DATA", response.data);
-        setProductData(response.data);
+        if (response) {
+          setLoading(false);
+          if (response.data.success) {
+            setProductData(response.data.data);
+          }
+        }
       } catch (error) {
         console.log("Error fetching product", error);
       }
     };
-    // console.log(`My state`, data.state);
-    data.state ? setProductData(data.state) : fetchProductData();
+    if (data.state) {
+      setLoading(false);
+      setProductData(data.state);
+    } else {
+      fetchProductData();
+    }
   }, [productId]);
 
-  console.log("PRODUCT", productData);
   const handleClick = async () => {
     const userId = "64a57e6e8f1a7d123456789a";
     const body = {
       userId: userId,
       items: [{ ...productData, quantity: 1 }],
     };
-    console.log("Click to add in cart", body);
     try {
       const response = await axios.post(`${URL.CART_API}`, body);
       if (response.data.success) {
@@ -50,104 +59,127 @@ export const ProductPage = () => {
   };
 
   return (
-    <div className="w-full min-w-[996px] max-w-[1500px] bg-[#fff] px-[18px] py-3.5 my-0 mt-5 mx-auto ">
-      <div className="flex">
-        <img
-          src={getImages(productData.Images && productData.Images[0])}
-          className="w-[580px] h-[580px]"
-        />
-        <div className=" mx-8 flex-1">
-          <h1 className="text-4xl font-[800]">{productData.ProductName}</h1>
-          <div className="text-sm">
-            Brand: <span className="underline">{productData.Brand}</span>
-          </div>
-          <div className="rating">{productData.Rating}</div>
-          <div className="border-b-2 border-gray-500 my-2"></div>
-          <div className="font-bold text-red-600 text-2xl my-2">
-            {convertNumberInNumerals(productData.Price)}
-          </div>
-          <div className="border-b-2 border-gray-500 my-4"></div>
-          <ul className="flex gap-8 mb-2 mt-4">
-            <li key={`icon-1`}>
-              <CiDeliveryTruck className="w-10 h-10 m-auto " />
-              <div className="text-sm mt-2">Free Delivery</div>
-            </li>
-            <li className=" w-16 mx-2" key={`icon-2`}>
-              <IoCalendarClearOutline className="w-8 h-10 m-auto " />
-              <div className="text-center text-sm mt-2">7 days Replacement</div>
-            </li>
-            <li key={`icon-3`}>
-              <MdOutlineSecurity className="w-8 h-10 m-auto " />
-              <div className="text-sm mt-2">Warranty Policy</div>
-            </li>
-            <li key={`icon-4`}>
-              <RiSecurePaymentLine className="w-8 h-10 m-auto " />
-              <div className="text-sm mt-2">Secure Transaction</div>
-            </li>
-          </ul>
-          <div className="border-b-2 border-gray-500 my-4"></div>
-          <div className="text-sm">
-            <div className="flex text-wrap ">
-              <div className="font-bold w-40">Colour:</div>
-              <div className="">{productData.Colour}</div>
-            </div>
-            <div className="flex">
-              <div className="font-bold w-40">Category:</div>
-              <div className="">{productData.Category}</div>
-            </div>
-            <div className="flex">
-              <div className="font-bold w-40">Model Name:</div>
-              <div className="">{productData.ModelName}</div>
-            </div>
-            <div className="flex">
-              <div className="font-bold w-40">Warranty:</div>
-              <div className="">{productData.Warranty}</div>
-            </div>
-            <div className="flex">
-              <div className="font-bold w-40">Material:</div>
-              <div className="">{productData.Material}</div>
-            </div>
-            <div className="flex">
-              <div className="font-bold w-40">Item Dimensions:</div>
-              <div className="">{productData.ItemDimensions}</div>
-            </div>
-          </div>
-          <div className="border-b-2 border-gray-500 my-4"></div>
-          <div className="font-bold mt-5 ">About this Item</div>
-          <ul className="mb-20">
-            {productData?.AboutThisItem?.map((ele, index) => {
-              return (
-                <li className="text-sm" key={index}>
-                  {ele}
+    <>
+      {loading ? (
+        <Skeleton Component={ProductSkeleton} repeatations={1} />
+      ) : (
+        <div className="w-full min-w-[996px] max-w-[1500px] bg-[#fff] px-[18px] py-3.5 my-0 mt-5 mx-auto ">
+          <div className="flex">
+            <img
+              src={getImages(productData.Images && productData.Images[0])}
+              className="w-[580px] h-[580px]"
+            />
+            <div className=" mx-8 flex-1">
+              <h1 className="text-4xl font-[800]">{productData.ProductName}</h1>
+              <div className="text-base">
+                Brand: <span className="underline">{productData.Brand}</span>
+              </div>
+              <div className="flex flex-row gap-3 items-center pt-1">
+                <div className="text-sm">{productData.Rating}</div>
+                <StarRatings
+                  rating={productData.Rating}
+                  starRatedColor="#de7921"
+                  starEmptyColor="dark-grey"
+                  starDimension="18px"
+                  starSpacing="2px"
+                  numberOfStars={5}
+                  name="rating"
+                />
+              </div>
+              <div className="border-b-2 border-gray-500 my-2"></div>
+              <div className="font-bold text-red-600 text-2xl my-2">
+                {convertNumberInNumerals(productData.Price)}
+              </div>
+              <div className="border-b-2 border-gray-500 my-4"></div>
+              <ul className="flex gap-8 mb-2 mt-4">
+                <li key={`icon-1`}>
+                  <CiDeliveryTruck className="w-10 h-10 m-auto " />
+                  <div className="text-sm mt-2">Free Delivery</div>
                 </li>
-              );
-            })}
-          </ul>
-        </div>
-        <div className="py-3.5 px-5 w-40 border border-gray-500">
-          <div className=" text-lg font-bold mb-2">
-            {convertNumberInNumerals(productData.Price)}
-          </div>
-          <label for="qty" className="text-sm mb-0.5">
-            Quantity:{" "}
-          </label>
-          <select
-            id="qty"
-            className=" w-28 border border-gray-500 rounded text-center text-sm py-1 px-5 bg-gray-200 "
-          >
-            {[1, 2, 3, 4, 5, 6, 7, 8, 9, 10].map((item) => {
-              return <option className="text-center">{item}</option>;
-            })}
-          </select>
+                <li className=" w-16 mx-2" key={`icon-2`}>
+                  <IoCalendarClearOutline className="w-8 h-10 m-auto " />
+                  <div className="text-center text-sm mt-2">
+                    7 days Replacement
+                  </div>
+                </li>
+                <li key={`icon-3`}>
+                  <MdOutlineSecurity className="w-8 h-10 m-auto " />
+                  <div className="text-sm mt-2">Warranty Policy</div>
+                </li>
+                <li key={`icon-4`}>
+                  <RiSecurePaymentLine className="w-8 h-10 m-auto " />
+                  <div className="text-sm mt-2">Secure Transaction</div>
+                </li>
+              </ul>
+              <div className="border-b-2 border-gray-500 my-4"></div>
+              <div className="text-sm">
+                <div className="flex text-wrap ">
+                  <div className="font-bold w-40">Colour:</div>
+                  <div className="">{productData.Colour}</div>
+                </div>
+                <div className="flex">
+                  <div className="font-bold w-40">Category:</div>
+                  <div className="">{productData.Category}</div>
+                </div>
+                <div className="flex">
+                  <div className="font-bold w-40">Model Name:</div>
+                  <div className="">{productData.ModelName}</div>
+                </div>
+                <div className="flex">
+                  <div className="font-bold w-40">Warranty:</div>
+                  <div className="">{productData.Warranty}</div>
+                </div>
+                <div className="flex">
+                  <div className="font-bold w-40">Material:</div>
+                  <div className="">{productData.Material}</div>
+                </div>
+                <div className="flex">
+                  <div className="font-bold w-40">Item Dimensions:</div>
+                  <div className="">{productData.ItemDimensions}</div>
+                </div>
+              </div>
+              <div className="border-b-2 border-gray-500 my-4"></div>
+              <div className="font-bold mt-5 ">About this Item</div>
+              <ul className="mb-20">
+                {productData?.AboutThisItem?.map((ele, index) => {
+                  return (
+                    <li className="text-sm" key={index}>
+                      {ele}
+                    </li>
+                  );
+                })}
+              </ul>
+            </div>
+            <div className="py-3.5 px-5 w-40 border border-gray-500">
+              <div className=" text-lg font-bold mb-2">
+                {convertNumberInNumerals(productData.Price)}
+              </div>
+              <label for="qty" className="text-sm mb-0.5">
+                Quantity:{" "}
+              </label>
+              <select
+                id="qty"
+                className=" w-28 border border-gray-500 rounded text-center text-sm py-1 px-5 bg-gray-200 "
+              >
+                {[1, 2, 3, 4, 5, 6, 7, 8, 9, 10].map((item, index) => {
+                  return (
+                    <option className="text-center" key={index}>
+                      {item}
+                    </option>
+                  );
+                })}
+              </select>
 
-          <button
-            className="px-5 py-1 my-5 mx-auto bg-yellow-500 rounded-xl text-center text-sm"
-            onClick={handleClick}
-          >
-            Add to Cart
-          </button>
+              <button
+                className="px-5 py-1 my-5 mx-auto bg-yellow-500 rounded-xl text-center text-sm"
+                onClick={handleClick}
+              >
+                Add to Cart
+              </button>
+            </div>
+          </div>
         </div>
-      </div>
-    </div>
+      )}
+    </>
   );
 };

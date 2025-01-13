@@ -5,6 +5,7 @@ import { useLocation } from "react-router-dom";
 import { URL } from "../../../constant/url";
 import { ProductCard } from "./ProductCard";
 import { ProductCardSkeleton } from "./ProductCardSkeleton";
+import { Skeleton } from "../../../utils/Skeleton";
 
 export const ProductsPage = () => {
   const [productsCollection, setProductsCollection] = useState([]);
@@ -17,7 +18,7 @@ export const ProductsPage = () => {
     const fetchProducts = async () => {
       try {
         const response = await axios.get(`${URL.PRODUCTS_API}/${filter}`);
-        console.log("Data", response.data);
+        // console.log("Data", response.data);
         if (response) {
           setLoading(false);
           if (response.data.success) {
@@ -31,7 +32,7 @@ export const ProductsPage = () => {
 
     fetchProducts();
   }, [filter]);
-  console.log(loading);
+  // console.log(loading);
   // console.log("PRODUCTS-GRID", productsCollection, filter, loading);
   return (
     <div className="bg-white">
@@ -42,7 +43,7 @@ export const ProductsPage = () => {
           <div className="flex flex-wrap gap-2">
             <Pagination itemsPerPage={ITEM_PER_PAGE} loading={loading}>
               {loading ? (
-                <ProductCardSkeleton />
+                <Skeleton Component={ProductCardSkeleton} repeatations={10} />
               ) : (
                 productsCollection.map((product, index) => {
                   return <ProductCard product={product} key={index} />;
