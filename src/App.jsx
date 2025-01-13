@@ -13,7 +13,7 @@ import { AccountCheck } from "./pages/signin/components/user/AccountCheck";
 import { CreateAccountForm } from "./pages/signup/components/CreateAccountForm";
 import { Cartpage } from "./pages/cartpage/components/Cartpage";
 import { ProductPage } from "./pages/product/components/ProductPage";
-import { ProductsGridPage } from "./pages/productsgridpage/components/ProductsGridPage";
+import { ProductsPage } from "./pages/productsgridpage/components/ProductsPage";
 
 function App() {
   const [modalVisibility, setModalVisibility] = useState(false);
@@ -72,7 +72,7 @@ function App() {
             }
           >
             <Route path="/home" element={<HomePage />} />
-            <Route path="/products/:filter?" element={<ProductsGridPage />} />
+            <Route path="/products/:filter?" element={<ProductsPage />} />
             <Route
               path="/products/product/:productId?"
               element={<ProductPage />}
