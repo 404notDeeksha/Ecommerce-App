@@ -45,16 +45,11 @@ export const Slider = ({ imageData }) => {
     setCurrentIndex(handleIndex(index));
   };
 
-  const clickCarousel = () => {
-    console.log("Clicking");
-    navigate("/products");
-  };
-
   console.log("IMAGE DATA", imageData);
   let currentImage = imageData[currentIndex];
 
   return (
-    <div className="slider relative w-full" onClick={clickCarousel}>
+    <div className="slider relative w-full">
       <SliderArrows
         handleLeft={() => updateIndex(currentIndex - 1)}
         handleRight={() => updateIndex(currentIndex + 1)}
@@ -91,19 +86,31 @@ const SliderArrows = ({ handleLeft, handleRight }) => {
   );
   // transition-transform duration-500 ease-in-out
 };
-const SlidesImages = ({ data, loading }) => {
+const SlidesImages = ({ data, category_id, loading }) => {
   console.log(loading);
+  // const clickCarousel = () => {
+  //   console.log(`I'm clicking`);
+  //   navigate(`/products?category=${category_id}`);
+  // };
+  const handleClick = () => {
+    alert("Image clicked!");
+  };
+
   return (
     <div className="cursor-pointer">
-      {loading ? (
+      {/* {loading ? (
         <div className="bg-gray-300 animate-pulse w-full h-[600px]"></div>
-      ) : (
+      ) :  */}
+      {/* ( */}
+      <Link to={`/products?category=${category_id}`}>
         <img
           src={data}
           className="w-full max-h-full object-cover"
           alt="carousel-image"
+          onClick={handleClick}
         />
-      )}
+      </Link>
+      {/* )} */}
     </div>
   );
 };
