@@ -1,7 +1,7 @@
 import React, { useEffect } from "react";
 import { useState } from "react";
 import ArrowForwardIosIcon from "@mui/icons-material/ArrowForwardIos";
-import { Link, useNavigate } from "react-router-dom";
+import { Link } from "react-router-dom";
 import { SliderSkeleton } from "./SliderSkeleton";
 
 export const Slider = ({ imageData, loading }) => {
@@ -81,7 +81,6 @@ const SliderArrows = ({ handleLeft, handleRight }) => {
       </div>
     </>
   );
-  // transition-transform duration-500 ease-in-out
 };
 const SlidesImages = ({ data, category_id, loading }) => {
   console.log(loading);

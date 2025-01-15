@@ -5,7 +5,7 @@ import { CiDeliveryTruck } from "react-icons/ci";
 import { IoCalendarClearOutline } from "react-icons/io5";
 import { MdOutlineSecurity } from "react-icons/md";
 import { RiSecurePaymentLine } from "react-icons/ri";
-import { useLocation, useNavigate, useParams } from "react-router-dom";
+import { Link, useLocation, useNavigate, useParams } from "react-router-dom";
 import { URL } from "../../../constant/url";
 import { getImages } from "../../../utils/common-utils";
 import StarRatings from "react-star-ratings";
@@ -75,7 +75,10 @@ export const ProductPage = () => {
             <div className=" mx-8 flex-1 flex flex-col gap-3">
               <h1 className="text-4xl font-[800]">{productData.productName}</h1>
               <div className="text-base">
-                Brand: <span className="underline">{productData.brand}</span>
+                Brand:
+                <Link to={`/products?brand=${productData.brand}`}>
+                  <span className="underline">{productData.brand}</span>
+                </Link>
               </div>
               <div className="flex flex-row gap-3 items-center">
                 <div className="text-sm">{productData.rating}</div>
