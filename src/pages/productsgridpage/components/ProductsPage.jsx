@@ -6,12 +6,14 @@ import { URL } from "../../../constant/url";
 import { ProductCard } from "./ProductCard";
 import { ProductCardSkeleton } from "./ProductCardSkeleton";
 import { Skeleton } from "./../../../components/Skeleton";
+
 export const ProductsPage = () => {
   const [productsCollection, setProductsCollection] = useState([]);
   const [loading, setLoading] = useState(true);
   const location = useLocation();
   const filter = location.search;
   const ITEM_PER_PAGE = 50;
+  console.log("FILTER", filter, typeof filter);
 
   useEffect(() => {
     const fetchProducts = async () => {
@@ -31,8 +33,10 @@ export const ProductsPage = () => {
 
     fetchProducts();
   }, [filter]);
-  // console.log(loading);
-  // console.log("PRODUCTS-GRID", productsCollection, filter, loading);
+
+  console.log("PRODUCTS-GRID", productsCollection);
+  console.log("Filter-search", filter);
+  console.log("LOADING", loading);
   return (
     <div className="bg-white">
       <div className="w-full min-w-[996px] max-w-[1800px]  my-0 py-3.5 bg-[#fff]  flex pt-5 mx-auto">

@@ -7,7 +7,7 @@ import {
   Navigate,
 } from "react-router-dom";
 import { Layout } from "./components/layout/Layout";
-import { HomePage } from "./pages/homepage/HomePage";
+import { HomePage } from "./pages/homepage/components/HomePage";
 import { SignIn } from "./pages/signin/SignIn";
 import { AccountCheck } from "./pages/signin/components/user/AccountCheck";
 import { CreateAccountForm } from "./pages/signup/components/CreateAccountForm";

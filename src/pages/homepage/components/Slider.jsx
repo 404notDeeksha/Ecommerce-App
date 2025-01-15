@@ -2,13 +2,12 @@ import React, { useEffect } from "react";
 import { useState } from "react";
 import ArrowForwardIosIcon from "@mui/icons-material/ArrowForwardIos";
 import { Link, useNavigate } from "react-router-dom";
+import { SliderSkeleton } from "./SliderSkeleton";
 
-export const Slider = ({ imageData }) => {
+export const Slider = ({ imageData, loading }) => {
   const [currentIndex, setCurrentIndex] = useState(0);
   const [buttonClicked, setButtonClicked] = useState(false);
-  const [loading, setLoading] = useState(true);
-
-  const navigate = useNavigate();
+  // const navigate = useNavigate();
 
   useEffect(() => {
     const interval = setInterval(() => {
@@ -20,13 +19,6 @@ export const Slider = ({ imageData }) => {
     }, 5000);
     return () => clearInterval(interval);
   }, [buttonClicked, currentIndex]);
-
-  useEffect(() => {
-    setTimeout(() => {
-      // setData(automaticRotatingCarousel);
-      setLoading(false);
-    }, 2000);
-  }, []);
 
   const handleIndex = (newIndex) => {
     // console.log(`newIndex`, newIndex);
@@ -47,21 +39,26 @@ export const Slider = ({ imageData }) => {
 
   console.log("IMAGE DATA", imageData);
   let currentImage = imageData[currentIndex];
-
   return (
-    <div className="slider relative w-full">
-      <SliderArrows
-        handleLeft={() => updateIndex(currentIndex - 1)}
-        handleRight={() => updateIndex(currentIndex + 1)}
-      />
-      {currentImage && (
-        <SlidesImages
-          data={currentImage?.category_image_address}
-          category_id={currentImage?.category_id}
-          loading={loading}
-        />
+    <>
+      {loading ? (
+        <SliderSkeleton />
+      ) : (
+        <div className="slider relative w-full">
+          <SliderArrows
+            handleLeft={() => updateIndex(currentIndex - 1)}
+            handleRight={() => updateIndex(currentIndex + 1)}
+          />
+          {currentImage && (
+            <SlidesImages
+              data={currentImage?.category_image_address}
+              category_id={currentImage?.category_id}
+              loading={loading}
+            />
+          )}
+        </div>
       )}
-    </div>
+    </>
   );
 };
 

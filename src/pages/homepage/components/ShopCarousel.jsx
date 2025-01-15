@@ -1,5 +1,5 @@
-import { MultiCardCarousel} from "../utils/CardCarousel";
-import { FORMAT } from "../../homepage/data/CategoryFormat";
+import { MultiCardCarousel } from "./CardCarousel";
+import { FORMAT } from "../data/CategoryFormat";
 
 export const ShopCarousel = ({ data, structure, unit }) => {
   return (

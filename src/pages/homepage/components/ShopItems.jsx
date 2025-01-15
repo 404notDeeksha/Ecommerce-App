@@ -1,13 +1,32 @@
 import React from "react";
-import { ShopGrid } from "../../homepage/utils/ShopGrid";
-import { ShopCarousel } from "../../homepage/utils/ShopCarousel";
+import { ShopGrid } from "../../homepage/components/ShopGrid";
+import { ShopCarousel } from "../../homepage/components/ShopCarousel";
+import { URL } from "../../../constant/url";
 
 export const ShopItems = ({ TYPE, data }) => {
+  // useEffect(() => {
+  //   const fetchData = async () => {
+  //     try {
+  //       const response = await axios.get(URL.PRODUCTS_API);
+  //       console.log("Categories:", response.data);
+  //       if (response) {
+  //         setLoading(false);
+  //         if (response.data.success) {
+  //           setAutomaticRotatingCarousel(response.data.data);
+  //         }
+  //       }
+  //     } catch (err) {
+  //       console.error("Error:", err);
+  //     }
+  //   };
+  //   fetchData();
+  // }, []);
+
   return (
     <div className="shopContent">
       <ShopGrid data={data} structure="GRID_TYPE" unit="home_decor_grid" />
 
-      <ShopCarousel
+      {/* <ShopCarousel
         data={data}
         structure="CAROUSEL_TYPE"
         unit="beauty_carousel"
@@ -42,7 +61,7 @@ export const ShopItems = ({ TYPE, data }) => {
         structure="CAROUSEL_TYPE"
         unit="home-kitchen-carousel"
       />
-      <ShopCarousel data={data} structure="CAROUSEL_TYPE" unit="car-carousel" />
+      <ShopCarousel data={data} structure="CAROUSEL_TYPE" unit="car-carousel" /> */}
     </div>
   );
 };

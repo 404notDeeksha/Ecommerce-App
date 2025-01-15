@@ -1,5 +1,5 @@
 import { GridCardCarousel } from "./GridCardCarousel";
-import { FORMAT } from "../../homepage/data/CategoryFormat";
+import { FORMAT } from "../data/CategoryFormat";
 
 export const ShopGrid = ({ data, structure, unit }) => {
   return (

@@ -1,0 +1,2471 @@
+[
+  {
+    "_id": { "$oid": "677d4afbaf0bf1ba8c9da4aa" },
+    "productid": "7e610a1e-48f0-4ef7-8421-d9cbb95209a1",
+    "productname": "Ikea Table",
+    "productdescription": "Ikea Modern White Wooden Table for Home & Office Use, Spacious, Sturdy Design with Easy Assembly (150 x 180 x 98 cm, Model-269)",
+    "price": 49999,
+    "brand": "Ikea",
+    "modelname": "Model-269",
+    "colour": "White",
+    "itemdimensions": "150 x 180 x 98",
+    "images": [
+      "https://via.placeholder.com/300?text=Furniture+Ikea+Table+1",
+      "https://via.placeholder.com/300?text=Furniture+Ikea+Table+2",
+      "https://via.placeholder.com/300?text=Furniture+Ikea+Table+3",
+      "https://via.placeholder.com/300?text=Furniture+Ikea+Table+4"
+    ],
+    "weight": "6kg",
+    "material": "Wood",
+    "warranty": "1 year",
+    "stockavailability": true,
+    "rating": 3.8,
+    "aboutthisitem": [
+      "High-quality furniture for all your needs.",
+      "Manufactured by Ikea with the latest technology.",
+      "Available in a premium Red finish.",
+      "Warranty: 6 months included."
+    ],
+    "discount%": 15,
+    "main_category": "furniture",
+    "sub_category": "tables",
+    "items": [
+      {
+        "itemid": "1",
+        "colour": "White",
+        "size": null,
+        "price": 45507,
+        "stockavailability": true
+      },
+      {
+        "itemid": "2",
+        "colour": "Gray",
+        "size": null,
+        "price": 42337,
+        "stockavailability": false
+      },
+      {
+        "itemid": "3",
+        "colour": "Green",
+        "size": null,
+        "price": 4161,
+        "stockavailability": true
+      },
+      {
+        "itemid": "4",
+        "colour": "Black",
+        "size": null,
+        "price": 42992,
+        "stockavailability": false
+      }
+    ]
+  },
+  {
+    "_id": { "$oid": "677d4afbaf0bf1ba8c9da4ab" },
+    "productid": "1dfe300a-874c-4a67-a53f-0a43f96037e6",
+    "productname": "Maybelline New York Fit Me Foundation",
+    "productdescription": "Maybelline New York Fit Me Matte + Poreless Liquid Foundation, Natural Buff, 30ml",
+    "price": 799,
+    "brand": "Maybelline",
+    "modelname": "Fit Me Matte + Poreless",
+    "colour": "Natural Buff",
+    "itemdimensions": "4 x 4 x 10 cm",
+    "images": [
+      "https://via.placeholder.com/300?text=Makeup+Maybelline+Foundation+1",
+      "https://via.placeholder.com/300?text=Makeup+Maybelline+Foundation+2",
+      "https://via.placeholder.com/300?text=Makeup+Maybelline+Foundation+3",
+      "https://via.placeholder.com/300?text=Makeup+Maybelline+Foundation+4"
+    ],
+    "weight": "0.2kg",
+    "material": "Liquid",
+    "warranty": "N/A",
+    "stockavailability": true,
+    "rating": 4.4,
+    "aboutthisitem": [
+      "A lightweight, oil-free foundation with a natural finish.",
+      "Suitable for normal to oily skin types.",
+      "Controls shine and blurs pores.",
+      "Available in a variety of shades."
+    ],
+    "discount%": 20,
+    "main_category": "beauty & personal care",
+    "sub_category": "makeup",
+    "items": [
+      {
+        "itemid": "1",
+        "colour": "Natural Buff",
+        "size": null,
+        "price": 639,
+        "stockavailability": true
+      },
+      {
+        "itemid": "2",
+        "colour": "Classic Ivory",
+        "size": null,
+        "price": 749,
+        "stockavailability": true
+      },
+      {
+        "itemid": "3",
+        "colour": "Warm Honey",
+        "size": null,
+        "price": 789,
+        "stockavailability": true
+      },
+      {
+        "itemid": "4",
+        "colour": "Golden Beige",
+        "size": null,
+        "price": 799,
+        "stockavailability": false
+      }
+    ]
+  },
+  {
+    "_id": { "$oid": "677d4afbaf0bf1ba8c9da4ac" },
+    "productid": "3c7dfb60-61ef-45d2-9f8b-7bb0c6023203",
+    "productname": "Samsung 32-inch LED TV",
+    "productdescription": "Samsung 32-inch HD Ready LED TV with Built-in Wi-Fi, HDMI, and USB Port",
+    "price": 24999,
+    "brand": "Samsung",
+    "modelname": "UA32T4340AK",
+    "colour": "Black",
+    "itemdimensions": "73.1 x 43.3 x 7.4 cm",
+    "images": [
+      "https://via.placeholder.com/300?text=Electronics+Samsung+TV+1",
+      "https://via.placeholder.com/300?text=Electronics+Samsung+TV+2",
+      "https://via.placeholder.com/300?text=Electronics+Samsung+TV+3",
+      "https://via.placeholder.com/300?text=Electronics+Samsung+TV+4"
+    ],
+    "weight": "4.5kg",
+    "material": "Plastic, Metal",
+    "warranty": "1 year",
+    "stockavailability": true,
+    "rating": 4.2,
+    "aboutthisitem": [
+      "HD Ready LED TV with vibrant picture quality.",
+      "Built-in Wi-Fi for streaming apps.",
+      "Multiple HDMI and USB ports for connectivity.",
+      "Slim and sleek design."
+    ],
+    "discount%": 10,
+    "main_category": "electronics",
+    "sub_category": "television",
+    "items": [
+      {
+        "itemid": "1",
+        "colour": "Black",
+        "size": "32 inch",
+        "price": 22499,
+        "stockavailability": true
+      },
+      {
+        "itemid": "2",
+        "colour": "Black",
+        "size": "32 inch",
+        "price": 24999,
+        "stockavailability": true
+      },
+      {
+        "itemid": "3",
+        "colour": "Black",
+        "size": "32 inch",
+        "price": 23999,
+        "stockavailability": false
+      },
+      {
+        "itemid": "4",
+        "colour": "Black",
+        "size": "32 inch",
+        "price": 25999,
+        "stockavailability": false
+      }
+    ]
+  },
+  {
+    "_id": { "$oid": "677d4afbaf0bf1ba8c9da4ad" },
+    "productid": "4e9b220a-89cd-47d1-bdbb-e21990a65c36",
+    "productname": "Sony Wireless Headphones",
+    "productdescription": "Sony WH-1000XM4 Noise Cancelling Wireless Over-Ear Headphones with Long Battery Life and Touch Sensor Controls",
+    "price": 35999,
+    "brand": "Sony",
+    "modelname": "WH-1000XM4",
+    "colour": "Black",
+    "itemdimensions": "15 x 18 x 8 cm",
+    "images": [
+      "https://via.placeholder.com/300?text=Electronics+Sony+Headphones+1",
+      "https://via.placeholder.com/300?text=Electronics+Sony+Headphones+2",
+      "https://via.placeholder.com/300?text=Electronics+Sony+Headphones+3",
+      "https://via.placeholder.com/300?text=Electronics+Sony+Headphones+4"
+    ],
+    "weight": "0.25kg",
+    "material": "Plastic, Leather",
+    "warranty": "1 year",
+    "stockavailability": true,
+    "rating": 4.7,
+    "aboutthisitem": [
+      "Industry-leading noise cancellation.",
+      "20 hours of playback time.",
+      "Touch sensor controls for convenience.",
+      "Premium sound quality with deep bass."
+    ],
+    "discount%": 25,
+    "main_category": "electronics",
+    "sub_category": "headphones",
+    "items": [
+      {
+        "itemid": "1",
+        "colour": "Black",
+        "size": "Large",
+        "price": 26999,
+        "stockavailability": true
+      },
+      {
+        "itemid": "2",
+        "colour": "Silver",
+        "size": "Large",
+        "price": 25999,
+        "stockavailability": true
+      },
+      {
+        "itemid": "3",
+        "colour": "Black",
+        "size": "Medium",
+        "price": 26999,
+        "stockavailability": false
+      },
+      {
+        "itemid": "4",
+        "colour": "Silver",
+        "size": "Medium",
+        "price": 25999,
+        "stockavailability": false
+      }
+    ]
+  },
+  {
+    "_id": { "$oid": "677d4afbaf0bf1ba8c9da4ae" },
+    "productid": "51a10cd7-d6d7-4323-9e8b-4029fa22416d",
+    "productname": "The Great Gatsby",
+    "productdescription": "The Great Gatsby by F. Scott Fitzgerald – Classic Novel of the Roaring Twenties, Hardcover Edition",
+    "price": 999,
+    "brand": "Penguin Classics",
+    "modelname": "Great Gatsby",
+    "colour": "Green",
+    "itemdimensions": "13 x 2.5 x 20 cm",
+    "images": [
+      "https://via.placeholder.com/300?text=Books+The+Great+Gatsby+1",
+      "https://via.placeholder.com/300?text=Books+The+Great+Gatsby+2",
+      "https://via.placeholder.com/300?text=Books+The+Great+Gatsby+3",
+      "https://via.placeholder.com/300?text=Books+The+Great+Gatsby+4"
+    ],
+    "weight": "0.4kg",
+    "material": "Paper",
+    "warranty": "N/A",
+    "stockavailability": true,
+    "rating": 4.6,
+    "aboutthisitem": [
+      "A classic novel set in the 1920s by F. Scott Fitzgerald.",
+      "Known for its commentary on the American Dream.",
+      "Available in hardcover and paperback editions.",
+      "A timeless story of wealth, love, and tragedy."
+    ],
+    "discount%": 10,
+    "main_category": "books",
+    "sub_category": "fiction",
+    "items": [
+      {
+        "itemid": "1",
+        "colour": "Green",
+        "size": "Hardcover",
+        "price": 999,
+        "stockavailability": true
+      },
+      {
+        "itemid": "2",
+        "colour": "Green",
+        "size": "Paperback",
+        "price": 799,
+        "stockavailability": true
+      },
+      {
+        "itemid": "3",
+        "colour": "Green",
+        "size": "Hardcover",
+        "price": 949,
+        "stockavailability": false
+      },
+      {
+        "itemid": "4",
+        "colour": "Green",
+        "size": "Paperback",
+        "price": 729,
+        "stockavailability": false
+      }
+    ]
+  },
+  {
+    "_id": { "$oid": "677d4afbaf0bf1ba8c9da4af" },
+    "productid": "8d3e2fd5-4c83-473a-9677-d90b3b8f6e9d",
+    "productname": "Bose QuietComfort 35 II",
+    "productdescription": "Bose QuietComfort 35 II Wireless Noise Cancelling Headphones with Alexa Voice Control and 20-Hour Battery Life",
+    "price": 29999,
+    "brand": "Bose",
+    "modelname": "QC35 II",
+    "colour": "Black",
+    "itemdimensions": "18 x 15 x 9 cm",
+    "images": [
+      "https://via.placeholder.com/300?text=Electronics+Bose+Headphones+1",
+      "https://via.placeholder.com/300?text=Electronics+Bose+Headphones+2",
+      "https://via.placeholder.com/300?text=Electronics+Bose+Headphones+3",
+      "https://via.placeholder.com/300?text=Electronics+Bose+Headphones+4"
+    ],
+    "weight": "0.25kg",
+    "material": "Plastic, Leather",
+    "warranty": "1 year",
+    "stockavailability": true,
+    "rating": 4.5,
+    "aboutthisitem": [
+      "Wireless noise-cancelling headphones with premium sound quality.",
+      "Alexa built-in for hands-free control.",
+      "20-hour battery life for long listening sessions.",
+      "Ideal for travel with a lightweight, comfortable design."
+    ],
+    "discount%": 15,
+    "main_category": "electronics",
+    "sub_category": "headphones",
+    "items": [
+      {
+        "itemid": "1",
+        "colour": "Black",
+        "size": "Large",
+        "price": 25999,
+        "stockavailability": true
+      },
+      {
+        "itemid": "2",
+        "colour": "Silver",
+        "size": "Large",
+        "price": 26999,
+        "stockavailability": true
+      },
+      {
+        "itemid": "3",
+        "colour": "Black",
+        "size": "Medium",
+        "price": 26999,
+        "stockavailability": false
+      },
+      {
+        "itemid": "4",
+        "colour": "Silver",
+        "size": "Medium",
+        "price": 27999,
+        "stockavailability": false
+      }
+    ]
+  },
+  {
+    "_id": { "$oid": "677d4afbaf0bf1ba8c9da4b0" },
+    "productid": "3e0b8bc5-df94-4c39-bd29-cf30a23b5a4c",
+    "productname": "Nike Air Max 270",
+    "productdescription": "Nike Air Max 270 React, Lightweight Running Shoes for Men and Women, Comfortable and Stylish",
+    "price": 8999,
+    "brand": "Nike",
+    "modelname": "Air Max 270",
+    "colour": "White",
+    "itemdimensions": "30 x 18 x 12 cm",
+    "images": [
+      "https://via.placeholder.com/300?text=Footwear+Nike+AirMax+1",
+      "https://via.placeholder.com/300?text=Footwear+Nike+AirMax+2",
+      "https://via.placeholder.com/300?text=Footwear+Nike+AirMax+3",
+      "https://via.placeholder.com/300?text=Footwear+Nike+AirMax+4"
+    ],
+    "weight": "0.8kg",
+    "material": "Mesh, Rubber",
+    "warranty": "6 months",
+    "stockavailability": true,
+    "rating": 4.3,
+    "aboutthisitem": [
+      "Lightweight and breathable mesh upper for comfort.",
+      "Iconic Nike Air cushioning for ultimate support.",
+      "Stylish design suitable for running or casual wear.",
+      "Available in multiple sizes and colors."
+    ],
+    "discount%": 30,
+    "main_category": "footwear",
+    "sub_category": "running shoes",
+    "items": [
+      {
+        "itemid": "1",
+        "colour": "White",
+        "size": "8",
+        "price": 6299,
+        "stockavailability": true
+      },
+      {
+        "itemid": "2",
+        "colour": "Black",
+        "size": "10",
+        "price": 7499,
+        "stockavailability": true
+      },
+      {
+        "itemid": "3",
+        "colour": "White",
+        "size": "7",
+        "price": 6799,
+        "stockavailability": false
+      },
+      {
+        "itemid": "4",
+        "colour": "Red",
+        "size": "9",
+        "price": 7999,
+        "stockavailability": true
+      }
+    ]
+  },
+  {
+    "_id": { "$oid": "677d4afbaf0bf1ba8c9da4b1" },
+    "productid": "7f319a76-b3c7-46f7-8d65-7b864f1f8c5e",
+    "productname": "Olay Regenerist Micro-Sculpting Cream",
+    "productdescription": "Olay Regenerist Micro-Sculpting Cream, Advanced Anti-Aging Formula for Firmer Skin and Wrinkle Reduction, 50g",
+    "price": 2599,
+    "brand": "Olay",
+    "modelname": "Regenerist Micro-Sculpting",
+    "colour": "White",
+    "itemdimensions": "7 x 7 x 7 cm",
+    "images": [
+      "https://via.placeholder.com/300?text=Beauty+Olay+Cream+1",
+      "https://via.placeholder.com/300?text=Beauty+Olay+Cream+2",
+      "https://via.placeholder.com/300?text=Beauty+Olay+Cream+3",
+      "https://via.placeholder.com/300?text=Beauty+Olay+Cream+4"
+    ],
+    "weight": "0.15kg",
+    "material": "Cream",
+    "warranty": "N/A",
+    "stockavailability": true,
+    "rating": 4.7,
+    "aboutthisitem": [
+      "Firms and smoothens skin with regular use.",
+      "Reduces wrinkles and fine lines.",
+      "Includes hyaluronic acid for deep moisture.",
+      "Suitable for all skin types."
+    ],
+    "discount%": 20,
+    "main_category": "beauty & personal care",
+    "sub_category": "skincare",
+    "items": [
+      {
+        "itemid": "1",
+        "colour": "White",
+        "size": "50g",
+        "price": 2079,
+        "stockavailability": true
+      },
+      {
+        "itemid": "2",
+        "colour": "White",
+        "size": "50g",
+        "price": 2399,
+        "stockavailability": true
+      },
+      {
+        "itemid": "3",
+        "colour": "White",
+        "size": "50g",
+        "price": 2499,
+        "stockavailability": false
+      },
+      {
+        "itemid": "4",
+        "colour": "White",
+        "size": "50g",
+        "price": 2599,
+        "stockavailability": true
+      }
+    ]
+  },
+  {
+    "_id": { "$oid": "677d4afbaf0bf1ba8c9da4b2" },
+    "productid": "66aabbf0-7bfc-4018-b694-1ecf84e4dfac",
+    "productname": "Logitech MX Master 3 Wireless Mouse",
+    "productdescription": "Logitech MX Master 3 Wireless Mouse with Ergonomic Design, Rechargeable Battery, and Precision Scroll Wheel",
+    "price": 4699,
+    "brand": "Logitech",
+    "modelname": "MX Master 3",
+    "colour": "Graphite",
+    "itemdimensions": "12 x 8 x 4 cm",
+    "images": [
+      "https://via.placeholder.com/300?text=Electronics+Logitech+Mouse+1",
+      "https://via.placeholder.com/300?text=Electronics+Logitech+Mouse+2",
+      "https://via.placeholder.com/300?text=Electronics+Logitech+Mouse+3",
+      "https://via.placeholder.com/300?text=Electronics+Logitech+Mouse+4"
+    ],
+    "weight": "0.15kg",
+    "material": "Plastic",
+    "warranty": "1 year",
+    "stockavailability": true,
+    "rating": 4.6,
+    "aboutthisitem": [
+      "Ergonomic design for comfortable long-term use.",
+      "Precision scroll wheel and customizable buttons.",
+      "Rechargeable battery with up to 70 days of use.",
+      "Compatible with both Windows and macOS."
+    ],
+    "discount%": 25,
+    "main_category": "electronics",
+    "sub_category": "computer accessories",
+    "items": [
+      {
+        "itemid": "1",
+        "colour": "Graphite",
+        "size": "Medium",
+        "price": 3524,
+        "stockavailability": true
+      },
+      {
+        "itemid": "2",
+        "colour": "Graphite",
+        "size": "Large",
+        "price": 4599,
+        "stockavailability": true
+      },
+      {
+        "itemid": "3",
+        "colour": "Black",
+        "size": "Medium",
+        "price": 4299,
+        "stockavailability": false
+      },
+      {
+        "itemid": "4",
+        "colour": "Graphite",
+        "size": "Large",
+        "price": 4799,
+        "stockavailability": false
+      }
+    ]
+  },
+  {
+    "_id": { "$oid": "677d4afbaf0bf1ba8c9da4b3" },
+    "productid": "69bd3d27-394f-413d-a54c-0d4c27245b21",
+    "productname": "Fitbit Charge 4 Fitness Tracker",
+    "productdescription": "Fitbit Charge 4 Fitness Tracker with Built-in GPS, Heart Rate Monitor, and Sleep Tracking",
+    "price": 12999,
+    "brand": "Fitbit",
+    "modelname": "Charge 4",
+    "colour": "Black",
+    "itemdimensions": "4 x 2 x 1 cm",
+    "images": [
+      "https://via.placeholder.com/300?text=Fitness+Fitbit+Charge4+1",
+      "https://via.placeholder.com/300?text=Fitness+Fitbit+Charge4+2",
+      "https://via.placeholder.com/300?text=Fitness+Fitbit+Charge4+3",
+      "https://via.placeholder.com/300?text=Fitness+Fitbit+Charge4+4"
+    ],
+    "weight": "0.03kg",
+    "material": "Silicone, Plastic",
+    "warranty": "1 year",
+    "stockavailability": true,
+    "rating": 4.5,
+    "aboutthisitem": [
+      "Built-in GPS for accurate distance tracking.",
+      "Continuous heart rate monitoring.",
+      "Sleep tracking with sleep stages.",
+      "Water-resistant for swimming."
+    ],
+    "discount%": 10,
+    "main_category": "sports & fitness",
+    "sub_category": "fitness trackers",
+    "items": [
+      {
+        "itemid": "1",
+        "colour": "Black",
+        "size": "Small",
+        "price": 11699,
+        "stockavailability": true
+      },
+      {
+        "itemid": "2",
+        "colour": "Black",
+        "size": "Medium",
+        "price": 12199,
+        "stockavailability": true
+      },
+      {
+        "itemid": "3",
+        "colour": "Black",
+        "size": "Large",
+        "price": 12499,
+        "stockavailability": false
+      },
+      {
+        "itemid": "4",
+        "colour": "Black",
+        "size": "Small",
+        "price": 11999,
+        "stockavailability": false
+      }
+    ]
+  },
+  {
+    "_id": { "$oid": "677d4afbaf0bf1ba8c9da4b4" },
+    "productid": "8e4ed232-41ba-484b-b676-f88f8a960e2e",
+    "productname": "Apple iPad 10.2-inch",
+    "productdescription": "Apple iPad 10.2-inch with Retina Display, 64GB Storage, Wi-Fi + Cellular Model, Space Gray",
+    "price": 31999,
+    "brand": "Apple",
+    "modelname": "iPad 10.2",
+    "colour": "Space Gray",
+    "itemdimensions": "25.5 x 17.4 x 0.75 cm",
+    "images": [
+      "https://via.placeholder.com/300?text=Electronics+Apple+iPad+1",
+      "https://via.placeholder.com/300?text=Electronics+Apple+iPad+2",
+      "https://via.placeholder.com/300?text=Electronics+Apple+iPad+3",
+      "https://via.placeholder.com/300?text=Electronics+Apple+iPad+4"
+    ],
+    "weight": "0.5kg",
+    "material": "Aluminum",
+    "warranty": "1 year",
+    "stockavailability": true,
+    "rating": 4.7,
+    "aboutthisitem": [
+      "10.2-inch Retina display with True Tone technology.",
+      "A12 Bionic chip for fast performance.",
+      "64GB storage with Wi-Fi + Cellular connectivity.",
+      "Compatible with Apple Pencil (1st generation)."
+    ],
+    "discount%": 5,
+    "main_category": "electronics",
+    "sub_category": "tablets",
+    "items": [
+      {
+        "itemid": "1",
+        "colour": "Space Gray",
+        "size": "64GB",
+        "price": 31999,
+        "stockavailability": true
+      },
+      {
+        "itemid": "2",
+        "colour": "Gold",
+        "size": "64GB",
+        "price": 32999,
+        "stockavailability": true
+      },
+      {
+        "itemid": "3",
+        "colour": "Space Gray",
+        "size": "128GB",
+        "price": 36999,
+        "stockavailability": false
+      },
+      {
+        "itemid": "4",
+        "colour": "Silver",
+        "size": "64GB",
+        "price": 32499,
+        "stockavailability": false
+      }
+    ]
+  },
+  {
+    "_id": { "$oid": "677d4afbaf0bf1ba8c9da4b5" },
+    "productid": "2f7d8275-bd7c-46e8-9d8e-cb6d0b2b48bc",
+    "productname": "Sony WH-1000XM4",
+    "productdescription": "Sony WH-1000XM4 Wireless Noise-Canceling Headphones with Alexa Voice Control and Long Battery Life",
+    "price": 34999,
+    "brand": "Sony",
+    "modelname": "WH-1000XM4",
+    "colour": "Black",
+    "itemdimensions": "25 x 21 x 10 cm",
+    "images": [
+      "https://via.placeholder.com/300?text=Electronics+Sony+Headphones+1",
+      "https://via.placeholder.com/300?text=Electronics+Sony+Headphones+2",
+      "https://via.placeholder.com/300?text=Electronics+Sony+Headphones+3",
+      "https://via.placeholder.com/300?text=Electronics+Sony+Headphones+4"
+    ],
+    "weight": "0.25kg",
+    "material": "Plastic, Leather",
+    "warranty": "1 year",
+    "stockavailability": true,
+    "rating": 4.7,
+    "aboutthisitem": [
+      "Industry-leading noise cancellation.",
+      "Up to 30 hours of battery life.",
+      "Alexa voice control functionality.",
+      "Premium sound quality with LDAC support."
+    ],
+    "discount%": 10,
+    "main_category": "electronics",
+    "sub_category": "headphones",
+    "items": [
+      {
+        "itemid": "1",
+        "colour": "Black",
+        "size": "Medium",
+        "price": 31499,
+        "stockavailability": true
+      },
+      {
+        "itemid": "2",
+        "colour": "Silver",
+        "size": "Large",
+        "price": 32499,
+        "stockavailability": false
+      },
+      {
+        "itemid": "3",
+        "colour": "Black",
+        "size": "Large",
+        "price": 32999,
+        "stockavailability": true
+      },
+      {
+        "itemid": "4",
+        "colour": "Black",
+        "size": "Medium",
+        "price": 30999,
+        "stockavailability": true
+      }
+    ]
+  },
+  {
+    "_id": { "$oid": "677d4afbaf0bf1ba8c9da4b6" },
+    "productid": "99b51335-7f0b-4fa9-a0fc-bf5d3c442a1a",
+    "productname": "HP Pavilion Gaming Laptop",
+    "productdescription": "HP Pavilion Gaming Laptop with Intel Core i5, 8GB RAM, 512GB SSD, and NVIDIA GTX 1650, 15.6-inch Display",
+    "price": 45999,
+    "brand": "HP",
+    "modelname": "Pavilion Gaming",
+    "colour": "Shadow Black",
+    "itemdimensions": "36.3 x 24.3 x 2.2 cm",
+    "images": [
+      "https://via.placeholder.com/300?text=Electronics+HP+Laptop+1",
+      "https://via.placeholder.com/300?text=Electronics+HP+Laptop+2",
+      "https://via.placeholder.com/300?text=Electronics+HP+Laptop+3",
+      "https://via.placeholder.com/300?text=Electronics+HP+Laptop+4"
+    ],
+    "weight": "2.3kg",
+    "material": "Plastic",
+    "warranty": "1 year",
+    "stockavailability": true,
+    "rating": 4.4,
+    "aboutthisitem": [
+      "Intel Core i5 processor for fast performance.",
+      "8GB RAM for smooth multitasking.",
+      "512GB SSD for fast storage.",
+      "NVIDIA GTX 1650 graphics for smooth gaming experience."
+    ],
+    "discount%": 5,
+    "main_category": "electronics",
+    "sub_category": "laptops",
+    "items": [
+      {
+        "itemid": "1",
+        "colour": "Shadow Black",
+        "size": "15.6 inch",
+        "price": 43799,
+        "stockavailability": true
+      },
+      {
+        "itemid": "2",
+        "colour": "Shadow Black",
+        "size": "15.6 inch",
+        "price": 44999,
+        "stockavailability": true
+      },
+      {
+        "itemid": "3",
+        "colour": "Shadow Black",
+        "size": "15.6 inch",
+        "price": 45999,
+        "stockavailability": false
+      },
+      {
+        "itemid": "4",
+        "colour": "Shadow Black",
+        "size": "15.6 inch",
+        "price": 42999,
+        "stockavailability": true
+      }
+    ]
+  },
+  {
+    "_id": { "$oid": "677d4afbaf0bf1ba8c9da4b7" },
+    "productid": "3e8f44a4-5de0-41fc-9863-12e4abf1e056",
+    "productname": "Casio G-Shock Analog-Digital Watch",
+    "productdescription": "Casio G-Shock Analog-Digital Watch with Shock Resistant Design, Water-Resistant, and LED Light",
+    "price": 7999,
+    "brand": "Casio",
+    "modelname": "G-Shock",
+    "colour": "Black",
+    "itemdimensions": "5 x 5 x 15 cm",
+    "images": [
+      "https://via.placeholder.com/300?text=Fashion+Casio+G-Shock+1",
+      "https://via.placeholder.com/300?text=Fashion+Casio+G-Shock+2",
+      "https://via.placeholder.com/300?text=Fashion+Casio+G-Shock+3",
+      "https://via.placeholder.com/300?text=Fashion+Casio+G-Shock+4"
+    ],
+    "weight": "0.1kg",
+    "material": "Resin, Stainless Steel",
+    "warranty": "1 year",
+    "stockavailability": true,
+    "rating": 4.5,
+    "aboutthisitem": [
+      "Shock-resistant design for durability.",
+      "Water-resistant up to 200 meters.",
+      "LED light for easy readability.",
+      "Multiple timekeeping functions for convenience."
+    ],
+    "discount%": 15,
+    "main_category": "fashion",
+    "sub_category": "watches",
+    "items": [
+      {
+        "itemid": "1",
+        "colour": "Black",
+        "size": "Medium",
+        "price": 6799,
+        "stockavailability": true
+      },
+      {
+        "itemid": "2",
+        "colour": "Black",
+        "size": "Large",
+        "price": 6999,
+        "stockavailability": true
+      },
+      {
+        "itemid": "3",
+        "colour": "Black",
+        "size": "Medium",
+        "price": 7499,
+        "stockavailability": false
+      },
+      {
+        "itemid": "4",
+        "colour": "Black",
+        "size": "Large",
+        "price": 7599,
+        "stockavailability": true
+      }
+    ]
+  },
+  {
+    "_id": { "$oid": "677d4afbaf0bf1ba8c9da4b8" },
+    "productid": "4b6d8124-415f-45c0-b1a4-57fa1c6a2c76",
+    "productname": "Dell 24-inch Full HD Monitor",
+    "productdescription": "Dell 24-inch Full HD Monitor with 75Hz Refresh Rate, 2ms Response Time, and IPS Panel for Crisp Viewing",
+    "price": 10999,
+    "brand": "Dell",
+    "modelname": "P2419H",
+    "colour": "Black",
+    "itemdimensions": "54.2 x 32.4 x 4.9 cm",
+    "images": [
+      "https://via.placeholder.com/300?text=Electronics+Dell+Monitor+1",
+      "https://via.placeholder.com/300?text=Electronics+Dell+Monitor+2",
+      "https://via.placeholder.com/300?text=Electronics+Dell+Monitor+3",
+      "https://via.placeholder.com/300?text=Electronics+Dell+Monitor+4"
+    ],
+    "weight": "3.5kg",
+    "material": "Plastic",
+    "warranty": "1 year",
+    "stockavailability": true,
+    "rating": 4.6,
+    "aboutthisitem": [
+      "Full HD 1080p resolution for clear image quality.",
+      "IPS panel for wide viewing angles.",
+      "75Hz refresh rate for smooth performance.",
+      "Flicker-free technology for comfort."
+    ],
+    "discount%": 12,
+    "main_category": "electronics",
+    "sub_category": "monitors",
+    "items": [
+      {
+        "itemid": "1",
+        "colour": "Black",
+        "size": "24 inch",
+        "price": 9799,
+        "stockavailability": true
+      },
+      {
+        "itemid": "2",
+        "colour": "Black",
+        "size": "24 inch",
+        "price": 10399,
+        "stockavailability": true
+      },
+      {
+        "itemid": "3",
+        "colour": "Black",
+        "size": "24 inch",
+        "price": 10799,
+        "stockavailability": false
+      },
+      {
+        "itemid": "4",
+        "colour": "Black",
+        "size": "24 inch",
+        "price": 10999,
+        "stockavailability": true
+      }
+    ]
+  },
+  {
+    "_id": { "$oid": "677d4afbaf0bf1ba8c9da4b9" },
+    "productid": "94fccefa-c6b2-4c3e-b7b2-6b81543b6535",
+    "productname": "JBL Flip 5 Portable Bluetooth Speaker",
+    "productdescription": "JBL Flip 5 Portable Bluetooth Speaker with Waterproof Design and 12 Hours of Playtime",
+    "price": 6999,
+    "brand": "JBL",
+    "modelname": "Flip 5",
+    "colour": "Red",
+    "itemdimensions": "18.4 x 7.4 x 6.6 cm",
+    "images": [
+      "https://via.placeholder.com/300?text=Electronics+JBL+Speaker+1",
+      "https://via.placeholder.com/300?text=Electronics+JBL+Speaker+2",
+      "https://via.placeholder.com/300?text=Electronics+JBL+Speaker+3",
+      "https://via.placeholder.com/300?text=Electronics+JBL+Speaker+4"
+    ],
+    "weight": "0.55kg",
+    "material": "Plastic",
+    "warranty": "1 year",
+    "stockavailability": true,
+    "rating": 4.8,
+    "aboutthisitem": [
+      "Waterproof IPX7 design for outdoor use.",
+      "12 hours of battery life for non-stop music.",
+      "Powerful sound and bass with JBL Bass Radiator.",
+      "Bluetooth connectivity for easy pairing."
+    ],
+    "discount%": 20,
+    "main_category": "electronics",
+    "sub_category": "speakers",
+    "items": [
+      {
+        "itemid": "1",
+        "colour": "Red",
+        "size": "Medium",
+        "price": 5599,
+        "stockavailability": true
+      },
+      {
+        "itemid": "2",
+        "colour": "Black",
+        "size": "Medium",
+        "price": 6299,
+        "stockavailability": true
+      },
+      {
+        "itemid": "3",
+        "colour": "Blue",
+        "size": "Medium",
+        "price": 6499,
+        "stockavailability": false
+      },
+      {
+        "itemid": "4",
+        "colour": "Yellow",
+        "size": "Medium",
+        "price": 6699,
+        "stockavailability": true
+      }
+    ]
+  },
+  {
+    "_id": { "$oid": "677d4afbaf0bf1ba8c9da4ba" },
+    "productid": "1f4a9f0d-b6b2-4a79-a0f4-b3cb8c8f7e7f",
+    "productname": "Nike Air Zoom Pegasus 38 Running Shoes",
+    "productdescription": "Nike Air Zoom Pegasus 38 Running Shoes for Men, Breathable Upper and Responsive Cushioning for Running and Walking",
+    "price": 7499,
+    "brand": "Nike",
+    "modelname": "Air Zoom Pegasus 38",
+    "colour": "Blue",
+    "itemdimensions": "25 x 10 x 10 cm",
+    "images": [
+      "https://via.placeholder.com/300?text=Fashion+Nike+Shoes+1",
+      "https://via.placeholder.com/300?text=Fashion+Nike+Shoes+2",
+      "https://via.placeholder.com/300?text=Fashion+Nike+Shoes+3",
+      "https://via.placeholder.com/300?text=Fashion+Nike+Shoes+4"
+    ],
+    "weight": "0.6kg",
+    "material": "Synthetic, Rubber",
+    "warranty": "1 year",
+    "stockavailability": true,
+    "rating": 4.7,
+    "aboutthisitem": [
+      "Breathable mesh upper for comfort.",
+      "Zoom Air cushioning for responsive feel.",
+      "Durable rubber outsole for traction.",
+      "Perfect for running and everyday wear."
+    ],
+    "discount%": 25,
+    "main_category": "fashion",
+    "sub_category": "footwear",
+    "items": [
+      {
+        "itemid": "1",
+        "colour": "Blue",
+        "size": "10",
+        "price": 5999,
+        "stockavailability": true
+      },
+      {
+        "itemid": "2",
+        "colour": "Blue",
+        "size": "11",
+        "price": 6299,
+        "stockavailability": true
+      },
+      {
+        "itemid": "3",
+        "colour": "Blue",
+        "size": "9",
+        "price": 6499,
+        "stockavailability": false
+      },
+      {
+        "itemid": "4",
+        "colour": "Blue",
+        "size": "8",
+        "price": 6799,
+        "stockavailability": true
+      }
+    ]
+  },
+  {
+    "_id": { "$oid": "677d4afbaf0bf1ba8c9da4bb" },
+    "productid": "6df9b3b0-6b5c-478f-bf19-b781e72bb6c3",
+    "productname": "Philips Sonicare ProtectiveClean 6100",
+    "productdescription": "Philips Sonicare ProtectiveClean 6100 Rechargeable Sonic Electric Toothbrush with Pressure Sensor and 3 Modes",
+    "price": 5999,
+    "brand": "Philips",
+    "modelname": "Sonicare ProtectiveClean 6100",
+    "colour": "White",
+    "itemdimensions": "25 x 5 x 5 cm",
+    "images": [
+      "https://via.placeholder.com/300?text=Health+Philips+Sonicare+1",
+      "https://via.placeholder.com/300?text=Health+Philips+Sonicare+2",
+      "https://via.placeholder.com/300?text=Health+Philips+Sonicare+3",
+      "https://via.placeholder.com/300?text=Health+Philips+Sonicare+4"
+    ],
+    "weight": "0.3kg",
+    "material": "Plastic",
+    "warranty": "2 years",
+    "stockavailability": true,
+    "rating": 4.6,
+    "aboutthisitem": [
+      "Pressure sensor to protect gums.",
+      "Sonicare technology for better cleaning.",
+      "3 modes: Clean, White, and Gum Care.",
+      "Rechargeable with 2-week battery life."
+    ],
+    "discount%": 10,
+    "main_category": "health & personal care",
+    "sub_category": "oral care",
+    "items": [
+      {
+        "itemid": "1",
+        "colour": "White",
+        "size": "Medium",
+        "price": 5399,
+        "stockavailability": true
+      },
+      {
+        "itemid": "2",
+        "colour": "White",
+        "size": "Large",
+        "price": 5799,
+        "stockavailability": false
+      },
+      {
+        "itemid": "3",
+        "colour": "White",
+        "size": "Medium",
+        "price": 5499,
+        "stockavailability": true
+      },
+      {
+        "itemid": "4",
+        "colour": "White",
+        "size": "Small",
+        "price": 5999,
+        "stockavailability": true
+      }
+    ]
+  },
+  {
+    "_id": { "$oid": "677d4afbaf0bf1ba8c9da4bc" },
+    "productid": "cdbf9833-f154-4d8e-b522-0bc4a7d34a85",
+    "productname": "Samsung Galaxy Watch 4",
+    "productdescription": "Samsung Galaxy Watch 4 with AMOLED Display, Advanced Health Monitoring, and GPS",
+    "price": 22999,
+    "brand": "Samsung",
+    "modelname": "Galaxy Watch 4",
+    "colour": "Black",
+    "itemdimensions": "4.3 x 4.3 x 1.1 cm",
+    "images": [
+      "https://via.placeholder.com/300?text=Electronics+Samsung+Watch+1",
+      "https://via.placeholder.com/300?text=Electronics+Samsung+Watch+2",
+      "https://via.placeholder.com/300?text=Electronics+Samsung+Watch+3",
+      "https://via.placeholder.com/300?text=Electronics+Samsung+Watch+4"
+    ],
+    "weight": "0.03kg",
+    "material": "Aluminium",
+    "warranty": "1 year",
+    "stockavailability": true,
+    "rating": 4.3,
+    "aboutthisitem": [
+      "AMOLED display for vibrant visuals.",
+      "Advanced health monitoring features.",
+      "Built-in GPS for accurate tracking.",
+      "Water-resistant for outdoor use."
+    ],
+    "discount%": 15,
+    "main_category": "electronics",
+    "sub_category": "smartwatches",
+    "items": [
+      {
+        "itemid": "1",
+        "colour": "Black",
+        "size": "44mm",
+        "price": 19449,
+        "stockavailability": true
+      },
+      {
+        "itemid": "2",
+        "colour": "Black",
+        "size": "40mm",
+        "price": 20999,
+        "stockavailability": false
+      },
+      {
+        "itemid": "3",
+        "colour": "Silver",
+        "size": "44mm",
+        "price": 21999,
+        "stockavailability": true
+      },
+      {
+        "itemid": "4",
+        "colour": "Green",
+        "size": "40mm",
+        "price": 18999,
+        "stockavailability": true
+      }
+    ]
+  },
+  {
+    "_id": { "$oid": "677d4afbaf0bf1ba8c9da4bd" },
+    "productid": "a61a6518-163b-4d91-bb25-d982e0ea69b2",
+    "productname": "Himalaya Herbals Anti-Hair Fall Shampoo",
+    "productdescription": "Himalaya Herbals Anti-Hair Fall Shampoo with Natural Herbs and Strengthening Ingredients",
+    "price": 375,
+    "brand": "Himalaya",
+    "modelname": "Anti-Hair Fall",
+    "colour": "Green",
+    "itemdimensions": "6 x 6 x 18 cm",
+    "images": [
+      "https://via.placeholder.com/300?text=Health+Himalaya+Shampoo+1",
+      "https://via.placeholder.com/300?text=Health+Himalaya+Shampoo+2",
+      "https://via.placeholder.com/300?text=Health+Himalaya+Shampoo+3",
+      "https://via.placeholder.com/300?text=Health+Himalaya+Shampoo+4"
+    ],
+    "weight": "0.2kg",
+    "material": "Natural Herbal Extracts",
+    "warranty": "None",
+    "stockavailability": true,
+    "rating": 4.4,
+    "aboutthisitem": [
+      "Strengthens hair from roots.",
+      "Reduces hair fall due to breakage.",
+      "Infused with natural herbs like Bhringaraj.",
+      "Suitable for all hair types."
+    ],
+    "discount%": 20,
+    "main_category": "health & personal care",
+    "sub_category": "shampoos",
+    "items": [
+      {
+        "itemid": "1",
+        "colour": "Green",
+        "size": "200ml",
+        "price": 300,
+        "stockavailability": true
+      },
+      {
+        "itemid": "2",
+        "colour": "Green",
+        "size": "400ml",
+        "price": 540,
+        "stockavailability": true
+      },
+      {
+        "itemid": "3",
+        "colour": "Green",
+        "size": "600ml",
+        "price": 750,
+        "stockavailability": true
+      },
+      {
+        "itemid": "4",
+        "colour": "Green",
+        "size": "200ml",
+        "price": 340,
+        "stockavailability": false
+      }
+    ]
+  },
+  {
+    "_id": { "$oid": "677d4afbaf0bf1ba8c9da4be" },
+    "productid": "4a9d68e5-d21c-42f1-83d6-efb46e45da2d",
+    "productname": "BoAt Rockerz 255 Pro+ Wireless Earphones",
+    "productdescription": "BoAt Rockerz 255 Pro+ Wireless Bluetooth Earphones with 10mm Drivers and 40 Hours Battery Life",
+    "price": 1999,
+    "brand": "BoAt",
+    "modelname": "Rockerz 255 Pro+",
+    "colour": "Red",
+    "itemdimensions": "18 x 5 x 2 cm",
+    "images": [
+      "https://via.placeholder.com/300?text=Electronics+BoAt+Earphones+1",
+      "https://via.placeholder.com/300?text=Electronics+BoAt+Earphones+2",
+      "https://via.placeholder.com/300?text=Electronics+BoAt+Earphones+3",
+      "https://via.placeholder.com/300?text=Electronics+BoAt+Earphones+4"
+    ],
+    "weight": "0.02kg",
+    "material": "Plastic",
+    "warranty": "1 year",
+    "stockavailability": true,
+    "rating": 4.5,
+    "aboutthisitem": [
+      "Long-lasting 40 hours battery life.",
+      "10mm dynamic drivers for bass-heavy sound.",
+      "IPX7 water resistance.",
+      "Bluetooth 5.0 for fast connectivity."
+    ],
+    "discount%": 25,
+    "main_category": "electronics",
+    "sub_category": "earphones",
+    "items": [
+      {
+        "itemid": "1",
+        "colour": "Red",
+        "size": "Medium",
+        "price": 1499,
+        "stockavailability": true
+      },
+      {
+        "itemid": "2",
+        "colour": "Black",
+        "size": "Medium",
+        "price": 1799,
+        "stockavailability": true
+      },
+      {
+        "itemid": "3",
+        "colour": "Blue",
+        "size": "Medium",
+        "price": 1699,
+        "stockavailability": true
+      },
+      {
+        "itemid": "4",
+        "colour": "Red",
+        "size": "Small",
+        "price": 1799,
+        "stockavailability": false
+      }
+    ]
+  },
+  {
+    "_id": { "$oid": "677d4afbaf0bf1ba8c9da4bf" },
+    "productid": "7e6f5631-f64c-4cd4-89c2-d14c0ad06e72",
+    "productname": "Acer Nitro 5 Gaming Laptop",
+    "productdescription": "Acer Nitro 5 Gaming Laptop with Intel Core i7, 16GB RAM, 512GB SSD, NVIDIA RTX 3060, 15.6-inch Display",
+    "price": 62999,
+    "brand": "Acer",
+    "modelname": "Nitro 5",
+    "colour": "Black",
+    "itemdimensions": "36.4 x 25.4 x 2.4 cm",
+    "images": [
+      "https://via.placeholder.com/300?text=Electronics+Acer+Laptop+1",
+      "https://via.placeholder.com/300?text=Electronics+Acer+Laptop+2",
+      "https://via.placeholder.com/300?text=Electronics+Acer+Laptop+3",
+      "https://via.placeholder.com/300?text=Electronics+Acer+Laptop+4"
+    ],
+    "weight": "2.3kg",
+    "material": "Plastic",
+    "warranty": "1 year",
+    "stockavailability": true,
+    "rating": 4.6,
+    "aboutthisitem": [
+      "Intel Core i7 processor for optimal gaming.",
+      "16GB RAM for seamless multitasking.",
+      "NVIDIA RTX 3060 graphics for high-end gaming.",
+      "144Hz display for smooth visuals."
+    ],
+    "discount%": 5,
+    "main_category": "electronics",
+    "sub_category": "laptops",
+    "items": [
+      {
+        "itemid": "1",
+        "colour": "Black",
+        "size": "15.6 inch",
+        "price": 60999,
+        "stockavailability": true
+      },
+      {
+        "itemid": "2",
+        "colour": "Black",
+        "size": "15.6 inch",
+        "price": 62999,
+        "stockavailability": false
+      },
+      {
+        "itemid": "3",
+        "colour": "Black",
+        "size": "15.6 inch",
+        "price": 64999,
+        "stockavailability": true
+      },
+      {
+        "itemid": "4",
+        "colour": "Black",
+        "size": "15.6 inch",
+        "price": 58999,
+        "stockavailability": true
+      }
+    ]
+  },
+  {
+    "_id": { "$oid": "677d4afbaf0bf1ba8c9da4c0" },
+    "productid": "0f7604f4-84a9-4f7e-80ca-b13e62646b4c",
+    "productname": "Sennheiser HD 660S Over-Ear Headphones",
+    "productdescription": "Sennheiser HD 660S Over-Ear Headphones with Open-Back Design, High Impedance, and Exceptional Sound Quality",
+    "price": 42999,
+    "brand": "Sennheiser",
+    "modelname": "HD 660S",
+    "colour": "Black",
+    "itemdimensions": "21 x 18 x 6 cm",
+    "images": [
+      "https://via.placeholder.com/300?text=Electronics+Sennheiser+Headphones+1",
+      "https://via.placeholder.com/300?text=Electronics+Sennheiser+Headphones+2",
+      "https://via.placeholder.com/300?text=Electronics+Sennheiser+Headphones+3",
+      "https://via.placeholder.com/300?text=Electronics+Sennheiser+Headphones+4"
+    ],
+    "weight": "0.5kg",
+    "material": "Plastic",
+    "warranty": "2 years",
+    "stockavailability": true,
+    "rating": 4.8,
+    "aboutthisitem": [
+      "Open-back design for superior soundstage.",
+      "High impedance for professional audio.",
+      "Exceptionally balanced and detailed sound.",
+      "Perfect for audiophiles and sound professionals."
+    ],
+    "discount%": 10,
+    "main_category": "electronics",
+    "sub_category": "headphones",
+    "items": [
+      {
+        "itemid": "1",
+        "colour": "Black",
+        "size": "Large",
+        "price": 39999,
+        "stockavailability": true
+      },
+      {
+        "itemid": "2",
+        "colour": "Black",
+        "size": "Medium",
+        "price": 41999,
+        "stockavailability": true
+      },
+      {
+        "itemid": "3",
+        "colour": "Black",
+        "size": "Small",
+        "price": 42999,
+        "stockavailability": false
+      },
+      {
+        "itemid": "4",
+        "colour": "Black",
+        "size": "Large",
+        "price": 38999,
+        "stockavailability": true
+      }
+    ]
+  },
+  {
+    "_id": { "$oid": "677d4afbaf0bf1ba8c9da4c1" },
+    "productid": "e8a8e1f9-c13d-4a5b-b7b7-8eaa50de5b0f",
+    "productname": "LG 43-Inch 4K Ultra HD Smart LED TV",
+    "productdescription": "LG 43-Inch 4K Ultra HD Smart LED TV with WebOS, HDR10, and Dolby Vision Support",
+    "price": 39999,
+    "brand": "LG",
+    "modelname": "43UM7390PTF",
+    "colour": "Black",
+    "itemdimensions": "96.5 x 56.8 x 7.5 cm",
+    "images": [
+      "https://via.placeholder.com/300?text=Electronics+LG+TV+1",
+      "https://via.placeholder.com/300?text=Electronics+LG+TV+2",
+      "https://via.placeholder.com/300?text=Electronics+LG+TV+3",
+      "https://via.placeholder.com/300?text=Electronics+LG+TV+4"
+    ],
+    "weight": "9.8kg",
+    "material": "Plastic",
+    "warranty": "1 year",
+    "stockavailability": true,
+    "rating": 4.4,
+    "aboutthisitem": [
+      "4K UHD display with HDR10 and Dolby Vision.",
+      "WebOS for easy smart TV functionality.",
+      "ThinQ AI for personalized recommendations.",
+      "Multiple HDMI and USB ports for connectivity."
+    ],
+    "discount%": 5,
+    "main_category": "electronics",
+    "sub_category": "televisions",
+    "items": [
+      {
+        "itemid": "1",
+        "colour": "Black",
+        "size": "43 inch",
+        "price": 37999,
+        "stockavailability": true
+      },
+      {
+        "itemid": "2",
+        "colour": "Black",
+        "size": "43 inch",
+        "price": 39999,
+        "stockavailability": true
+      },
+      {
+        "itemid": "3",
+        "colour": "Black",
+        "size": "43 inch",
+        "price": 34999,
+        "stockavailability": false
+      },
+      {
+        "itemid": "4",
+        "colour": "Black",
+        "size": "43 inch",
+        "price": 38999,
+        "stockavailability": true
+      }
+    ]
+  },
+  {
+    "_id": { "$oid": "677d4afbaf0bf1ba8c9da4c2" },
+    "productid": "3a9e44b2-7f16-46f2-bf35-48a6d35d6e4f",
+    "productname": "Fujifilm Instax Mini 11 Instant Camera",
+    "productdescription": "Fujifilm Instax Mini 11 Instant Camera with Automatic Exposure and Selfie Mode",
+    "price": 5499,
+    "brand": "Fujifilm",
+    "modelname": "Instax Mini 11",
+    "colour": "Pink",
+    "itemdimensions": "11 x 7.6 x 11.8 cm",
+    "images": [
+      "https://via.placeholder.com/300?text=Electronics+Fujifilm+Camera+1",
+      "https://via.placeholder.com/300?text=Electronics+Fujifilm+Camera+2",
+      "https://via.placeholder.com/300?text=Electronics+Fujifilm+Camera+3",
+      "https://via.placeholder.com/300?text=Electronics+Fujifilm+Camera+4"
+    ],
+    "weight": "0.33kg",
+    "material": "Plastic",
+    "warranty": "1 year",
+    "stockavailability": true,
+    "rating": 4.6,
+    "aboutthisitem": [
+      "Automatic exposure for perfect photos.",
+      "Selfie mode with mirror for clear selfies.",
+      "Compact and lightweight design.",
+      "Comes with a variety of instant film options."
+    ],
+    "discount%": 10,
+    "main_category": "electronics",
+    "sub_category": "cameras",
+    "items": [
+      {
+        "itemid": "1",
+        "colour": "Pink",
+        "size": "Medium",
+        "price": 4999,
+        "stockavailability": true
+      },
+      {
+        "itemid": "2",
+        "colour": "Pink",
+        "size": "Large",
+        "price": 5499,
+        "stockavailability": true
+      },
+      {
+        "itemid": "3",
+        "colour": "White",
+        "size": "Medium",
+        "price": 5399,
+        "stockavailability": false
+      },
+      {
+        "itemid": "4",
+        "colour": "White",
+        "size": "Large",
+        "price": 5599,
+        "stockavailability": true
+      }
+    ]
+  },
+  {
+    "_id": { "$oid": "677d4afbaf0bf1ba8c9da4b1" },
+    "productid": "4f2a5f10-b0a2-441b-bbd9-f5d2b365ed88",
+    "productname": "Egyptian Cotton Bedsheet Set",
+    "productdescription": "Soft and luxurious Egyptian cotton bedsheet set with 4 pillow covers, perfect for a good night's sleep.",
+    "price": 2499,
+    "brand": "HomeLuxe",
+    "modelname": "HLS-1001",
+    "colour": "White",
+    "itemdimensions": "200 x 220 cm",
+    "images": [
+      "https://via.placeholder.com/300?text=Bedding+Egyptian+Cotton+1",
+      "https://via.placeholder.com/300?text=Bedding+Egyptian+Cotton+2"
+    ],
+    "weight": "1.2kg",
+    "material": "Egyptian Cotton",
+    "warranty": "6 months",
+    "stockavailability": true,
+    "rating": 4.5,
+    "aboutthisitem": [
+      "Made from 100% Egyptian Cotton for softness.",
+      "Set includes 1 bedsheet and 4 pillow covers.",
+      "Hypoallergenic and breathable material.",
+      "Durable and easy to maintain."
+    ],
+    "discount%": 15,
+    "main_category": "bedding",
+    "sub_category": "bedsheets",
+    "items": [
+      {
+        "itemid": "1",
+        "colour": "White",
+        "size": "King",
+        "price": 2499,
+        "stockavailability": true
+      },
+      {
+        "itemid": "2",
+        "colour": "White",
+        "size": "Queen",
+        "price": 2299,
+        "stockavailability": true
+      },
+      {
+        "itemid": "3",
+        "colour": "White",
+        "size": "Double",
+        "price": 2199,
+        "stockavailability": true
+      },
+      {
+        "itemid": "4",
+        "colour": "White",
+        "size": "Single",
+        "price": 1999,
+        "stockavailability": false
+      }
+    ]
+  },
+  {
+    "_id": { "$oid": "677d4afbaf0bf1ba8c9da4b2" },
+    "productid": "1f6d8a40-29b3-4d10-8b84-d5930da9e39f",
+    "productname": "Memory Foam Pillow",
+    "productdescription": "Ergonomic memory foam pillow for neck and spine support, ideal for side and back sleepers.",
+    "price": 1199,
+    "brand": "SleepWell",
+    "modelname": "SWP-101",
+    "colour": "Gray",
+    "itemdimensions": "60 x 40 x 12 cm",
+    "images": [
+      "https://via.placeholder.com/300?text=Bedding+Memory+Foam+Pillow+1",
+      "https://via.placeholder.com/300?text=Bedding+Memory+Foam+Pillow+2"
+    ],
+    "weight": "0.8kg",
+    "material": "Memory Foam",
+    "warranty": "1 year",
+    "stockavailability": true,
+    "rating": 4.7,
+    "aboutthisitem": [
+      "Ergonomically designed to support the neck and spine.",
+      "Made with high-quality memory foam for comfort.",
+      "Suitable for side and back sleepers.",
+      "Hypoallergenic and easy to maintain."
+    ],
+    "discount%": 10,
+    "main_category": "bedding",
+    "sub_category": "pillows",
+    "items": [
+      {
+        "itemid": "1",
+        "colour": "Gray",
+        "size": "Standard",
+        "price": 1199,
+        "stockavailability": true
+      },
+      {
+        "itemid": "2",
+        "colour": "Gray",
+        "size": "Large",
+        "price": 1399,
+        "stockavailability": false
+      },
+      {
+        "itemid": "3",
+        "colour": "Gray",
+        "size": "Small",
+        "price": 999,
+        "stockavailability": true
+      },
+      {
+        "itemid": "4",
+        "colour": "Gray",
+        "size": "Medium",
+        "price": 1199,
+        "stockavailability": true
+      }
+    ]
+  },
+  {
+    "_id": { "$oid": "677d4afbaf0bf1ba8c9da4b3" },
+    "productid": "2f3608a0-75de-4c2b-90e9-e92f95cc5085",
+    "productname": "Plush Cushion Cover",
+    "productdescription": "Soft, plush cushion cover made with velvet fabric, perfect for adding elegance to your living room.",
+    "price": 499,
+    "brand": "CushionCo",
+    "modelname": "CCV-201",
+    "colour": "Maroon",
+    "itemdimensions": "45 x 45 cm",
+    "images": [
+      "https://via.placeholder.com/300?text=Bedding+Plush+Cushion+Cover+1",
+      "https://via.placeholder.com/300?text=Bedding+Plush+Cushion+Cover+2"
+    ],
+    "weight": "0.3kg",
+    "material": "Velvet",
+    "warranty": "3 months",
+    "stockavailability": true,
+    "rating": 4.4,
+    "aboutthisitem": [
+      "Luxurious velvet fabric cushion cover.",
+      "Soft and plush for added comfort.",
+      "Perfect for home décor.",
+      "Zipper closure for easy use."
+    ],
+    "discount%": 20,
+    "main_category": "bedding",
+    "sub_category": "cushions",
+    "items": [
+      {
+        "itemid": "1",
+        "colour": "Maroon",
+        "size": "Standard",
+        "price": 499,
+        "stockavailability": true
+      },
+      {
+        "itemid": "2",
+        "colour": "Maroon",
+        "size": "Large",
+        "price": 599,
+        "stockavailability": true
+      },
+      {
+        "itemid": "3",
+        "colour": "Maroon",
+        "size": "Small",
+        "price": 449,
+        "stockavailability": true
+      },
+      {
+        "itemid": "4",
+        "colour": "Maroon",
+        "size": "Medium",
+        "price": 549,
+        "stockavailability": false
+      }
+    ]
+  },
+  {
+    "_id": { "$oid": "677d4afbaf0bf1ba8c9da4b4" },
+    "productid": "5a8b6a57-8c44-4cd5-a65b-77e46ba12bc0",
+    "productname": "Soft Fleece Blanket",
+    "productdescription": "Warm and cozy fleece blanket, perfect for chilly nights, available in multiple colors.",
+    "price": 899,
+    "brand": "CozyHome",
+    "modelname": "CHB-305",
+    "colour": "Blue",
+    "itemdimensions": "150 x 200 cm",
+    "images": [
+      "https://via.placeholder.com/300?text=Bedding+Soft+Fleece+Blanket+1",
+      "https://via.placeholder.com/300?text=Bedding+Soft+Fleece+Blanket+2"
+    ],
+    "weight": "1.1kg",
+    "material": "Fleece",
+    "warranty": "1 year",
+    "stockavailability": true,
+    "rating": 4.6,
+    "aboutthisitem": [
+      "Made with soft and cozy fleece material.",
+      "Perfect for keeping warm during winter.",
+      "Lightweight and easy to carry.",
+      "Available in multiple colors."
+    ],
+    "discount%": 25,
+    "main_category": "bedding",
+    "sub_category": "blankets & quilts",
+    "items": [
+      {
+        "itemid": "1",
+        "colour": "Blue",
+        "size": "Standard",
+        "price": 899,
+        "stockavailability": true
+      },
+      {
+        "itemid": "2",
+        "colour": "Blue",
+        "size": "Large",
+        "price": 999,
+        "stockavailability": true
+      },
+      {
+        "itemid": "3",
+        "colour": "Blue",
+        "size": "Small",
+        "price": 799,
+        "stockavailability": false
+      },
+      {
+        "itemid": "4",
+        "colour": "Blue",
+        "size": "Medium",
+        "price": 899,
+        "stockavailability": true
+      }
+    ]
+  },
+  {
+    "_id": { "$oid": "677d4afbaf0bf1ba8c9da4c5" },
+    "productid": "3e9a6a1b-764a-45e1-ae6a-23e44d9a4322",
+    "productname": "Handcrafted Ceramic Elephant Figurine",
+    "productdescription": "A beautifully handcrafted ceramic elephant figurine, perfect for home décor or as a gift.",
+    "price": 2499,
+    "brand": "Artistic Creations",
+    "modelname": "ACF-110",
+    "colour": "White",
+    "itemdimensions": "10 x 8 x 12 cm",
+    "images": [
+      "https://via.placeholder.com/300?text=Figurine+Handcrafted+Elephant+1",
+      "https://via.placeholder.com/300?text=Figurine+Handcrafted+Elephant+2"
+    ],
+    "weight": "0.5kg",
+    "material": "Ceramic",
+    "warranty": "1 year",
+    "stockavailability": true,
+    "rating": 4.3,
+    "aboutthisitem": [
+      "Handcrafted design made by skilled artisans.",
+      "Perfect for home décor, office desks, or as a gift.",
+      "Durable and lightweight ceramic material.",
+      "Adds an artistic touch to any space."
+    ],
+    "discount%": 15,
+    "main_category": "figurines & vases",
+    "sub_category": "decorative figurines",
+    "items": [
+      {
+        "itemid": "1",
+        "colour": "White",
+        "size": "Standard",
+        "price": 2499,
+        "stockavailability": true
+      },
+      {
+        "itemid": "2",
+        "colour": "White",
+        "size": "Large",
+        "price": 2999,
+        "stockavailability": false
+      },
+      {
+        "itemid": "3",
+        "colour": "White",
+        "size": "Small",
+        "price": 1999,
+        "stockavailability": true
+      },
+      {
+        "itemid": "4",
+        "colour": "White",
+        "size": "Medium",
+        "price": 2299,
+        "stockavailability": true
+      }
+    ]
+  },
+  {
+    "_id": { "$oid": "677d4afbaf0bf1ba8c9da4c6" },
+    "productid": "adf9a9a2-43f8-4cb6-8f1f-b1bcd540cc6d",
+    "productname": "Elegant Blue Ceramic Vase",
+    "productdescription": "A sleek blue ceramic vase, ideal for enhancing your home or office decor, perfect for flowers or as a standalone piece.",
+    "price": 1599,
+    "brand": "VaseArt",
+    "modelname": "VA-220",
+    "colour": "Blue",
+    "itemdimensions": "15 x 15 x 30 cm",
+    "images": [
+      "https://via.placeholder.com/300?text=Vase+Elegant+Blue+1",
+      "https://via.placeholder.com/300?text=Vase+Elegant+Blue+2"
+    ],
+    "weight": "1.2kg",
+    "material": "Ceramic",
+    "warranty": "6 months",
+    "stockavailability": true,
+    "rating": 4.7,
+    "aboutthisitem": [
+      "Sleek and elegant design made from high-quality ceramic.",
+      "Perfect for holding fresh flowers or as a decorative piece.",
+      "Ideal for living rooms, dining areas, or office spaces.",
+      "Lightweight and durable for easy handling."
+    ],
+    "discount%": 10,
+    "main_category": "figurines & vases",
+    "sub_category": "ceramic vases",
+    "items": [
+      {
+        "itemid": "1",
+        "colour": "Blue",
+        "size": "Standard",
+        "price": 1599,
+        "stockavailability": true
+      },
+      {
+        "itemid": "2",
+        "colour": "Blue",
+        "size": "Large",
+        "price": 1799,
+        "stockavailability": false
+      },
+      {
+        "itemid": "3",
+        "colour": "Blue",
+        "size": "Small",
+        "price": 1299,
+        "stockavailability": true
+      },
+      {
+        "itemid": "4",
+        "colour": "Blue",
+        "size": "Medium",
+        "price": 1499,
+        "stockavailability": true
+      }
+    ]
+  },
+  {
+    "_id": { "$oid": "677d4afbaf0bf1ba8c9da4c7" },
+    "productid": "fbf420b0-f9a9-467d-b6e9-5e8da6eae9c0",
+    "productname": "Crystal Clear Glass Vase",
+    "productdescription": "A luxurious crystal-clear glass vase, perfect for showcasing floral arrangements or as a decorative accent.",
+    "price": 1999,
+    "brand": "GlassCraft",
+    "modelname": "GC-301",
+    "colour": "Clear",
+    "itemdimensions": "12 x 12 x 24 cm",
+    "images": [
+      "https://via.placeholder.com/300?text=Vase+Crystal+Clear+1",
+      "https://via.placeholder.com/300?text=Vase+Crystal+Clear+2"
+    ],
+    "weight": "0.7kg",
+    "material": "Glass",
+    "warranty": "1 year",
+    "stockavailability": true,
+    "rating": 4.5,
+    "aboutthisitem": [
+      "Crystal-clear glass vase for a sophisticated look.",
+      "Ideal for floral arrangements or decorative displays.",
+      "Perfect for weddings, parties, or home décor.",
+      "Durable and high-quality material."
+    ],
+    "discount%": 12,
+    "main_category": "figurines & vases",
+    "sub_category": "glass vases",
+    "items": [
+      {
+        "itemid": "1",
+        "colour": "Clear",
+        "size": "Standard",
+        "price": 1999,
+        "stockavailability": true
+      },
+      {
+        "itemid": "2",
+        "colour": "Clear",
+        "size": "Large",
+        "price": 2299,
+        "stockavailability": false
+      },
+      {
+        "itemid": "3",
+        "colour": "Clear",
+        "size": "Small",
+        "price": 1499,
+        "stockavailability": true
+      },
+      {
+        "itemid": "4",
+        "colour": "Clear",
+        "size": "Medium",
+        "price": 1799,
+        "stockavailability": true
+      }
+    ]
+  },
+  {
+    "_id": { "$oid": "677d4afbaf0bf1ba8c9da4c8" },
+    "productid": "a2d1fe4e-1b7f-4d5f-8f9f-3b8b58a9719e",
+    "productname": "Artificial Silk Flowers in Decorative Pot",
+    "productdescription": "A set of artificial silk flowers in a beautifully designed pot, perfect for adding color to any room without the need for maintenance.",
+    "price": 899,
+    "brand": "FlowerCraft",
+    "modelname": "FC-112",
+    "colour": "Mixed",
+    "itemdimensions": "25 x 25 x 30 cm",
+    "images": [
+      "https://via.placeholder.com/300?text=Artificial+Silk+Flowers+1",
+      "https://via.placeholder.com/300?text=Artificial+Silk+Flowers+2"
+    ],
+    "weight": "0.4kg",
+    "material": "Silk, Plastic",
+    "warranty": "6 months",
+    "stockavailability": true,
+    "rating": 4.6,
+    "aboutthisitem": [
+      "Artificial flowers made from high-quality silk for a realistic look.",
+      "Comes in a decorative pot that complements any décor.",
+      "No maintenance required – perfect for busy individuals.",
+      "Adds color and elegance to any space."
+    ],
+    "discount%": 18,
+    "main_category": "figurines & vases",
+    "sub_category": "artificial flowers & plants",
+    "items": [
+      {
+        "itemid": "1",
+        "colour": "Mixed",
+        "size": "Standard",
+        "price": 899,
+        "stockavailability": true
+      },
+      {
+        "itemid": "2",
+        "colour": "Mixed",
+        "size": "Large",
+        "price": 1099,
+        "stockavailability": true
+      },
+      {
+        "itemid": "3",
+        "colour": "Mixed",
+        "size": "Small",
+        "price": 799,
+        "stockavailability": true
+      },
+      {
+        "itemid": "4",
+        "colour": "Mixed",
+        "size": "Medium",
+        "price": 999,
+        "stockavailability": false
+      }
+    ]
+  },
+  {
+    "_id": { "$oid": "677d4afbaf0bf1ba8c9da4d1" },
+    "productid": "7fbb3a1c-5b87-4b98-b457-b6ef4a2141a6",
+    "productname": "Modern LED Ceiling Light",
+    "productdescription": "A sleek and energy-efficient modern LED ceiling light perfect for illuminating any room with a clean design.",
+    "price": 3499,
+    "brand": "LumaLite",
+    "modelname": "LL-360",
+    "colour": "White",
+    "itemdimensions": "30 x 30 x 5 cm",
+    "images": [
+      "https://via.placeholder.com/300?text=Ceiling+Light+LED+1",
+      "https://via.placeholder.com/300?text=Ceiling+Light+LED+2"
+    ],
+    "weight": "1.2kg",
+    "material": "Aluminum, LED",
+    "warranty": "1 year",
+    "stockavailability": true,
+    "rating": 4.5,
+    "aboutthisitem": [
+      "Energy-efficient LED ceiling light with a minimalist design.",
+      "Perfect for modern homes and offices.",
+      "Durable aluminum body with bright LED lights.",
+      "Easy to install and provides optimal illumination."
+    ],
+    "discount%": 12,
+    "main_category": "lighting solutions",
+    "sub_category": "ceiling lights",
+    "items": [
+      {
+        "itemid": "1",
+        "colour": "White",
+        "size": "Standard",
+        "price": 3499,
+        "stockavailability": true
+      },
+      {
+        "itemid": "2",
+        "colour": "White",
+        "size": "Large",
+        "price": 3999,
+        "stockavailability": true
+      },
+      {
+        "itemid": "3",
+        "colour": "White",
+        "size": "Small",
+        "price": 2999,
+        "stockavailability": true
+      },
+      {
+        "itemid": "4",
+        "colour": "White",
+        "size": "Medium",
+        "price": 3599,
+        "stockavailability": false
+      }
+    ]
+  },
+  {
+    "_id": { "$oid": "677d4afbaf0bf1ba8c9da4d2" },
+    "productid": "f2a5fe8c-4cde-43f7-89fe-bcf7c85b8ea9",
+    "productname": "Elegant Table Lamp with Fabric Shade",
+    "productdescription": "An elegant table lamp featuring a fabric shade and a wooden base, perfect for adding a soft and warm glow to your study or bedroom.",
+    "price": 1499,
+    "brand": "LumaLite",
+    "modelname": "LL-710",
+    "colour": "Beige",
+    "itemdimensions": "20 x 20 x 45 cm",
+    "images": [
+      "https://via.placeholder.com/300?text=Table+Lamp+Fabric+1",
+      "https://via.placeholder.com/300?text=Table+Lamp+Fabric+2"
+    ],
+    "weight": "0.9kg",
+    "material": "Wood, Fabric",
+    "warranty": "6 months",
+    "stockavailability": true,
+    "rating": 4.3,
+    "aboutthisitem": [
+      "Stylish table lamp with a fabric shade and a wooden base.",
+      "Ideal for placing on a desk, bedside table, or living room.",
+      "Soft lighting to create a relaxing atmosphere.",
+      "Easy to assemble and maintain."
+    ],
+    "discount%": 15,
+    "main_category": "lighting solutions",
+    "sub_category": "table lamps",
+    "items": [
+      {
+        "itemid": "1",
+        "colour": "Beige",
+        "size": "Standard",
+        "price": 1499,
+        "stockavailability": true
+      },
+      {
+        "itemid": "2",
+        "colour": "Beige",
+        "size": "Large",
+        "price": 1699,
+        "stockavailability": false
+      },
+      {
+        "itemid": "3",
+        "colour": "Beige",
+        "size": "Small",
+        "price": 1299,
+        "stockavailability": true
+      },
+      {
+        "itemid": "4",
+        "colour": "Beige",
+        "size": "Medium",
+        "price": 1599,
+        "stockavailability": true
+      }
+    ]
+  },
+  {
+    "_id": { "$oid": "677d4afbaf0bf1ba8c9da4d3" },
+    "productid": "23a716de-cd74-4292-9b78-62bfb23b7403",
+    "productname": "Modern Adjustable Floor Lamp",
+    "productdescription": "A modern, adjustable floor lamp designed for both style and functionality. Perfect for reading, working, or adding ambiance.",
+    "price": 2399,
+    "brand": "LumaLite",
+    "modelname": "LL-490",
+    "colour": "Black",
+    "itemdimensions": "20 x 20 x 145 cm",
+    "images": [
+      "https://via.placeholder.com/300?text=Floor+Lamp+Adjustable+1",
+      "https://via.placeholder.com/300?text=Floor+Lamp+Adjustable+2"
+    ],
+    "weight": "2.1kg",
+    "material": "Metal, Fabric",
+    "warranty": "1 year",
+    "stockavailability": true,
+    "rating": 4.6,
+    "aboutthisitem": [
+      "Adjustable height and angle to suit different lighting needs.",
+      "Perfect for reading, studying, or as a decorative piece.",
+      "Sleek black finish with modern styling.",
+      "Durable metal construction."
+    ],
+    "discount%": 20,
+    "main_category": "lighting solutions",
+    "sub_category": "floor lamps",
+    "items": [
+      {
+        "itemid": "1",
+        "colour": "Black",
+        "size": "Standard",
+        "price": 2399,
+        "stockavailability": true
+      },
+      {
+        "itemid": "2",
+        "colour": "Black",
+        "size": "Large",
+        "price": 2699,
+        "stockavailability": false
+      },
+      {
+        "itemid": "3",
+        "colour": "Black",
+        "size": "Small",
+        "price": 2099,
+        "stockavailability": true
+      },
+      {
+        "itemid": "4",
+        "colour": "Black",
+        "size": "Medium",
+        "price": 2499,
+        "stockavailability": true
+      }
+    ]
+  },
+  {
+    "_id": { "$oid": "677d4afbaf0bf1ba8c9da4d4" },
+    "productid": "9a22682e-23f2-4ac0-8fe6-3b38ad9f35c2",
+    "productname": "Antique Brass Wall Sconce",
+    "productdescription": "A vintage-style brass wall sconce that adds warmth and character to any space. Ideal for hallways or accent lighting.",
+    "price": 1799,
+    "brand": "VintageLamps",
+    "modelname": "VL-320",
+    "colour": "Brass",
+    "itemdimensions": "10 x 10 x 30 cm",
+    "images": [
+      "https://via.placeholder.com/300?text=Wall+Light+Brass+1",
+      "https://via.placeholder.com/300?text=Wall+Light+Brass+2"
+    ],
+    "weight": "1.1kg",
+    "material": "Brass",
+    "warranty": "6 months",
+    "stockavailability": true,
+    "rating": 4.4,
+    "aboutthisitem": [
+      "Vintage-style wall sconce made from high-quality brass.",
+      "Perfect for adding a touch of elegance and warmth.",
+      "Can be used in hallways, living rooms, or bedrooms.",
+      "Durable and easy to install."
+    ],
+    "discount%": 18,
+    "main_category": "lighting solutions",
+    "sub_category": "wall lights",
+    "items": [
+      {
+        "itemid": "1",
+        "colour": "Brass",
+        "size": "Standard",
+        "price": 1799,
+        "stockavailability": true
+      },
+      {
+        "itemid": "2",
+        "colour": "Brass",
+        "size": "Large",
+        "price": 1999,
+        "stockavailability": false
+      },
+      {
+        "itemid": "3",
+        "colour": "Brass",
+        "size": "Small",
+        "price": 1599,
+        "stockavailability": true
+      },
+      {
+        "itemid": "4",
+        "colour": "Brass",
+        "size": "Medium",
+        "price": 1799,
+        "stockavailability": true
+      }
+    ]
+  },
+  {
+    "_id": { "$oid": "677d4afbaf0bf1ba8c9da4d5" },
+    "productid": "d3e1bafe-90a0-47c1-9323-92cb829f8d97",
+    "productname": "Woven Storage Basket",
+    "productdescription": "A versatile woven basket perfect for organizing clothes, toys, or other household items.",
+    "price": 799,
+    "brand": "HomeNest",
+    "modelname": "HSB-1001",
+    "colour": "Natural",
+    "itemdimensions": "40 x 40 x 30 cm",
+    "images": [
+      "https://via.placeholder.com/300?text=Storage+Basket+1",
+      "https://via.placeholder.com/300?text=Storage+Basket+2"
+    ],
+    "weight": "0.5kg",
+    "material": "Woven Jute",
+    "warranty": "6 months",
+    "stockavailability": true,
+    "rating": 4.2,
+    "aboutthisitem": [
+      "Handwoven basket made of natural jute.",
+      "Perfect for organizing your home and office spaces.",
+      "Lightweight yet durable design.",
+      "Eco-friendly and stylish solution for storage."
+    ],
+    "discount%": 10,
+    "main_category": "home storage",
+    "sub_category": "storage baskets",
+    "items": [
+      {
+        "itemid": "1",
+        "colour": "Natural",
+        "size": "Medium",
+        "price": 799,
+        "stockavailability": true
+      },
+      {
+        "itemid": "2",
+        "colour": "Natural",
+        "size": "Large",
+        "price": 999,
+        "stockavailability": true
+      },
+      {
+        "itemid": "3",
+        "colour": "Natural",
+        "size": "Small",
+        "price": 649,
+        "stockavailability": true
+      },
+      {
+        "itemid": "4",
+        "colour": "Natural",
+        "size": "Extra Large",
+        "price": 1199,
+        "stockavailability": false
+      }
+    ]
+  },
+  {
+    "_id": { "$oid": "677d4afbaf0bf1ba8c9da4d6" },
+    "productid": "1fdb24bb-efc7-43be-a0c3-c17e0c4b2fa4",
+    "productname": "Adjustable Closet Organizer Rack",
+    "productdescription": "This adjustable closet organizer rack is designed to maximize your storage space and keep your clothes neatly arranged.",
+    "price": 1699,
+    "brand": "StoreMaster",
+    "modelname": "SM-204",
+    "colour": "Silver",
+    "itemdimensions": "60 x 30 x 180 cm",
+    "images": [
+      "https://via.placeholder.com/300?text=Closet+Organizer+1",
+      "https://via.placeholder.com/300?text=Closet+Organizer+2"
+    ],
+    "weight": "3.2kg",
+    "material": "Steel",
+    "warranty": "1 year",
+    "stockavailability": true,
+    "rating": 4.6,
+    "aboutthisitem": [
+      "Adjustable rack with multiple shelves for efficient closet organization.",
+      "Durable steel construction with a sleek silver finish.",
+      "Maximize closet space with a customizable design.",
+      "Easy to assemble with no tools required."
+    ],
+    "discount%": 15,
+    "main_category": "home storage",
+    "sub_category": "closet organizers",
+    "items": [
+      {
+        "itemid": "1",
+        "colour": "Silver",
+        "size": "Standard",
+        "price": 1699,
+        "stockavailability": true
+      },
+      {
+        "itemid": "2",
+        "colour": "Silver",
+        "size": "Large",
+        "price": 1899,
+        "stockavailability": false
+      },
+      {
+        "itemid": "3",
+        "colour": "Silver",
+        "size": "Small",
+        "price": 1499,
+        "stockavailability": true
+      },
+      {
+        "itemid": "4",
+        "colour": "Silver",
+        "size": "Medium",
+        "price": 1799,
+        "stockavailability": true
+      }
+    ]
+  },
+  {
+    "_id": { "$oid": "677d4afbaf0bf1ba8c9da4d7" },
+    "productid": "e18d52d0-bb85-4f32-b029-033212d1578f",
+    "productname": "5-Tier Shelving Unit",
+    "productdescription": "A durable 5-tier shelving unit perfect for organizing books, decorative items, and more in your living room or office.",
+    "price": 2999,
+    "brand": "StoragePro",
+    "modelname": "SP-500",
+    "colour": "Black",
+    "itemdimensions": "80 x 40 x 180 cm",
+    "images": [
+      "https://via.placeholder.com/300?text=Shelving+Unit+5Tier+1",
+      "https://via.placeholder.com/300?text=Shelving+Unit+5Tier+2"
+    ],
+    "weight": "7.5kg",
+    "material": "Metal",
+    "warranty": "2 years",
+    "stockavailability": true,
+    "rating": 4.7,
+    "aboutthisitem": [
+      "Strong metal frame with five shelves for maximum storage.",
+      "Perfect for storing books, decor, or office supplies.",
+      "Easy to assemble and fits into any room of your home.",
+      "Sturdy and designed to last for years."
+    ],
+    "discount%": 20,
+    "main_category": "home storage",
+    "sub_category": "shelving units",
+    "items": [
+      {
+        "itemid": "1",
+        "colour": "Black",
+        "size": "Standard",
+        "price": 2999,
+        "stockavailability": true
+      },
+      {
+        "itemid": "2",
+        "colour": "Black",
+        "size": "Large",
+        "price": 3299,
+        "stockavailability": false
+      },
+      {
+        "itemid": "3",
+        "colour": "Black",
+        "size": "Small",
+        "price": 2499,
+        "stockavailability": true
+      },
+      {
+        "itemid": "4",
+        "colour": "Black",
+        "size": "Medium",
+        "price": 2799,
+        "stockavailability": true
+      }
+    ]
+  },
+  {
+    "_id": { "$oid": "677d4afbaf0bf1ba8c9da4d8" },
+    "productid": "c5123e13-3a22-42ab-bd9f-07e3c8138105",
+    "productname": "Wooden Storage Cabinet with Doors",
+    "productdescription": "A beautifully crafted wooden storage cabinet with two spacious doors for concealed storage, perfect for your living room or hallway.",
+    "price": 4999,
+    "brand": "HomePlus",
+    "modelname": "HP-1234",
+    "colour": "Oak",
+    "itemdimensions": "80 x 40 x 90 cm",
+    "images": [
+      "https://via.placeholder.com/300?text=Storage+Cabinet+Wooden+1",
+      "https://via.placeholder.com/300?text=Storage+Cabinet+Wooden+2"
+    ],
+    "weight": "15kg",
+    "material": "Wood",
+    "warranty": "1 year",
+    "stockavailability": true,
+    "rating": 4.8,
+    "aboutthisitem": [
+      "High-quality wooden cabinet with two doors for concealed storage.",
+      "Perfect for living rooms, hallways, or bedrooms.",
+      "Stylish oak finish that complements most interior designs.",
+      "Durable construction for long-lasting use."
+    ],
+    "discount%": 12,
+    "main_category": "home storage",
+    "sub_category": "storage cabinets",
+    "items": [
+      {
+        "itemid": "1",
+        "colour": "Oak",
+        "size": "Standard",
+        "price": 4999,
+        "stockavailability": true
+      },
+      {
+        "itemid": "2",
+        "colour": "Oak",
+        "size": "Large",
+        "price": 5299,
+        "stockavailability": false
+      },
+      {
+        "itemid": "3",
+        "colour": "Oak",
+        "size": "Small",
+        "price": 4599,
+        "stockavailability": true
+      },
+      {
+        "itemid": "4",
+        "colour": "Oak",
+        "size": "Medium",
+        "price": 4999,
+        "stockavailability": true
+      }
+    ]
+  }
+]

@@ -7,12 +7,12 @@ import {
   getImages,
   convertNumberInNumerals,
 } from "../../../utils/common-utils";
+import StarRatings from "react-star-ratings";
 
 export const ProductCard = ({ product }) => {
   const navigate = useNavigate();
 
   const handleClick = () => {
-    // console.log("Clicking");
     const product_id = product.ProductId;
     navigate(`/products/product/${product_id}`, { state: product });
   };
@@ -25,7 +25,6 @@ export const ProductCard = ({ product }) => {
       const uniqueId = uuid();
       setCookieId(uniqueId);
     }
-    // console.log("getcookie", getCookieId());
     const bodyCart = {
       userId: userId,
       items: [
@@ -39,9 +38,6 @@ export const ProductCard = ({ product }) => {
         },
       ],
     };
-    // console.log(bodyCart);
-    // console.log("LOADING", loading);
-
     try {
       const response = await axios.post(URL.CART_API, bodyCart);
       console.log("Data sent Successfully", response.data);
@@ -53,23 +49,33 @@ export const ProductCard = ({ product }) => {
 
   return (
     <div className="border-4 border-gray-200 w-[290px]">
-      <img src={getImages(product.Images[1])} className="w-full" />
-      <div className="p-4">
+      <img src={getImages(product.images[1])} className="w-full" />
+      <div className="p-4 flex flex-col gap-2 items-start ">
         <div
           className="font-bold text-xl text-wrap cursor-pointer "
           onClick={handleClick}
         >
-          {product.ProductDescription}
+          {product.productDescription}
         </div>
-        <div className="font-bold">{product.ProductName}</div>
-        <div className="text-sm">rating</div>
-        <div className="font-bold text-3xl mt-5">
-          {convertNumberInNumerals(product.Price)}
+        <div className="text-sm flex flex-row items-center ">
+          <div className="pr-2">{product.rating}</div>
+          <StarRatings
+            rating={product.rating}
+            starRatedColor="#de7921"
+            starEmptyColor="dark-grey"
+            starDimension="18px"
+            starSpacing="2px"
+            numberOfStars={5}
+            name="rating"
+          />
+        </div>
+        <div className="font-bold text-3xl mt-1">
+          {convertNumberInNumerals(product.price)}
         </div>
         <div className="text-sm my-2">Free Delivery</div>
 
         <button
-          className="border-yellow-500 rounded-3xl bg-yellow-500 text-black px-3 py-1 mx-auto inline text-sm"
+          className="border-yellow-500 rounded-3xl bg-yellow-500 text-black px-3 py-1  inline text-sm"
           onClick={onAddToCart}
         >
           AddtoCart
