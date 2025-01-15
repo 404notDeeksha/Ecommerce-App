@@ -1,9 +1,35 @@
+import axios from "axios";
 import { useState, useRef, useEffect } from "react";
+import { Link } from "react-router-dom";
+import { URL } from "../../../constant/url";
+import { getImages } from "./../../../utils/common-utils";
 
-export const MultiCardCarousel = ({ data, title }) => {
+export const MultiCardCarousel = ({ title }) => {
   const maxScrollWidth = useRef(0);
   const [currentIndex, setCurrentIndex] = useState(0);
+  const [data, setData] = useState([]);
+  const [loading, setLoading] = useState(true);
   const carousel = useRef(null);
+  const category = "beautyAndMakeup";
+  useEffect(() => {
+    const fetchData = async () => {
+      try {
+        const response = await axios.get(
+          `${URL.PRODUCTS_API}?category=${category}&&bestsellers=true`
+        );
+        console.log("BESTSELLERS:", response.data);
+        if (response) {
+          setLoading(false);
+          if (response.data.success) {
+            setData(response.data.data);
+          }
+        }
+      } catch (err) {
+        console.error("Error:", err);
+      }
+    };
+    fetchData();
+  }, []);
 
   const movePrev = () => {
     if (currentIndex > 0) {
@@ -44,20 +70,20 @@ export const MultiCardCarousel = ({ data, title }) => {
       : 0;
   }, []);
 
+  console.log("Bestseller data", data);
   return (
-    <div
-      className="relative overflow-hidden mx-auto  bg-white  mb-5 px-5 py-2.5  
-        "
-    >
+    <div className="relative overflow-hidden mx-auto  bg-white  mb-5 px-5 py-2.5">
       <div className="my-2.5 flex items-center">
         <h2 className="text-black font-bold text-[21px]">{title}</h2>
-        <span className="text-sm pl-4">See all offers</span>
+        <Link to={`/products?category=${category}&&bestsellers=true`}>
+          <span className="text-sm pl-4">See all offers</span>
+        </Link>
       </div>
       <div className="flex justify-between absolute w-full max-w-[1420px]  max-h-[200px] h-full ">
         <MultiCarouselLeftButton movePrev={movePrev} isDisabled={isDisabled} />
         <MultiCarouselRightButton moveNext={moveNext} isDisabled={isDisabled} />
       </div>
-      <MultiImageCarousel data={data} carousel={carousel} />
+      <MultiImageCarousel dataset={data} carousel={carousel} />
     </div>
   );
 };
@@ -83,7 +109,6 @@ const MultiCarouselLeftButton = ({ movePrev, isDisabled }) => {
           d="M15 19l-7-7 7-7"
         />
       </svg>
-      {/* <span className="sr-only">Prev</span> */}
     </button>
   );
 };
@@ -112,30 +137,31 @@ const MultiCarouselRightButton = ({ moveNext, isDisabled }) => {
   );
 };
 
-const MultiImageCarousel = ({ data, carousel }) => {
+const MultiImageCarousel = ({ dataset, carousel }) => {
+  
   return (
     <div ref={carousel} className="carousel-container">
-      {data.map((ele) => {
+      {dataset.map((product, index) => {
+        if (index > 14) {
+          return null;
+        }
         return (
           <div
-            key={ele.id}
+            key={index}
             className="text-center relative w-52 h-52 snap-start"
           >
-            <a
-              href={ele.link}
-              className="h-full w-full aspect-square block bg-origin-padding bg-left-top bg-cover bg-no-repeat z-0"
-              //   style={{ backgroundImage: `url(${ele.imageUrl || ""})` }}
-            >
-              <img
-                src={ele.image || ""}
-                alt={ele.title}
-                className="w-full aspect-square"
-              />
-            </a>
+            <Link to={`/products/product/${product.productId}`}>
+              <div className="h-full w-full aspect-square block bg-origin-padding bg-left-top bg-cover bg-no-repeat z-0">
+                <img
+                  src={getImages(product.images[0]) || ""}
+                  alt={product.productName}
+                  className="w-full aspect-square"
+                />
+              </div>
+            </Link>
           </div>
         );
       })}
     </div>
   );
 };
-

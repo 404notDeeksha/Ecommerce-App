@@ -4,16 +4,16 @@ import { ShopCarousel } from "../../homepage/components/ShopCarousel";
 import { URL } from "../../../constant/url";
 
 export const ShopItems = ({ TYPE, data }) => {
-   return (
+  return (
     <div className="shopContent">
       <ShopGrid data={data} structure="GRID_TYPE" unit="home_decor_grid" />
 
-      {/* <ShopCarousel
+      <ShopCarousel
         data={data}
         structure="CAROUSEL_TYPE"
         unit="beauty_carousel"
       />
-      <ShopCarousel
+      {/*  <ShopCarousel
         data={data}
         structure="CAROUSEL_TYPE"
         unit="trendy_home_decor_carousel"

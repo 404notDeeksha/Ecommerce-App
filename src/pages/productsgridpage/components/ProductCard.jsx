@@ -55,7 +55,7 @@ export const ProductCard = ({ product }) => {
           className="font-bold text-xl text-wrap cursor-pointer "
           onClick={handleClick}
         >
-          {product.productDescription}
+          {product.productName}
         </div>
         <div className="text-sm flex flex-row items-center ">
           <div className="pr-2">{product.rating}</div>

@@ -122,25 +122,25 @@ export const layoutData = [
             caption: "Skincare",
             image:
               "https://82e.com/cdn/shop/files/M_4_eb0014e8-dc53-4b16-bfad-36544689ff95.png?v=1735910598&width=150",
-            category: "skincare",
+            subCategory: "skincare",
           },
           {
             caption: "Haircare",
             image:
               "https://imgs.littleextralove.com/wp-content/uploads/2022/08/what-is-an-ideal-hair-care-routine-for-a-whole-week-feat.jpg",
-            category: "haircare",
+            subCategory: "haircare",
           },
           {
             caption: "Lipsticks",
             image:
               "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTBAmoo3QD3KZGiR0Q-4ZQ1HRJE5OcEo9ZmHA&s",
-            category: "lipsticks",
+            subCategory: "lipsticks",
           },
           {
             caption: "Foundations",
             image:
               "https://shop.lakmesalon.in/cdn/shop/files/29685_S8-8901030971082.jpg?v=1698990623&width=194",
-            category: "foundations",
+            subCategory: "foundations",
           },
         ],
       },
