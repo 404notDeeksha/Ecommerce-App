@@ -4,25 +4,7 @@ import { ShopCarousel } from "../../homepage/components/ShopCarousel";
 import { URL } from "../../../constant/url";
 
 export const ShopItems = ({ TYPE, data }) => {
-  // useEffect(() => {
-  //   const fetchData = async () => {
-  //     try {
-  //       const response = await axios.get(URL.PRODUCTS_API);
-  //       console.log("Categories:", response.data);
-  //       if (response) {
-  //         setLoading(false);
-  //         if (response.data.success) {
-  //           setAutomaticRotatingCarousel(response.data.data);
-  //         }
-  //       }
-  //     } catch (err) {
-  //       console.error("Error:", err);
-  //     }
-  //   };
-  //   fetchData();
-  // }, []);
-
-  return (
+   return (
     <div className="shopContent">
       <ShopGrid data={data} structure="GRID_TYPE" unit="home_decor_grid" />
 

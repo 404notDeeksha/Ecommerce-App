@@ -32,6 +32,7 @@ const GridCard = ({ label, footerNote, data }) => {
               caption={ele.caption}
               image={ele.image}
               category={ele.category}
+              brand={ele.brand}
             />
           );
         })}
@@ -43,23 +44,29 @@ const GridCard = ({ label, footerNote, data }) => {
   );
 };
 
-export const GridCardImage = ({ caption, image, category }) => {
+export const GridCardImage = ({ caption, image, category, brand }) => {
   console.log("CATEGORY", category);
   const navigate = useNavigate();
   const handleClick = () => {
     console.log("CLICKED");
-    navigate(`/products?category=${category}`);
+    let filterName, filter;
+    if (category) {
+      filter = category;
+      filterName = "category";
+    } else {
+      filter = brand;
+      filterName = "brand";
+    }
+    navigate(`/products?${filterName}=${filter}`);
   };
 
   return (
     <div className="justify-between cursor-pointer" onClick={handleClick}>
-      <img src={image} className=" object-fill aspect-auto" />
+      <img
+        src={image}
+        className=" object-fill aspect-auto w-[150px] h-[92px]"
+      />
       <div className="text-[12px] overflow-ellipsis leading-5">{caption}</div>
     </div>
   );
 };
-// let navigateURL = `/products`;
-
-// if (category) {
-//   navigateURL = `/${navigateURL}?${category}`;
-// }

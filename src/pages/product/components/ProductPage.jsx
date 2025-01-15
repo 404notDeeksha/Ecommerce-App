@@ -67,20 +67,20 @@ export const ProductPage = () => {
           <div className="flex">
             <div className="w-[540px]">
               <img
-                src={getImages(productData.Images && productData.Images[0])}
+                src={getImages(productData.images && productData.images[0])}
                 className="w-full h-auto"
               />
             </div>
 
             <div className=" mx-8 flex-1 flex flex-col gap-3">
-              <h1 className="text-4xl font-[800]">{productData.ProductName}</h1>
+              <h1 className="text-4xl font-[800]">{productData.productName}</h1>
               <div className="text-base">
-                Brand: <span className="underline">{productData.Brand}</span>
+                Brand: <span className="underline">{productData.brand}</span>
               </div>
               <div className="flex flex-row gap-3 items-center">
-                <div className="text-sm">{productData.Rating}</div>
+                <div className="text-sm">{productData.rating}</div>
                 <StarRatings
-                  rating={productData.Rating}
+                  rating={productData.rating}
                   starRatedColor="#de7921"
                   starEmptyColor="dark-grey"
                   starDimension="18px"
@@ -91,7 +91,7 @@ export const ProductPage = () => {
               </div>
               <div className="border-b-2 border-gray-400 my-1"></div>
               <div className="font-bold text-red-600 text-2xl my-1">
-                {convertNumberInNumerals(productData.Price)}
+                {convertNumberInNumerals(productData.price)}
               </div>
               <div className="border-b-2 border-gray-400 my-1"></div>
               <ul className="flex gap-8 ">
@@ -116,33 +116,33 @@ export const ProductPage = () => {
               <div className="text-sm flex flex-col gap-3">
                 <div className="flex text-wrap ">
                   <div className="font-bold w-40">Colour:</div>
-                  <div className="">{productData.Colour}</div>
+                  <div className="">{productData.colour}</div>
                 </div>
                 <div className="flex">
                   <div className="font-bold w-40">Category:</div>
-                  <div className="">{productData.Category}</div>
+                  <div className="">{productData.category}</div>
                 </div>
                 <div className="flex">
                   <div className="font-bold w-40">Model Name:</div>
-                  <div className="">{productData.ModelName}</div>
+                  <div className="">{productData.modelName}</div>
                 </div>
                 <div className="flex">
                   <div className="font-bold w-40">Warranty:</div>
-                  <div className="">{productData.Warranty}</div>
+                  <div className="">{productData.warranty}</div>
                 </div>
                 <div className="flex">
                   <div className="font-bold w-40">Material:</div>
-                  <div className="">{productData.Material}</div>
+                  <div className="">{productData.material}</div>
                 </div>
                 <div className="flex">
                   <div className="font-bold w-40">Item Dimensions:</div>
-                  <div className="">{productData.ItemDimensions}</div>
+                  <div className="">{productData.itemDimensions}</div>
                 </div>
               </div>
               <div className="border-b-2 border-gray-400 my-4"></div>
               <div className="font-bold ">About this Item</div>
               <ul className="mb-20 flex flex-col gap-2">
-                {productData?.AboutThisItem?.map((description, index) => {
+                {productData?.aboutThisItem?.map((description, index) => {
                   return (
                     <li className="text-sm " key={index}>
                       {description}
@@ -154,7 +154,7 @@ export const ProductPage = () => {
 
             <div className="py-3.5 px-5 w-40 border border-gray-400 flex flex-col gap-4 gap-y-5">
               <div className=" text-lg font-bold">
-                {convertNumberInNumerals(productData.Price)}
+                {convertNumberInNumerals(productData.price)}
               </div>
               <label for="qty" className="text-sm">
                 Quantity:
