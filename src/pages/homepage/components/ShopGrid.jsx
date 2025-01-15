@@ -1,4 +1,4 @@
-import { GridCardCarousel } from "./GridCardCarousel";
+import { CategoryGridCarousel } from "./CategoryGridCarousel";
 import { FORMAT } from "../data/CategoryFormat";
 
 export const ShopGrid = ({ data, structure, unit }) => {
@@ -6,7 +6,7 @@ export const ShopGrid = ({ data, structure, unit }) => {
     <>
       {data.map((ele) => {
         if (ele.name === FORMAT[structure][unit]) {
-          return <GridCardCarousel key={ele.id} data={ele.data} />;
+          return <CategoryGridCarousel key={ele.id} data={ele.data} />;
         }
       })}
     </>

@@ -1,13 +1,11 @@
 import React, { useEffect } from "react";
 import { useState } from "react";
 import ArrowForwardIosIcon from "@mui/icons-material/ArrowForwardIos";
-import { Link } from "react-router-dom";
 import { SliderSkeleton } from "./SliderSkeleton";
 
 export const Slider = ({ imageData, loading }) => {
   const [currentIndex, setCurrentIndex] = useState(0);
   const [buttonClicked, setButtonClicked] = useState(false);
-  // const navigate = useNavigate();
 
   useEffect(() => {
     const interval = setInterval(() => {
@@ -21,7 +19,6 @@ export const Slider = ({ imageData, loading }) => {
   }, [buttonClicked, currentIndex]);
 
   const handleIndex = (newIndex) => {
-    // console.log(`newIndex`, newIndex);
     const imageDataLength = imageData.length - 1;
     if (newIndex > imageDataLength) {
       return 0;
@@ -32,12 +29,10 @@ export const Slider = ({ imageData, loading }) => {
   };
 
   const updateIndex = (index) => {
-    // console.log(`Index updated`);
     setButtonClicked(true);
     setCurrentIndex(handleIndex(index));
   };
 
-  console.log("IMAGE DATA", imageData);
   let currentImage = imageData[currentIndex];
   return (
     <>
@@ -83,30 +78,17 @@ const SliderArrows = ({ handleLeft, handleRight }) => {
   );
 };
 const SlidesImages = ({ data, category_id, loading }) => {
-  console.log(loading);
-  // const clickCarousel = () => {
-  //   console.log(`I'm clicking`);
-  //   navigate(`/products?category=${category_id}`);
-  // };
   const handleClick = () => {
     alert("Image clicked!");
   };
 
   return (
     <div className="cursor-pointer">
-      {/* {loading ? (
-        <div className="bg-gray-300 animate-pulse w-full h-[600px]"></div>
-      ) :  */}
-      {/* ( */}
-      <Link to={`/products?category=${category_id}`}>
-        <img
-          src={data}
-          className="w-full max-h-full object-cover"
-          alt="carousel-image"
-          onClick={handleClick}
-        />
-      </Link>
-      {/* )} */}
+      <img
+        src={data}
+        className="w-full max-h-full object-cover"
+        alt="carousel-image"
+      />
     </div>
   );
 };

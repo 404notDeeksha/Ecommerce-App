@@ -4,6 +4,13 @@ import { Slider } from "./Slider";
 import { ShopItems } from "./ShopItems";
 import axios from "axios";
 import { URL } from "../../../constant/url";
+import { CategoryGridCarousel } from "./CategoryGridCarousel";
+import {
+  appliances,
+  headphones,
+  homeDecor,
+  beauty,
+} from "./../data/CategoryGridCarousel";
 
 // const BANNER_TYPE = {
 //   AUTOMATIC_RUNNING_CAROUSEL: "AUTOMATIC_RUNNING_CAROUSEL",
@@ -35,7 +42,6 @@ export const HomePage = () => {
     fetchData();
   }, []);
 
-  // console.log("ROTATING CAROUISEL", automaticRotatingCarousel);
   return (
     <div
       id="pageContent"
@@ -43,7 +49,18 @@ export const HomePage = () => {
       className="min-w-[1000px] mx-auto overflow-clip relative z-[2]"
     >
       <Slider imageData={automaticRotatingCarousel} loading={loading} />
-      <ShopItems data={layoutData} loading={loading} />
+      <CategoryGridCarousel
+        data1={homeDecor}
+        data2={appliances}
+        data3={headphones}
+        data4={beauty}
+        label1="Revamp your home in style"
+        label2="Appliances for your home"
+        label3="Starting 149 |  HeadPhones"
+        label4="Beauty & Makeup"
+      />
+
+      {/* <ShopItems data={layoutData} loading={loading} /> */}
     </div>
   );
 };
