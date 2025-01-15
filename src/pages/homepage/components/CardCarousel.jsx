@@ -3,6 +3,7 @@ import { useState, useRef, useEffect } from "react";
 import { Link } from "react-router-dom";
 import { URL } from "../../../constant/url";
 import { getImages } from "./../../../utils/common-utils";
+import { MultiCardCarouselSkeleton } from "./MultiCardCarouselSkeleton";
 
 export const MultiCardCarousel = ({ title }) => {
   const maxScrollWidth = useRef(0);
@@ -11,6 +12,7 @@ export const MultiCardCarousel = ({ title }) => {
   const [loading, setLoading] = useState(true);
   const carousel = useRef(null);
   const category = "beautyAndMakeup";
+  
   useEffect(() => {
     const fetchData = async () => {
       try {
@@ -70,8 +72,10 @@ export const MultiCardCarousel = ({ title }) => {
       : 0;
   }, []);
 
-  console.log("Bestseller data", data);
-  return (
+  // console.log("Bestseller data", data);
+  return loading ? (
+    <MultiCardCarouselSkeleton />
+  ) : (
     <div className="relative overflow-hidden mx-auto  bg-white  mb-5 px-5 py-2.5">
       <div className="my-2.5 flex items-center">
         <h2 className="text-black font-bold text-[21px]">{title}</h2>
@@ -138,7 +142,6 @@ const MultiCarouselRightButton = ({ moveNext, isDisabled }) => {
 };
 
 const MultiImageCarousel = ({ dataset, carousel }) => {
-  
   return (
     <div ref={carousel} className="carousel-container">
       {dataset.map((product, index) => {
