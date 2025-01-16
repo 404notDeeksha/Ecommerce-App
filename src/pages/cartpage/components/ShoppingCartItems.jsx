@@ -11,15 +11,14 @@ import {
 import { ShoppingCartSkeleton } from "./ShoppingCartSkeleton";
 import { Skeleton } from "../../../components/Skeleton";
 import { Link } from "react-router-dom";
-import { EmptyCartPage } from "./EmptyCart";
+// import { EmptyCartPage } from "./EmptyCart";
 
 export const ShoppingCartItems = () => {
   const [cartData, setCartData] = useState({});
-  const [cartLength, setCartLength] = useState(0);
+  // const [cartLength, setCartLength] = useState(0);
   const [loading, setLoading] = useState(true);
 
   const userId = getCookieId();
-  // console.log("Grid Page -> cart", userId);
 
   useEffect(() => {
     const fetchCartData = async () => {
@@ -38,7 +37,7 @@ export const ShoppingCartItems = () => {
                 response?.data.data.totalPrice
               ),
             });
-            setCartLength(cartData?.items?.length);
+            // setCartLength(cartData?.items?.length);
           }
         }
       } catch (error) {
@@ -46,8 +45,9 @@ export const ShoppingCartItems = () => {
       }
     };
     fetchCartData();
-  }, []);
-  console.log("CART LENGTH", cartData?.items?.length);
+  }, [cartData.totalPrice]);
+
+  console.log("CART Data", cartData);
   return (
     <>
       {loading ? (
@@ -126,10 +126,10 @@ const ProductCard = ({ product, index, userId, productId, setCartData }) => {
           <div className="text-xs mt-2">Gift Options not available</div>
           <ul className="flex text-sm mt-2 items-center">
             <QuantityUpdationButton
-              // userIdCart={userIdCart}
               qty={product.quantity}
-              // productId={product.ProductId}
-              // product={product}
+              userId={userId}
+              productId={product.productId}
+              setCartData={setCartData}
             />
             <li className="mx-2">|</li>
             <li className="cursor-pointer" onClick={handleDelete}>
@@ -152,44 +152,67 @@ const ProductCard = ({ product, index, userId, productId, setCartData }) => {
   );
 };
 
-const QuantityUpdationButton = ({ qty }) =>
-  // { qty, productId, product }
-  {
-    // const handleIncrementQuantity = () => {
-    //   const item = itemsInCart.find((item) => item.ProductId === productId);
-    //   if (item) {
-    //     updateQuantity(productId, item.quantity + 1);
-    //   }
-    // };
-
-    // // Decrement quantity
-    // const handleDecrementQuantity = (productId) => {
-    //   const item = itemsInCart.find((item) => item.ProductId === productId);
-    //   if (item && item.quantity > 1) {
-    //     updateQuantity(productId, item.quantity - 1);
-    //   }
-    // };
-
-    return (
-      <>
-        <li className="border-yellow-500 border-4 rounded-xl flex m-2 px-2 py-0.5 ml-0 items-center ">
-          <div
-            className="font-bold cursor-pointer"
-            // onClick={handleDecrementQuantity}
-          >
-            <FaMinus />
-          </div>
-          <div className="mx-4 font-bold">{qty}</div>
-          <div
-            className="font-bold p-1 cursor-pointer "
-            // onClick={handleIncrementQuantity}
-          >
-            <FaPlus />
-          </div>
-        </li>
-      </>
-    );
+const QuantityUpdationButton = ({ qty, userId, productId, setCartData }) => {
+  const handleDecrementQuantity = async (qty) => {
+    // console.log("Qty", qty);
+    if (qty === 1) {
+      return null;
+    }
+    try {
+      const response = await axios.put(
+        `${URL.CART_API}/${userId}/${productId}/${qty}`
+      );
+      if (response.data.success) {
+        console.log("Product Qty updation Successfully", response.data.data);
+        setCartData(response.data.data);
+      }
+    } catch (err) {
+      console.log("Error sending data", err);
+    }
   };
+
+  // // Increment quantity
+  const handleIncrementQuantity = async (qty) => {
+    // console.log("Qty", qty);
+    try {
+      const response = await axios.put(
+        `${URL.CART_API}/${userId}/${productId}/${qty}`
+      );
+      if (response.data.success) {
+        console.log("Product Qty updation Successfully", response.data.data);
+        setCartData(response.data.data);
+      }
+    } catch (err) {
+      console.log("Error sending data", err);
+    }
+  };
+
+  return (
+    <>
+      <li
+        className={`border-yellow-500 border-4 rounded-xl flex m-2 px-2 py-0.5 ml-0 items-center`}
+      >
+        <div
+          className={`font-bold cursor-pointer  ${
+            qty === 1
+              ? "opacity-25 cursor-not-allowed pointer-events-none"
+              : "none"
+          }`}
+          onClick={() => handleDecrementQuantity(qty - 1)}
+        >
+          <FaMinus />
+        </div>
+        <div className="mx-4 font-bold">{qty}</div>
+        <div
+          className="font-bold p-1 cursor-pointer "
+          onClick={() => handleIncrementQuantity(qty + 1)}
+        >
+          <FaPlus />
+        </div>
+      </li>
+    </>
+  );
+};
 
 const calculateTotalQtyInCart = (data) => {
   let total = 0;
