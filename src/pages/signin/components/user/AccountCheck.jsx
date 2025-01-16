@@ -1,19 +1,20 @@
 import React, { useState } from "react";
 import { LogoBlack } from "../Logo";
-import { Link, useLocation, useNavigate } from "react-router-dom";
-import { setCookieId } from "../../../../utils/common-utils";
+import { Link, useNavigate } from "react-router-dom";
+import {
+  getFromLocalStorage,
+  setCookieId,
+} from "../../../../utils/common-utils";
 
 //private route
 export const AccountCheck = () => {
   const [password, setPassword] = useState("");
   const [errorMsg, setErrorMsg] = useState(false);
-  const location = useLocation();
-  const data = location.state;
-
+  const user = getFromLocalStorage("user-info");
   const navigate = useNavigate();
 
   const checkRegisteredPassword = (password) => {
-    if (password !== location.state.password) {
+    if (password !== user.password) {
       setErrorMsg("Wrong password entered!");
       setPassword("");
       return false;
@@ -22,13 +23,12 @@ export const AccountCheck = () => {
     return true;
   };
 
-  console.log("Data", data);
   const handleSubmit = (e) => {
     e.preventDefault();
     console.log("Password Check", checkRegisteredPassword(password));
     if (checkRegisteredPassword(password)) {
-      setCookieId(data.userId);
-      navigate("/");
+      setCookieId(user.userId);
+      navigate("/home");
     }
   };
 
@@ -39,7 +39,7 @@ export const AccountCheck = () => {
         <h1 className="font-normal mb-3.5 text-[28px] leading-5 ">Sign in</h1>
 
         <div className="mt-7">
-          <span className="">{data.email}</span>
+          <span className="">{user.email}</span>
           <span className="ml-4 underline text-cyan-500">
             <Link to="/signin">Change</Link>
           </span>
