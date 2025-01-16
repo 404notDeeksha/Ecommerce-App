@@ -5,7 +5,7 @@ import { CgFormatItalic } from "react-icons/cg";
 import { RiArrowDropRightFill } from "react-icons/ri";
 import axios from "axios";
 import { URL } from "../../../constant/url";
-import { setCookieId, setToLocalStorage } from "../../../utils/common-utils";
+// import { setCookieId, setToLocalStorage } from "../../../utils/common-utils";
 
 export const CreateAccountForm = () => {
   const [nameDetail, setNameDetail] = useState("");

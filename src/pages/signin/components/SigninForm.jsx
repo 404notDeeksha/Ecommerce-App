@@ -2,7 +2,10 @@ import axios from "axios";
 import { useState } from "react";
 import { useNavigate } from "react-router-dom";
 import { URL } from "../../../constant/url";
-import { setToLocalStorage } from "../../../utils/common-utils";
+import {
+  setCookieId,
+  setDataToLocalStorage,
+} from "../../../utils/common-utils";
 
 export const SignInForm = () => {
   const [signinInput, setSigninInput] = useState("");
@@ -19,7 +22,7 @@ export const SignInForm = () => {
       try {
         const response = await axios.post(`${URL.ACCOUNT_API}/check`, {
           email: signinInput,
-        });       
+        });
         if (response.data.success) {
           // let value = {
           //   userId: response.data.data.userId,
@@ -29,7 +32,12 @@ export const SignInForm = () => {
           // };
           // setToLocalStorage("user-info", value);
           console.log("Email is present");
-          navigate("/signin/auth");
+          // setDataToLocalStorage("user-info", {
+          //   name: response.data.data.name,
+          //   email: response.data.data.email,
+          // });
+          // setCookieId("id")
+          navigate("/signin/auth", { state: signinInput });
         }
       } catch (err) {
         console.log("User not Registered", err);

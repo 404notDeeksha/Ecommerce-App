@@ -2,7 +2,7 @@ import React from "react";
 import { getAccountDetails, getYourLists } from "../data/PrivateLinks";
 import { v4 as uuid } from "uuid";
 import { Link } from "react-router-dom";
-import { getFromLocalStorage } from "../../../../../../utils/common-utils";
+// import { getFromLocalStorage } from "../../../../../../utils/common-utils";
 
 export const SignInDropMenu = () => {
   const listDetails = getYourLists();

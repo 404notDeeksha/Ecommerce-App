@@ -8,7 +8,7 @@ import {
   getCookieId,
   convertNumberInNumerals,
   setNumberToLocalStorage,
-  getFromLocalStorage,
+  // getFromLocalStorage,
 } from "../../../utils/common-utils";
 import { ShoppingCartSkeleton } from "./ShoppingCartSkeleton";
 import { Skeleton } from "../../../components/Skeleton";

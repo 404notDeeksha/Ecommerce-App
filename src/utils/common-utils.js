@@ -4,7 +4,7 @@ export const getImages = (image) => {
   return image?.replace("via.placeholder.com", "placehold.co");
 };
 
-export const getFromLocalStorage = (key) => {
+export const getDataFromLocalStorage = (key) => {
   return JSON.parse(localStorage.getItem(key));
 };
 
@@ -20,7 +20,7 @@ export const getNumberFromLocalStorage = (key) => {
   return parsedValue;
 };
 
-export const setToLocalStorage = (key, user) => {
+export const setDataToLocalStorage = (key, user) => {
   return localStorage.setItem(key, JSON.stringify(user));
 };
 
@@ -31,19 +31,17 @@ export const setNumberToLocalStorage = (key, value) => {
   localStorage.setItem(key, value.toString());
 };
 
-export const setCookieId = (value) => {
+export const setCookieId = (name, value) => {
   console.log("Setting Cookie Id");
   const DAYS_IN_MILLISECONDS = 24 * 60 * 60 * 1000;
   const date = new Date();
   date.setTime(date.getTime() + 2 * DAYS_IN_MILLISECONDS); // Convert days to milliseconds
   const expires = `expires=${date.toUTCString()}`;
-  document.cookie = `cId=${value}; ${expires}; path=/`;
+  document.cookie = `${name}=${value}; ${expires}; path=/`;
 };
 
-export const getCookieId = () => {
+export const getCookieId = (name) => {
   console.log("Getting Cookie Id");
-
-  let name = `cId`;
   const cookies = document.cookie.split(";");
   for (let i = 0; i < cookies.length; i++) {
     const cookie = cookies[i].trim();

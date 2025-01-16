@@ -6,7 +6,7 @@ import {
   setCookieId,
   getImages,
   convertNumberInNumerals,
-  getFromLocalStorage,
+  // getFromLocalStorage,
 } from "../../../utils/common-utils";
 import StarRatings from "react-star-ratings";
 
