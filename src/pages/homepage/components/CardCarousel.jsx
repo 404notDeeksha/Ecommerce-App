@@ -5,19 +5,19 @@ import { URL } from "../../../constant/url";
 import { getImages } from "./../../../utils/common-utils";
 import { MultiCardCarouselSkeleton } from "./MultiCardCarouselSkeleton";
 
-export const MultiCardCarousel = ({ title }) => {
+export const MultiCardCarousel = ({ title, category, query }) => {
   const maxScrollWidth = useRef(0);
   const [currentIndex, setCurrentIndex] = useState(0);
   const [data, setData] = useState([]);
   const [loading, setLoading] = useState(true);
   const carousel = useRef(null);
-  const category = "beautyAndMakeup";
-  
+
   useEffect(() => {
     const fetchData = async () => {
       try {
+        console.log(`${URL.PRODUCTS_API}?category=${category}&${query}`);
         const response = await axios.get(
-          `${URL.PRODUCTS_API}?category=${category}&&bestsellers=true`
+          `${URL.PRODUCTS_API}?category=${category}&${query}`
         );
         console.log("BESTSELLERS:", response.data);
         if (response) {
@@ -76,14 +76,14 @@ export const MultiCardCarousel = ({ title }) => {
   return loading ? (
     <MultiCardCarouselSkeleton />
   ) : (
-    <div className="relative overflow-hidden mx-auto  bg-white  mb-5 px-5 py-2.5">
+    <div className="relative overflow-hidden mx-auto  bg-white  mb-5 px-5 py-2.5 max-w-[1480px] ">
       <div className="my-2.5 flex items-center">
         <h2 className="text-black font-bold text-[21px]">{title}</h2>
-        <Link to={`/products?category=${category}&&bestsellers=true`}>
+        <Link to={`/products?category=${category}&&${query}`}>
           <span className="text-sm pl-4">See all offers</span>
         </Link>
       </div>
-      <div className="flex justify-between absolute w-full max-w-[1420px]  max-h-[200px] h-full ">
+      <div className="flex justify-between absolute w-full max-w-[1440px]  max-h-[200px] h-full ">
         <MultiCarouselLeftButton movePrev={movePrev} isDisabled={isDisabled} />
         <MultiCarouselRightButton moveNext={moveNext} isDisabled={isDisabled} />
       </div>

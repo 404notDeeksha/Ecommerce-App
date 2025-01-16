@@ -1,7 +1,5 @@
 import React, { useState, useEffect } from "react";
-import { layoutData } from "../data/layout";
 import { Slider } from "./Slider";
-import { ShopItems } from "./ShopItems";
 import axios from "axios";
 import { URL } from "../../../constant/url";
 import { CategoryGridCarousel } from "./CategoryGridCarousel";
@@ -11,12 +9,7 @@ import {
   homeDecor,
   beauty,
 } from "./../data/CategoryGridCarousel";
-
-// const BANNER_TYPE = {
-//   AUTOMATIC_RUNNING_CAROUSEL: "AUTOMATIC_RUNNING_CAROUSEL",
-//   GRID_CARD: "GRID_CARD",
-//   MULTI_IMAGE_CAROUSEL: "MULTI_IMAGE_CAROUSEL",
-// };
+import { MultiCardCarousel } from "./CardCarousel";
 
 export const HomePage = () => {
   const [automaticRotatingCarousel, setAutomaticRotatingCarousel] = useState(
@@ -59,7 +52,21 @@ export const HomePage = () => {
         label3="Starting 149 |  HeadPhones"
         label4="Beauty & Makeup"
       />
+      <MultiCardCarousel
+        title="Bestsellers from Beauty"
+        category="beautyAndMakeup"
+        query="bestsellers=true"
+      />
+      <MultiCardCarousel
+        title="Headphones at 40% off"
+        category="headphones"
+        query="discount=40"
+      />
+      {/* <MultiCardCarousel />
 
+      <MultiCardCarousel />
+      <MultiCardCarousel />
+      <MultiCardCarousel /> */}
       {/* <ShopItems data={layoutData} loading={loading} /> */}
     </div>
   );

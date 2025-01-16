@@ -13,6 +13,7 @@ export const setToLocalStorage = (key, user) => {
 };
 
 export const setCookieId = (value) => {
+  console.log("Setting Cookie Id");
   const DAYS_IN_MILLISECONDS = 24 * 60 * 60 * 1000;
   const date = new Date();
   date.setTime(date.getTime() + 2 * DAYS_IN_MILLISECONDS); // Convert days to milliseconds
@@ -21,6 +22,8 @@ export const setCookieId = (value) => {
 };
 
 export const getCookieId = () => {
+  console.log("Getting Cookie Id");
+
   let name = `cId`;
   const cookies = document.cookie.split(";");
   for (let i = 0; i < cookies.length; i++) {

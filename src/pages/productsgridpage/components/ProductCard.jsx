@@ -13,7 +13,7 @@ export const ProductCard = ({ product }) => {
   const navigate = useNavigate();
 
   const handleClick = () => {
-    const product_id = product.ProductId;
+    const product_id = product.productId;
     navigate(`/products/product/${product_id}`, { state: product });
   };
 
@@ -29,11 +29,11 @@ export const ProductCard = ({ product }) => {
       userId: userId,
       items: [
         {
-          ProductId: product.ProductId,
-          ProductName: product.ProductName,
-          ProductDescription: product.ProductDescription,
-          Price: product.Price,
-          Images: product.Images,
+          productId: product.productId,
+          productName: product.productName,
+          productDescription: product.productDescription,
+          price: product.price,
+          images: product.images,
           quantity: 1,
         },
       ],

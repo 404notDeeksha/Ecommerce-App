@@ -7,13 +7,15 @@ import { MdOutlineSecurity } from "react-icons/md";
 import { RiSecurePaymentLine } from "react-icons/ri";
 import { Link, useLocation, useNavigate, useParams } from "react-router-dom";
 import { URL } from "../../../constant/url";
-import { getImages } from "../../../utils/common-utils";
+import { getImages, setCookieId } from "../../../utils/common-utils";
 import StarRatings from "react-star-ratings";
 import { ProductSkeleton } from "./ProductSkeleton";
 import { Skeleton } from "../../../components/Skeleton";
+import { v4 as uuid } from "uuid";
 
 export const ProductPage = () => {
   const [productData, setProductData] = useState({});
+  const [quantity, setQuantity] = useState(1);
   const [loading, setLoading] = useState(true);
   const { productId } = useParams();
   const data = useLocation();
@@ -26,6 +28,7 @@ export const ProductPage = () => {
         if (response) {
           setLoading(false);
           if (response.data.success) {
+            console.log("PRODUCT DATA -> cart", response.data.data);
             setProductData(response.data.data);
           }
         }
@@ -41,23 +44,41 @@ export const ProductPage = () => {
     }
   }, [productId]);
 
-  const handleClick = async () => {
+  const addToCart = async () => {
     const userId = "64a57e6e8f1a7d123456789a";
+    if (userId) {
+      setCookieId(userId);
+    } else {
+      const uniqueId = uuid();
+      setCookieId(uniqueId);
+    }
     const body = {
       userId: userId,
-      items: [{ ...productData, quantity: 1 }],
+      items: [
+        {
+          productId: productData.productId,
+          productName: productData.productName,
+          productDescription: productData.productDescription,
+          price: productData.price,
+          brand: productData.brand,
+          colour: productData.colour,
+          images: productData.images,
+          quantity: quantity,
+        },
+      ],
+      // items: [{ ...productData, quantity: quantity }],
     };
     try {
       const response = await axios.post(`${URL.CART_API}`, body);
       if (response.data.success) {
-        console.log("Data added in cart", response.data);
+        console.log("Data added in cart", response.data.data);
         navigate("/cart");
       }
     } catch (err) {
       console.log("Error Updating data in cart", err);
     }
   };
-
+  console.log("Qty entererd", quantity);
   return (
     <>
       {loading ? (
@@ -74,6 +95,9 @@ export const ProductPage = () => {
 
             <div className=" mx-8 flex-1 flex flex-col gap-3">
               <h1 className="text-4xl font-[800]">{productData.productName}</h1>
+              <h1 className="text-2xl font-[500]">
+                {productData.productDescription}
+              </h1>
               <div className="text-base">
                 Brand:
                 <Link to={`/products?brand=${productData.brand}`}>
@@ -159,16 +183,20 @@ export const ProductPage = () => {
               <div className=" text-lg font-bold">
                 {convertNumberInNumerals(productData.price)}
               </div>
-              <label for="qty" className="text-sm">
-                Quantity:
-              </label>
+              <label className="text-sm">Quantity:</label>
               <select
                 id="qty"
                 className=" w-28 border border-gray-400 rounded text-center text-sm py-1 px-5 bg-gray-200 "
+                value={quantity}
+                onChange={(e) => setQuantity(e.target.value)}
               >
                 {[...Array(20).keys()].map((item, index) => {
                   return (
-                    <option className="text-center" key={index}>
+                    <option
+                      className="text-center"
+                      key={index}
+                      value={item + 1}
+                    >
                       {item + 1}
                     </option>
                   );
@@ -177,7 +205,7 @@ export const ProductPage = () => {
 
               <button
                 className="px-5 py-1 mx-auto bg-yellow-500 rounded-xl text-center text-sm"
-                onClick={handleClick}
+                onClick={addToCart}
               >
                 Add to Cart
               </button>

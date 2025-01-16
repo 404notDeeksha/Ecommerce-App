@@ -10,18 +10,22 @@ import {
 } from "../../../utils/common-utils";
 import { ShoppingCartSkeleton } from "./ShoppingCartSkeleton";
 import { Skeleton } from "../../../components/Skeleton";
+import { Link } from "react-router-dom";
+import { EmptyCartPage } from "./EmptyCart";
+
 export const ShoppingCartItems = () => {
   const [cartData, setCartData] = useState({});
+  const [cartLength, setCartLength] = useState(0);
   const [loading, setLoading] = useState(true);
 
   const userId = getCookieId();
-  console.log("Grid Page -> cart", userId);
+  // console.log("Grid Page -> cart", userId);
 
   useEffect(() => {
     const fetchCartData = async () => {
       try {
         const response = await axios.get(`${URL.CART_API}/${userId}`);
-        console.log("Data present in cart", response.data);
+        // console.log("Data present in cart", response.data);
         if (response) {
           setLoading(false);
           if (response.data.success) {
@@ -34,6 +38,7 @@ export const ShoppingCartItems = () => {
                 response?.data.data.totalPrice
               ),
             });
+            setCartLength(cartData?.items?.length);
           }
         }
       } catch (error) {
@@ -42,7 +47,7 @@ export const ShoppingCartItems = () => {
     };
     fetchCartData();
   }, []);
-
+  console.log("CART LENGTH", cartData?.items?.length);
   return (
     <>
       {loading ? (
@@ -52,14 +57,14 @@ export const ShoppingCartItems = () => {
           <div className="mr-5 mb-5 p-5 bg-white flex-1">
             <div className="text-3xl mb-4">Shopping Cart</div>
             <div className="border-b-2 border-gray-300"></div>
-            {cartData?.items?.map((ele, index) => {
+            {cartData?.items?.map((product, index) => {
               return (
                 <ProductCard
                   key={index}
-                  itemData={ele}
+                  product={product}
                   index={0}
                   userId={cartData.userId}
-                  productId={ele.ProductId}
+                  productId={product.productId}
                   setCartData={setCartData}
                 />
               );
@@ -90,7 +95,7 @@ export const ShoppingCartItems = () => {
   );
 };
 
-const ProductCard = ({ itemData, index, userId, productId, setCartData }) => {
+const ProductCard = ({ product, index, userId, productId, setCartData }) => {
   const handleDelete = async () => {
     console.log("clicking");
     try {
@@ -112,17 +117,19 @@ const ProductCard = ({ itemData, index, userId, productId, setCartData }) => {
   return (
     <>
       <div className="p-3 flex justify-between">
-        <img src={getImages(itemData.Images[index++])} className="w-44" />
+        <img src={getImages(product.images[index++])} className="w-44" />
         <div className="text-lg flex-1 pl-4">
-          <div className="font-bold">{itemData.ProductDescription}</div>
-          <div className="text-sm mt-2">{itemData.ProductName}</div>
-          <div className="text-xs mt-1">Gift Options not available</div>
+          <Link to={`/products/product/${product.productId}`}>
+            <div className="font-bold">{product.productDescription}</div>
+          </Link>
+          <div className="text-sm mt-0.5 font-[500]">{product.productName}</div>
+          <div className="text-xs mt-2">Gift Options not available</div>
           <ul className="flex text-sm mt-2 items-center">
             <QuantityUpdationButton
-            // userIdCart={userIdCart}
-            // qty={ele.totalQty}
-            // productId={itemData.ProductId}
-            // itemData={itemData}
+              // userIdCart={userIdCart}
+              qty={product.quantity}
+              // productId={product.ProductId}
+              // product={product}
             />
             <li className="mx-2">|</li>
             <li className="cursor-pointer" onClick={handleDelete}>
@@ -137,7 +144,7 @@ const ProductCard = ({ itemData, index, userId, productId, setCartData }) => {
           </ul>
         </div>
         <div className="font-bold text-base ">
-          {convertNumberInNumerals(itemData.Price)}
+          {convertNumberInNumerals(product.price)}
         </div>
       </div>
       <div className="border-b-2 border-gray-300 my-4"></div>
@@ -146,7 +153,7 @@ const ProductCard = ({ itemData, index, userId, productId, setCartData }) => {
 };
 
 const QuantityUpdationButton = ({ qty }) =>
-  // { qty, productId, itemData }
+  // { qty, productId, product }
   {
     // const handleIncrementQuantity = () => {
     //   const item = itemsInCart.find((item) => item.ProductId === productId);
