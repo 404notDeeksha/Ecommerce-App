@@ -1,13 +1,13 @@
 import axios from "axios";
 import { useState } from "react";
-import { Link, useNavigate } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
 import { URL } from "../../../constant/url";
+import { setToLocalStorage } from "../../../utils/common-utils";
 
 export const SignInForm = () => {
   const [signinInput, setSigninInput] = useState("");
   const [errorMsg, setErrorMsg] = useState(false);
   const navigate = useNavigate();
-  // console.log("api_url", api_url);
 
   const handleSubmit = async (e, value) => {
     e.preventDefault();
@@ -16,21 +16,21 @@ export const SignInForm = () => {
     //   navigate("/signin/auth", { state: { number: signinInput } });
     // } else
     if (val == "email") {
-      console.log("Email -->", signinInput);
+      // console.log("Email -->", signinInput);
       try {
         const response = await axios.post(`${URL.ACCOUNT_API}/check`, {
           email: signinInput,
         });
-        console.log(response.data);
+        // console.log("Account info received ", response.data.data);
         if (response.data.success) {
-          navigate("/signin/auth", {
-            state: {
-              email: signinInput,
-              password: response.data.data.password,
-              userId: response.data.data.userId,
-            },
-          });
-         
+          let value = {
+            userId: response.data.data.userId,
+            name: response.data.data.name,
+            email: response.data.data.email,
+            password: response.data.data.password,
+          };
+          setToLocalStorage("user-info", value);
+          navigate("/signin/auth");
         }
       } catch (err) {
         console.log("User not Registered", err);
@@ -68,13 +68,6 @@ export const SignInForm = () => {
             Continue
           </button>
         </form>
-        <div className=" mt-[18px] mb-[22px]">
-          By continuing, you agree to Amazon's
-          <Link> Conditions of Use</Link> and <Link>Privacy Notice</Link>
-        </div>
-        <div className="pb-[22px] border-b-[1px] mb-3.5 ">Need help?</div>
-        <div className="font-bold mb-1">Buying for work?</div>
-        <div className="">Shop on Amazon Business</div>
       </div>
     </>
   );

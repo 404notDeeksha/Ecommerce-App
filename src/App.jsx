@@ -8,12 +8,12 @@ import {
 } from "react-router-dom";
 import { Layout } from "./components/layout/Layout";
 import { HomePage } from "./pages/homepage/components/HomePage";
-import { SignIn } from "./pages/signin/SignIn";
 import { AccountCheck } from "./pages/signin/components/user/AccountCheck";
 import { CreateAccountForm } from "./pages/signup/components/CreateAccountForm";
 import { Cartpage } from "./pages/cartpage/components/Cartpage";
 import { ProductPage } from "./pages/product/components/ProductPage";
 import { ProductsPage } from "./pages/productsgridpage/components/ProductsPage";
+import { SignInPage } from "./pages/signin/SignInPage";
 
 function App() {
   const [modalVisibility, setModalVisibility] = useState(false);
@@ -50,7 +50,7 @@ function App() {
       <Router>
         <Routes>
           <Route path="/" element={<Navigate to="/home" replace />} />
-          <Route path="/signin" element={<SignIn />} />
+          <Route path="/signin" element={<SignInPage />} />
           <Route path="/signin/auth" element={<AccountCheck />} />
           <Route path="/create" element={<CreateAccountForm />} />
           <Route

@@ -1,8 +1,9 @@
 import React from "react";
 import { FiShoppingCart } from "react-icons/fi";
+import { getNumberFromLocalStorage } from "../../../../utils/common-utils";
 
 export const CartLogo = () => {
-  const itemsNumberInCart = 2;
+  const itemsNumberInCart = getNumberFromLocalStorage("cartQty");
 
   const handleClick = () => {};
 

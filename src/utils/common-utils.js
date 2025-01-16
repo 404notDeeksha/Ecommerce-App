@@ -8,8 +8,27 @@ export const getFromLocalStorage = (key) => {
   return JSON.parse(localStorage.getItem(key));
 };
 
+export const getNumberFromLocalStorage = (key) => {
+  const value = localStorage.getItem(key);
+  if (value === null) {
+    return null; // Return null if the key doesn't exist
+  }
+  const parsedValue = parseFloat(value);
+  if (isNaN(parsedValue)) {
+    throw new Error("Stored value is not a valid number.");
+  }
+  return parsedValue;
+};
+
 export const setToLocalStorage = (key, user) => {
   return localStorage.setItem(key, JSON.stringify(user));
+};
+
+export const setNumberToLocalStorage = (key, value) => {
+  if (typeof value !== "number") {
+    throw new Error("Value must be a number.");
+  }
+  localStorage.setItem(key, value.toString());
 };
 
 export const setCookieId = (value) => {
