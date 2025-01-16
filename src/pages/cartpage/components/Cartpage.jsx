@@ -1,5 +1,4 @@
 import React from "react";
-import { EmptyCartPage } from "./EmptyCart";
 import { ShoppingCartItems } from "../components/ShoppingCartItems";
 
 export const Cartpage = () => {
@@ -7,7 +6,6 @@ export const Cartpage = () => {
     <>
       <div className="w-full min-w-[998px] bg-[#EAEDED] px-[18px] py-3.5 my-0 mx-auto">
         <div className="max-w-[1500px] m-auto text-sm leading-5 ">
-          {/* <EmptyCartPage /> */}
           <ShoppingCartItems />
 
           <div className="text-xs">

@@ -6,11 +6,13 @@ import {
   setCookieId,
   getImages,
   convertNumberInNumerals,
+  getFromLocalStorage,
 } from "../../../utils/common-utils";
 import StarRatings from "react-star-ratings";
 
 export const ProductCard = ({ product }) => {
   const navigate = useNavigate();
+  // const user = getFromLocalStorage("user-info");
 
   const handleClick = () => {
     const product_id = product.productId;
@@ -18,6 +20,7 @@ export const ProductCard = ({ product }) => {
   };
 
   const onAddToCart = async () => {
+    // const userId = user ? user.userId : uuid();
     const userId = "64a57e6e8f1a7d123456789a";
     if (userId) {
       setCookieId(userId);

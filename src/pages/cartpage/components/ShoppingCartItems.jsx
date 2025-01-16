@@ -8,6 +8,7 @@ import {
   getCookieId,
   convertNumberInNumerals,
   setNumberToLocalStorage,
+  getFromLocalStorage,
 } from "../../../utils/common-utils";
 import { ShoppingCartSkeleton } from "./ShoppingCartSkeleton";
 import { Skeleton } from "../../../components/Skeleton";
@@ -18,9 +19,10 @@ import isEmpty from "lodash.isempty";
 export const ShoppingCartItems = () => {
   const [cartData, setCartData] = useState({});
   const [loading, setLoading] = useState(true);
-
-  const userId = getCookieId();
-
+  const user = getFromLocalStorage("user-info");
+  const userId = user ? user.userId : getCookieId();
+  // const userId = getCookieId();
+  console.log("USERID", userId);
   useEffect(() => {
     const fetchCartData = async () => {
       try {
@@ -156,11 +158,7 @@ const ProductCard = ({ product, index, userId, productId, setCartData }) => {
 };
 
 const QuantityUpdationButton = ({ qty, userId, productId, setCartData }) => {
-  const handleDecrementQuantity = async (qty) => {
-    // console.log("Qty", qty);
-    if (qty === 1) {
-      return null;
-    }
+  const backendData = async (qty) => {
     try {
       const response = await axios.put(
         `${URL.CART_API}/${userId}/${productId}/${qty}`
@@ -173,21 +171,38 @@ const QuantityUpdationButton = ({ qty, userId, productId, setCartData }) => {
       console.log("Error sending data", err);
     }
   };
+  const handleDecrementQuantity = (qty) => {
+    if (qty === 1) {
+      return null;
+    }
+    backendData(qty);
+    // try {
+    //   const response = await axios.put(
+    //     `${URL.CART_API}/${userId}/${productId}/${qty}`
+    //   );
+    //   if (response.data.success) {
+    //     console.log("Product Qty updation Successfully", response.data.data);
+    //     setCartData(response.data.data);
+    //   }
+    // } catch (err) {
+    //   console.log("Error sending data", err);
+    // }
+  };
 
   // // Increment quantity
   const handleIncrementQuantity = async (qty) => {
-    // console.log("Qty", qty);
-    try {
-      const response = await axios.put(
-        `${URL.CART_API}/${userId}/${productId}/${qty}`
-      );
-      if (response.data.success) {
-        console.log("Product Qty updation Successfully", response.data.data);
-        setCartData(response.data.data);
-      }
-    } catch (err) {
-      console.log("Error sending data", err);
-    }
+    backendData(qty);
+    // try {
+    //   const response = await axios.put(
+    //     `${URL.CART_API}/${userId}/${productId}/${qty}`
+    //   );
+    //   if (response.data.success) {
+    //     console.log("Product Qty updation Successfully", response.data.data);
+    //     setCartData(response.data.data);
+    //   }
+    // } catch (err) {
+    //   console.log("Error sending data", err);
+    // }
   };
 
   return (

@@ -16,20 +16,19 @@ export const SignInForm = () => {
     //   navigate("/signin/auth", { state: { number: signinInput } });
     // } else
     if (val == "email") {
-      // console.log("Email -->", signinInput);
       try {
         const response = await axios.post(`${URL.ACCOUNT_API}/check`, {
           email: signinInput,
-        });
-        // console.log("Account info received ", response.data.data);
+        });       
         if (response.data.success) {
-          let value = {
-            userId: response.data.data.userId,
-            name: response.data.data.name,
-            email: response.data.data.email,
-            password: response.data.data.password,
-          };
-          setToLocalStorage("user-info", value);
+          // let value = {
+          //   userId: response.data.data.userId,
+          //   name: response.data.data.name,
+          //   email: response.data.data.email,
+          //   password: response.data.data.password,
+          // };
+          // setToLocalStorage("user-info", value);
+          console.log("Email is present");
           navigate("/signin/auth");
         }
       } catch (err) {

@@ -20,9 +20,6 @@ export const CreateAccountForm = () => {
   const navigate = useNavigate();
 
   const checkEmailValidation = async (emailData) => {
-    const body = {
-      email: emailData,
-    };
     const emailRegex = /^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,})+$/;
     if (!emailRegex.test(emailData)) {
       setIsEmailValid(false);
@@ -30,7 +27,9 @@ export const CreateAccountForm = () => {
       return false;
     }
     try {
-      const response = await axios.post(`${URL.ACCOUNT_API}/check`, body);
+      const response = await axios.post(`${URL.ACCOUNT_API}/check`, {
+        email: emailData,
+      });
       if (response.data.success) {
         console.log("Data sent successfully", response);
         setIsEmailValid(false);
@@ -82,7 +81,7 @@ export const CreateAccountForm = () => {
           console.log("Account created successfully", response.data);
           setToLocalStorage("user-info", response.data.data);
           setCookieId(response.data.data.userId);
-          navigate("/home", { state: { name: nameDetail, email: email } });
+          navigate("/home");
         }
       } catch (err) {
         console.log("Issue sending data", err);
