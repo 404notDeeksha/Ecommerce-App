@@ -5,7 +5,7 @@ import { CgFormatItalic } from "react-icons/cg";
 import { RiArrowDropRightFill } from "react-icons/ri";
 import axios from "axios";
 import { URL } from "../../../constant/url";
-import { setCookieId } from "../../../utils/common-utils";
+import { setCookieId, setToLocalStorage } from "../../../utils/common-utils";
 
 export const CreateAccountForm = () => {
   const [nameDetail, setNameDetail] = useState("");
@@ -79,7 +79,8 @@ export const CreateAccountForm = () => {
       try {
         const response = await axios.post(`${URL.ACCOUNT_API}/create`, body);
         if (response.data.success) {
-          console.log("Data Logging successfully", response.data);
+          console.log("Account created successfully", response.data);
+          setToLocalStorage("user-info", response.data.data);
           setCookieId(response.data.data.userId);
           navigate("/home", { state: { name: nameDetail, email: email } });
         }
