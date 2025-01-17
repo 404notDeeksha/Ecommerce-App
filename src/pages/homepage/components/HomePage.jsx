@@ -16,12 +16,12 @@ export const HomePage = () => {
     []
   );
   const [loading, setLoading] = useState(true);
+  
 
   useEffect(() => {
     const fetchData = async () => {
       try {
         const response = await axios.get(URL.CATEGORY_API);
-        console.log("Categories:", response.data);
         if (response) {
           setLoading(false);
           if (response.data.success) {
@@ -62,12 +62,6 @@ export const HomePage = () => {
         category="headphones"
         query="discount=40"
       />
-      {/* <MultiCardCarousel />
-
-      <MultiCardCarousel />
-      <MultiCardCarousel />
-      <MultiCardCarousel /> */}
-      {/* <ShopItems data={layoutData} loading={loading} /> */}
     </div>
   );
 };

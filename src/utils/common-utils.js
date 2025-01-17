@@ -71,3 +71,23 @@ export const addUniqueIdToElements = (array) => {
   });
   return arrayNew;
 };
+
+export const decodeUserId = (token) => {
+  try {
+    const base64Url = token.split(".")[1]; // Extract payload
+    const payload = JSON.parse(atob(base64Url)); // Decode payload
+    return payload.userId; // Extract userId
+  } catch {
+    return null; // Return null for invalid tokens
+  }
+};
+
+export const isLoggedIn = (token) => {
+  try {
+    const base64Url = token.split(".")[1];
+    const payload = JSON.parse(atob(base64Url));
+    return payload.exp > Math.floor(Date.now() / 1000); // Compare exp with current time
+  } catch {
+    return false;
+  }
+};

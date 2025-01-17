@@ -12,7 +12,6 @@ export const CategoryGridCarousel = ({
   label3,
   label4,
 }) => {
-  // console.log("Data", data);
   return (
     <div className="card-grids relative">
       <Grid data={data1} label={label1} />
@@ -48,12 +47,9 @@ const Grid = ({ data, label }) => {
 };
 
 const GridCardImage = ({ caption, image, category, brand, subCategory }) => {
-  console.log("CATEGORY", category);
-
   const navigate = useNavigate();
 
   const handleClick = () => {
-    console.log("CLICKED");
     let filterName, filter;
     if (category) {
       filter = category;

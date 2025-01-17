@@ -5,7 +5,7 @@ import { CgFormatItalic } from "react-icons/cg";
 import { RiArrowDropRightFill } from "react-icons/ri";
 import axios from "axios";
 import { URL } from "../../../constant/url";
-// import { setCookieId, setToLocalStorage } from "../../../utils/common-utils";
+import { setDataToLocalStorage } from "../../../utils/common-utils";
 
 export const CreateAccountForm = () => {
   const [nameDetail, setNameDetail] = useState("");
@@ -79,8 +79,12 @@ export const CreateAccountForm = () => {
         const response = await axios.post(`${URL.ACCOUNT_API}/create`, body);
         if (response.data.success) {
           console.log("Account created successfully", response.data);
-          setToLocalStorage("user-info", response.data.data);
-          setCookieId(response.data.data.userId);
+          setDataToLocalStorage("userInfo", {
+            name: response.data.data.name,
+            email: response.data.data.email,
+          });
+          // setCookieId("userId", response.data.data.userId);
+          setCookieId("token", response.data.data.token);
           navigate("/home");
         }
       } catch (err) {

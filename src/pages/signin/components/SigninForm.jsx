@@ -15,29 +15,14 @@ export const SignInForm = () => {
   const handleSubmit = async (e, value) => {
     e.preventDefault();
     const val = checkEmailOrPhoneNumber(value);
-    // if (val === "number") {
-    //   navigate("/signin/auth", { state: { number: signinInput } });
-    // } else
     if (val == "email") {
       try {
         const response = await axios.post(`${URL.ACCOUNT_API}/check`, {
           email: signinInput,
         });
         if (response.data.success) {
-          // let value = {
-          //   userId: response.data.data.userId,
-          //   name: response.data.data.name,
-          //   email: response.data.data.email,
-          //   password: response.data.data.password,
-          // };
-          // setToLocalStorage("user-info", value);
           console.log("Email is present");
-          // setDataToLocalStorage("user-info", {
-          //   name: response.data.data.name,
-          //   email: response.data.data.email,
-          // });
-          // setCookieId("id")
-          navigate("/signin/auth", { state: signinInput });
+          navigate("/signin/auth", { state: signinInput }); // navigating to AccountCheck
         }
       } catch (err) {
         console.log("User not Registered", err);

@@ -1,31 +1,21 @@
 import React, { useState } from "react";
-import { LogoBlack } from "../Logo";
+import { LogoBlack } from "./Logo";
 import { Link, useLocation, useNavigate } from "react-router-dom";
 import {
   // getFromLocalStorage,
   setCookieId,
   setDataToLocalStorage,
-} from "../../../../utils/common-utils";
-import { URL } from "../../../../constant/url";
+} from "../../../utils/common-utils";
+import { URL } from "../../../constant/url";
 import axios from "axios";
 
 //private route
 export const AccountCheck = () => {
   const [password, setPassword] = useState("");
   const [errorMsg, setErrorMsg] = useState(false);
-  // const user = getFromLocalStorage("user-info");
   const navigate = useNavigate();
   const location = useLocation();
-  const email = location.state;
-  // const checkRegisteredPassword = (password) => {
-  //   // if (password !== user.password) {
-  //     setErrorMsg("Wrong password entered!");
-  //     setPassword("");
-  //     return false;
-  //   }
-  //   setErrorMsg(false);
-  //   return true;
-  // };
+  const email = location.state; // navigating from SignInForm
 
   const handleSubmit = (e) => {
     e.preventDefault();
@@ -37,18 +27,15 @@ export const AccountCheck = () => {
           password: password,
         });
         if (response) {
-          console.log("Data sent successfully", response.data);
+          // console.log("Data sent successfully", response.data);
           if (response.data.success) {
             setErrorMsg(false);
-            // console.log("user Verified");
-            console.log("Data", response.data.data.data.user);
             setDataToLocalStorage("userInfo", {
               name: response.data.data.data.user.name,
               email: response.data.data.data.user.email,
             });
-            setCookieId("userId", response.data.data.data.user.userId);
+            // setCookieId("userId", response.data.data.data.user.userId);
             setCookieId("token", response.data.data.data.token);
-
             navigate("/home");
           }
         }
@@ -61,12 +48,6 @@ export const AccountCheck = () => {
       }
     };
     fetchUserData();
-
-    // console.log("Password Check", checkRegisteredPassword(password));
-    // if (checkRegisteredPassword(password)) {
-    //   // setCookieId(user.userId);
-    //   navigate("/home");
-    // }
   };
 
   return (

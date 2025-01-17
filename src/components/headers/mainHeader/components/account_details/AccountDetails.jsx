@@ -9,9 +9,9 @@ export const AccountDetails = ({
   modalVisibilityClassType,
 }) => {
   // const user = getFromLocalStorage("user-info");
-  if (user) {
-    console.log("user", user);
-  }
+  // if (user) {
+  //   console.log("user", user);
+  // }
   const handleMouseOver = () => {
     onOpen();
     modalVisibilityClassType("modal-zindex-navbarTop");
@@ -25,7 +25,7 @@ export const AccountDetails = ({
       >
         <div className="text-[12px]">
           Hello,
-          {user ? <span className="ml-2">{user.name}</span> : "sign in"}
+          {/* {user ? <span className="ml-2"></span> : "sign in"} */}
         </div>
         <div className="text-[14px] text-nowrap font-bold -mt-1">
           Account & Lists

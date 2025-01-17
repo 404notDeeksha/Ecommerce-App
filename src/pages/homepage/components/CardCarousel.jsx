@@ -15,11 +15,9 @@ export const MultiCardCarousel = ({ title, category, query }) => {
   useEffect(() => {
     const fetchData = async () => {
       try {
-        console.log(`${URL.PRODUCTS_API}?category=${category}&${query}`);
         const response = await axios.get(
           `${URL.PRODUCTS_API}?category=${category}&${query}`
         );
-        console.log("BESTSELLERS:", response.data);
         if (response) {
           setLoading(false);
           if (response.data.success) {
@@ -72,7 +70,6 @@ export const MultiCardCarousel = ({ title, category, query }) => {
       : 0;
   }, []);
 
-  // console.log("Bestseller data", data);
   return loading ? (
     <MultiCardCarouselSkeleton />
   ) : (

@@ -8,7 +8,7 @@ import {
 } from "react-router-dom";
 import { Layout } from "./components/layout/Layout";
 import { HomePage } from "./pages/homepage/components/HomePage";
-import { AccountCheck } from "./pages/signin/components/user/AccountCheck";
+import { AccountCheck } from "./pages/signin/components/AccountCheck";
 import { CreateAccountForm } from "./pages/signup/components/CreateAccountForm";
 import { Cartpage } from "./pages/cartpage/components/Cartpage";
 import { ProductPage } from "./pages/product/components/ProductPage";
