@@ -2,12 +2,14 @@ import React from "react";
 import { getAccountDetails, getYourLists } from "../data/PrivateLinks";
 import { v4 as uuid } from "uuid";
 import { Link } from "react-router-dom";
-// import { getFromLocalStorage } from "../../../../../../utils/common-utils";
+import { getDataFromLocalStorage } from "../../../../../../utils/common-utils";
 
 export const SignInDropMenu = () => {
   const listDetails = getYourLists();
   const accountDetails = getAccountDetails();
-  // const user = getFromLocalStorage("user-info");
+
+  const userData = getDataFromLocalStorage("userInfo");
+
   return (
     <>
       <div
@@ -19,19 +21,19 @@ export const SignInDropMenu = () => {
        "
       >
         <div className="mx-5 mt-4 mb-3 ">
-          {/* {!user && ( */}
-          <div className="flex-col ">
-            <Link to="/signin">
-              <div className="bg-[#FFD814] text-[#111] font-[400] rounded-lg m-auto text-[13px] w-[220px] h-[33px] text-center pt-1.5 cursor-pointer">
-                Sign in
+          {!userData && (
+            <div className="flex-col ">
+              <Link to="/signin">
+                <div className="bg-[#FFD814] text-[#111] font-[400] rounded-lg m-auto text-[13px] w-[220px] h-[33px] text-center pt-1.5 cursor-pointer">
+                  Sign in
+                </div>
+              </Link>
+              <div className="text-[11px] text-center mt-1">
+                New customer?
+                <Link to="/signup"> Start here.</Link>
               </div>
-            </Link>
-            <div className="text-[11px] text-center mt-1">
-              New customer?
-              <Link to="/signup"> Start here.</Link>
             </div>
-          </div>
-          {/* )} */}
+          )}
 
           {/* ---------------------------------------BORDER #1----------------------------------- */}
 
@@ -40,7 +42,7 @@ export const SignInDropMenu = () => {
                   w-[450px] opacity-50"
           />
 
-          <div className="mt-5 flex">
+          <div className="mt-14 flex">
             {/* ---------------------------------------LIST #1----------------------------------- */}
             <div className="w-[210px] mr-5 font-bold text-[16px]">
               Your Lists
