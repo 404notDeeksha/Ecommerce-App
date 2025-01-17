@@ -6,28 +6,39 @@ import {
   setCookieId,
   getImages,
   convertNumberInNumerals,
-  // getFromLocalStorage,
+  decodeUserId,
+  getCookieId,
 } from "../../../utils/common-utils";
 import StarRatings from "react-star-ratings";
 
 export const ProductCard = ({ product }) => {
   const navigate = useNavigate();
-  // const user = getFromLocalStorage("user-info");
 
   const handleClick = () => {
     const product_id = product.productId;
-    navigate(`/products/product/${product_id}`, { state: product });
+    navigate(`/products/product/${product_id}`, { state: product }); // navigating to ProductPage
   };
 
   const onAddToCart = async () => {
-    // const userId = user ? user.userId : uuid();
-    const userId = "64a57e6e8f1a7d123456789a";
-    if (userId) {
-      setCookieId(userId);
+    const token = getCookieId("token");
+    const registeredUserId = decodeUserId(token);
+    console.log("TOKEN", token);
+    console.log("USERID", registeredUserId);
+    let userId = "";
+    if (registeredUserId) {
+      userId = registeredUserId;
     } else {
-      const uniqueId = uuid();
-      setCookieId(uniqueId);
+      userId = uuid(); //New user
+      setCookieId("uniqueId", userId);
     }
+    // const userId = registeredUserId ? registeredUserId : uuid();
+    // const userId = "64a57e6e8f1a7d123456789a";
+    // if (userId) {
+    //   setCookieId(userId);
+    // } else {
+    //   const uniqueId = uuid();
+    //   setCookieId(uniqueId);
+    // }
     const bodyCart = {
       userId: userId,
       items: [

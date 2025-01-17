@@ -78,11 +78,7 @@ const SliderArrows = ({ handleLeft, handleRight }) => {
   );
 };
 const SlidesImages = ({ data, category_id, loading }) => {
-  const handleClick = () => {
-    alert("Image clicked!");
-  };
-
-  return (
+   return (
     <div className="cursor-pointer">
       <img
         src={data}

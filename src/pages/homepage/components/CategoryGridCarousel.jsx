@@ -61,7 +61,7 @@ const GridCardImage = ({ caption, image, category, brand, subCategory }) => {
       filter = subCategory;
       filterName = "subCategory";
     }
-    navigate(`/products?${filterName}=${filter}`);
+    navigate(`/products?${filterName}=${filter}`);  // navigating to ProductsPage
   };
 
   return (

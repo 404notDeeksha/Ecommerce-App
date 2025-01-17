@@ -10,16 +10,14 @@ import { Skeleton } from "./../../../components/Skeleton";
 export const ProductsPage = () => {
   const [productsCollection, setProductsCollection] = useState([]);
   const [loading, setLoading] = useState(true);
-  const location = useLocation();
+  const location = useLocation(); // navigating from <GridCardImage/>
   const filter = location.search;
   const ITEM_PER_PAGE = 50;
-  console.log("FILTER", filter, typeof filter);
 
   useEffect(() => {
     const fetchProducts = async () => {
       try {
         const response = await axios.get(`${URL.PRODUCTS_API}/${filter}`);
-        // console.log("Data", response.data);
         if (response) {
           setLoading(false);
           if (response.data.success) {
@@ -34,9 +32,6 @@ export const ProductsPage = () => {
     fetchProducts();
   }, [filter]);
 
-  console.log("PRODUCTS-GRID", productsCollection);
-  console.log("Filter-search", filter);
-  console.log("LOADING", loading);
   return (
     <div className="bg-white">
       <div className="w-full min-w-[996px] max-w-[1800px]  my-0 py-3.5 bg-[#fff]  flex pt-5 mx-auto">

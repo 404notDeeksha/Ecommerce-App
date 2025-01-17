@@ -2,10 +2,6 @@ import axios from "axios";
 import { useState } from "react";
 import { useNavigate } from "react-router-dom";
 import { URL } from "../../../constant/url";
-import {
-  setCookieId,
-  setDataToLocalStorage,
-} from "../../../utils/common-utils";
 
 export const SignInForm = () => {
   const [signinInput, setSigninInput] = useState("");

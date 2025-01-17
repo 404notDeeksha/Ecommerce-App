@@ -19,10 +19,10 @@ import isEmpty from "lodash.isempty";
 export const ShoppingCartItems = () => {
   const [cartData, setCartData] = useState({});
   const [loading, setLoading] = useState(true);
-  const user = getFromLocalStorage("user-info");
-  const userId = user ? user.userId : getCookieId();
-  // const userId = getCookieId();
-  console.log("USERID", userId);
+  // const user = getFromLocalStorage("user-info");
+  // const userId = user ? user.userId : getCookieId();
+  const userId = getCookieId();
+  // console.log("USERID", userId);
   useEffect(() => {
     const fetchCartData = async () => {
       try {
