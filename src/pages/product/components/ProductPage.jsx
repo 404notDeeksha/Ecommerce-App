@@ -28,7 +28,6 @@ export const ProductPage = () => {
         if (response) {
           setLoading(false);
           if (response.data.success) {
-            // console.log("PRODUCT DATA -> cart", response.data.data);
             setProductData(response.data.data);
           }
         }
@@ -44,11 +43,9 @@ export const ProductPage = () => {
     }
   }, [productId]);
 
-  const addToCart = async () => {    
+  const addToCart = async () => {
     const token = getCookieId("token");
     const registeredUserId = decodeUserId(token);
-    // console.log("TOKEN", token);
-    // console.log("USERID", registeredUserId);
     let userId = "";
     if (registeredUserId) {
       userId = registeredUserId;
@@ -57,13 +54,6 @@ export const ProductPage = () => {
       setCookieId("uniqueId", userId);
     }
 
-    // const userId = "64a57e6e8f1a7d123456789a";
-    // if (userId) {
-    //   setCookieId(userId);
-    // } else {
-    //   const uniqueId = uuid();
-    //   setCookieId(uniqueId);
-    }
     const body = {
       userId: userId,
       items: [
@@ -79,16 +69,18 @@ export const ProductPage = () => {
         },
       ],
     };
+
     try {
       const response = await axios.post(`${URL.CART_API}`, body);
       if (response.data.success) {
         console.log("Data added in cart", response.data.data);
-        navigate("/cart");
+        navigate("/cart"); // navigate to ShoppingCartItems
       }
     } catch (err) {
       console.log("Error Updating data in cart", err);
     }
   };
+
   return (
     <>
       {loading ? (

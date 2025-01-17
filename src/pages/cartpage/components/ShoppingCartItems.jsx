@@ -5,10 +5,9 @@ import { FaPlus } from "react-icons/fa6";
 import { URL } from "../../../constant/url";
 import {
   getImages,
-  getCookieId,
+  // getCookieId,
   convertNumberInNumerals,
   setNumberToLocalStorage,
-  getFromLocalStorage,
 } from "../../../utils/common-utils";
 import { ShoppingCartSkeleton } from "./ShoppingCartSkeleton";
 import { Skeleton } from "../../../components/Skeleton";
@@ -23,23 +22,23 @@ export const ShoppingCartItems = () => {
   // const userId = user ? user.userId : getCookieId();
   // const userId = getCookieId();
   // console.log("USERID", userId);
-  useEffect(() => {
-    const fetchCartData = async () => {
-      try {
-        const response = await axios.get(`${URL.CART_API}/${userId}`);
-        // console.log("Data present in cart", response.data);
-        if (response) {
-          setLoading(false);
-          if (response.data.success) {
-            setCartData(response.data.data);
-          }
-        }
-      } catch (error) {
-        console.error("Error in retrieving data ", error);
-      }
-    };
-    fetchCartData();
-  }, []);
+  // useEffect(() => {
+  //   const fetchCartData = async () => {
+  //     try {
+  //       const response = await axios.get(`${URL.CART_API}/${userId}`);
+  //       // console.log("Data present in cart", response.data);
+  //       if (response) {
+  //         setLoading(false);
+  //         if (response.data.success) {
+  //           setCartData(response.data.data);
+  //         }
+  //       }
+  //     } catch (error) {
+  //       console.error("Error in retrieving data ", error);
+  //     }
+  //   };
+  //   fetchCartData();
+  // }, []);
 
   if (isEmpty(cartData) || isEmpty(cartData?.items)) {
     return <EmptyCartPage />;
