@@ -22,8 +22,8 @@ export const ProductCard = ({ product }) => {
   const onAddToCart = async () => {
     const token = getCookieId("token");
     const registeredUserId = decodeUserId(token);
-    console.log("TOKEN", token);
-    console.log("USERID", registeredUserId);
+    // console.log("TOKEN", token);
+    // console.log("USERID", registeredUserId);
     let userId = "";
     if (registeredUserId) {
       userId = registeredUserId;
@@ -55,7 +55,7 @@ export const ProductCard = ({ product }) => {
     try {
       const response = await axios.post(URL.CART_API, bodyCart);
       console.log("Data sent Successfully", response.data);
-      navigate("/cart");
+      navigate("/cart"); // navigating to ShoppingCartItems
     } catch (err) {
       console.log("Error getting data", err);
     }

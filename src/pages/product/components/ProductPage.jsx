@@ -18,7 +18,7 @@ export const ProductPage = () => {
   const [quantity, setQuantity] = useState(1);
   const [loading, setLoading] = useState(true);
   const { productId } = useParams();
-  const data = useLocation();
+  const data = useLocation(); // navigating from ProductCard
   const navigate = useNavigate();
 
   useEffect(() => {
@@ -28,7 +28,7 @@ export const ProductPage = () => {
         if (response) {
           setLoading(false);
           if (response.data.success) {
-            console.log("PRODUCT DATA -> cart", response.data.data);
+            // console.log("PRODUCT DATA -> cart", response.data.data);
             setProductData(response.data.data);
           }
         }
@@ -44,13 +44,25 @@ export const ProductPage = () => {
     }
   }, [productId]);
 
-  const addToCart = async () => {
-    const userId = "64a57e6e8f1a7d123456789a";
-    if (userId) {
-      setCookieId(userId);
+  const addToCart = async () => {    
+    const token = getCookieId("token");
+    const registeredUserId = decodeUserId(token);
+    // console.log("TOKEN", token);
+    // console.log("USERID", registeredUserId);
+    let userId = "";
+    if (registeredUserId) {
+      userId = registeredUserId;
     } else {
-      const uniqueId = uuid();
-      setCookieId(uniqueId);
+      userId = uuid(); //New user
+      setCookieId("uniqueId", userId);
+    }
+
+    // const userId = "64a57e6e8f1a7d123456789a";
+    // if (userId) {
+    //   setCookieId(userId);
+    // } else {
+    //   const uniqueId = uuid();
+    //   setCookieId(uniqueId);
     }
     const body = {
       userId: userId,
@@ -66,7 +78,6 @@ export const ProductPage = () => {
           quantity: quantity,
         },
       ],
-      // items: [{ ...productData, quantity: quantity }],
     };
     try {
       const response = await axios.post(`${URL.CART_API}`, body);
@@ -78,7 +89,6 @@ export const ProductPage = () => {
       console.log("Error Updating data in cart", err);
     }
   };
-  console.log("Qty entererd", quantity);
   return (
     <>
       {loading ? (

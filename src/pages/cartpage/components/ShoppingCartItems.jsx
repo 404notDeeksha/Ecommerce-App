@@ -8,7 +8,7 @@ import {
   getCookieId,
   convertNumberInNumerals,
   setNumberToLocalStorage,
-  // getFromLocalStorage,
+  getFromLocalStorage,
 } from "../../../utils/common-utils";
 import { ShoppingCartSkeleton } from "./ShoppingCartSkeleton";
 import { Skeleton } from "../../../components/Skeleton";
@@ -21,7 +21,7 @@ export const ShoppingCartItems = () => {
   const [loading, setLoading] = useState(true);
   // const user = getFromLocalStorage("user-info");
   // const userId = user ? user.userId : getCookieId();
-  const userId = getCookieId();
+  // const userId = getCookieId();
   // console.log("USERID", userId);
   useEffect(() => {
     const fetchCartData = async () => {
