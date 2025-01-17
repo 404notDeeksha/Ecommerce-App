@@ -7,7 +7,12 @@ import { MdOutlineSecurity } from "react-icons/md";
 import { RiSecurePaymentLine } from "react-icons/ri";
 import { Link, useLocation, useNavigate, useParams } from "react-router-dom";
 import { URL } from "../../../constant/url";
-import { getImages, setCookieId } from "../../../utils/common-utils";
+import {
+  getImages,
+  setCookieId,
+  getCookieId,
+  decodeUserId,
+} from "../../../utils/common-utils";
 import StarRatings from "react-star-ratings";
 import { ProductSkeleton } from "./ProductSkeleton";
 import { Skeleton } from "../../../components/Skeleton";
@@ -47,8 +52,11 @@ export const ProductPage = () => {
     const token = getCookieId("token");
     const registeredUserId = decodeUserId(token);
     let userId = "";
+
     if (registeredUserId) {
       userId = registeredUserId;
+    } else if (getCookieId("uniqueId")) {
+      userId = getCookieId("uniqueId");
     } else {
       userId = uuid(); //New user
       setCookieId("uniqueId", userId);

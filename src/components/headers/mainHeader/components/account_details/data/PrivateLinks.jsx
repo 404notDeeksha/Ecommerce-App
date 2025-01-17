@@ -58,14 +58,6 @@ const yourAccount = [
     value: "seller_account",
     category: "Your Seller Account",
   },
-  {
-    value: "content_devices",
-    category: "Manage Your Content and Devices",
-  },
-  {
-    value: "freeAmazonBusinessAccount",
-    category: "Your Free Amazon Business Account",
-  },
 ];
 
 export const getYourLists = () => {

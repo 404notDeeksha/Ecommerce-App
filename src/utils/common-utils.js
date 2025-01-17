@@ -15,7 +15,7 @@ export const getNumberFromLocalStorage = (key) => {
   }
   const parsedValue = parseFloat(value);
   if (isNaN(parsedValue)) {
-    throw new Error("Stored value is not a valid number.");
+    return null;
   }
   return parsedValue;
 };
@@ -90,4 +90,12 @@ export const isLoggedIn = (token) => {
   } catch {
     return false;
   }
+};
+
+export const deleteCookieId = (key) => {
+  document.cookie = `${key}=; expires=Thu, 01 Jan 1970 00:00:00 UTC; path=/;`;
+};
+
+export const deleteFromLocalStorage = (key) => {
+  localStorage.removeItem(key);
 };

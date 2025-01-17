@@ -2,13 +2,24 @@ import React from "react";
 import { getAccountDetails, getYourLists } from "../data/PrivateLinks";
 import { v4 as uuid } from "uuid";
 import { Link } from "react-router-dom";
-import { getDataFromLocalStorage } from "../../../../../../utils/common-utils";
+import {
+  deleteCookieId,
+  deleteFromLocalStorage,
+  getDataFromLocalStorage,
+} from "../../../../../../utils/common-utils";
 
 export const SignInDropMenu = () => {
   const listDetails = getYourLists();
   const accountDetails = getAccountDetails();
 
   const userData = getDataFromLocalStorage("userInfo");
+
+  const onLogout = () => {
+    deleteCookieId("token");
+    deleteFromLocalStorage("userInfo");
+    deleteFromLocalStorage("cartQty");
+    console.log("Deleting user info");
+  };
 
   return (
     <>
@@ -20,7 +31,7 @@ export const SignInDropMenu = () => {
        after:border-t-transparent  after:border-r-transparent        
        "
       >
-        <div className="mx-5 mt-4 mb-3 ">
+        <div className="mx-5 mt-4 mb-5 ">
           {!userData && (
             <div className="flex-col ">
               <Link to="/signin">
@@ -53,7 +64,7 @@ export const SignInDropMenu = () => {
                       key={uuid()}
                       className="text-[13px] text-[#444] leading-6"
                     >
-                      <a href="#"> {ele.category}</a>
+                      <Link> {ele.category}</Link>
                     </li>
                   );
                 })}
@@ -71,16 +82,19 @@ export const SignInDropMenu = () => {
             <div className="pl-5 font-bold w-[190px]">
               Your Account
               <ul className="font-normal mt-1">
-                {accountDetails.map((ele, index) => {
+                {accountDetails.map((ele) => {
                   return (
                     <li
                       key={uuid()}
                       className="text-[13px] text-[#444] leading-6"
                     >
-                      <a href="#"> {ele.category}</a>
+                      <Link> {ele.category}</Link>
                     </li>
                   );
                 })}
+                <li className="font-[500] text-[13px]" onClick={onLogout}>
+                  <Link to="/signin">Logout</Link>
+                </li>
               </ul>
             </div>
           </div>

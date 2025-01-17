@@ -25,6 +25,8 @@ export const ProductCard = ({ product }) => {
     let userId = "";
     if (registeredUserId) {
       userId = registeredUserId;
+    } else if (getCookieId("uniqueId")) {
+      userId = getCookieId("uniqueId");
     } else {
       userId = uuid(); //New user
       setCookieId("uniqueId", userId);

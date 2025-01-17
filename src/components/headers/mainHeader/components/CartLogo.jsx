@@ -3,7 +3,12 @@ import { FiShoppingCart } from "react-icons/fi";
 import { getNumberFromLocalStorage } from "../../../../utils/common-utils";
 
 export const CartLogo = () => {
-  const itemsNumberInCart = getNumberFromLocalStorage("cartQty");
+  let itemsNumberInCart;
+  if (getNumberFromLocalStorage("cartQty")) {
+    itemsNumberInCart = getNumberFromLocalStorage("cartQty");
+  } else {
+    itemsNumberInCart = 0;
+  }
 
   const handleClick = () => {};
 

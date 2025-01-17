@@ -5,9 +5,10 @@ import { FaPlus } from "react-icons/fa6";
 import { URL } from "../../../constant/url";
 import {
   getImages,
-  // getCookieId,
   convertNumberInNumerals,
   setNumberToLocalStorage,
+  getCookieId,
+  decodeUserId,
 } from "../../../utils/common-utils";
 import { ShoppingCartSkeleton } from "./ShoppingCartSkeleton";
 import { Skeleton } from "../../../components/Skeleton";
@@ -18,33 +19,38 @@ import isEmpty from "lodash.isempty";
 export const ShoppingCartItems = () => {
   const [cartData, setCartData] = useState({});
   const [loading, setLoading] = useState(true);
-  // const user = getFromLocalStorage("user-info");
-  // const userId = user ? user.userId : getCookieId();
-  // const userId = getCookieId();
-  // console.log("USERID", userId);
-  // useEffect(() => {
-  //   const fetchCartData = async () => {
-  //     try {
-  //       const response = await axios.get(`${URL.CART_API}/${userId}`);
-  //       // console.log("Data present in cart", response.data);
-  //       if (response) {
-  //         setLoading(false);
-  //         if (response.data.success) {
-  //           setCartData(response.data.data);
-  //         }
-  //       }
-  //     } catch (error) {
-  //       console.error("Error in retrieving data ", error);
-  //     }
-  //   };
-  //   fetchCartData();
-  // }, []);
+  const token = getCookieId("token");
+  const registeredUserId = decodeUserId(token);
+  let userId = "";
+  if (registeredUserId) {
+    userId = registeredUserId;
+  } else {
+    userId = getCookieId("uniqueId"); //New user
+  }
+
+  useEffect(() => {
+    const fetchCartData = async () => {
+      try {
+        const response = await axios.get(`${URL.CART_API}/${userId}`);
+        if (response) {
+          setLoading(false);
+          if (response.data.success) {
+            setCartData(response.data.data);
+          }
+        }
+      } catch (error) {
+        console.error("Error in retrieving data ", error);
+      }
+    };
+    fetchCartData();
+  }, []);
 
   if (isEmpty(cartData) || isEmpty(cartData?.items)) {
     return <EmptyCartPage />;
   }
 
   console.log("CART Data", cartData);
+
   return (
     <>
       {loading ? (
@@ -124,7 +130,9 @@ const ProductCard = ({ product, index, userId, productId, setCartData }) => {
         <img src={getImages(product.images[index++])} className="w-44" />
         <div className="text-lg flex-1 pl-4">
           <Link to={`/products/product/${product.productId}`}>
-            <div className="font-bold">{product.productDescription}</div>
+            <div className="font-bold cursor-pointer">
+              {product.productDescription}
+            </div>
           </Link>
           <div className="text-sm mt-0.5 font-[500]">{product.productName}</div>
           <div className="text-xs mt-2">Gift Options not available</div>
@@ -170,38 +178,16 @@ const QuantityUpdationButton = ({ qty, userId, productId, setCartData }) => {
       console.log("Error sending data", err);
     }
   };
+
   const handleDecrementQuantity = (qty) => {
     if (qty === 1) {
       return null;
     }
     backendData(qty);
-    // try {
-    //   const response = await axios.put(
-    //     `${URL.CART_API}/${userId}/${productId}/${qty}`
-    //   );
-    //   if (response.data.success) {
-    //     console.log("Product Qty updation Successfully", response.data.data);
-    //     setCartData(response.data.data);
-    //   }
-    // } catch (err) {
-    //   console.log("Error sending data", err);
-    // }
   };
 
-  // // Increment quantity
   const handleIncrementQuantity = async (qty) => {
     backendData(qty);
-    // try {
-    //   const response = await axios.put(
-    //     `${URL.CART_API}/${userId}/${productId}/${qty}`
-    //   );
-    //   if (response.data.success) {
-    //     console.log("Product Qty updation Successfully", response.data.data);
-    //     setCartData(response.data.data);
-    //   }
-    // } catch (err) {
-    //   console.log("Error sending data", err);
-    // }
   };
 
   return (
