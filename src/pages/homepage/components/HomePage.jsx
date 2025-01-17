@@ -16,7 +16,6 @@ export const HomePage = () => {
     []
   );
   const [loading, setLoading] = useState(true);
-  
 
   useEffect(() => {
     const fetchData = async () => {

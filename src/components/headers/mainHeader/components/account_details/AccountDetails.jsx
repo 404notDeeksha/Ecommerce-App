@@ -1,17 +1,15 @@
 import React from "react";
 import { RiArrowDropDownFill as DropDownIcon } from "react-icons/ri";
 import { SignInDropMenu } from "./components/SignInDropMenu";
-// import { getFromLocalStorage } from "../../../../../utils/common-utils";
+import { getDataFromLocalStorage } from "../../../../../utils/common-utils";
 
 export const AccountDetails = ({
   onOpen,
   onClose,
   modalVisibilityClassType,
 }) => {
-  // const user = getFromLocalStorage("user-info");
-  // if (user) {
-  //   console.log("user", user);
-  // }
+   const userData = getDataFromLocalStorage("userInfo");
+
   const handleMouseOver = () => {
     onOpen();
     modalVisibilityClassType("modal-zindex-navbarTop");
@@ -25,7 +23,7 @@ export const AccountDetails = ({
       >
         <div className="text-[12px]">
           Hello,
-          {/* {user ? <span className="ml-2"></span> : "sign in"} */}
+          {userData ? <span className="ml-2">{userData.name}</span> : "sign in"}
         </div>
         <div className="text-[14px] text-nowrap font-bold -mt-1">
           Account & Lists
