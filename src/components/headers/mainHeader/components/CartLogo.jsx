@@ -1,22 +1,16 @@
 import React from "react";
 import { FiShoppingCart } from "react-icons/fi";
-import { getNumberFromLocalStorage } from "../../../../utils/common-utils";
+import { getTotalQtyFromCart } from "../../../../utils/common-utils";
+import { useSelector } from "react-redux";
 
 export const CartLogo = () => {
-  let itemsNumberInCart;
-  if (getNumberFromLocalStorage("cartQty")) {
-    itemsNumberInCart = getNumberFromLocalStorage("cartQty");
-  } else {
-    itemsNumberInCart = 0;
-  }
-
-  const handleClick = () => {};
+  const cartItems = useSelector((state) => state.cart.data.items);
+  let itemsNumberInCart = getTotalQtyFromCart(cartItems);
+  // console.log("cartItems", cartItems);
+  // console.log("NoOfItemsInCart", itemsNumberInCart);
 
   return (
-    <div
-      className=" flex-col relative text-[#fff] hover-header cursor-pointer gap-3 px-5 py-0.5  border  "
-      onClick={handleClick()}
-    >
+    <div className=" flex-col relative text-[#fff] hover-header cursor-pointer gap-3 px-5 py-0.5  border  ">
       <div className="text-orange-500 inline pl-1.5 text-sm ">
         {itemsNumberInCart}
       </div>

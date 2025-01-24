@@ -99,3 +99,12 @@ export const deleteCookieId = (key) => {
 export const deleteFromLocalStorage = (key) => {
   localStorage.removeItem(key);
 };
+
+export const getTotalQtyFromCart = (data = []) => {
+  // console.log("cart for qty ",data);
+  let total = 0;
+  data.forEach((ele) => {
+    total += ele.quantity;
+  });
+  return total;
+};

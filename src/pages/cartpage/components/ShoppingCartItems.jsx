@@ -9,15 +9,18 @@ import {
   setNumberToLocalStorage,
   getCookieId,
   decodeUserId,
+  getTotalQtyFromCart,
 } from "../../../utils/common-utils";
 import { ShoppingCartSkeleton } from "./ShoppingCartSkeleton";
 import { Skeleton } from "../../../components/Skeleton";
 import { Link } from "react-router-dom";
 import { EmptyCartPage } from "./EmptyCart";
 import isEmpty from "lodash.isempty";
+import { useDispatch } from "react-redux";
+import { setCart } from "../../../redux/slices/cartSlice";
 
 export const ShoppingCartItems = () => {
-  const [cartData, setCartData] = useState({});
+  const [cartDataInternal, setCartDataInternal] = useState({});
   const [loading, setLoading] = useState(true);
   const token = getCookieId("token");
   const registeredUserId = decodeUserId(token);
@@ -27,6 +30,13 @@ export const ShoppingCartItems = () => {
   } else {
     userId = getCookieId("uniqueId"); //New user
   }
+
+  const dispatch = useDispatch();
+
+  const setCartData = (data) => {
+    dispatch(setCart(data));
+    setCartDataInternal(data);
+  };
 
   useEffect(() => {
     const fetchCartData = async () => {
@@ -45,11 +55,11 @@ export const ShoppingCartItems = () => {
     fetchCartData();
   }, []);
 
-  if (isEmpty(cartData) || isEmpty(cartData?.items)) {
+  if (isEmpty(cartDataInternal) || isEmpty(cartDataInternal?.items)) {
     return <EmptyCartPage />;
   }
 
-  console.log("CART Data", cartData);
+  console.log("CART Data", cartDataInternal);
 
   return (
     <>
@@ -60,13 +70,13 @@ export const ShoppingCartItems = () => {
           <div className="mr-5 mb-5 p-5 bg-white flex-1">
             <div className="text-3xl mb-4">Shopping Cart</div>
             <div className="border-b-2 border-gray-300"></div>
-            {cartData?.items?.map((product, index) => {
+            {cartDataInternal?.items?.map((product, index) => {
               return (
                 <ProductCard
                   key={index}
                   product={product}
                   index={0}
-                  userId={cartData.userId}
+                  userId={cartDataInternal.userId}
                   productId={product.productId}
                   setCartData={setCartData}
                 />
@@ -74,9 +84,9 @@ export const ShoppingCartItems = () => {
             })}
             <div className="text-lg text-right">
               <div className="">
-                Subtotal ({calculateTotalQtyInCart(cartData.items)} items):
+                Subtotal ({getTotalQtyFromCart(cartDataInternal.items)} items):
                 <span className="font-bold ml-4 ">
-                  {convertNumberInNumerals(cartData?.totalPrice)}
+                  {convertNumberInNumerals(cartDataInternal?.totalPrice)}
                 </span>
               </div>
             </div>
@@ -87,10 +97,10 @@ export const ShoppingCartItems = () => {
             <div className="bg-white p-4 pb-6">
               <span className="">
                 {" "}
-                Subtotal ({calculateTotalQtyInCart(cartData.items)} items):
+                Subtotal ({getTotalQtyFromCart(cartDataInternal.items)} items):
               </span>
               <span className="ml-4 ">
-                {convertNumberInNumerals(cartData?.totalPrice)}
+                {convertNumberInNumerals(cartDataInternal?.totalPrice)}
               </span>
               <div className="text-center mt-2">
                 <button className="font-normal text-sm bg-yellow-500 rounded-3xl px-4 py-2 text-center mt-3">
@@ -215,13 +225,4 @@ const QuantityUpdationButton = ({ qty, userId, productId, setCartData }) => {
       </li>
     </>
   );
-};
-
-const calculateTotalQtyInCart = (data) => {
-  let total = 0;
-  data.forEach((ele) => {
-    total += ele.quantity;
-  });
-  setNumberToLocalStorage("cartQty", total);
-  return total;
 };
