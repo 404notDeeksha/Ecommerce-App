@@ -1,19 +1,17 @@
 import React from "react";
 import { GrLocation as LocationIcon } from "react-icons/gr";
+import { useDispatch } from "react-redux";
+import { activeOverlay } from "../../../../redux/slices/overlaySlice";
 
-export const DeliveryLocation = ({
-  onOpen,
-  modalVisibilityClassType,
-  onPopoverOpen,
-}) => {
+export const DeliveryLocation = () => {
   const city = "Hyderabad";
   const pincode = "500084";
+  const dispatch = useDispatch();
 
   const handleClick = () => {
-    onOpen();
-    modalVisibilityClassType("modal-zindex-fullScreen");
-    onPopoverOpen();
+    dispatch(activeOverlay("POPOVER"));
   };
+  
   return (
     <>
       <div

@@ -4,7 +4,7 @@ import { CategoryHeader } from "../headers/CategoryHeader/CategoryHeader";
 import { Footer } from "../footer/Footer";
 import { Modal } from "../../utils/Modal";
 import { Sidebar } from "../headers/CategoryHeader/sidebar/Sidebar";
-import { Popover } from "../../utils/Popover";
+// import { Popover } from "../PopoverBox";
 import { Outlet } from "react-router-dom";
 
 export const Layout = (props) => {
@@ -47,11 +47,11 @@ export const Layout = (props) => {
         onCloseSideBar={onCloseSidebar}
         modalVisibilityClassTypeData={modalVisibilityClassTypeData}
       />
-      <Popover
+      {/* <Popover
         popover={popover}
         onClose={onClose}
         onPopoverClose={onPopoverClose}
-      />
+      /> */}
       <Outlet />
       <Footer />
     </>

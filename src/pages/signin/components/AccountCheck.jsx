@@ -2,7 +2,6 @@ import React, { useState } from "react";
 import { LogoBlack } from "./Logo";
 import { Link, useLocation, useNavigate } from "react-router-dom";
 import {
-  // getFromLocalStorage,
   setCookieId,
   setDataToLocalStorage,
 } from "../../../utils/common-utils";

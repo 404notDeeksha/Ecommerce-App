@@ -14,17 +14,23 @@ import { Cartpage } from "./pages/cartpage/components/Cartpage";
 import { ProductPage } from "./pages/product/components/ProductPage";
 import { ProductsPage } from "./pages/productsgridpage/components/ProductsPage";
 import { SignInPage } from "./pages/signin/SignInPage";
+import { useSelector } from "react-redux";
+import Overlay from "./components/Overlay";
 
 function App() {
+  // overlay
   const [modalVisibility, setModalVisibility] = useState(false);
   const [modalVisibilityClassType, setModalVisibilityClassType] =
     useState(null);
   const [sideBarToggle, setSideBarToggle] = useState(false);
   const [popover, setPopover] = useState(false);
-
+  // const overlayVal = useSelector((state) => state.overlay);
+  // console.log("Open overlay", overlayVal);
+  // overlay
   const handleModalClose = () => {
     setModalVisibility(false);
   };
+  // overlay
   const handleModalOpen = () => {
     setModalVisibility(true);
   };
@@ -82,6 +88,7 @@ function App() {
           <Route path="*" element={<Navigate to="/signin" />} />
         </Routes>
       </Router>
+      <Overlay />
     </>
   );
 }

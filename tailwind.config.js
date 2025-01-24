@@ -12,6 +12,7 @@ export default {
         quantity_box: "#F0F2F2",
         footerBottom: "#131A22",
         footerBg: "#232F3E",
+        blackTransparent: "rgba(0, 0, 0, 0.5)",
       },
     },
     screens: {

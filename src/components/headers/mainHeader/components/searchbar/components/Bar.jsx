@@ -1,10 +1,15 @@
 import React from "react";
 import { IoMdSearch as IconSearch } from "react-icons/io";
+import { useDispatch } from "react-redux";
+import { activeOverlay } from "../../../../../../redux/slices/overlaySlice";
 
 export const Bar = ({ onOpen, modalVisibilityClassType }) => {
+  const dispatch = useDispatch();
+
   const handleClick = () => {
-    onOpen();
-    modalVisibilityClassType("modal-zindex-navbarTop");
+    dispatch(activeOverlay());
+    // onOpen();
+    // modalVisibilityClassType("modal-zindex-navbarTop");
   };
 
   return (
