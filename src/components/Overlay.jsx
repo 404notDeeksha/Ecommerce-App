@@ -3,26 +3,33 @@ import { useSelector, useDispatch } from "react-redux";
 import Portal from "./Portal";
 import { inactiveOverlay } from "../redux/slices/overlaySlice";
 import { PopoverBox } from "./PopoverBox";
+import { SearchBar } from "./headers/mainHeader/components/searchbar/SearchBar";
 
 const Overlay = () => {
   const dispatch = useDispatch();
   const { isOpen, contentKey } = useSelector((state) => state.overlay);
-  // console.log("StateOverlay", "ActionOverlay", isOpen, contentKey);
+  console.log("StateOverlay", "ActionOverlay", isOpen, contentKey);
 
   const componentMap = {
-    POPOVER: <PopoverBox />,
+    POPOVER: {
+      component: <PopoverBox />,
+      parentClass: " top-0 flex justify-center items-center",
+    },
+    SEARCHBAR: { component: null, parentClass: "top-[60px]" },
   };
 
-  if (!isOpen) return null;
+  const currentContent = componentMap[contentKey];
+
+  if (!isOpen || !currentContent) return null;
 
   return (
     <Portal>
       <div
-        className="fixed top-0 left-0 h-full w-full bg-blackTransparent z-50 flex justify-center items-center "
+        className={`fixed left-0 h-full w-full bg-blackTransparent z-50 ${currentContent.parentClass}`}
         onClick={() => dispatch(inactiveOverlay())}
       >
         <div className="" onClick={(e) => e.stopPropagation()}>
-          {componentMap.POPOVER}
+          {currentContent.component}
         </div>
       </div>
     </Portal>

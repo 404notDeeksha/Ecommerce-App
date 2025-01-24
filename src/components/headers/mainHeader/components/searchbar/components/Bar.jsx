@@ -7,7 +7,7 @@ export const Bar = ({ onOpen, modalVisibilityClassType }) => {
   const dispatch = useDispatch();
 
   const handleClick = () => {
-    dispatch(activeOverlay());
+    dispatch(activeOverlay("SEARCHBAR"));
     // onOpen();
     // modalVisibilityClassType("modal-zindex-navbarTop");
   };
