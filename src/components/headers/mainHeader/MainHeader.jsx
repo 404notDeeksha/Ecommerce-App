@@ -8,29 +8,18 @@ import { ReturnOrders } from "../../headers/mainHeader/components/ReturnOrders";
 import { CartLogo } from "./components/CartLogo";
 import { Link } from "react-router-dom";
 
-export const MainHeader = ({ onOpen, onClose, modalVisibilityClassType }) => {
+export const MainHeader = () => {
   return (
     <>
       <div className="header-top">
-        {/* ------------------------------  MainHeader LEFT -------------------------------------- */}
         <Link to="/home">
           <Logo />
         </Link>
         <DeliveryLocation />
-        {/* ----------------------------- MainHeader SEARCH BAR ------------------------------------- */}
         <SearchBar />
-        {/*     ---------------------------  MainHeader RIGHT -------------------------------------- */}
         <div className="flex text-white ml-3 justify-evenly">
-          <LanguageSelection
-            onOpen={onOpen}
-            onClose={onClose}
-            modalVisibilityClassType={modalVisibilityClassType}
-          />
-          <AccountDetails
-            onOpen={onOpen}
-            onClose={onClose}
-            modalVisibilityClassType={modalVisibilityClassType}
-          />
+          <LanguageSelection />
+          <AccountDetails />
           <ReturnOrders />
           <Link to="/cart">
             <CartLogo />
