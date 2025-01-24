@@ -3,7 +3,6 @@ import { useSelector, useDispatch } from "react-redux";
 import Portal from "./Portal";
 import { inactiveOverlay } from "../redux/slices/overlaySlice";
 import { PopoverBox } from "./PopoverBox";
-import { SearchBar } from "./headers/mainHeader/components/searchbar/SearchBar";
 
 const Overlay = () => {
   const dispatch = useDispatch();
@@ -13,9 +12,10 @@ const Overlay = () => {
   const componentMap = {
     POPOVER: {
       component: <PopoverBox />,
-      parentClass: " top-0 flex justify-center items-center",
+      parentClass: " top-0 flex justify-center items-center z-50",
     },
-    SEARCHBAR: { component: null, parentClass: "top-[60px]" },
+    SEARCHBAR: { component: null, parentClass: "top-[60px] z-[4]" },
+    TOOLTIP: { component: null, parentClass: "top-[60px]  z-[4] " },
   };
 
   const currentContent = componentMap[contentKey];
@@ -25,7 +25,7 @@ const Overlay = () => {
   return (
     <Portal>
       <div
-        className={`fixed left-0 h-full w-full bg-blackTransparent z-50 ${currentContent.parentClass}`}
+        className={`fixed left-0 h-full w-full bg-blackTransparent ${currentContent.parentClass}`}
         onClick={() => dispatch(inactiveOverlay())}
       >
         <div className="" onClick={(e) => e.stopPropagation()}>

@@ -2,24 +2,27 @@ import React from "react";
 import { RiArrowDropDownFill as DropDownIcon } from "react-icons/ri";
 import { SignInDropMenu } from "./components/SignInDropMenu";
 import { getDataFromLocalStorage } from "../../../../../utils/common-utils";
+import { useDispatch } from "react-redux";
+import {
+  activeOverlay,
+  inactiveOverlay,
+} from "../../../../../redux/slices/overlaySlice";
 
-export const AccountDetails = ({
-  onOpen,
-  onClose,
-  modalVisibilityClassType,
-}) => {
-   const userData = getDataFromLocalStorage("userInfo");
+export const AccountDetails = () => {
+  const userData = getDataFromLocalStorage("userInfo");
+
+  const dispatch = useDispatch();
 
   const handleMouseOver = () => {
-    onOpen();
-    modalVisibilityClassType("modal-zindex-navbarTop");
+    dispatch(activeOverlay("TOOLTIP"));
   };
+  
   return (
     <>
       <div
         className="pb-2.5 pt-2.5 pr-5 pl-2 relative group hover-header"
         onMouseOver={handleMouseOver}
-        onMouseOut={onClose}
+        onMouseOut={() => dispatch(inactiveOverlay())}
       >
         <div className="text-[12px]">
           Hello,

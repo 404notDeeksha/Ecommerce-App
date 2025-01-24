@@ -2,7 +2,7 @@ import React from "react";
 import { DropDownButton } from "./components/DropDownButton";
 import { Bar } from "./components/Bar";
 
-export const SearchBar = ({ onOpen, modalVisibilityClassType }) => {
+export const SearchBar = () => {
   return (
     <>
       <div className=" flex-1 ">
@@ -11,10 +11,7 @@ export const SearchBar = ({ onOpen, modalVisibilityClassType }) => {
          ml-[22px] mr-1 my-2.5"
         >
           <DropDownButton />
-          <Bar
-            onOpen={onOpen}
-            modalVisibilityClassType={modalVisibilityClassType}
-          />
+          <Bar />
         </div>
       </div>
     </>
