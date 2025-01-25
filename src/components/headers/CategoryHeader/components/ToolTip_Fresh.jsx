@@ -1,6 +1,10 @@
 import React from "react";
+import { inactiveOverlay } from "../../../../redux/slices/overlaySlice";
+import { useDispatch } from "react-redux";
 
 export const ToolTipFresh = () => {
+  const dispatch = useDispatch();
+
   return (
     <>
       <div
@@ -11,6 +15,7 @@ export const ToolTipFresh = () => {
          after:content-['']  after:absolute after:bottom-[100%] after:left-[9%] after:border-[8px] after:border-b-white after:border-l-transparent
          after:border-t-transparent  after:border-r-transparent
          "
+        onMouseOut={() => dispatch(inactiveOverlay())}
       >
         <div className="text-[18px] font-bold leading-6 ">Shop groceries</div>
         <div className="my-[14px] mb-[5px] flex">

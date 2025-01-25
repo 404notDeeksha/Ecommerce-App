@@ -1,14 +1,21 @@
 import { IoMenuSharp as HamBurgerMenu } from "react-icons/io5";
+import { useDispatch } from "react-redux";
+import { openSidebar } from "../../../../redux/slices/sidebarSlice";
+import { activeOverlay } from "../../../../redux/slices/overlaySlice";
 
 export const SideBarButton = ({
   onOpen,
   onOpenSidebar,
   modalVisibilityClassType,
 }) => {
+  const dispatch = useDispatch();
+
   const handleSideBar = () => {
-    onOpen();
-    modalVisibilityClassType("modal-zindex-fullScreen");
-    onOpenSidebar();
+    dispatch(openSidebar());
+    dispatch(activeOverlay("SIDEBAR"));
+    // onOpen();
+    // modalVisibilityClassType("modal-zindex-fullScreen");
+    // onOpenSidebar();
   };
 
   return (

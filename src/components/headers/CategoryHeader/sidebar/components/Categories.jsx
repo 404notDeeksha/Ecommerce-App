@@ -4,8 +4,11 @@ import { DigitalContentCategory } from "./DigitalContentCategory";
 import { ShopCategory } from "./ShopCategory";
 import { ProgramFeaturesCategory } from "./ProgramFeaturesCategory";
 import { HelpSettingsCategory } from "./HelpSettingsCategory";
+import { getCategoryData } from "../data/Categories";
 
 export const Categories = ({ isOpen }) => {
+  const categories = getCategoryData();
+  console.log(categories);
   return (
     <>
       <ul

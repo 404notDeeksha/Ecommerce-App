@@ -17,9 +17,7 @@ export const CategoryHeader = ({
           modalVisibilityClassType={modalVisibilityClassType}
         />
         <CategoryLinks
-          onOpen={onOpen}
-          onClose={onClose}
-          modalVisibilityClassType={modalVisibilityClassType}
+          
         />
       </div>
     </>

@@ -9,7 +9,7 @@ export const DigitalContentCategory = ({ isOpen }) => {
       <li key="digital" className="pl-9 pr-5 pt-[11px] pb-[13px] text-black">
         Digital Content and Devices
       </li>
-      {digitalContent.map((ele, index) => {
+      {digitalContent?.map((ele, index) => {
         return (
           <li
             key={ele.id}

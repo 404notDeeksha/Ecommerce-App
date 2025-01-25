@@ -4,7 +4,6 @@ import { getDropDownList } from "../data/DisplayLanguages";
 import { Link } from "react-router-dom";
 
 export const DropDownMenu = ({ language }) => {
-  console.log("Entering drop down menu");
   const LangArray = getDropDownList() || [];
 
   const handleClick = (e) => {

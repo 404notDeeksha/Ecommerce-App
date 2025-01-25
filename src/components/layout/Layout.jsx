@@ -23,12 +23,7 @@ export const Layout = (props) => {
   } = props;
   return (
     <>
-      <MainHeader
-        onOpen={onOpen}
-        onClose={onClose}
-        onPopoverOpen={onPopoverOpen}
-        modalVisibilityClassType={modalVisibilityClassType}
-      />
+      <MainHeader />
       <CategoryHeader
         onOpen={onOpen}
         onClose={onClose}
