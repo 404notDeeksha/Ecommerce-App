@@ -6,7 +6,6 @@ import { URL } from "../../../constant/url";
 import {
   getImages,
   convertNumberInNumerals,
-  setNumberToLocalStorage,
   getCookieId,
   decodeUserId,
   getTotalQtyFromCart,
@@ -59,7 +58,7 @@ export const ShoppingCartItems = () => {
     return <EmptyCartPage />;
   }
 
-  console.log("CART Data", cartDataInternal);
+  // console.log("CART Data", cartDataInternal);
 
   return (
     <>

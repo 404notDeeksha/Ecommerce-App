@@ -1,7 +1,7 @@
 import React from "react";
 import { getCategoryData } from "../data/Categories";
 
-export const Categories = ({ isOpen }) => {
+export const Categories = () => {
   const categoryList = getCategoryData();
   // console.log(categoryList);
   return (

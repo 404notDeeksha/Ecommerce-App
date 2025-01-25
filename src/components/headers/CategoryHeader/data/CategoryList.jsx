@@ -1,13 +1,10 @@
 export const categoryList = [
-  "Fresh",
-  "Amazon miniTV",
   "Sell",
   "BestSellers",
   "Today's Deals",
   "Mobiles",
   "Fashion",
   "Electronics",
-  "Prime",
   "Home & Kitchen",
   "New Releases",
   "Customer Service",

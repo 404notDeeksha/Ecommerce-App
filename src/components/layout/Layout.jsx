@@ -2,39 +2,13 @@ import React from "react";
 import { MainHeader } from "../headers/mainHeader/MainHeader";
 import { CategoryHeader } from "../headers/CategoryHeader/CategoryHeader";
 import { Footer } from "../footer/Footer";
-import { Modal } from "../../utils/Modal";
-import { Sidebar } from "../headers/CategoryHeader/sidebar/Sidebar";
-// import { Popover } from "../PopoverBox";
 import { Outlet } from "react-router-dom";
 
-export const Layout = (props) => {
-  const {
-    onClose,
-
-    onPopoverClose,
-    modalVisibility,
-
-    modalVisibilityClassTypeData,
-    sideBarToggle,
-    onCloseSidebar,
-  } = props;
+export const Layout = () => {
   return (
     <>
       <MainHeader />
       <CategoryHeader />
-      <Sidebar />
-      <Modal
-        modalVisibility={modalVisibility}
-        onClose={onClose}
-        onPopoverClose={onPopoverClose}
-        onCloseSideBar={onCloseSidebar}
-        modalVisibilityClassTypeData={modalVisibilityClassTypeData}
-      />
-      {/* <Popover
-        popover={popover}
-        onClose={onClose}
-        onPopoverClose={onPopoverClose}
-      /> */}
       <Outlet />
       <Footer />
     </>

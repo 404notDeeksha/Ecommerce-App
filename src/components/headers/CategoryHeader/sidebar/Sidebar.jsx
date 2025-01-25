@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useRef } from "react";
 import { motion } from "framer-motion";
 import { GrClose as SideBarCloseIcon } from "react-icons/gr";
 import { Navbar } from "./components/Navbar";
@@ -11,6 +11,11 @@ import { SIDEBAR_STATE } from "../../../../utils/common-consts";
 export const Sidebar = () => {
   const dispatch = useDispatch();
   const currentState = useSelector((state) => state.sidebar.state);
+  const sidebarRef = useRef(null);
+  console.log("Ref", sidebarRef);
+  if (sidebarRef.current) {
+    sidebarRef.current.scrollTop = 0;
+  }
 
   const closeSidebarInternal = () => {
     dispatch(closeSidebar());
@@ -20,7 +25,7 @@ export const Sidebar = () => {
   switch (currentState) {
     case SIDEBAR_STATE.OPEN:
       return (
-        <>
+        <div ref={sidebarRef}>
           <motion.div
             initial={{ opacity: 0, x: -500 }}
             animate={{ opacity: 1, x: 0 }}
@@ -39,7 +44,7 @@ export const Sidebar = () => {
               closeSidebarInternal();
             }}
           />
-        </>
+        </div>
       );
     case SIDEBAR_STATE.CLOSE:
       return (

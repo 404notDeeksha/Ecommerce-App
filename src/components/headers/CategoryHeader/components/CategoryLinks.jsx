@@ -25,7 +25,7 @@ export const CategoryLinks = () => {
             className="text-nowrap
                p-2 text-white hover-header"
           >
-            {(index === 0 || index === 8) && (
+            {/* {(index === 0 || index === 8) && (
               <div
                 className="group flex cursor-pointer"
                 onMouseOver={handleMouseOver}
@@ -36,8 +36,8 @@ export const CategoryLinks = () => {
                 {index === 0 && <ToolTipFresh />}
                 {index === 8 && <ToolTipPrime />}
               </div>
-            )}
-            {index !== 0 && index !== 8 && ele}
+            )} */}
+            {ele}
           </li>
         );
       })}

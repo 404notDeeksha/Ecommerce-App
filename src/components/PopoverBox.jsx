@@ -1,13 +1,29 @@
-import React from "react";
+import React, { useState } from "react";
 import { IoIosClose } from "react-icons/io";
 import { useDispatch } from "react-redux";
 import { inactiveOverlay } from "../redux/slices/overlaySlice";
+import { setLocation } from "../redux/slices/locationSlice";
 
 export const PopoverBox = () => {
-  // console.log("Modal On");
+  const [pincode, setPincode] = useState("");
+
   const dispatch = useDispatch();
+
   const handleClose = () => {
     dispatch(inactiveOverlay());
+  };
+
+  const handleSubmit = (e) => {
+    e.preventDefault();
+    if (checkPincode()) {
+      dispatch(setLocation(pincode));
+      dispatch(inactiveOverlay());
+    } else return null;
+  };
+
+  const checkPincode = () => {
+    const pincodeRegex = /^\d{6}$/;
+    return pincodeRegex.test(pincode);
   };
 
   return (
@@ -21,18 +37,25 @@ export const PopoverBox = () => {
           Select a delivery location to see product availability and delivery
           options
         </div>
-        <button className="bg-[#ffd814] my-2 shadow-[0_2px_5px_0_rgba(213,217,217,.5)] rounded-lg  text-black w-full align-middle text-center text-[13px] leading-7">
-          Sign in to see your addresses
-        </button>
+
         <h5 className="text-[#565959] text-center text-xs mb-3.5">
           or enter an Indian pincode
         </h5>
-        <div className="flex h-[29px]">
-          <input className="w-[66%] mr-[2%] overflow-visible border-[1px] rounded border-[#888c8c]"></input>
-          <button className="w-[32%] border-[1px] leading-5 border-[#888c8c] rounded-lg text-sm">
+
+        <form className="flex h-[29px]" onSubmit={handleSubmit}>
+          <input
+            type="text"
+            className="w-[66%] mr-[2%] overflow-visible border-[1px] rounded border-[#888c8c] text-black cursor-text"
+            value={pincode}
+            onChange={(e) => setPincode(e.target.value)}
+          />
+          <button
+            className="w-[32%] border-[1px] leading-5 border-[#888c8c] rounded-lg text-sm"
+            onClick={checkPincode}
+          >
             Apply
           </button>
-        </div>
+        </form>
       </div>
     </div>
   );

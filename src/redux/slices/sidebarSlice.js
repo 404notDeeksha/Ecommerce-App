@@ -7,16 +7,11 @@ const sidebarSlice = createSlice({
   name: "sidebar",
   initialState,
   reducers: {
-    openSidebar: (state, action) => {
+    openSidebar: (state) => {
       state.state = SIDEBAR_STATE.OPEN;
-      //   state.contentKey = action.payload;
-      //   console.log("State1", state.isOpen, state.contentKey);
-      //   console.log("Action1", action);
     },
-    closeSidebar: (state, action) => {
+    closeSidebar: (state) => {
       state.state = SIDEBAR_STATE.CLOSE;
-      //   state.contentKey = null;
-      //   console.log("State2", "Action2", state, action);
     },
   },
 });
