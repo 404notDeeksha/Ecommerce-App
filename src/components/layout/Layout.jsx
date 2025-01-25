@@ -9,32 +9,20 @@ import { Outlet } from "react-router-dom";
 
 export const Layout = (props) => {
   const {
-    onOpen,
     onClose,
-    popover,
-    onPopoverOpen,
+
     onPopoverClose,
     modalVisibility,
-    modalVisibilityClassType,
+
     modalVisibilityClassTypeData,
     sideBarToggle,
     onCloseSidebar,
-    onOpenSidebar,
   } = props;
   return (
     <>
       <MainHeader />
-      <CategoryHeader
-        onOpen={onOpen}
-        onClose={onClose}
-        onOpenSidebar={onOpenSidebar}
-        modalVisibilityClassType={modalVisibilityClassType}
-      />
-      <Sidebar
-        sideBarToggle={sideBarToggle}
-        onCloseSidebar={onCloseSidebar}
-        onClose={onClose}
-      />
+      <CategoryHeader />
+      <Sidebar />
       <Modal
         modalVisibility={modalVisibility}
         onClose={onClose}

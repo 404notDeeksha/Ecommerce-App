@@ -116,7 +116,6 @@ const categories = [
       { id: "MOV-MOV-MG6P3", subCategory: "Movers and Shakers" },
     ],
   },
-
   {
     category: "Digital Content",
     subCategories: [

@@ -14,9 +14,9 @@ export const AccountDetails = () => {
   const dispatch = useDispatch();
 
   const handleMouseOver = () => {
-    dispatch(activeOverlay("TOOLTIP"));
+    dispatch(activeOverlay("TOOLTIP_MAIN_HEADER"));
   };
-  
+
   return (
     <>
       <div

@@ -1,14 +1,9 @@
 import React from "react";
-import { TrendingCategory } from "./TrendingCategory";
-import { DigitalContentCategory } from "./DigitalContentCategory";
-import { ShopCategory } from "./ShopCategory";
-import { ProgramFeaturesCategory } from "./ProgramFeaturesCategory";
-import { HelpSettingsCategory } from "./HelpSettingsCategory";
 import { getCategoryData } from "../data/Categories";
 
 export const Categories = ({ isOpen }) => {
-  const categories = getCategoryData();
-  console.log(categories);
+  const categoryList = getCategoryData();
+  // console.log(categoryList);
   return (
     <>
       <ul
@@ -16,20 +11,28 @@ export const Categories = ({ isOpen }) => {
         overflow-auto h-full
         "
       >
-        {/* --------------------------------Trending --------------------------------- */}
-        <TrendingCategory />
-
-        {/* ------------------------#2 Digital Content and Devices---------------------- */}
-        <DigitalContentCategory isOpen={isOpen} />
-
-        {/* -----------------------  #3  Shop by Category------------------------------ */}
-        <ShopCategory isOpen={isOpen} />
-
-        {/* ---------------------------#4 Programs & Features  ------------------------ */}
-        <ProgramFeaturesCategory isOpen={isOpen} />
-
-        {/* ------------------------------ Help & Settings  ----------------------------*/}
-        <HelpSettingsCategory />
+        {categoryList.map((ele) => {
+          return (
+            <div key={ele.category}>
+              <li className="pl-9 pr-5 pt-[13px] pb-[10px] text-black">
+                {ele.category}
+              </li>
+              <ul className="">
+                {ele.subCategories.map((subCat) => {
+                  return (
+                    <li
+                      key={subCat.id}
+                      className="font-[500] text-sm py-[13px] leading-5 pl-9 cursor-pointer hover:bg-[#eaeded]"
+                    >
+                      {subCat.subCategory}
+                    </li>
+                  );
+                })}
+              </ul>
+              <div className="border-slate-200 border-b-[1px] py-2"></div>
+            </div>
+          );
+        })}
       </ul>
     </>
   );

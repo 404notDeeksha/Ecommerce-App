@@ -30,6 +30,7 @@ export const Sidebar = () => {
             <Navbar />
             <Categories />
           </motion.div>
+
           <SideBarCloseIcon
             className={`absolute left-[390px] top-[18px]  text-white font-bold
             z-[50] transition-[opacity] 

@@ -14,12 +14,12 @@ const Overlay = () => {
   const componentMap = {
     POPOVER: {
       component: <PopoverBox />,
-      parentClass: " top-0 flex justify-center items-center z-[6]",
+      parentClass: "  flex justify-center items-center z-[6]",
     },
-    SEARCHBAR: { component: null, parentClass: "top-[60px] z-[4]" },
-    TOOLTIP: { component: null, parentClass: "top-[60px]  z-[4] " },
-    SIDEBAR: { component: <Sidebar />, parentClass: "top-0  z-[6] " },
-    TOOLTIP_CATEGORY_HEADER: { component: null, parentClass: "top-0  z-[2] " },
+    SEARCHBAR: { component: null, parentClass: " z-[4]" },
+    TOOLTIP_MAIN_HEADER: { component: null, parentClass: "  z-[4] " },
+    SIDEBAR: { component: <Sidebar />, parentClass: "  z-[6] " },
+    TOOLTIP_CATEGORY_HEADER: { component: null, parentClass: "  z-[2] " },
   };
 
   const currentContent = componentMap[contentKey];
@@ -34,7 +34,7 @@ const Overlay = () => {
   return (
     <Portal>
       <div
-        className={`fixed left-0 h-full w-full bg-blackTransparent ${currentContent.parentClass}`}
+        className={`fixed top-0 left-0 h-full w-full bg-blackTransparent ${currentContent.parentClass}`}
         onClick={() => clickOverlay()}
       >
         <div className="" onClick={(e) => e.stopPropagation()}>

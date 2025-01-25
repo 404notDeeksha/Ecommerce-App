@@ -20,7 +20,7 @@ export const LanguageSelection = () => {
   return (
     <div
       className="hover-header relative group z-10"
-      onMouseOver={() => dispatch(activeOverlay("TOOLTIP"))}
+      onMouseOver={() => dispatch(activeOverlay("TOOLTIP_MAIN_HEADER"))}
       onMouseOut={() => dispatch(inactiveOverlay())}
     >
       <div className=" my-6 ml-3 mr-2 flex ">
