@@ -1,11 +1,12 @@
 import React from "react";
 import { Link } from "react-router-dom";
-import { useDispatch } from "react-redux";
-import { setLanguage } from "../../../../../../redux/slices/languageSlice";
-import { languages } from "./../../../../../../utils/common-consts";
+import { useDispatch, useSelector } from "react-redux";
+import { setLanguage } from "../../../../../redux/slices/languageSlice";
+import { languages } from "../../../../../utils/common-consts";
 
-export const DropDownMenu = () => {
+export const Languages = () => {
   const dispatch = useDispatch();
+  const selectedLanguage = useSelector((state) => state.language.data);
 
   const handleClick = (e) => {
     dispatch(setLanguage(e.target.value));
@@ -16,7 +17,8 @@ export const DropDownMenu = () => {
       className="invisible group-hover:visible
           flex-col  bg-white text-black shadow-md rounded
            absolute top-[54px] h-[370px] w-[260px]
-           after:content-['']  after:absolute after:bottom-[100%] after:left-[26%] after:border-[10px] after:border-b-white after:border-l-transparent   
+           after:content-['']  after:absolute after:bottom-[100%] 
+           after:left-[26%] after:border-[10px] after:border-b-white after:border-l-transparent   
            after:border-t-transparent  after:border-r-transparent        
            "
     >
@@ -36,13 +38,14 @@ export const DropDownMenu = () => {
                         type="radio"
                         id={ele.value}
                         value={ele.value}
-                        defaultChecked={index === 0}
+                        checked={selectedLanguage === ele.value}
                         name="languageSelection"
                         className=" appearance-none rounded-[50%]
-                            w-[16px]  h-[16px]  border-[2px] hover:border-[5px] checked:border-[5px] checked:bg-orange-400 border-white outline-[#999] outline outline-[1px]  
+                            w-[16px]  h-[16px]  border-[2px] hover:border-[5px] checked:border-[5px]
+                             checked:bg-orange-400 border-white outline-[#999] outline outline-[1px]  
                             mr-[5px] relative top-[4px]
                              hover:bg-orange-400"
-                        onClick={(e) => handleClick(e)}
+                        onClick={handleClick}
                       />
                       <label htmlFor={ele.value} className="ml-0.5">
                         {ele.category} -{" "}
