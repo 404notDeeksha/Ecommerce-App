@@ -3,6 +3,7 @@ import cartReducer from "./slices/cartSlice";
 import overlayReducer from "./slices/overlaySlice";
 import sidebarReducer from "./slices/sidebarSlice";
 import deliveryLocationReducer from "./slices/locationSlice";
+import languageReducer from "./slices/languageSlice";
 
 const store = configureStore({
   reducer: {
@@ -10,6 +11,7 @@ const store = configureStore({
     overlay: overlayReducer,
     sidebar: sidebarReducer,
     deliveryLocation: deliveryLocationReducer,
+    language: languageReducer,
   },
 });
 

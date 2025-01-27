@@ -2,13 +2,15 @@ import React from "react";
 import { images } from "../../../../../../assets/images";
 import { getDropDownList } from "../data/DisplayLanguages";
 import { Link } from "react-router-dom";
+import { useDispatch } from "react-redux";
+import { setLanguage } from "../../../../../../redux/slices/languageSlice";
 
-export const DropDownMenu = ({ language }) => {
+export const DropDownMenu = () => {
   const LangArray = getDropDownList() || [];
+  const dispatch = useDispatch();
 
   const handleClick = (e) => {
-    const value = e.target.value;
-    language(value);
+    dispatch(setLanguage(e.target.value));
   };
 
   return (
@@ -64,7 +66,7 @@ export const DropDownMenu = ({ language }) => {
           })}
         </div>
       </ul>
-      <Link className="absolute left-10 bottom-24 text-blue-600 font-semibold text-[13px] hover:underline">
+      {/* <Link className="absolute left-10 bottom-24 text-blue-600 font-semibold text-[13px] hover:underline">
         Learn more
       </Link>
       <div
@@ -81,7 +83,7 @@ export const DropDownMenu = ({ language }) => {
       </div>
       <Link className="absolute left-10 bottom-5 text-blue-600 font-semibold text-[13px] hover:underline">
         Change country/ region
-      </Link>
+      </Link> */}
     </div>
   );
 };

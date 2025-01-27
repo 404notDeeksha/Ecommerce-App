@@ -6,7 +6,7 @@ import { setLocation } from "../redux/slices/locationSlice";
 
 export const PopoverBox = () => {
   const [pincode, setPincode] = useState("");
-
+  const [error, setError] = useState(null);
   const dispatch = useDispatch();
 
   const handleClose = () => {
@@ -18,7 +18,9 @@ export const PopoverBox = () => {
     if (checkPincode()) {
       dispatch(setLocation(pincode));
       dispatch(inactiveOverlay());
-    } else return null;
+    } else {
+      setError("Invalid PinCode, please check and try again.");
+    }
   };
 
   const checkPincode = () => {
@@ -45,7 +47,7 @@ export const PopoverBox = () => {
         <form className="flex h-[29px]" onSubmit={handleSubmit}>
           <input
             type="text"
-            className="w-[66%] mr-[2%] overflow-visible border-[1px] rounded border-[#888c8c] text-black cursor-text"
+            className="w-[66%] mr-[2%] overflow-visible border-[1px] rounded border-[#888c8c] text-black cursor-text p-2"
             value={pincode}
             onChange={(e) => setPincode(e.target.value)}
           />
@@ -56,6 +58,7 @@ export const PopoverBox = () => {
             Apply
           </button>
         </form>
+        <div className="text-red-700 text-xs pt-2">{error}</div>
       </div>
     </div>
   );

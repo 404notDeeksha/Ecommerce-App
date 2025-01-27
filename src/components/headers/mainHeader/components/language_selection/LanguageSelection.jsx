@@ -1,21 +1,16 @@
-import React, { useState } from "react";
+import React from "react";
 import { RiArrowDropDownFill as DropDownIcon } from "react-icons/ri";
 import { DropDownMenu } from "./components/DropDownMenu";
 import { images } from "../../../../../assets/images";
-import { useDispatch } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 import {
   activeOverlay,
   inactiveOverlay,
 } from "../../../../../redux/slices/overlaySlice";
 
 export const LanguageSelection = () => {
-  const [display, setDisplay] = useState("EN");
-
   const dispatch = useDispatch();
-
-  const handleDisplay = (language) => {
-    setDisplay(language);
-  };
+  const language = useSelector((state) => state.language.data);
 
   return (
     <div
@@ -29,10 +24,10 @@ export const LanguageSelection = () => {
           alt="amazonCountry"
           className="w-[22px] h-4 scale-[.9]"
         />
-        <div className="font-bold text-[14px] ml-1 -mt-[2px] ">{display}</div>
+        <div className="font-bold text-[14px] ml-1 -mt-[2px] ">{language}</div>
         <DropDownIcon className="scale-[1.3] min-w-4 min-h-4 mt-[3px] text-[#e6e6e6]" />
       </div>
-      <DropDownMenu language={handleDisplay} />
+      <DropDownMenu />
     </div>
   );
 };
