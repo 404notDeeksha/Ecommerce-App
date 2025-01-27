@@ -1,7 +1,7 @@
 import React from "react";
 import { images } from "../../../../assets/images";
 
-export const Logo = () => {
+export const AmazonLogo = () => {
   return (
     <>
       <div className="amazon-logo">

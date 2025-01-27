@@ -1,5 +1,5 @@
 import React from "react";
-import { Logo } from "../../headers/mainHeader/components/Logo";
+import { AmazonLogo } from "./components/AmazonLogo";
 import { DeliveryLocation } from "../../headers/mainHeader/components/DeliveryLocation";
 import { SearchBar } from "../../headers/mainHeader/components/searchbar/SearchBar";
 import { LanguageSelection } from "../../headers/mainHeader/components/language_selection/LanguageSelection";
@@ -10,22 +10,20 @@ import { Link } from "react-router-dom";
 
 export const MainHeader = () => {
   return (
-    <>
-      <div className="header-top">
-        <Link to="/home">
-          <Logo />
+    <div className="h-[60px] bg-amazon_blue border-0 p-0 m-0 flex justify-evenly relative z-[5]">
+      <Link to="/home">
+        <AmazonLogo />
+      </Link>
+      <DeliveryLocation />
+      <SearchBar />
+      <div className="flex text-white ml-3 justify-evenly">
+        <LanguageSelection />
+        <AccountDetails />
+        <ReturnOrders />
+        <Link to="/cart">
+          <CartLogo />
         </Link>
-        <DeliveryLocation />
-        <SearchBar />
-        <div className="flex text-white ml-3 justify-evenly">
-          <LanguageSelection />
-          <AccountDetails />
-          <ReturnOrders />
-          <Link to="/cart">
-            <CartLogo />
-          </Link>
-        </div>
       </div>
-    </>
+    </div>
   );
 };

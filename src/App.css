@@ -7,9 +7,6 @@
     @apply hover:border-white border-transparent border-[1px];
   }
  
-.header-top{
-  @apply h-[60px] bg-amazon_blue border-0 p-0 m-0 flex justify-evenly relative z-[5]
-}
 
 .header-bottom{
     @apply max-h-[39px] bg-amazon_light 

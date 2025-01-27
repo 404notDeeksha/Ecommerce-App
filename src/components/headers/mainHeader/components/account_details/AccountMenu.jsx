@@ -22,7 +22,7 @@ export const AccountMenu = () => {
       className="invisible group-hover:visible z-[5] bg-white text-black shadow-lg  rounded-sm border-[#bbb]  w-[450px] -left-64
        absolute top-[54px] after:content-['']  after:absolute after:bottom-[100%] after:left-[71.5%] after:border-[10px] after:border-b-white after:border-l-transparent after:border-t-transparent  after:border-r-transparent"
     >
-      <div className="mx-5 mt-1 mb-5 ">
+      <div className="mx-5 mt-4 mb-5 ">
         {!userData && (
           <div className="flex-col ">
             <Link to="/signin">
@@ -44,7 +44,7 @@ export const AccountMenu = () => {
                 key={index}
                 className={`flex-1 p-4 ${
                   data.section === "left" ? "border-r border-gray-300" : ""
-                } ${data.section === "right" ? "" : ""}`}
+                }`}
               >
                 <h3 className="font-bold text-[16px]">{data.title}</h3>
                 <ul className="font-normal mt-1">

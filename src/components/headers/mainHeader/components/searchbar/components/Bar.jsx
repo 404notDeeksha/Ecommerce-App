@@ -10,6 +10,8 @@ export const Bar = () => {
     dispatch(activeOverlay("SEARCHBAR"));
   };
 
+  const handleSearch = () => {};
+
   return (
     <div
       className="
@@ -23,7 +25,8 @@ export const Bar = () => {
       />
       <div
         className="relative 
-       bg-orange-300 border-orange-300 rounded w-12"
+       bg-orange-300 border-orange-300 rounded w-12 cursor-pointer"
+        onClick={handleSearch}
       >
         <IconSearch className="block scale-[1.7]  m-3 ml-3.5" />
       </div>

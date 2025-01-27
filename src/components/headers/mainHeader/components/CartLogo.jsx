@@ -6,8 +6,6 @@ import { useSelector } from "react-redux";
 export const CartLogo = () => {
   const cartItems = useSelector((state) => state.cart.data.items);
   let itemsNumberInCart = getTotalQtyFromCart(cartItems);
-  // console.log("cartItems", cartItems);
-  // console.log("NoOfItemsInCart", itemsNumberInCart);
 
   return (
     <div className=" flex-col relative text-[#fff] hover-header cursor-pointer gap-3 px-5 py-0.5  border  ">
