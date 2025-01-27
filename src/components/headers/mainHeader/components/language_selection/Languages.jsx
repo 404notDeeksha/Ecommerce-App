@@ -16,7 +16,7 @@ export const Languages = () => {
     <div
       className="invisible group-hover:visible
           flex-col  bg-white text-black shadow-md rounded
-           absolute top-[54px] h-[370px] w-[260px]
+           absolute top-[54px] w-[200px] pb-5
            after:content-['']  after:absolute after:bottom-[100%] 
            after:left-[26%] after:border-[10px] after:border-b-white after:border-l-transparent   
            after:border-t-transparent  after:border-r-transparent        

@@ -84,3 +84,74 @@ export const languages = [
   { id: 128451, value: "BN", category: "বাংলা" },
   { id: 294583, value: "MR", category: "मराठी" },
 ];
+
+export const accountMenu = [
+  {
+    section: "left",
+    title: "Your Lists",
+    items: [
+      {
+        value: "wishlist",
+        category: "Create a Wish List",
+      },
+      {
+        value: "wishlist_Other",
+        category: "Wish from Any Website",
+      },
+      {
+        value: "baby_Wishlist",
+        category: "Baby Wishlist",
+      },
+      {
+        value: "style",
+        category: "Discover Your Style",
+      },
+      {
+        value: "showroom",
+        category: "Explore Showroom",
+      },
+    ],
+  },
+  {
+    section: "right",
+    title: "Your Account",
+    items: [
+      {
+        value: "account",
+        category: "Your Account",
+      },
+      {
+        value: "orders",
+        category: "Your Orders",
+      },
+      {
+        value: "wishlist",
+        category: "Your Wish List",
+      },
+      {
+        value: "recommendations",
+        category: "Your Recommendations",
+      },
+      {
+        value: "prime",
+        category: "Your Prime Membership",
+      },
+      {
+        value: "prime_vedio",
+        category: "Your Prime Vedio",
+      },
+      {
+        value: "subscribe",
+        category: "Your Subscribe",
+      },
+      {
+        value: "memberships",
+        category: "Memberships & Subscriptions",
+      },
+      {
+        value: "seller_account",
+        category: "Your Seller Account",
+      },
+    ],
+  },
+];

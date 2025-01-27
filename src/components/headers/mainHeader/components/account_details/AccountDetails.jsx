@@ -1,6 +1,6 @@
 import React from "react";
 import { RiArrowDropDownFill as DropDownIcon } from "react-icons/ri";
-import { SignInDropMenu } from "./components/SignInDropMenu";
+import { AccountMenu } from "./AccountMenu";
 import { getDataFromLocalStorage } from "../../../../../utils/common-utils";
 import { useDispatch } from "react-redux";
 import {
@@ -36,7 +36,7 @@ export const AccountDetails = () => {
           className="scale-[1.3] min-w-4 min-h-4 absolute right-1 bottom-[13px] 
         text-[#e6e6e6]"
         />
-        <SignInDropMenu />
+        <AccountMenu />
       </div>
     </>
   );
