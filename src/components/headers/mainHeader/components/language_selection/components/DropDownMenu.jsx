@@ -1,12 +1,10 @@
 import React from "react";
-import { images } from "../../../../../../assets/images";
-import { getDropDownList } from "../data/DisplayLanguages";
 import { Link } from "react-router-dom";
 import { useDispatch } from "react-redux";
 import { setLanguage } from "../../../../../../redux/slices/languageSlice";
+import { languages } from "./../../../../../../utils/common-consts";
 
 export const DropDownMenu = () => {
-  const LangArray = getDropDownList() || [];
   const dispatch = useDispatch();
 
   const handleClick = (e) => {
@@ -24,7 +22,7 @@ export const DropDownMenu = () => {
     >
       <ul className="py-0.5 text-sm text-nowrap text-left mt-2.5 ml-3.5">
         <div className="flex-col">
-          {LangArray?.map((ele, index) => {
+          {(languages || [])?.map((ele, index) => {
             return (
               <li
                 key={ele.id}
@@ -66,24 +64,6 @@ export const DropDownMenu = () => {
           })}
         </div>
       </ul>
-      {/* <Link className="absolute left-10 bottom-24 text-blue-600 font-semibold text-[13px] hover:underline">
-        Learn more
-      </Link>
-      <div
-        className=" absolute left-10 bottom-20
-                      w-[200px] border-[0.5px] border-slate-300 opacity-50"
-      />
-      <div className="flex absolute bottom-14 text-[13px]">
-        <img
-          src={images.indianFlag}
-          alt="amazonCountry"
-          className="w-[22px] h-4 scale-[.8] ml-3"
-        />
-        <div className=" ml-1 -mt-[2px] ">You are shopping on Amazon.in</div>
-      </div>
-      <Link className="absolute left-10 bottom-5 text-blue-600 font-semibold text-[13px] hover:underline">
-        Change country/ region
-      </Link> */}
     </div>
   );
 };

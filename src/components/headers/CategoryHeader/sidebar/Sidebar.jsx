@@ -12,7 +12,7 @@ export const Sidebar = () => {
   const dispatch = useDispatch();
   const currentState = useSelector((state) => state.sidebar.state);
   const sidebarRef = useRef(null);
-  console.log("Ref", sidebarRef);
+  // console.log("Ref", sidebarRef);
   if (sidebarRef.current) {
     sidebarRef.current.scrollTop = 0;
   }
