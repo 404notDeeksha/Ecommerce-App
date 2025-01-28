@@ -9,7 +9,7 @@ export const ConnnectionsBuildingFooter = () => {
       {footer1Links?.map((data) => {
         return (
           <div
-            key={data.title}
+            key={data.data.title}
             className=" py-0 px-2.5 gap-2
           align-top text-[#DDD] "
           >
