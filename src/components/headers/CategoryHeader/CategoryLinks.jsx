@@ -1,4 +1,4 @@
-import { categoriesList } from "../../../../utils/common-consts";
+import { categoriesList } from "../../../utils/common-consts";
 
 export const CategoryLinks = () => {
   return (

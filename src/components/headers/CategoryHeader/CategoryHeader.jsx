@@ -1,6 +1,6 @@
 import React from "react";
-import { SideBarButton } from "./components/SideBarButton";
-import { CategoryLinks } from "./components/CategoryLinks";
+import { SideBarButton } from "./SideBarButton";
+import { CategoryLinks } from "./CategoryLinks";
 
 export const CategoryHeader = () => {
   return (

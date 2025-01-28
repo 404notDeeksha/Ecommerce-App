@@ -1,11 +1,13 @@
 export const TopNavigationFooter = () => {
-    return (
-      <>
-        <a href="#" id="navBackToTop">
-          <div className="navFooterBackToTop  ">
-            <span className="text-[13px] ">Back to top</span>
-          </div>
-        </a>
-      </>
-    );
+  const scrollToTop = () => {
+    window.scrollTo({
+      top: 0,
+      behavior: "smooth",
+    });
   };
+  return (
+    <div className="navFooterBackToTop  " onClick={scrollToTop}>
+      <span className="text-[13px] ">Back to top</span>
+    </div>
+  );
+};

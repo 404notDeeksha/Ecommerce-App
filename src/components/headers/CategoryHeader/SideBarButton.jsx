@@ -1,7 +1,7 @@
 import { IoMenuSharp as HamBurgerMenu } from "react-icons/io5";
 import { useDispatch } from "react-redux";
-import { openSidebar } from "../../../../redux/slices/sidebarSlice";
-import { activeOverlay } from "../../../../redux/slices/overlaySlice";
+import { openSidebar } from "../../../redux/slices/sidebarSlice";
+import { activeOverlay } from "../../../redux/slices/overlaySlice";
 
 export const SideBarButton = () => {
   const dispatch = useDispatch();

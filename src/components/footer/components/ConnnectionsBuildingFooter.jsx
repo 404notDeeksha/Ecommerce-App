@@ -7,22 +7,20 @@ import {
 
 export const ConnnectionsBuildingFooter = () => {
   return (
-    <>
-      <div
-        className="table m-auto 
+    <div
+      className="table m-auto 
     max-w-[1000px] text-sm leading-5"
-      >
-        <div className="table-row">
-          <ColumnFormatFill title="Get to Know Us" list={getToKnowUs} />
-          <ColumnFormatBlank />
-          <ColumnFormatFill title="Connect with Us" list={connectWithUs} />
-          <ColumnFormatBlank />
-          <ColumnFormatFill title="Make Money with Us" list={makeMoneyWithUs} />
-          <ColumnFormatBlank />
-          <ColumnFormatFill title="Let Us Help You" list={letUsHelpYou} />
-        </div>
+    >
+      <div className="table-row">
+        <ColumnFormatFill title="Get to Know Us" list={getToKnowUs} />
+        <ColumnFormatBlank />
+        <ColumnFormatFill title="Connect with Us" list={connectWithUs} />
+        <ColumnFormatBlank />
+        <ColumnFormatFill title="Make Money with Us" list={makeMoneyWithUs} />
+        <ColumnFormatBlank />
+        <ColumnFormatFill title="Let Us Help You" list={letUsHelpYou} />
       </div>
-    </>
+    </div>
   );
 };
 
@@ -39,7 +37,7 @@ const ColumnFormatFill = ({ title, list }) => {
         {list.map((ele) => {
           return (
             <li key={ele} className="mb-2.5">
-              <a href="#">{ele}</a>
+              {ele}
             </li>
           );
         })}

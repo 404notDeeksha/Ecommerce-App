@@ -4,7 +4,7 @@ export const SIDEBAR_STATE = {
   OPEN: `OPEN`,
 };
 
-const categories = [
+const sidebarCategories = [
   {
     category: "Trending",
     subCategories: [
@@ -71,7 +71,7 @@ const categories = [
 ];
 
 export const getCategoryData = () => {
-  return categories;
+  return sidebarCategories;
 };
 
 export const languages = [
@@ -237,4 +237,81 @@ export const categoriesList = [
   { id: 405603, name: "AmazonBasics" },
   { id: 515543, name: "Subscribe & Save" },
   { id: 956902, name: "Coupons" },
+];
+
+export const footer1Links = [
+  {
+    title: "getToKnowUs",
+    data: [
+      { id: 989435, name: "About Us" },
+      { id: 347078, name: "Careers" },
+      { id: 217399, name: "Press Releases" },
+      { id: 762217, name: "Amazon Science" },
+    ],
+  },
+  {
+    title: "connectWithUs",
+    data: [
+      { id: 206520, name: "Facebook" },
+      { id: 543685, name: "Twitter" },
+      { id: 580212, name: "Instagram" },
+    ],
+  },
+  {
+    title: "makeMoneyWithUs",
+    data: [
+      { id: 265864, name: "Sell on Amazon" },
+      { id: 613861, name: "Sell under Amazon Accelerator" },
+      { id: 468963, name: "Protect and Build Your Brand" },
+      { id: 522041, name: "Amazon Global Selling" },
+      { id: 513571, name: "Become an Affiliate" },
+      { id: 676145, name: "Fulfilment by Amazon" },
+      { id: 942538, name: "Advertise Your Products" },
+      { id: 422272, name: "Amazon Pay on Merchants" },
+    ],
+  },
+  {
+    title: "letUsHelpYou",
+    data: [
+      { id: 647087, name: "COVID-19 and Amazon" },
+      { id: 891210, name: "Your Account" },
+      { id: 449463, name: "Returns Centre" },
+      { id: 643948, name: "Recalls and Product Safety Alerts" },
+      { id: 131554, name: "100% Purchase Protection" },
+      { id: 732165, name: "Amazon App Download" },
+      { id: 985489, name: "Help" },
+    ],
+  },
+];
+
+export const footer2Links = [
+  {
+    title: "otherServices",
+    data: [
+      { id: 627783, title: "AbeBooks", desc: "Books, art & collectibles" },
+      {
+        id: 499130,
+        title: "Amazon Web Services",
+        desc: "Scalable Cloud Computing Services",
+      },
+      { id: 364163, title: "Audible", desc: "Download Audio Books" },
+      { id: 267713, title: "IMDb", desc: "Movies, TV & Celebrities" },
+      { id: 987773, title: "Shopbop", desc: "Designer Fashion Brands" },
+      {
+        id: 205823,
+        title: "Amazon Business",
+        desc: "Everything For Your Business",
+      },
+      {
+        id: 327892,
+        title: "Prime Now",
+        desc: "2-Hour Delivery on Everyday Items",
+      },
+      {
+        id: 828267,
+        title: "Amazon Prime Music",
+        desc: "100 million songs, ad-free Over 15 million podcast episodes",
+      },
+    ],
+  },
 ];
