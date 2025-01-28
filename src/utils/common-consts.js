@@ -241,7 +241,7 @@ export const categoriesList = [
 
 export const footer1Links = [
   {
-    title: "getToKnowUs",
+    title: "Get to Know Us",
     data: [
       { id: 989435, name: "About Us" },
       { id: 347078, name: "Careers" },
@@ -250,7 +250,7 @@ export const footer1Links = [
     ],
   },
   {
-    title: "connectWithUs",
+    title: "Connect with Us",
     data: [
       { id: 206520, name: "Facebook" },
       { id: 543685, name: "Twitter" },
@@ -258,7 +258,7 @@ export const footer1Links = [
     ],
   },
   {
-    title: "makeMoneyWithUs",
+    title: "Make Money with Us",
     data: [
       { id: 265864, name: "Sell on Amazon" },
       { id: 613861, name: "Sell under Amazon Accelerator" },
@@ -271,7 +271,7 @@ export const footer1Links = [
     ],
   },
   {
-    title: "letUsHelpYou",
+    title: "Let Us Help You",
     data: [
       { id: 647087, name: "COVID-19 and Amazon" },
       { id: 891210, name: "Your Account" },
