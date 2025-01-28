@@ -110,10 +110,6 @@ body {
 /* :hover */
 .custom-scrollbar::-webkit-scrollbar-thumb {
   background-color: #aaa;
-  /* height: 4px; */
   border-radius: 4px;
-  /* width: 0; */
-  /* position: absolute; */
-  /* margin: 0; */
   cursor: pointer;
 }
