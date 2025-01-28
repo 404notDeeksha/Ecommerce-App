@@ -10,7 +10,7 @@ export const CategoryLinks = () => {
             className="text-nowrap
                p-2 text-white hover-header"
           >
-            {ele}
+            {ele.name}
           </li>
         );
       })}

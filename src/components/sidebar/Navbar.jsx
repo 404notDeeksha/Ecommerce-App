@@ -1,6 +1,6 @@
 import React from "react";
 import AccountCircleIcon from "@mui/icons-material/AccountCircle";
-import { getDataFromLocalStorage } from "../../../../../utils/common-utils";
+import { getDataFromLocalStorage } from "../../utils/common-utils";
 
 export const Navbar = () => {
   const userData = getDataFromLocalStorage("userInfo");

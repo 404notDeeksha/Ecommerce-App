@@ -1,5 +1,5 @@
 import React from "react";
-import { getCategoryData } from "../../../../../utils/common-consts";
+import { getCategoryData } from "../../utils/common-consts";
 
 export const Categories = () => {
   const categoryList = getCategoryData();

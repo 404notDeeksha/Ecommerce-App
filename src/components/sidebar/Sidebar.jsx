@@ -1,12 +1,12 @@
 import React, { useRef } from "react";
 import { motion } from "framer-motion";
 import { GrClose as SideBarCloseIcon } from "react-icons/gr";
-import { Navbar } from "./components/Navbar";
-import { Categories } from "./components/Categories";
+import { Navbar } from "./Navbar";
+import { Categories } from "./Categories";
 import { useDispatch, useSelector } from "react-redux";
-import { closeSidebar } from "../../../../redux/slices/sidebarSlice";
-import { inactiveOverlay } from "../../../../redux/slices/overlaySlice";
-import { SIDEBAR_STATE } from "../../../../utils/common-consts";
+import { closeSidebar } from "../../redux/slices/sidebarSlice";
+import { inactiveOverlay } from "../../redux/slices/overlaySlice";
+import { SIDEBAR_STATE } from "../../utils/common-consts";
 
 export const Sidebar = () => {
   const dispatch = useDispatch();

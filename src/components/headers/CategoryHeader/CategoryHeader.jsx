@@ -7,7 +7,7 @@ export const CategoryHeader = () => {
     <>
       <div className="header-bottom">
         <SideBarButton />
-        {/* <CategoryLinks /> */}
+        <CategoryLinks />
       </div>
     </>
   );

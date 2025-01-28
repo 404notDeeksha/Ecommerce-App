@@ -11,7 +11,6 @@ import {
 export const LanguageSelection = () => {
   const dispatch = useDispatch();
   const language = useSelector((state) => state.language.data);
-  console.log("language", language);
   return (
     <div
       className="hover-header relative group z-10"
