@@ -206,3 +206,35 @@ const searchList = [
 export const getSearchList = () => {
   return searchList;
 };
+
+export const categoriesList = [
+  { id: 609590, name: "Sell" },
+  { id: 136772, name: "BestSellers" },
+  { id: 320305, name: "Today's Deals" },
+  { id: 456664, name: "Mobiles" },
+  { id: 983054, name: "Fashion" },
+  { id: 564414, name: "Electronics" },
+  { id: 604007, name: "Home & Kitchen" },
+  { id: 976824, name: "New Releases" },
+  { id: 258009, name: "Customer Service" },
+  { id: 364335, name: "Amazon Pay" },
+  { id: 631972, name: "Computers" },
+  { id: 350163, name: "Books" },
+  { id: 894891, name: "Car & Motorbikes" },
+  { id: 242028, name: "Gift Ideas" },
+  { id: 136610, name: "Home Improvement" },
+  { id: 838831, name: "Beauty & Personal Care" },
+  { id: 524057, name: "Toys & Games" },
+  { id: 327567, name: "Sports, Fitness & Outdoors" },
+  { id: 779947, name: "Custom Products" },
+  { id: 433498, name: "Gift Cards" },
+  { id: 914945, name: "Grocery & Gourmet Foods" },
+  { id: 477545, name: "Health, Household & Personal Care" },
+  { id: 652816, name: "Baby" },
+  { id: 242039, name: "Video Games" },
+  { id: 463012, name: "Pet Supplies" },
+  { id: 904810, name: "Audible" },
+  { id: 405603, name: "AmazonBasics" },
+  { id: 515543, name: "Subscribe & Save" },
+  { id: 956902, name: "Coupons" },
+];

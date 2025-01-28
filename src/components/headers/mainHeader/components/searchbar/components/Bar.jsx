@@ -1,7 +1,10 @@
 import React from "react";
 import { IoMdSearch as IconSearch } from "react-icons/io";
 import { useDispatch } from "react-redux";
-import { activeOverlay } from "../../../../../../redux/slices/overlaySlice";
+import {
+  activeOverlay,
+  inactiveOverlay,
+} from "../../../../../../redux/slices/overlaySlice";
 
 export const Bar = () => {
   const dispatch = useDispatch();
@@ -22,6 +25,7 @@ export const Bar = () => {
         placeholder="Search Amazon.in"
         className="block w-full placeholder:text-slate-400 text-[15px] font-[600] outline-none p-2  rounded-l"
         onClick={handleClick}
+        onMouseLeave={() => dispatch(inactiveOverlay())}
       />
       <div
         className="relative 
