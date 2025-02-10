@@ -8,11 +8,11 @@ import {
 } from "react-router-dom";
 import { HomePage } from "./pages/homepage/components/HomePage";
 import { AccountCheck } from "./pages/signin/components/AccountCheck";
-import { CreateAccountForm } from "./pages/signup/components/CreateAccountForm";
+import { Signup } from "./pages/signup/Signup";
 import { Cartpage } from "./pages/cartpage/components/Cartpage";
 import { ProductPage } from "./pages/product/components/ProductPage";
 import { ProductsPage } from "./pages/productsgridpage/components/ProductsPage";
-import { SignInPage } from "./pages/signin/SignInPage";
+// import { SignInPage } from "./pages/signin/SignInPage";
 import { MainHeader } from "./components/headers/mainHeader/MainHeader";
 import { Footer } from "./components/footer/Footer";
 import { SecondaryHeader } from "./components/headers/secondaryHeader/SecondaryHeader";
@@ -26,9 +26,9 @@ function App() {
         <ScrollToTop />
         <Routes>
           <Route path="/" element={<Navigate to="/home" replace />} />
-          <Route path="/signin" element={<SignInPage />} />
+          {/* <Route path="/signin" element={<SignInPage />} /> */}
           <Route path="/signin/auth" element={<AccountCheck />} />
-          <Route path="/signup" element={<CreateAccountForm />} />
+          <Route path="/signup" element={<Signup />} />
           <Route
             path="/"
             element={

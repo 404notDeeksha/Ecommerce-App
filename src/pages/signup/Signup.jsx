@@ -1,13 +1,13 @@
 import { useState } from "react";
 import { Link, useNavigate } from "react-router-dom";
-import { LogoBlack } from "../../signin/components/Logo";
+import { LogoBlack } from "../signin/components/Logo";
 import { CgFormatItalic } from "react-icons/cg";
 import { RiArrowDropRightFill } from "react-icons/ri";
 import axios from "axios";
-import { URL } from "../../../constant/url";
-import { setDataToLocalStorage } from "../../../utils/common-utils";
+import { URL } from "../../constant/url";
+// import { setDataToLocalStorage } from "../../utils/common-utils";
 
-export const CreateAccountForm = () => {
+export const Signup = () => {
   const [nameDetail, setNameDetail] = useState("");
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
@@ -27,7 +27,7 @@ export const CreateAccountForm = () => {
       return false;
     }
     try {
-      const response = await axios.post(`${URL.ACCOUNT_API}/check`, {
+      const response = await axios.post(`${URL.USER_API}/signup`, {
         email: emailData,
       });
       if (response.data.success) {
@@ -76,15 +76,16 @@ export const CreateAccountForm = () => {
 
     if (emailCheck && passwordCheck && passwordDuplicationCheck) {
       try {
-        const response = await axios.post(`${URL.ACCOUNT_API}/create`, body);
+        const response = await axios.post(`${URL.USER_API}/signup`, body);
         if (response.data.success) {
           console.log("Account created successfully", response.data);
-          setDataToLocalStorage("userInfo", {
-            name: response.data.data.name,
-            email: response.data.data.email,
-          });
+
+          // setDataToLocalStorage("userInfo", {
+          //   name: response.data.data.name,
+          //   email: response.data.data.email,
+          // });
           // setCookieId("userId", response.data.data.userId);
-          setCookieId("token", response.data.data.token);
+          // setCookieId("token", response.data.data.token);
           navigate("/home");
         }
       } catch (err) {

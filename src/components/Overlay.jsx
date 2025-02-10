@@ -9,7 +9,6 @@ import { closeSidebar } from "../redux/slices/sidebarSlice";
 const Overlay = () => {
   const dispatch = useDispatch();
   const { isOpen, contentKey } = useSelector((state) => state.overlay);
-  // console.log("StateOverlay", "ActionOverlay", isOpen, contentKey);
 
   const componentMap = {
     POPOVER: {
