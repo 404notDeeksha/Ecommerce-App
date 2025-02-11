@@ -1,45 +1,36 @@
 import React, { useState } from "react";
-import { LogoBlack } from "./Logo";
+import { LogoBlack } from "./LogoBlack";
 import { Link, useLocation, useNavigate } from "react-router-dom";
-import {
-  setCookieId,
-  setDataToLocalStorage,
-} from "../../../utils/common-utils";
-import { URL } from "../../../constant/url";
-import axios from "axios";
+import { loginUser } from "../../api/auth";
+import { useDispatch } from "react-redux";
+import { loginSuccess } from "../../redux/slices/authSlice";
 
-//private route
-export const AccountAuth = () => {
+export const AccountAuthLogin = () => {
   const [password, setPassword] = useState("");
   const [errorMsg, setErrorMsg] = useState(false);
   const navigate = useNavigate();
   const location = useLocation();
-  const email = location.state; // navigating from SignInForm
+  const email = location.state; // navigating from EmailLoginForm
+  const dispatch = useDispatch();
 
   const handleSubmit = (e) => {
     e.preventDefault();
     const fetchUserData = async () => {
-      console.log(`${URL.ACCOUNT_API}/auth`);
       try {
-        const response = await axios.post(`${URL.ACCOUNT_API}/auth`, {
-          email: email,
-          password: password,
-        });
-        if (response) {
-          // console.log("Data sent successfully", response.data);
-          if (response.data.success) {
-            setErrorMsg(false);
-            setDataToLocalStorage("userInfo", {
-              name: response.data.data.data.user.name,
-              email: response.data.data.data.user.email,
-            });
-            // setCookieId("userId", response.data.data.data.user.userId);
-            setCookieId("token", response.data.data.data.token);
-            navigate("/home");
-          }
+        const result = await loginUser({ email, password });
+        if (result.success) {
+          console.log("Account Logged in");
+          navigate("/login/auth", { state: email }); // navigating to AccountAuth
+        }
+        if (result.success) {
+          console.log("Account--->", result.user);
+
+          setErrorMsg(false);
+          dispatch(loginSuccess({ user: result.user }));
+          navigate("/home");
         }
       } catch (err) {
-        console.log("Error in verifying User", err);
+        console.log("Error in verifying Account", err);
         if (!err.response.data.success) {
           setErrorMsg("Wrong password entered!");
           setPassword("");
@@ -65,9 +56,6 @@ export const AccountAuth = () => {
         <form id="signin" className="my-2.5 " onSubmit={(e) => handleSubmit(e)}>
           <label htmlFor="" className="flex justify-between">
             <span className="font-bold ">Password</span>
-            {/* <span className="underline text-cyan-500">
-              <Link>Forgot password?</Link>
-            </span> */}
           </label>
 
           <input
@@ -78,8 +66,8 @@ export const AccountAuth = () => {
             onChange={(e) => setPassword(e.target.value)}
           />
 
-          {errorMsg && <div className="text-red-600 mb-2">{errorMsg}</div>}
-          <button className="bg-[#FFD814] text-xs px-1.5 py-[1px] h-[29px] leading-5 rounded-lg w-full ">
+          {errorMsg && <div className="text-red-600 ">{errorMsg}</div>}
+          <button className="bg-[#FFD814] text-xs p-1 leading-5 rounded-lg w-full my-2 ">
             Signin
           </button>
         </form>

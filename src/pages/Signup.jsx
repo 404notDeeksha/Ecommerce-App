@@ -1,11 +1,12 @@
 import { useEffect, useState } from "react";
 import { Link, useNavigate } from "react-router-dom";
-import { LogoBlack } from "./signin/components/Logo";
+import { LogoBlack } from "./login/LogoBlack";
 import { RiArrowDropRightFill } from "react-icons/ri";
-import { useSelector } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 import { signupUser } from "../api/auth";
 import { FiEye } from "react-icons/fi";
 import { FaRegEyeSlash } from "react-icons/fa6";
+import { loginSuccess } from "../redux/slices/authSlice";
 
 export const Signup = () => {
   const [formData, setFormData] = useState({
@@ -19,6 +20,7 @@ export const Signup = () => {
   const [showPassword, setShowPassword] = useState(false);
   const isAuthenticated = useSelector((state) => state.auth.isAuthenticated);
   const navigate = useNavigate();
+  const dispatch = useDispatch();
 
   useEffect(() => {
     if (isAuthenticated) {
@@ -68,6 +70,7 @@ export const Signup = () => {
         });
         if (result.success) {
           console.log("Account created");
+          dispatch(loginSuccess({ user: result.data }));
           navigate("/home");
         }
       } catch (error) {
@@ -180,20 +183,20 @@ export const Signup = () => {
 
               <button
                 type="submit"
-                className="bg-[#FFD814] text-xs p-2 h-7 rounded-lg w-full my-4 "
+                className="bg-[#FFD814] text-xs p-2 rounded-lg w-full my-4 "
               >
                 Create your amazon account
               </button>
             </form>
 
-            <div className=" mt-[18px] mb-[22px] text-[10px]">
+            <div className="my-5 text-xs">
               By creating an account or logging in, you agree to Amazon’s
               Conditions of Use and Privacy Policy.
             </div>
 
             <div className="my-2 flex">
               Already have an account?
-              <div className="text-[#0066c0] flex">
+              <div className="text-[#0066c0] flex flex-row gap-2">
                 <Link to="/login/email" className="ml-2">
                   Sign in
                 </Link>

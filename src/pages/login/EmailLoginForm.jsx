@@ -1,8 +1,6 @@
-import axios from "axios";
 import { useState } from "react";
 import { useNavigate } from "react-router-dom";
-import { URL } from "../../../constant/url";
-import { emailVerifyUser } from "../../../api/auth";
+import { emailVerifyUser } from "../../api/auth";
 
 export const EmailLoginForm = () => {
   const [email, setEmail] = useState("");
@@ -21,7 +19,6 @@ export const EmailLoginForm = () => {
       console.log("Account not Registered", err);
       setErrorMsg("Account not Registered!");
     }
- 
   };
 
   return (

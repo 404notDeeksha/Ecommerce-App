@@ -1,22 +1,19 @@
 import React from "react";
 import { accountMenu } from "../../../../../utils/common-consts";
-import { Link } from "react-router-dom";
-import {
-  deleteCookieId,
-  deleteFromLocalStorage,
-  getDataFromLocalStorage,
-} from "../../../../../utils/common-utils";
+import { Link, Navigate } from "react-router-dom";
+import { logoutUser } from "../../../../../api/auth";
+import { logout } from "../../../../../redux/slices/authSlice";
+import { useDispatch, useSelector } from "react-redux";
 
 export const AccountMenu = () => {
-  const userData = getDataFromLocalStorage("userInfo");
-
+  const userData = useSelector((state) => state?.auth?.user);
+  const dispatch = useDispatch();
   const onLogout = () => {
-    deleteCookieId("token");
-    deleteFromLocalStorage("userInfo");
-    deleteFromLocalStorage("cartQty");
     console.log("Deleting user info");
+    logoutUser();
+    dispatch(logout());
   };
-
+  console.log(userData);
   return (
     <div
       className="invisible group-hover:visible z-[5] bg-white text-black shadow-lg  rounded-sm border-[#bbb]  w-[450px] -left-64
@@ -59,10 +56,12 @@ export const AccountMenu = () => {
                     );
                   })}
                   <li
-                    className="font-[500] text-[13px] hover:underline"
+                    className="font-[500] text-[13px] hover:underline cursor-pointer"
                     onClick={onLogout}
                   >
-                    <Link to="/signin">Logout</Link>
+                    {/* <Link to="/login/email"> */}
+                    Logout
+                    {/* </Link> */}
                   </li>
                 </ul>
               </section>

@@ -22,6 +22,7 @@
     "react-router-dom": "^6.24.0",
     "react-star-ratings": "^2.3.0",
     "redux-actions": "^3.0.3",
+    "redux-persist": "^6.0.0",
     "tailwind-gradient-mask-image": "^1.2.0",
     "unplugin-fonts": "^1.1.1",
     "uuid": "^10.0.0"
