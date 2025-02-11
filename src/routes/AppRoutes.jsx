@@ -8,15 +8,15 @@ import { HomePage } from "../pages/homepage/components/HomePage";
 import { ProductsPage } from "../pages/productsgridpage/components/ProductsPage";
 import { ProductPage } from "../pages/product/components/ProductPage";
 import { Cartpage } from "../pages/cartpage/components/Cartpage";
-import { AccountCheck } from "./../pages/signin/components/AccountCheck";
+import { AccountAuth } from "../pages/signin/components/AccountAuth";
+import { EmailLogin } from "../pages/signin/EmailLogin";
 
 export const AppRoutes = () => {
   return (
     <Routes>
-      {/* <Route path="/signin" element={<SignInPage />} /> */}
       <Route path="/signup" element={<Signup />} />
-      <Route path="/signin/auth" element={<AccountCheck />} />
-
+      <Route path="/login/email" element={<EmailLogin />} />
+      <Route path="/login/auth" element={<AccountAuth />} />
       <Route
         path="/"
         element={

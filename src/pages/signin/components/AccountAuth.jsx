@@ -9,7 +9,7 @@ import { URL } from "../../../constant/url";
 import axios from "axios";
 
 //private route
-export const AccountCheck = () => {
+export const AccountAuth = () => {
   const [password, setPassword] = useState("");
   const [errorMsg, setErrorMsg] = useState(false);
   const navigate = useNavigate();
@@ -55,19 +55,19 @@ export const AccountCheck = () => {
       <div className="rounded-lg border-[1px] border-[#ddd] py-5 px-6 mb-[22px] w-[350px] m-auto text-xs leading-5">
         <h1 className="font-normal mb-3.5 text-[28px] leading-5 ">Sign in</h1>
 
-        <div className="mt-7">
+        <div className="mt-7 flex flex-row justify-between">
           <span className="">{email}</span>
           <span className="ml-4 underline text-cyan-500">
-            <Link to="/signin">Change</Link>
+            <Link to="/login/email">Change</Link>
           </span>
         </div>
 
         <form id="signin" className="my-2.5 " onSubmit={(e) => handleSubmit(e)}>
           <label htmlFor="" className="flex justify-between">
             <span className="font-bold ">Password</span>
-            <span className="underline text-cyan-500">
+            {/* <span className="underline text-cyan-500">
               <Link>Forgot password?</Link>
-            </span>
+            </span> */}
           </label>
 
           <input

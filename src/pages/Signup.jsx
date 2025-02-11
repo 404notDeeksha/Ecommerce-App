@@ -194,7 +194,7 @@ export const Signup = () => {
             <div className="my-2 flex">
               Already have an account?
               <div className="text-[#0066c0] flex">
-                <Link to="/signin" className="ml-2">
+                <Link to="/login/email" className="ml-2">
                   Sign in
                 </Link>
                 <RiArrowDropRightFill className="text-[20px]" />

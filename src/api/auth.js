@@ -4,11 +4,29 @@ import { URL } from "../constant/url";
 
 export const signupUser = async (userData) => {
   try {
-    const response = await axios.post(`${URL.USER_API}/signup`, userData);
+    const response = await axios.post(`${URL.USER_API}/signup`, userData, {
+      withCredentials: true,
+    });
     console.log(response.data, `${URL.USER_API}/signup`);
     return response.data;
   } catch (error) {
     // console.log(error);
+    if (error.response && error.response.data && error.response.data.message) {
+      throw new Error(error.response.data.message);
+    } else {
+      throw new Error("Something went wrong. Please try again.");
+    }
+  }
+};
+
+export const emailVerifyUser = async (userData) => {
+  try {
+    const response = await axios.post(`${URL.USER_API}/emailAuth`, userData, {
+      withCredentials: true,
+    });
+    console.log(response.data, `${URL.USER_API}/emailAuth`);
+    return response.data;
+  } catch (error) {
     if (error.response && error.response.data && error.response.data.message) {
       throw new Error(error.response.data.message);
     } else {
