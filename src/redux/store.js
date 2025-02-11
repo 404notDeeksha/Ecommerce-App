@@ -4,9 +4,10 @@ import overlayReducer from "./slices/overlaySlice";
 import sidebarReducer from "./slices/sidebarSlice";
 import deliveryLocationReducer from "./slices/locationSlice";
 import languageReducer from "./slices/languageSlice";
-
+import authReducer from "./slices/authSlice";
 const store = configureStore({
   reducer: {
+    auth: authReducer,
     cart: cartReducer,
     overlay: overlayReducer,
     sidebar: sidebarReducer,
