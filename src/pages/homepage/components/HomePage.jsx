@@ -10,7 +10,7 @@ import {
   beauty,
 } from "./../data/CategoryGridCarousel";
 import { MultiCardCarousel } from "./CardCarousel";
-import { getCarousel } from "../../../api/data";
+import { getCarousel } from "../../../api/protectedApi";
 
 export const HomePage = () => {
   const [automaticRotatingCarousel, setAutomaticRotatingCarousel] = useState(
