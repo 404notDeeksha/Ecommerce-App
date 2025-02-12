@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from "react";
 import { LogoBlack } from "./LogoBlack";
 import { Link, useLocation, useNavigate } from "react-router-dom";
-import { loginUser } from "../../api/auth";
+import { verifyPassword } from "../../api/auth";
 import { useDispatch } from "react-redux";
 import { loginSuccess } from "../../redux/slices/authSlice";
 import { useSelector } from "react-redux";
@@ -11,7 +11,7 @@ export const PasswordAuthPage = () => {
   const [errorMsg, setErrorMsg] = useState(false);
   const navigate = useNavigate();
   const location = useLocation();
-  const email = location.state; // navigating from EmailLoginForm
+  const email = location.state; // navigating from EmailAuthForm
   const dispatch = useDispatch();
   const isAuthenticated = useSelector((state) => state?.auth?.isAuthenticated);
 
@@ -25,11 +25,10 @@ export const PasswordAuthPage = () => {
     e.preventDefault();
     const fetchUserData = async () => {
       try {
-        const result = await loginUser({ email, password });
+        const result = await verifyPassword({ email, password });
         if (result.success) {
           setErrorMsg(false);
           dispatch(loginSuccess({ user: result.user }));
-          window.location.href = "/home";
           navigate("/home");
         }
       } catch (err) {

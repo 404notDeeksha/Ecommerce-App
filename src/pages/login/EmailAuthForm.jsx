@@ -10,7 +10,7 @@ export const EmailAuthForm = () => {
   const handleSubmit = async (e) => {
     e.preventDefault();
     try {
-      const result = await verifyEmail({ email: email });
+      const result = await verifyEmail({ email });
       if (result.success) {
         console.log("Account is present");
         navigate("/login/password", { state: email }); // navigating to AccountCheck
@@ -25,7 +25,8 @@ export const EmailAuthForm = () => {
     <>
       <div className="rounded-lg border-[1px] border-[#ddd] py-5 px-6 mb-[22px] w-[350px] m-auto text-xs leading-5">
         <h1 className="font-normal mb-3.5 text-[28px] leading-5 ">Sign in</h1>
-        <form className="my-2.5 " onSubmit={(e) => handleSubmit(e, email)}>
+
+        <form className="my-2.5 " onSubmit={(e) => handleSubmit(e)}>
           <label className="font-bold">Email</label>
 
           <input

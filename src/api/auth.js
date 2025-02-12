@@ -24,7 +24,6 @@ export const verifyEmail = async (userData) => {
     const response = await axios.post(`${URL.USER_API}/emailAuth`, userData, {
       withCredentials: true,
     });
-    // console.log(response.data, `${URL.USER_API}/emailAuth`);
     return response.data;
   } catch (error) {
     if (error.response && error.response.data && error.response.data.message) {
@@ -35,13 +34,16 @@ export const verifyEmail = async (userData) => {
   }
 };
 
-export const loginUser = async (userData) => {
+export const verifyPassword = async (userData) => {
   // console.log("Login Res", userData);
   try {
-    const response = await axios.post(`${URL.USER_API}/login`, userData, {
-      withCredentials: true,
-    });
-    // console.log(response.data, `${URL.USER_API}/login`);
+    const response = await axios.post(
+      `${URL.USER_API}/passwordAuth`,
+      userData,
+      {
+        withCredentials: true,
+      }
+    );
     return response.data;
   } catch (error) {
     // console.error("Login failed:", error);
