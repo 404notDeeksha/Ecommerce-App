@@ -27,11 +27,15 @@ export const deleteTask = async (id) => {
   }
 };
 
-export const getTasks = async () => {
+export const getCarousel = async () => {
   try {
-    const response = await api.get("");
+    const response = await api.get("/carousel/featured");
     return response?.data;
   } catch (error) {
-    console.log(error);
+    if (error.response && error.response.data && error.response.data.message) {
+      throw new Error(error.response.data.message);
+    } else {
+      throw new Error("Something went wrong. Please try again.");
+    }
   }
 };

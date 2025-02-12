@@ -10,6 +10,7 @@ import {
   beauty,
 } from "./../data/CategoryGridCarousel";
 import { MultiCardCarousel } from "./CardCarousel";
+import { getCarousel } from "../../../api/data";
 
 export const HomePage = () => {
   const [automaticRotatingCarousel, setAutomaticRotatingCarousel] = useState(
@@ -20,11 +21,11 @@ export const HomePage = () => {
   useEffect(() => {
     const fetchData = async () => {
       try {
-        const response = await axios.get(URL.CATEGORY_API);
+        const response = await getCarousel();
         if (response) {
           setLoading(false);
-          if (response.data.success) {
-            setAutomaticRotatingCarousel(response.data.data);
+          if (response.success) {
+            setAutomaticRotatingCarousel(response.data);
           }
         }
       } catch (err) {
