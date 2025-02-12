@@ -1,8 +1,8 @@
 import { useState } from "react";
 import { useNavigate } from "react-router-dom";
-import { emailVerifyUser } from "../../api/auth";
+import { verifyEmail } from "../../api/auth";
 
-export const EmailLoginForm = () => {
+export const EmailAuthForm = () => {
   const [email, setEmail] = useState("");
   const [errorMsg, setErrorMsg] = useState(false);
   const navigate = useNavigate();
@@ -10,10 +10,10 @@ export const EmailLoginForm = () => {
   const handleSubmit = async (e) => {
     e.preventDefault();
     try {
-      const result = await emailVerifyUser({ email: email });
+      const result = await verifyEmail({ email: email });
       if (result.success) {
         console.log("Account is present");
-        navigate("/login/auth", { state: email }); // navigating to AccountCheck
+        navigate("/login/password", { state: email }); // navigating to AccountCheck
       }
     } catch (err) {
       console.log("Account not Registered", err);

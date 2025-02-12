@@ -8,16 +8,16 @@ import { HomePage } from "../pages/homepage/components/HomePage";
 import { ProductsPage } from "../pages/productsgridpage/components/ProductsPage";
 import { ProductPage } from "../pages/product/components/ProductPage";
 import { Cartpage } from "../pages/cartpage/components/Cartpage";
-import { AccountAuthLogin } from "../pages/login/AccountAuthLogin";
-import { EmailLogin } from "../pages/login/EmailLogin";
+import { PasswordAuthPage } from "../pages/login/PasswordAuthPage";
+import { EmailAuthPage } from "../pages/login/EmailAuthPage";
 import { ProtectedRoute } from "./ProtectedRoute";
 
 export const AppRoutes = () => {
   return (
     <Routes>
       <Route path="/signup" element={<Signup />} />
-      <Route path="/login/email" element={<EmailLogin />} />
-      <Route path="/login/auth" element={<AccountAuthLogin />} />
+      <Route path="/login/email" element={<EmailAuthPage />} />
+      <Route path="/login/password" element={<PasswordAuthPage />} />
       <Route element={<ProtectedRoute />}>
         <Route
           path="/"

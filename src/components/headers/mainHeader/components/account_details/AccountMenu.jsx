@@ -4,7 +4,7 @@ import { Link } from "react-router-dom";
 import { logoutUser } from "../../../../../api/auth";
 import { logout } from "../../../../../redux/slices/authSlice";
 import { useDispatch, useSelector } from "react-redux";
-import { inactiveOverlay } from "../../../../../redux/slices/overlaySlice";
+// import { inactiveOverlay } from "../../../../../redux/slices/overlaySlice";
 
 export const AccountMenu = () => {
   const userData = useSelector((state) => state?.auth?.user);

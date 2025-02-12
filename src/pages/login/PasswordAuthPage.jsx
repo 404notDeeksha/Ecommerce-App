@@ -6,7 +6,7 @@ import { useDispatch } from "react-redux";
 import { loginSuccess } from "../../redux/slices/authSlice";
 import { useSelector } from "react-redux";
 
-export const AccountAuthLogin = () => {
+export const PasswordAuthPage = () => {
   const [password, setPassword] = useState("");
   const [errorMsg, setErrorMsg] = useState(false);
   const navigate = useNavigate();

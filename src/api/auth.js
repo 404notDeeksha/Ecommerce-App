@@ -19,7 +19,7 @@ export const signupUser = async (userData) => {
   }
 };
 
-export const emailVerifyUser = async (userData) => {
+export const verifyEmail = async (userData) => {
   try {
     const response = await axios.post(`${URL.USER_API}/emailAuth`, userData, {
       withCredentials: true,
