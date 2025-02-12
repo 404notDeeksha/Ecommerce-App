@@ -79,8 +79,7 @@ export const Slider = () => {
             {currentImage && (
               <SlidesImages
                 data={currentImage?.category_image_address}
-                category_id={currentImage?.category_id}
-                loading={loading}
+                category={currentImage?.category}
                 className="w-full"
               />
             )}
@@ -91,10 +90,10 @@ export const Slider = () => {
   );
 };
 
-const SlidesImages = ({ data, category_id, loading }) => {
+const SlidesImages = ({ data, category }) => {
   return (
     <div className="cursor-pointer">
-      <Link to="/products">
+      <Link to={`/products?category=${category}`}>
         <img
           src={data}
           className="w-full max-h-full object-cover"
