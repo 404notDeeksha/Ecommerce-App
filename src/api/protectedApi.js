@@ -12,3 +12,16 @@ export const getCarousel = async () => {
     }
   }
 };
+
+export const getProducts = async (category, query) => {
+  try {
+    const response = await API.get(`/products?category=${category}&&${query}`);
+    return response?.data;
+  } catch (error) {
+    if (error.response && error.response.data && error.response.data.message) {
+      throw new Error(error.response.data.message);
+    } else {
+      throw new Error("Something went wrong. Please try again.");
+    }
+  }
+};

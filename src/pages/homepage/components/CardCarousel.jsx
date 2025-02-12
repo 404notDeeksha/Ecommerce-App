@@ -1,9 +1,8 @@
-import axios from "axios";
 import { useState, useRef, useEffect } from "react";
 import { Link } from "react-router-dom";
-import { URL } from "../../../constant/url";
 import { getImages } from "./../../../utils/common-utils";
 import { MultiCardCarouselSkeleton } from "./MultiCardCarouselSkeleton";
+import { getProducts } from "../../../api/protectedApi";
 
 export const MultiCardCarousel = ({ title, category, query }) => {
   const maxScrollWidth = useRef(0);
@@ -15,13 +14,11 @@ export const MultiCardCarousel = ({ title, category, query }) => {
   useEffect(() => {
     const fetchData = async () => {
       try {
-        const response = await axios.get(
-          `${URL.PRODUCTS_API}?category=${category}&${query}`
-        );
-        if (response) {
+        const result = await getProducts(category, query);
+        if (result) {
           setLoading(false);
-          if (response.data.success) {
-            setData(response.data.data);
+          if (result.success) {
+            setData(result.data);
           }
         }
       } catch (err) {
