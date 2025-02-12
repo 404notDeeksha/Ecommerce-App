@@ -24,25 +24,23 @@ export const CategoryGridCarousel = ({
 
 const Grid = ({ data, label }) => {
   return (
-    <>
-      <div className="card-grid pb-10">
-        <h2 className="text-xl font-bold pb-2.5">{label}</h2>
-        <div className="card-grid-data ">
-          {data.map((ele) => {
-            return (
-              <GridCardImage
-                key={uuid()}
-                caption={ele.caption}
-                image={ele.image}
-                category={ele.category}
-                brand={ele.brand}
-                subCategory={ele.subCategory}
-              />
-            );
-          })}
-        </div>
+    <div className="card-grid pb-10">
+      <h2 className="text-xl font-bold pb-2.5">{label}</h2>
+      <div className="card-grid-data ">
+        {data.map((ele) => {
+          return (
+            <GridCardImage
+              key={uuid()}
+              caption={ele.caption}
+              image={ele.image}
+              category={ele.category}
+              brand={ele.brand}
+              subCategory={ele.subCategory}
+            />
+          );
+        })}
       </div>
-    </>
+    </div>
   );
 };
 
@@ -61,7 +59,7 @@ const GridCardImage = ({ caption, image, category, brand, subCategory }) => {
       filter = subCategory;
       filterName = "subCategory";
     }
-    navigate(`/products?${filterName}=${filter}`);  // navigating to ProductsPage
+    navigate(`/products?${filterName}=${filter}`); // navigating to ProductsPage
   };
 
   return (

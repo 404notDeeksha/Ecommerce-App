@@ -2,10 +2,31 @@ import React, { useEffect } from "react";
 import { useState } from "react";
 import ArrowForwardIosIcon from "@mui/icons-material/ArrowForwardIos";
 import { SliderSkeleton } from "./SliderSkeleton";
+import { getCarousel } from "../../../api/protectedApi";
+import { Link } from "react-router-dom";
 
-export const Slider = ({ imageData, loading }) => {
+export const Slider = () => {
   const [currentIndex, setCurrentIndex] = useState(0);
   const [buttonClicked, setButtonClicked] = useState(false);
+  const [carouselData, setCarouselData] = useState([]);
+  const [loading, setLoading] = useState(true);
+
+  useEffect(() => {
+    const fetchData = async () => {
+      try {
+        const result = await getCarousel();
+        if (result) {
+          setLoading(false);
+          if (result.success) {
+            setCarouselData(result.data);
+          }
+        }
+      } catch (err) {
+        console.error("Error:", err);
+      }
+    };
+    fetchData();
+  }, []);
 
   useEffect(() => {
     const interval = setInterval(() => {
@@ -19,11 +40,11 @@ export const Slider = ({ imageData, loading }) => {
   }, [buttonClicked, currentIndex]);
 
   const handleIndex = (newIndex) => {
-    const imageDataLength = imageData.length - 1;
-    if (newIndex > imageDataLength) {
+    const carouselDataLength = carouselData.length - 1;
+    if (newIndex > carouselDataLength) {
       return 0;
     } else if (newIndex < 0) {
-      return imageDataLength - 1;
+      return carouselDataLength - 1;
     }
     return newIndex;
   };
@@ -33,58 +54,53 @@ export const Slider = ({ imageData, loading }) => {
     setCurrentIndex(handleIndex(index));
   };
 
-  let currentImage = imageData[currentIndex];
+  let currentImage = carouselData[currentIndex];
   return (
     <>
       {loading ? (
         <SliderSkeleton />
       ) : (
-        <div className="slider relative w-full">
-          <SliderArrows
-            handleLeft={() => updateIndex(currentIndex - 1)}
-            handleRight={() => updateIndex(currentIndex + 1)}
-          />
-          {currentImage && (
-            <SlidesImages
-              data={currentImage?.category_image_address}
-              category_id={currentImage?.category_id}
-              loading={loading}
-            />
-          )}
+        <div className="relative w-full flex justify-center">
+          <div className="relative w-full max-w-[1500px] max-h-[300px]">
+            <div className="absolute top-1/2 left-0 right-0 flex justify-between items-center pointer-events-none">
+              <div
+                className="absolute left-2 -translate-y-1/2 flex items-center p-2 cursor-pointer pointer-events-auto"
+                onClick={() => updateIndex(currentIndex - 1)}
+              >
+                <ArrowForwardIosIcon className="rotate-180 scale-[1.7]" />
+              </div>
+              <div
+                className="absolute right-2 -translate-y-1/2 flex items-center p-2 cursor-pointer pointer-events-auto"
+                onClick={() => updateIndex(currentIndex + 1)}
+              >
+                <ArrowForwardIosIcon className="scale-[1.7]" />
+              </div>
+            </div>
+            {currentImage && (
+              <SlidesImages
+                data={currentImage?.category_image_address}
+                category_id={currentImage?.category_id}
+                loading={loading}
+                className="w-full"
+              />
+            )}
+          </div>
         </div>
       )}
     </>
   );
 };
 
-const SliderArrows = ({ handleLeft, handleRight }) => {
-  return (
-    <>
-      <div className="absolute max-w-[inherit] w-full flex justify-between">
-        <div
-          className="arrow-left flex items-center h-[300px] p-5 cursor-pointer"
-          onClick={handleLeft}
-        >
-          <ArrowForwardIosIcon className="rotate-180 scale-[1.7]  " />
-        </div>
-        <div
-          className="arrow-right flex items-center h-[300px] p-5 cursor-pointer"
-          onClick={handleRight}
-        >
-          <ArrowForwardIosIcon className="scale-[1.7] " />
-        </div>
-      </div>
-    </>
-  );
-};
 const SlidesImages = ({ data, category_id, loading }) => {
-   return (
+  return (
     <div className="cursor-pointer">
-      <img
-        src={data}
-        className="w-full max-h-full object-cover"
-        alt="carousel-image"
-      />
+      <Link to="/products">
+        <img
+          src={data}
+          className="w-full max-h-full object-cover"
+          alt="carousel-image"
+        />
+      </Link>
     </div>
   );
 };

@@ -1,7 +1,5 @@
-import React, { useState, useEffect } from "react";
+import React from "react";
 import { Slider } from "./Slider";
-import axios from "axios";
-import { URL } from "../../../constant/url";
 import { CategoryGridCarousel } from "./CategoryGridCarousel";
 import {
   appliances,
@@ -10,34 +8,11 @@ import {
   beauty,
 } from "./../data/CategoryGridCarousel";
 import { MultiCardCarousel } from "./CardCarousel";
-import { getCarousel } from "../../../api/protectedApi";
 
 export const HomePage = () => {
-  const [automaticRotatingCarousel, setAutomaticRotatingCarousel] = useState(
-    []
-  );
-  const [loading, setLoading] = useState(true);
-
-  useEffect(() => {
-    const fetchData = async () => {
-      try {
-        const response = await getCarousel();
-        if (response) {
-          setLoading(false);
-          if (response.success) {
-            setAutomaticRotatingCarousel(response.data);
-          }
-        }
-      } catch (err) {
-        console.error("Error:", err);
-      }
-    };
-    fetchData();
-  }, []);
-
   return (
     <div className="min-w-[1000px] mx-auto overflow-clip relative z-[2]">
-      <Slider imageData={automaticRotatingCarousel} loading={loading} />
+      <Slider />
       <CategoryGridCarousel
         data1={homeDecor}
         data2={appliances}
