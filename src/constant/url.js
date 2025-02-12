@@ -5,6 +5,7 @@ export const URL = {
   BACKEND_URL,
   USER_API: BACKEND_URL + "/user",
   ACCOUNT_API: BASE_URL + "account",
+  
   CATEGORY_API: BASE_URL + "category",
   CART_API: BASE_URL + "cart",
   PRODUCTS_API: BASE_URL + "products",

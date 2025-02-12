@@ -1,9 +1,10 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import { LogoBlack } from "./LogoBlack";
 import { Link, useLocation, useNavigate } from "react-router-dom";
 import { loginUser } from "../../api/auth";
 import { useDispatch } from "react-redux";
 import { loginSuccess } from "../../redux/slices/authSlice";
+import { useSelector } from "react-redux";
 
 export const AccountAuthLogin = () => {
   const [password, setPassword] = useState("");
@@ -12,6 +13,13 @@ export const AccountAuthLogin = () => {
   const location = useLocation();
   const email = location.state; // navigating from EmailLoginForm
   const dispatch = useDispatch();
+  const isAuthenticated = useSelector((state) => state?.auth?.isAuthenticated);
+
+  useEffect(() => {
+    if (isAuthenticated) {
+      navigate("/home");
+    }
+  }, [isAuthenticated, navigate]);
 
   const handleSubmit = (e) => {
     e.preventDefault();
@@ -19,14 +27,9 @@ export const AccountAuthLogin = () => {
       try {
         const result = await loginUser({ email, password });
         if (result.success) {
-          console.log("Account Logged in");
-          navigate("/login/auth", { state: email }); // navigating to AccountAuth
-        }
-        if (result.success) {
-          console.log("Account--->", result.user);
-
           setErrorMsg(false);
           dispatch(loginSuccess({ user: result.user }));
+          window.location.href = "/home";
           navigate("/home");
         }
       } catch (err) {

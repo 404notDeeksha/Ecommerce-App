@@ -7,15 +7,6 @@
     @apply hover:border-white border-transparent border-[1px];
   }
  
-
-.header-bottom{
-    @apply max-h-[39px] bg-amazon_light 
-    text-white text-[14px] 
-    min-w-[1000px] 
-    flex    
-    relative z-[3]
-}
-
   .arrow-carousel {
     @apply w-20 h-full max-h-[250px] absolute top-[100px] cursor-pointer z-[50] pl-[3px] visible;
   }
@@ -51,14 +42,6 @@
     @apply z-[5] mt-9 ml-3;
   }
 
-  .nav-left-footer{
-    @apply my-0 pb-0
-    bg-[#232F3E]  text-white   min-w-[1000px] relative
-  }
-
-  .navFooterBackToTop{
-    @apply mb-10 bg-[#37475A] text-center py-[15px] leading-[17px] cursor-pointer
-  }
 
   .amazon-logo{
     @apply flex  cursor-pointer hover-header pb-2.5

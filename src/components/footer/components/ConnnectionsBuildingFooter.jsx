@@ -6,10 +6,10 @@ export const ConnnectionsBuildingFooter = () => {
       className="flex flex-row gap-x-[10%] w-full m-auto 
     max-w-[1000px] text-sm leading-5"
     >
-      {footer1Links?.map((data) => {
+      {footer1Links?.map((data, index) => {
         return (
           <div
-            key={data.data.title}
+            key={index}
             className=" py-0 px-2.5 gap-2
           align-top text-[#DDD] "
           >
@@ -17,9 +17,9 @@ export const ConnnectionsBuildingFooter = () => {
               {data.title}
             </div>
             <ul className="flex flex-col gap-3">
-              {data.data?.map((ele) => {
+              {data.data?.map((ele, index) => {
                 return (
-                  <li key={ele.id} className=" hover:underline cursor-pointer">
+                  <li key={index} className=" hover:underline cursor-pointer">
                     {ele.name}
                   </li>
                 );

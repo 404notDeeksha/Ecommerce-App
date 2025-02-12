@@ -30,6 +30,7 @@ export const AppRoutes = () => {
             </>
           }
         >
+          <Route index element={<Navigate to="/home" />} />
           <Route path="/home" element={<HomePage />} />
           <Route path="/products/:filter?" element={<ProductsPage />} />
           <Route
@@ -39,8 +40,7 @@ export const AppRoutes = () => {
           <Route path="/cart" element={<Cartpage />} />
         </Route>
       </Route>
-      <Route path="/" element={<Navigate to="/home" replace />} />
-      <Route path="*" element={<Navigate to="/signin" />} />
+      <Route path="*" element={<Navigate to="/signup" />} />
     </Routes>
   );
 };

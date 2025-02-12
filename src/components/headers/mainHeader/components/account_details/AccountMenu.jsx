@@ -1,6 +1,6 @@
 import React from "react";
 import { accountMenu } from "../../../../../utils/common-consts";
-import { Link, Navigate } from "react-router-dom";
+import { Link } from "react-router-dom";
 import { logoutUser } from "../../../../../api/auth";
 import { logout } from "../../../../../redux/slices/authSlice";
 import { useDispatch, useSelector } from "react-redux";
@@ -13,7 +13,6 @@ export const AccountMenu = () => {
     logoutUser();
     dispatch(logout());
   };
-  console.log(userData);
   return (
     <div
       className="invisible group-hover:visible z-[5] bg-white text-black shadow-lg  rounded-sm border-[#bbb]  w-[450px] -left-64
@@ -59,9 +58,7 @@ export const AccountMenu = () => {
                     className="font-[500] text-[13px] hover:underline cursor-pointer"
                     onClick={onLogout}
                   >
-                    {/* <Link to="/login/email"> */}
                     Logout
-                    {/* </Link> */}
                   </li>
                 </ul>
               </section>

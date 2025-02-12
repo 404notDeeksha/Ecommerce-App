@@ -7,7 +7,7 @@ export const signupUser = async (userData) => {
     const response = await axios.post(`${URL.USER_API}/signup`, userData, {
       withCredentials: true,
     });
-    console.log(response.data, `${URL.USER_API}/signup`);
+    // console.log(response.data, `${URL.USER_API}/signup`);
     return response.data;
   } catch (error) {
     // console.log(error);
@@ -24,7 +24,7 @@ export const emailVerifyUser = async (userData) => {
     const response = await axios.post(`${URL.USER_API}/emailAuth`, userData, {
       withCredentials: true,
     });
-    console.log(response.data, `${URL.USER_API}/emailAuth`);
+    // console.log(response.data, `${URL.USER_API}/emailAuth`);
     return response.data;
   } catch (error) {
     if (error.response && error.response.data && error.response.data.message) {
@@ -41,7 +41,7 @@ export const loginUser = async (userData) => {
     const response = await axios.post(`${URL.USER_API}/login`, userData, {
       withCredentials: true,
     });
-    console.log(response.data, `${URL.USER_API}/login`);
+    // console.log(response.data, `${URL.USER_API}/login`);
     return response.data;
   } catch (error) {
     // console.error("Login failed:", error);
@@ -54,7 +54,7 @@ export const loginUser = async (userData) => {
 };
 
 export const logoutUser = async () => {
-  console.log("Logging out");
+  // console.log("Logging out");
   try {
     await axios.post(`${URL.USER_API}/logout`, {}, { withCredentials: true }); // ✅ Ensures cookies are handled
   } catch (error) {

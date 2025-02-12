@@ -1,9 +1,19 @@
-import React from "react";
+import React, { useEffect } from "react";
 import { LogoBlack } from "./LogoBlack";
 import { EmailLoginForm } from "./EmailLoginForm";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
+import { useSelector } from "react-redux";
 
 export const EmailLogin = () => {
+  const isAuthenticated = useSelector((state) => state.auth.isAuthenticated);
+  const navigate = useNavigate();
+
+  useEffect(() => {
+    if (isAuthenticated) {
+      navigate("/home");
+    }
+  }, [isAuthenticated, navigate]);
+
   return (
     <div className="bg-white h-screen">
       <div className="pt-3.5 px-[18px] pb-[22px]">

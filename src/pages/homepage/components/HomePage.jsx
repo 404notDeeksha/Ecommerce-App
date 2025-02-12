@@ -35,11 +35,7 @@ export const HomePage = () => {
   }, []);
 
   return (
-    <div
-      id="pageContent"
-      role="main"
-      className="min-w-[1000px] mx-auto overflow-clip relative z-[2]"
-    >
+    <div className="min-w-[1000px] mx-auto overflow-clip relative z-[2]">
       <Slider imageData={automaticRotatingCarousel} loading={loading} />
       <CategoryGridCarousel
         data1={homeDecor}
