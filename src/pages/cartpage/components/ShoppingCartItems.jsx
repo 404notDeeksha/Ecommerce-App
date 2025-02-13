@@ -1,13 +1,9 @@
-import axios from "axios";
 import React, { useEffect, useState } from "react";
 import { FaMinus } from "react-icons/fa6";
 import { FaPlus } from "react-icons/fa6";
-import { URL } from "../../../constant/url";
 import {
   getImages,
   convertNumberInNumerals,
-  getCookieId,
-  decodeUserId,
   getTotalQtyFromCart,
 } from "../../../utils/common-utils";
 import { ShoppingCartSkeleton } from "./ShoppingCartSkeleton";
@@ -15,20 +11,15 @@ import { Skeleton } from "../../../components/Skeleton";
 import { Link } from "react-router-dom";
 import { EmptyCartPage } from "./EmptyCart";
 import isEmpty from "lodash.isempty";
-import { useDispatch } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 import { setCart } from "../../../redux/slices/cartSlice";
+import { getCart, updateCartQty } from "../../../api/protectedApi";
+import { deleteCartProduct } from "./../../../api/protectedApi";
 
 export const ShoppingCartItems = () => {
   const [cartDataInternal, setCartDataInternal] = useState({});
   const [loading, setLoading] = useState(true);
-  const token = getCookieId("token");
-  const registeredUserId = decodeUserId(token);
-  let userId = "";
-  if (registeredUserId) {
-    userId = registeredUserId;
-  } else {
-    userId = getCookieId("uniqueId"); //New user
-  }
+  const userId = useSelector((state) => state?.auth?.user?.id);
 
   const dispatch = useDispatch();
 
@@ -40,11 +31,11 @@ export const ShoppingCartItems = () => {
   useEffect(() => {
     const fetchCartData = async () => {
       try {
-        const response = await axios.get(`${URL.CART_API}/${userId}`);
-        if (response) {
+        const result = await getCart(userId);
+        if (result) {
           setLoading(false);
-          if (response.data.success) {
-            setCartData(response.data.data);
+          if (result.success) {
+            setCartData(result.data);
           }
         }
       } catch (error) {
@@ -57,8 +48,6 @@ export const ShoppingCartItems = () => {
   if (isEmpty(cartDataInternal) || isEmpty(cartDataInternal?.items)) {
     return <EmptyCartPage />;
   }
-
-  // console.log("CART Data", cartDataInternal);
 
   return (
     <>
@@ -118,14 +107,12 @@ const ProductCard = ({ product, index, userId, productId, setCartData }) => {
   const handleDelete = async () => {
     console.log("clicking");
     try {
-      const response = await axios.delete(
-        `${URL.CART_API}/${userId}/${productId}`
-      );
-      if (response.data.success) {
-        setCartData(response.data.data);
+      const result = await deleteCartProduct(userId, productId);
+      if (result.success) {
+        setCartData(result.data);
         console.log(
           "Product Deletion Data from cart sent Successfully",
-          response.data
+          result.data
         );
       }
     } catch (err) {
@@ -176,12 +163,10 @@ const ProductCard = ({ product, index, userId, productId, setCartData }) => {
 const QuantityUpdationButton = ({ qty, userId, productId, setCartData }) => {
   const backendData = async (qty) => {
     try {
-      const response = await axios.put(
-        `${URL.CART_API}/${userId}/${productId}/${qty}`
-      );
-      if (response.data.success) {
-        console.log("Product Qty updation Successfully", response.data.data);
-        setCartData(response.data.data);
+      const result = await updateCartQty(userId, productId, qty);
+      if (result.success) {
+        console.log("Product Qty updation Successfully", result.data);
+        setCartData(result.data);
       }
     } catch (err) {
       console.log("Error sending data", err);

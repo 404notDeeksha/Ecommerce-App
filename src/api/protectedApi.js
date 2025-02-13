@@ -63,15 +63,51 @@ export const getFilteredProducts = async (filter) => {
 export const addToCart = async (body) => {
   try {
     const response = await API.post("/cart", body);
-    // const response = await axios.post(`${URL.CART_API}`, body);
+    return response?.data;
+  } catch (error) {
+    if (error.response?.data?.message) {
+      throw new Error(error.response.data.message);
+    } else {
+      throw new Error("Something went wrong. Please try again.");
+    }
+  }
+};
 
-    // if (
-    //   !response?.data ||
-    //   !response.data.success ||
-    //   response.data.data.length === 0
-    // ) {
-    //   return { success: false, message: "No products available" };
-    // }
+export const getCart = async (userId) => {
+  try {
+    const response = await API.get(`/cart/${userId}`);
+    return response?.data;
+  } catch (error) {
+    if (error.response?.data?.message) {
+      throw new Error(error.response.data.message);
+    } else {
+      throw new Error("Something went wrong. Please try again.");
+    }
+  }
+};
+
+export const updateCartQty = async (userId, productId, qty) => {
+  try {
+    // const response = await axios.put(
+    //   `${URL.CART_API}/${userId}/${productId}/${qty}`
+    // );
+    const response = await API.put(`/cart/${userId}/${productId}/${qty}`);
+    return response?.data;
+  } catch (error) {
+    if (error.response?.data?.message) {
+      throw new Error(error.response.data.message);
+    } else {
+      throw new Error("Something went wrong. Please try again.");
+    }
+  }
+};
+
+export const deleteCartProduct = async (userId, productId) => {
+  try {
+    // const response = await axios.delete(
+    //   `${URL.CART_API}/${userId}/${productId}`
+    // );
+    const response = await API.delete(`/cart/${userId}/${productId}`);
     return response?.data;
   } catch (error) {
     if (error.response?.data?.message) {
