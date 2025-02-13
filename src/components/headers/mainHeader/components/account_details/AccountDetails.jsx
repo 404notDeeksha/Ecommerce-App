@@ -2,14 +2,17 @@ import React from "react";
 import { RiArrowDropDownFill as DropDownIcon } from "react-icons/ri";
 import { AccountMenu } from "./AccountMenu";
 import { getDataFromLocalStorage } from "../../../../../utils/common-utils";
-import { useDispatch } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 import {
   activeOverlay,
   inactiveOverlay,
 } from "../../../../../redux/slices/overlaySlice";
 
 export const AccountDetails = () => {
-  const userData = getDataFromLocalStorage("userInfo");
+  // const userData = getDataFromLocalStorage("userInfo");
+  const userData = useSelector((state) => state?.auth?.user?.name);
+  const name = userData?.trim().split(" ")[0] || "signin";
+  console.log(name);
   const dispatch = useDispatch();
 
   const handleMouseOver = () => {

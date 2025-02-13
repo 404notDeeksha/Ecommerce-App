@@ -1,15 +1,15 @@
 import React from "react";
 import AccountCircleIcon from "@mui/icons-material/AccountCircle";
-import { getDataFromLocalStorage } from "../../utils/common-utils";
+import { useSelector } from "react-redux";
 
 export const Navbar = () => {
-  const userData = getDataFromLocalStorage("userInfo");
+  const userData = useSelector((state) => state?.auth?.user?.name);
+  const name = userData?.trim().split(" ")[0] || "signin";
   return (
     <nav className="h-[50px] bg-amazon_light flex pl-9 pt-3 text-white">
       <AccountCircleIcon className="scale-110" />
       <div className="font-bold text-[19px] leading-6 pl-2">
-        Hello,{" "}
-        <span className="pl-1">{userData ? userData.name : "signin"}</span>
+        Hello, <span className="pl-1">{name}</span>
       </div>
     </nav>
   );

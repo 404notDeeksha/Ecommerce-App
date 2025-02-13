@@ -31,26 +31,6 @@ export const setNumberToLocalStorage = (key, value) => {
   localStorage.setItem(key, value.toString());
 };
 
-export const setCookieId = (name, value) => {
-  // console.log("Setting Cookie Id");
-  const DAYS_IN_MILLISECONDS = 24 * 60 * 60 * 1000;
-  const date = new Date();
-  date.setTime(date.getTime() + 2 * DAYS_IN_MILLISECONDS); // Convert days to milliseconds
-  const expires = `expires=${date.toUTCString()}`;
-  document.cookie = `${name}=${value}; ${expires}; path=/`;
-};
-
-export const getCookieId = (name) => {
-  // console.log("Getting Cookie Id");
-  const cookies = document.cookie.split(";");
-  for (let i = 0; i < cookies.length; i++) {
-    const cookie = cookies[i].trim();
-    if (cookie.startsWith(`${name}=`)) {
-      return cookie.substring(name.length + 1);
-    }
-  }
-  return null;
-};
 
 export const convertNumberInNumerals = (number) => {
   // console.log("Number", number);
@@ -64,44 +44,7 @@ export const convertNumberInNumerals = (number) => {
   return formattedNum;
 };
 
-export const addUniqueIdToElements = (array) => {
-  const arrayNew = array.map((item) => {
-    const key = uuidv4();
-    return { id: key, ...item };
-  });
-  return arrayNew;
-};
-
-export const decodeUserId = (token) => {
-  try {
-    const base64Url = token.split(".")[1]; // Extract payload
-    const payload = JSON.parse(atob(base64Url)); // Decode payload
-    return payload.userId; // Extract userId
-  } catch {
-    return null; // Return null for invalid tokens
-  }
-};
-
-export const isLoggedIn = (token) => {
-  try {
-    const base64Url = token.split(".")[1];
-    const payload = JSON.parse(atob(base64Url));
-    return payload.exp > Math.floor(Date.now() / 1000); // Compare exp with current time
-  } catch {
-    return false;
-  }
-};
-
-export const deleteCookieId = (key) => {
-  document.cookie = `${key}=; expires=Thu, 01 Jan 1970 00:00:00 UTC; path=/;`;
-};
-
-export const deleteFromLocalStorage = (key) => {
-  localStorage.removeItem(key);
-};
-
 export const getTotalQtyFromCart = (data = []) => {
-  // console.log("cart for qty ",data);
   let total = 0;
   data.forEach((ele) => {
     total += ele.quantity;

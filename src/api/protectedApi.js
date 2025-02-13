@@ -1,4 +1,3 @@
-import { URL } from "../constant/url";
 import API from "./axiosInstance";
 
 export const getCarousel = async () => {
@@ -88,9 +87,6 @@ export const getCart = async (userId) => {
 
 export const updateCartQty = async (userId, productId, qty) => {
   try {
-    // const response = await axios.put(
-    //   `${URL.CART_API}/${userId}/${productId}/${qty}`
-    // );
     const response = await API.put(`/cart/${userId}/${productId}/${qty}`);
     return response?.data;
   } catch (error) {
@@ -104,9 +100,6 @@ export const updateCartQty = async (userId, productId, qty) => {
 
 export const deleteCartProduct = async (userId, productId) => {
   try {
-    // const response = await axios.delete(
-    //   `${URL.CART_API}/${userId}/${productId}`
-    // );
     const response = await API.delete(`/cart/${userId}/${productId}`);
     return response?.data;
   } catch (error) {

@@ -1,38 +1,24 @@
 import { useNavigate } from "react-router-dom";
-import { URL } from "../../../constant/url";
-import axios from "axios";
-import { v4 as uuid } from "uuid";
 import {
-  setCookieId,
   getImages,
   convertNumberInNumerals,
-  decodeUserId,
-  getCookieId,
 } from "../../../utils/common-utils";
 import StarRatings from "react-star-ratings";
+import { routes } from "./../../../routes/routes";
+import { useSelector } from "react-redux";
+import { addToCart } from "../../../api/protectedApi";
 
 export const ProductCard = ({ product }) => {
   const navigate = useNavigate();
+  const userId = useSelector((state) => state?.auth?.user?.id);
 
   const handleClick = () => {
     const product_id = product.productId;
-    navigate(`/products/product/${product_id}`, { state: product }); // navigating to ProductPage
+    navigate(routes.getProduct(product_id), { state: product }); // navigating to ProductPage
   };
 
   const onAddToCart = async () => {
-    const token = getCookieId("token");
-    const registeredUserId = decodeUserId(token);
-    let userId = "";
-    if (registeredUserId) {
-      userId = registeredUserId;
-    } else if (getCookieId("uniqueId")) {
-      userId = getCookieId("uniqueId");
-    } else {
-      userId = uuid(); //New user
-      setCookieId("uniqueId", userId);
-    }
-
-    const bodyCart = {
+    const body = {
       userId: userId,
       items: [
         {
@@ -45,12 +31,12 @@ export const ProductCard = ({ product }) => {
         },
       ],
     };
-    console.log("Adding to cart", userId, typeof registeredUserId, bodyCart);
+    console.log("Adding to cart", userId, body);
 
     try {
-      const response = await axios.post(URL.CART_API, bodyCart);
+      const response = await addToCart(body);
       console.log("Data sent Successfully", response.data);
-      navigate("/cart"); // navigating to ShoppingCartItems
+      navigate(routes.cart); // navigating to ShoppingCartItems
     } catch (err) {
       console.log("Error getting data", err);
     }
