@@ -27,6 +27,19 @@ export const getProducts = async (category, query) => {
   }
 };
 
+export const getProduct = async (productId) => {
+  try {
+    const response = await API.get(`/products/product/${productId}`);
+    return response?.data;
+  } catch (error) {
+    if (error.response && error.response.data && error.response.data.message) {
+      throw new Error(error.response.data.message);
+    } else {
+      throw new Error("Something went wrong. Please try again.");
+    }
+  }
+};
+
 export const getFilteredProducts = async (filter) => {
   try {
     const response = await API.get(`/products?${filter}`);

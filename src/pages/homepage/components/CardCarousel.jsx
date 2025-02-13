@@ -3,6 +3,7 @@ import { Link } from "react-router-dom";
 import { getImages } from "./../../../utils/common-utils";
 import { MultiCardCarouselSkeleton } from "./MultiCardCarouselSkeleton";
 import { getProducts } from "../../../api/protectedApi";
+import { routes } from "../../../routes/routes";
 
 export const MultiCardCarousel = ({ title, category, query }) => {
   const maxScrollWidth = useRef(0);
@@ -10,6 +11,7 @@ export const MultiCardCarousel = ({ title, category, query }) => {
   const [data, setData] = useState([]);
   const [loading, setLoading] = useState(true);
   const carousel = useRef(null);
+  const filter = `category=${category}&&${query}`;
 
   useEffect(() => {
     const fetchData = async () => {
@@ -73,7 +75,8 @@ export const MultiCardCarousel = ({ title, category, query }) => {
     <div className="relative overflow-hidden mx-auto  bg-white  mb-5 px-5 py-2.5 max-w-[1480px] ">
       <div className="my-2.5 flex items-center">
         <h2 className="text-black font-bold text-[21px]">{title}</h2>
-        <Link to={`/products?category=${category}&&${query}`}>
+        <Link to={routes.getProducts(filter)}>
+          {/* <Link to={`/products?category=${category}&&${query}`}> */}
           <span className="text-sm pl-4">See all offers</span>
         </Link>
       </div>
@@ -147,7 +150,7 @@ const MultiImageCarousel = ({ dataset, carousel }) => {
             key={index}
             className="text-center relative w-52 h-52 snap-start"
           >
-            <Link to={`/products/product/${product.productId}`}>
+            <Link to={routes.getProduct(product.productId)}>
               <div className="h-full w-full aspect-square block bg-origin-padding bg-left-top bg-cover bg-no-repeat z-0">
                 <img
                   src={getImages(product.images[0]) || ""}

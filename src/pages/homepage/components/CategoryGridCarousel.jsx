@@ -1,6 +1,7 @@
 import React from "react";
 import { useNavigate } from "react-router-dom";
 import { v4 as uuid } from "uuid";
+import { routes } from "./../../../routes/routes";
 
 export const CategoryGridCarousel = ({
   data1,
@@ -60,8 +61,7 @@ const GridCardImage = ({ caption, image, category, brand, subCategory }) => {
       filterName = "subCategory";
     }
     const filter = `${filterName}=${filterCategory}`;
-    navigate(`/products?${filter}`); // navigating to ProductsPage
-    // navigate(`/products?${filterName}=${filterCategory}`); // navigating to ProductsPage
+    navigate(routes.getProducts(filter));
   };
 
   return (

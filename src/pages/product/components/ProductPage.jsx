@@ -17,23 +17,25 @@ import StarRatings from "react-star-ratings";
 import { ProductSkeleton } from "./ProductSkeleton";
 import { Skeleton } from "../../../components/Skeleton";
 import { v4 as uuid } from "uuid";
+import { getProduct } from "../../../api/protectedApi";
 
 export const ProductPage = () => {
   const [productData, setProductData] = useState({});
   const [quantity, setQuantity] = useState(1);
   const [loading, setLoading] = useState(true);
   const { productId } = useParams();
+  console.log(productId);
   const data = useLocation(); // navigating from ProductCard
   const navigate = useNavigate();
 
   useEffect(() => {
     const fetchProductData = async () => {
       try {
-        const response = await axios.get(`${URL.PRODUCT_API}/${productId}`);
-        if (response) {
+        const result = await getProduct(productId);
+        if (result) {
           setLoading(false);
-          if (response.data.success) {
-            setProductData(response.data.data);
+          if (result.success) {
+            setProductData(result.data);
           }
         }
       } catch (error) {
