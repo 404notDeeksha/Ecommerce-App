@@ -12,9 +12,10 @@ export const ProductsPage = () => {
   const [productsCollection, setProductsCollection] = useState([]);
   const [loading, setLoading] = useState(true);
 
-  const location = useLocation(); // navigating from <GridCardImage/>
+  const location = useLocation();
   const query = new URLSearchParams(location.search);
   const filter = query.toString();
+
   const ITEM_PER_PAGE = 50;
   console.log("Filter", filter);
   useEffect(() => {
@@ -26,6 +27,9 @@ export const ProductsPage = () => {
           setLoading(false);
           if (result.success) {
             setProductsCollection(result.data);
+          } else {
+            setProductsCollection([]);
+            console.log(result.message);
           }
         }
       } catch (error) {

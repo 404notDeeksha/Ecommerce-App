@@ -29,11 +29,17 @@ export const getProducts = async (category, query) => {
 
 export const getFilteredProducts = async (filter) => {
   try {
-    // console.log(`${URL.BACKEND_URL}/products?${filter}`);
     const response = await API.get(`/products?${filter}`);
+    if (
+      !response?.data ||
+      !response.data.success ||
+      response.data.data.length === 0
+    ) {
+      return { success: false, message: "No products available" };
+    }
     return response?.data;
   } catch (error) {
-    if (error.response && error.response.data && error.response.data.message) {
+    if (error.response?.data?.message) {
       throw new Error(error.response.data.message);
     } else {
       throw new Error("Something went wrong. Please try again.");
