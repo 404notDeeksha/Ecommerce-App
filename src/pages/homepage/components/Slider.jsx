@@ -18,6 +18,7 @@ export const Slider = () => {
         if (result) {
           setLoading(false);
           if (result.success) {
+            console.log("result", result.data);
             setCarouselData(result.data);
           }
         }
@@ -93,7 +94,7 @@ export const Slider = () => {
 const SlidesImages = ({ data, category }) => {
   return (
     <div className="cursor-pointer">
-      <Link to={`/products?category=${category}`}>
+      <Link to={`/products/category=${category}`}>
         <img
           src={data}
           className="w-full max-h-full object-cover"
