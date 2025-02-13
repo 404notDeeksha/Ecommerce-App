@@ -7,11 +7,12 @@ import { AccountDetails } from "./components/account_details/AccountDetails";
 import { ReturnOrders } from "../../headers/mainHeader/components/ReturnOrders";
 import { CartLogo } from "./components/CartLogo";
 import { Link } from "react-router-dom";
+import { routes } from "../../../routes/routes";
 
 export const MainHeader = () => {
   return (
     <div className="h-[60px] bg-amazon_blue border-0 p-0 m-0 flex justify-evenly relative z-[5]">
-      <Link to="/home">
+      <Link to={routes.home}>
         <AmazonLogo />
       </Link>
       <DeliveryLocation />
@@ -20,7 +21,7 @@ export const MainHeader = () => {
         <LanguageSelection />
         <AccountDetails />
         <ReturnOrders />
-        <Link to="/cart">
+        <Link to={routes.cart}>
           <CartLogo />
         </Link>
       </div>

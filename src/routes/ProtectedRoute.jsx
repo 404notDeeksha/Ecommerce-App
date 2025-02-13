@@ -2,6 +2,7 @@ import { Navigate, Outlet } from "react-router-dom";
 import { useDispatch, useSelector } from "react-redux";
 import { inactiveOverlay } from "../redux/slices/overlaySlice";
 import { useEffect } from "react";
+import { routes } from "./routes";
 
 export const ProtectedRoute = () => {
   const isAuthenticated = useSelector((state) => state.auth.isAuthenticated);
@@ -13,5 +14,7 @@ export const ProtectedRoute = () => {
   }, []);
   console.log("Auth", isAuthenticated);
   if (isAuthenticated === undefined) return null;
-  return <>{isAuthenticated ? <Outlet /> : <Navigate to="/login/email" />}</>;
+  return (
+    <>{isAuthenticated ? <Outlet /> : <Navigate to={routes.loginEmail} />}</>
+  );
 };

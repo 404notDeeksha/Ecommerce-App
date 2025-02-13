@@ -11,13 +11,14 @@ import { Cartpage } from "../pages/cartpage/components/Cartpage";
 import { PasswordAuthPage } from "../pages/login/PasswordAuthPage";
 import { EmailAuthPage } from "../pages/login/EmailAuthPage";
 import { ProtectedRoute } from "./ProtectedRoute";
+import { routes } from "./routes";
 
 export const AppRoutes = () => {
   return (
     <Routes>
-      <Route path="/signup" element={<Signup />} />
-      <Route path="/login/email" element={<EmailAuthPage />} />
-      <Route path="/login/password" element={<PasswordAuthPage />} />
+      <Route path={routes.signup} element={<Signup />} />
+      <Route path={routes.loginEmail} element={<EmailAuthPage />} />
+      <Route path={routes.loginPassword} element={<PasswordAuthPage />} />
       <Route element={<ProtectedRoute />}>
         <Route
           path="/"
@@ -30,17 +31,14 @@ export const AppRoutes = () => {
             </>
           }
         >
-          <Route index element={<Navigate to="/home" />} />
-          <Route path="/home" element={<HomePage />} />
-          <Route path="/products/:filter?" element={<ProductsPage />} />
-          <Route
-            path="/products/product/:productId?"
-            element={<ProductPage />}
-          />
-          <Route path="/cart" element={<Cartpage />} />
+          <Route index element={<Navigate to={routes.home} />} />
+          <Route path={routes.home} element={<HomePage />} />
+          <Route path={routes.products} element={<ProductsPage />} />
+          <Route path={routes.product} element={<ProductPage />} />
+          <Route path={routes.cart} element={<Cartpage />} />
         </Route>
       </Route>
-      <Route path="*" element={<Navigate to="/signup" />} />
+      <Route path="*" element={<Navigate to={routes.signup} />} />
     </Routes>
   );
 };

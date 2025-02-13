@@ -48,18 +48,20 @@ const GridCardImage = ({ caption, image, category, brand, subCategory }) => {
   const navigate = useNavigate();
 
   const handleClick = () => {
-    let filterName, filter;
+    let filterName, filterCategory;
     if (category) {
-      filter = category;
+      filterCategory = category;
       filterName = "category";
     } else if (brand) {
-      filter = brand;
+      filterCategory = brand;
       filterName = "brand";
     } else {
-      filter = subCategory;
+      filterCategory = subCategory;
       filterName = "subCategory";
     }
-    navigate(`/products?${filterName}=${filter}`); // navigating to ProductsPage
+    const filter = `${filterName}=${filterCategory}`;
+    navigate(`/products?${filter}`); // navigating to ProductsPage
+    // navigate(`/products?${filterName}=${filterCategory}`); // navigating to ProductsPage
   };
 
   return (

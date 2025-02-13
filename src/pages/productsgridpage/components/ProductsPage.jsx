@@ -6,22 +6,26 @@ import { URL } from "../../../constant/url";
 import { ProductCard } from "./ProductCard";
 import { ProductCardSkeleton } from "./ProductCardSkeleton";
 import { Skeleton } from "./../../../components/Skeleton";
+import { getFilteredProducts } from "../../../api/protectedApi";
 
 export const ProductsPage = () => {
   const [productsCollection, setProductsCollection] = useState([]);
   const [loading, setLoading] = useState(true);
-  const location = useLocation(); // navigating from <GridCardImage/>
-  const filter = location.search;
-  const ITEM_PER_PAGE = 50;
 
+  const location = useLocation(); // navigating from <GridCardImage/>
+  const query = new URLSearchParams(location.search);
+  const filter = query.toString();
+  const ITEM_PER_PAGE = 50;
+  console.log("Filter", filter);
   useEffect(() => {
     const fetchProducts = async () => {
       try {
-        const response = await axios.get(`${URL.PRODUCTS_API}/${filter}`);
-        if (response) {
+        const result = await getFilteredProducts(filter);
+        if (result) {
+          console.log("result-products", result);
           setLoading(false);
-          if (response.data.success) {
-            setProductsCollection(response.data.data);
+          if (result.success) {
+            setProductsCollection(result.data);
           }
         }
       } catch (error) {
