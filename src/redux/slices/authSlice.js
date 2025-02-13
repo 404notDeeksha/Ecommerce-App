@@ -13,7 +13,7 @@ const authSlice = createSlice({
       state.user = action.payload.user;
       state.isAuthenticated = true;
       // console.log("ACTION", action);
-      // console.log("STATE", state.user, state.token);
+      console.log("STATE", state.user);
     },
     logout: (state) => {
       state.user = null;

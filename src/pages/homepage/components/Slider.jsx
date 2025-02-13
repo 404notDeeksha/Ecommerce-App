@@ -92,7 +92,6 @@ export const Slider = () => {
 
 const SlidesImages = ({ data, category }) => {
   const filter = `category=${category}`;
-  console.log("Category Slide Img", filter);
   return (
     <div className="cursor-pointer">
       <Link to={`/products?category=${category}`}>

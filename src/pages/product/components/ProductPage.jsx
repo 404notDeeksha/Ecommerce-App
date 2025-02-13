@@ -1,4 +1,3 @@
-import axios from "axios";
 import React, { useEffect, useState } from "react";
 import { convertNumberInNumerals } from "../../product/utils/ConvertNumberInNumerals";
 import { CiDeliveryTruck } from "react-icons/ci";
@@ -6,26 +5,23 @@ import { IoCalendarClearOutline } from "react-icons/io5";
 import { MdOutlineSecurity } from "react-icons/md";
 import { RiSecurePaymentLine } from "react-icons/ri";
 import { Link, useLocation, useNavigate, useParams } from "react-router-dom";
-import { URL } from "../../../constant/url";
-import {
-  getImages,
-  setCookieId,
-  getCookieId,
-  decodeUserId,
-} from "../../../utils/common-utils";
+import { getImages } from "../../../utils/common-utils";
 import StarRatings from "react-star-ratings";
 import { ProductSkeleton } from "./ProductSkeleton";
 import { Skeleton } from "../../../components/Skeleton";
-import { v4 as uuid } from "uuid";
 import { getProduct } from "../../../api/protectedApi";
+import { useSelector } from "react-redux";
+import { routes } from "../../../routes/routes";
+import { addToCart } from "./../../../api/protectedApi";
 
 export const ProductPage = () => {
   const [productData, setProductData] = useState({});
   const [quantity, setQuantity] = useState(1);
   const [loading, setLoading] = useState(true);
+  const userId = useSelector((state) => state?.auth?.user?.id);
+
   const { productId } = useParams();
-  console.log(productId);
-  const data = useLocation(); // navigating from ProductCard
+  const data = useLocation();
   const navigate = useNavigate();
 
   useEffect(() => {
@@ -50,20 +46,7 @@ export const ProductPage = () => {
     }
   }, [productId]);
 
-  const addToCart = async () => {
-    const token = getCookieId("token");
-    const registeredUserId = decodeUserId(token);
-    let userId = "";
-
-    if (registeredUserId) {
-      userId = registeredUserId;
-    } else if (getCookieId("uniqueId")) {
-      userId = getCookieId("uniqueId");
-    } else {
-      userId = uuid(); //New user
-      setCookieId("uniqueId", userId);
-    }
-
+  const handleAddToCart = async () => {
     const body = {
       userId: userId,
       items: [
@@ -79,12 +62,11 @@ export const ProductPage = () => {
         },
       ],
     };
-
     try {
-      const response = await axios.post(`${URL.CART_API}`, body);
-      if (response.data.success) {
-        console.log("Data added in cart", response.data.data);
-        navigate("/cart"); // navigate to ShoppingCartItems
+      const result = await addToCart(body);
+      if (result.success) {
+        console.log("Data added in cart", result.data);
+        navigate(routes.cart);
       }
     } catch (err) {
       console.log("Error Updating data in cart", err);
@@ -217,7 +199,7 @@ export const ProductPage = () => {
 
               <button
                 className="px-5 py-1 mx-auto bg-yellow-500 rounded-xl text-center text-sm"
-                onClick={addToCart}
+                onClick={handleAddToCart}
               >
                 Add to Cart
               </button>

@@ -59,3 +59,25 @@ export const getFilteredProducts = async (filter) => {
     }
   }
 };
+
+export const addToCart = async (body) => {
+  try {
+    const response = await API.post("/cart", body);
+    // const response = await axios.post(`${URL.CART_API}`, body);
+
+    // if (
+    //   !response?.data ||
+    //   !response.data.success ||
+    //   response.data.data.length === 0
+    // ) {
+    //   return { success: false, message: "No products available" };
+    // }
+    return response?.data;
+  } catch (error) {
+    if (error.response?.data?.message) {
+      throw new Error(error.response.data.message);
+    } else {
+      throw new Error("Something went wrong. Please try again.");
+    }
+  }
+};
