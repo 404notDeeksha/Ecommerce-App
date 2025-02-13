@@ -9,7 +9,6 @@ export const AccountMenu = () => {
   const userData = useSelector((state) => state?.auth?.user);
   const dispatch = useDispatch();
   const onLogout = () => {
-    console.log("Deleting user info");
     logoutUser();
     dispatch(logout());
   };

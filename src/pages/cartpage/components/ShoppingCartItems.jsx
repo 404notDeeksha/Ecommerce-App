@@ -165,7 +165,7 @@ const QuantityUpdationButton = ({ qty, userId, productId, setCartData }) => {
     try {
       const result = await updateCartQty(userId, productId, qty);
       if (result.success) {
-        console.log("Product Qty updation Successfully", result.data);
+        console.log("qty updated", result.data);
         setCartData(result.data);
       }
     } catch (err) {
