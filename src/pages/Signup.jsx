@@ -7,6 +7,7 @@ import { signupUser } from "../api/auth";
 import { FiEye } from "react-icons/fi";
 import { FaRegEyeSlash } from "react-icons/fa6";
 import { loginSuccess } from "../redux/slices/authSlice";
+import { routes } from "../routes/routes";
 
 export const Signup = () => {
   const [formData, setFormData] = useState({
@@ -24,7 +25,7 @@ export const Signup = () => {
 
   useEffect(() => {
     if (isAuthenticated) {
-      navigate("/home");
+      navigate(routes.home);
     }
   }, [isAuthenticated, navigate]);
 
@@ -71,7 +72,7 @@ export const Signup = () => {
         if (result.success) {
           console.log("Account created");
           dispatch(loginSuccess({ user: result.data }));
-          navigate("/home");
+          navigate(routes.home);
         }
       } catch (error) {
         if (error.message) {
@@ -197,7 +198,7 @@ export const Signup = () => {
             <div className="my-2 flex">
               Already have an account?
               <div className="text-[#0066c0] flex flex-row gap-2">
-                <Link to="/login/email" className="ml-2">
+                <Link to={routes.loginEmail} className="ml-2">
                   Sign in
                 </Link>
                 <RiArrowDropRightFill className="text-[20px]" />

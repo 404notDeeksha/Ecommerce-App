@@ -4,6 +4,7 @@ import { Link } from "react-router-dom";
 import { logoutUser } from "../../../../../api/auth";
 import { logout } from "../../../../../redux/slices/authSlice";
 import { useDispatch, useSelector } from "react-redux";
+import { routes } from "../../../../../routes/routes";
 
 export const AccountMenu = () => {
   const userData = useSelector((state) => state?.auth?.user);
@@ -20,14 +21,14 @@ export const AccountMenu = () => {
       <div className="mx-5 mt-4 mb-5 ">
         {!userData && (
           <div className="flex-col ">
-            <Link to="/signin">
+            <Link to={routes.signup}>
               <div className="bg-[#FFD814] text-[#111] font-[400] rounded-lg m-auto text-[13px] w-[220px] h-[33px] text-center pt-1.5 cursor-pointer">
                 Sign in
               </div>
             </Link>
             <div className="text-[11px] text-center mt-1">
               New customer?
-              <Link to="/signup"> Start here.</Link>
+              <Link to={routes.signup}> Start here.</Link>
             </div>
           </div>
         )}

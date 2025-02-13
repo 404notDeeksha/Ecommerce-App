@@ -5,6 +5,7 @@ import { verifyPassword } from "../../api/auth";
 import { useDispatch } from "react-redux";
 import { loginSuccess } from "../../redux/slices/authSlice";
 import { useSelector } from "react-redux";
+import { routes } from "../../routes/routes";
 
 export const PasswordAuthPage = () => {
   const [password, setPassword] = useState("");
@@ -17,7 +18,7 @@ export const PasswordAuthPage = () => {
 
   useEffect(() => {
     if (isAuthenticated) {
-      navigate("/home");
+      navigate(routes.home);
     }
   }, [isAuthenticated, navigate]);
 
@@ -29,7 +30,7 @@ export const PasswordAuthPage = () => {
         if (result.success) {
           setErrorMsg(false);
           dispatch(loginSuccess({ user: result.user }));
-          navigate("/home");
+          navigate(routes.home);
         }
       } catch (err) {
         console.log("Error in verifying Account", err);
@@ -55,7 +56,7 @@ export const PasswordAuthPage = () => {
           </span>
         </div>
 
-        <form id="signin" className="my-2.5 " onSubmit={(e) => handleSubmit(e)}>
+        <form className="my-2.5 " onSubmit={(e) => handleSubmit(e)}>
           <label htmlFor="" className="flex justify-between">
             <span className="font-bold ">Password</span>
           </label>
@@ -69,7 +70,10 @@ export const PasswordAuthPage = () => {
           />
 
           {errorMsg && <div className="text-red-600 ">{errorMsg}</div>}
-          <button className="bg-[#FFD814] text-xs p-1 leading-5 rounded-lg w-full my-2 ">
+          <button
+            type="submit"
+            className="bg-[#FFD814] text-xs p-1 leading-5 rounded-lg w-full my-2 "
+          >
             Signin
           </button>
         </form>

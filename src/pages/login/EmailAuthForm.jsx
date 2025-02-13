@@ -1,6 +1,7 @@
 import { useState } from "react";
 import { useNavigate } from "react-router-dom";
 import { verifyEmail } from "../../api/auth";
+import { routes } from "../../routes/routes";
 
 export const EmailAuthForm = () => {
   const [email, setEmail] = useState("");
@@ -13,7 +14,7 @@ export const EmailAuthForm = () => {
       const result = await verifyEmail({ email });
       if (result.success) {
         console.log("Account is present");
-        navigate("/login/password", { state: email }); // navigating to AccountCheck
+        navigate(routes.loginPassword, { state: email }); // navigating to AccountCheck
       }
     } catch (err) {
       console.log("Account not Registered", err);
