@@ -1,7 +1,6 @@
 import React from "react";
 import { RiArrowDropDownFill as DropDownIcon } from "react-icons/ri";
 import { AccountMenu } from "./AccountMenu";
-import { getDataFromLocalStorage } from "../../../../../utils/common-utils";
 import { useDispatch, useSelector } from "react-redux";
 import {
   activeOverlay,
@@ -9,7 +8,6 @@ import {
 } from "../../../../../redux/slices/overlaySlice";
 
 export const AccountDetails = () => {
-  // const userData = getDataFromLocalStorage("userInfo");
   const userData = useSelector((state) => state?.auth?.user?.name);
   const name = userData?.trim().split(" ")[0] || "signin";
   console.log(name);
@@ -27,7 +25,7 @@ export const AccountDetails = () => {
     >
       <div className="text-[12px]">
         Hello,
-        {userData ? <span className="ml-2">{userData.name}</span> : "sign in"}
+        <span className="ml-1">{name}</span>
       </div>
       <div className="text-[14px] text-nowrap font-bold -mt-1">
         Account & Lists
