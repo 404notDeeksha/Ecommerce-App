@@ -1,6 +1,7 @@
 import { getSearchList } from "../../../../../../utils/common-consts";
 import { useDispatch } from "react-redux";
 import { activeOverlay } from "../../../../../../redux/slices/overlaySlice";
+import PropTypes from "prop-types";
 
 export const SearchList = ({ dropListCategory }) => {
   const searchList = getSearchList();
@@ -33,4 +34,8 @@ export const SearchList = ({ dropListCategory }) => {
       })}
     </select>
   );
+};
+
+SearchList.propTypes = {
+  dropListCategory: PropTypes.func.isRequired,
 };
