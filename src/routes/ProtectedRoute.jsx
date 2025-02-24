@@ -11,7 +11,7 @@ export const ProtectedRoute = () => {
     return () => {
       dispatch(inactiveOverlay()); // Cleanup on unmount
     };
-  }, []);
+  }, [dispatch]);
   console.log("Auth", isAuthenticated);
   if (isAuthenticated === undefined) return null;
   return (
