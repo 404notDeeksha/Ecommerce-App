@@ -24,7 +24,6 @@
     "redux-actions": "^3.0.3",
     "redux-persist": "^6.0.0",
     "tailwind-gradient-mask-image": "^1.2.0",
-    "unplugin-fonts": "^1.1.1",
     "uuid": "^10.0.0"
   },
   "devDependencies": {

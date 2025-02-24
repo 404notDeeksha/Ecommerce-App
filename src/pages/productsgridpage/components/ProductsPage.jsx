@@ -42,8 +42,8 @@ export const ProductsPage = () => {
 
   return (
     <div className="bg-white">
-      <div className="w-full min-w-[996px] max-w-[1800px]  my-0 py-3.5 bg-[#fff]  flex pt-5 mx-auto">
-        <div className="w-[300px] px-2">Filters</div>
+      <div className="w-full min-w-[996px] max-w-[1500px]  my-0 py-3.5 bg-[#fff]  flex pt-5 mx-auto">
+        {/* <div className="w-[300px] px-2">Filters</div> */}
         <div className="flex-1">
           <h2 className="font-bold text-xl my-5 mb-10">Results</h2>
           <div className="flex flex-wrap gap-2">
