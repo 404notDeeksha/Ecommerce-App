@@ -1,8 +1,6 @@
-import axios from "axios";
 import { useState, useEffect } from "react";
 import { Pagination } from "./Pagination";
 import { useLocation } from "react-router-dom";
-import { URL } from "../../../constant/url";
 import { ProductCard } from "./ProductCard";
 import { ProductCardSkeleton } from "./ProductCardSkeleton";
 import { Skeleton } from "./../../../components/Skeleton";
