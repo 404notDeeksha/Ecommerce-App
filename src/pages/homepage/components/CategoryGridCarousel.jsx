@@ -1,6 +1,7 @@
 import { useNavigate } from "react-router-dom";
 import { v4 as uuid } from "uuid";
 import { routes } from "./../../../routes/routes";
+import PropTypes from "prop-types";
 
 export const CategoryGridCarousel = ({
   data1,
@@ -27,7 +28,7 @@ const Grid = ({ data, label }) => {
     <div className="card-grid pb-10">
       <h2 className="text-xl font-bold pb-2.5">{label}</h2>
       <div className="card-grid-data ">
-        {data.map((ele) => {
+        {data?.map((ele) => {
           return (
             <GridCardImage
               key={uuid()}
@@ -72,4 +73,28 @@ const GridCardImage = ({ caption, image, category, brand, subCategory }) => {
       <div className="text-[12px] overflow-ellipsis leading-5">{caption}</div>
     </div>
   );
+};
+
+CategoryGridCarousel.propTypes = {
+  data1: PropTypes.array.isRequired,
+  data2: PropTypes.array.isRequired,
+  data3: PropTypes.array.isRequired,
+  data4: PropTypes.array.isRequired,
+  label1: PropTypes.string.isRequired,
+  label2: PropTypes.string.isRequired,
+  label3: PropTypes.string.isRequired,
+  label4: PropTypes.string.isRequired,
+};
+
+Grid.propTypes = {
+  data: PropTypes.array.isRequired,
+  label: PropTypes.string.isRequired,
+};
+
+GridCardImage.propTypes = {
+  caption: PropTypes.string.isRequired,
+  image: PropTypes.string.isRequired,
+  category: PropTypes.string.isRequired,
+  brand: PropTypes.string.isRequired,
+  subCategory: PropTypes.string.isRequired,
 };

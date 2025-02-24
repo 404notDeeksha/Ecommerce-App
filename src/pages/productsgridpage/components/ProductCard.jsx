@@ -7,6 +7,7 @@ import StarRatings from "react-star-ratings";
 import { routes } from "./../../../routes/routes";
 import { useSelector } from "react-redux";
 import { addToCart } from "../../../api/protectedApi";
+import PropTypes from "prop-types";
 
 export const ProductCard = ({ product }) => {
   const navigate = useNavigate();
@@ -78,4 +79,8 @@ export const ProductCard = ({ product }) => {
       </div>
     </div>
   );
+};
+
+ProductCard.propTypes = {
+  product: PropTypes.object.isRequired,
 };
