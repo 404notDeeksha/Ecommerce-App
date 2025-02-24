@@ -1,4 +1,4 @@
-import React, { useEffect } from "react";
+import { useEffect } from "react";
 import { LogoBlack } from "./LogoBlack";
 import { EmailAuthForm } from "./EmailAuthForm";
 import { Link, useNavigate } from "react-router-dom";

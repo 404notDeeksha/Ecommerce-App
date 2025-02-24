@@ -1,4 +1,3 @@
-import React from "react";
 import { RiArrowDropDownFill as DropDownIcon } from "react-icons/ri";
 import { AccountMenu } from "./AccountMenu";
 import { useDispatch, useSelector } from "react-redux";

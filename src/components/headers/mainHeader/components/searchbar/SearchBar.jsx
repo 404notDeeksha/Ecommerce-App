@@ -1,4 +1,3 @@
-import React from "react";
 import { SearchDropDown } from "./components/SearchDropDown";
 import { Bar } from "./components/Bar";
 

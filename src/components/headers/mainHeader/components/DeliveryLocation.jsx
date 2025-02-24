@@ -1,4 +1,3 @@
-import React from "react";
 import { GrLocation as LocationIcon } from "react-icons/gr";
 import { useDispatch, useSelector } from "react-redux";
 import { activeOverlay } from "../../../../redux/slices/overlaySlice";

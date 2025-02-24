@@ -1,4 +1,3 @@
-import React from "react";
 import { AmazonLogo } from "./components/AmazonLogo";
 import { DeliveryLocation } from "../../headers/mainHeader/components/DeliveryLocation";
 import { SearchBar } from "../../headers/mainHeader/components/searchbar/SearchBar";

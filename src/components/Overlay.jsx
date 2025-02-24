@@ -1,4 +1,3 @@
-import React from "react";
 import { useSelector, useDispatch } from "react-redux";
 import Portal from "./Portal";
 import { inactiveOverlay } from "../redux/slices/overlaySlice";

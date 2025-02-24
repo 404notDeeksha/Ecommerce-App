@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react";
+import  { useEffect, useState } from "react";
 import { LogoBlack } from "./LogoBlack";
 import { Link, useLocation, useNavigate } from "react-router-dom";
 import { verifyPassword } from "../../api/auth";

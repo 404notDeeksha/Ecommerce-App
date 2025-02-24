@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import  { useState } from "react";
 import { RiArrowDropDownFill as DropDownIcon } from "react-icons/ri";
 import { SearchList } from "./SearchList";
 

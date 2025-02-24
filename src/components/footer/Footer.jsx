@@ -1,4 +1,3 @@
-import React from "react";
 import { TopNavigationFooter } from "./components/TopNavigationFooter";
 import { ConnnectionsBuildingFooter } from "./components/ConnnectionsBuildingFooter";
 import { OtherServicesFooter } from "./components/OtherServicesFooter";

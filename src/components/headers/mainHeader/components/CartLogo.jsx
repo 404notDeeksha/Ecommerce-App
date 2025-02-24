@@ -1,4 +1,3 @@
-import React from "react";
 import { FiShoppingCart } from "react-icons/fi";
 import { getTotalQtyFromCart } from "../../../../utils/common-utils";
 import { useSelector } from "react-redux";

@@ -1,4 +1,3 @@
-import React from "react";
 import { getSearchList } from "../../../../../../utils/common-consts";
 import { useDispatch } from "react-redux";
 import { activeOverlay } from "../../../../../../redux/slices/overlaySlice";

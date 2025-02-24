@@ -1,4 +1,6 @@
 import ReactDOM from "react-dom";
+import PropTypes from "prop-types";
+// 'prop-types'
 
 const Portal = ({ children }) => {
   const portalRoot = document.getElementById("portal-root");
@@ -7,6 +9,10 @@ const Portal = ({ children }) => {
     return null;
   }
   return ReactDOM.createPortal(children, portalRoot);
+};
+
+Portal.propTypes = {
+  children: PropTypes.node,
 };
 
 export default Portal;

@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import { useState } from "react";
 import { IoIosClose } from "react-icons/io";
 import { useDispatch } from "react-redux";
 import { inactiveOverlay } from "../redux/slices/overlaySlice";

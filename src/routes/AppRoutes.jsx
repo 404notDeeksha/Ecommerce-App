@@ -1,4 +1,3 @@
-import React from "react";
 import { Routes, Route, Navigate, Outlet } from "react-router-dom";
 import { Signup } from "../pages/Signup";
 import { MainHeader } from "./../components/headers/mainHeader/MainHeader";

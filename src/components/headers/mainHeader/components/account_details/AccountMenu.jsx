@@ -1,4 +1,3 @@
-import React from "react";
 import { accountMenu } from "../../../../../utils/common-consts";
 import { Link } from "react-router-dom";
 import { logoutUser } from "../../../../../api/auth";

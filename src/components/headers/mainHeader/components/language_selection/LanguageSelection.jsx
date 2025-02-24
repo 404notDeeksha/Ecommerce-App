@@ -1,4 +1,3 @@
-import React from "react";
 import { RiArrowDropDownFill as DropDownIcon } from "react-icons/ri";
 import { Languages } from "./Languages";
 import { images } from "../../../../../assets/images";

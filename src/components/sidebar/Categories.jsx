@@ -1,4 +1,3 @@
-import React from "react";
 import { getCategoryData } from "../../utils/common-consts";
 
 export const Categories = () => {

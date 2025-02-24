@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react";
+import { useEffect, useState } from "react";
 import { convertNumberInNumerals } from "../../product/utils/ConvertNumberInNumerals";
 import { CiDeliveryTruck } from "react-icons/ci";
 import { IoCalendarClearOutline } from "react-icons/io5";
