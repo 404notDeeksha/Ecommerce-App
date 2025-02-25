@@ -1,10 +1,11 @@
-import { useEffect } from "react";
+import { useCallback, useEffect } from "react";
 import { useState } from "react";
 import ArrowForwardIosIcon from "@mui/icons-material/ArrowForwardIos";
 import { SliderSkeleton } from "./SliderSkeleton";
 import { getCarousel } from "../../../api/protectedApi";
 import { Link } from "react-router-dom";
 import { routes } from "./../../../routes/routes";
+import PropTypes from "prop-types";
 
 export const Slider = () => {
   const [currentIndex, setCurrentIndex] = useState(0);
@@ -29,26 +30,29 @@ export const Slider = () => {
     fetchData();
   }, []);
 
+  const handleIndex = useCallback(
+    (newIndex) => {
+      const carouselDataLength = carouselData.length - 1;
+      if (newIndex > carouselDataLength) {
+        return 0;
+      } else if (newIndex < 0) {
+        return carouselDataLength - 1;
+      }
+      return newIndex;
+    },
+    [carouselData]
+  );
+
   useEffect(() => {
     const interval = setInterval(() => {
       if (!buttonClicked) {
-        setCurrentIndex(handleIndex(currentIndex + 1));
+        setCurrentIndex((prevIndex) => handleIndex(prevIndex + 1));
       } else {
         setButtonClicked(false);
       }
     }, 5000);
     return () => clearInterval(interval);
-  }, [buttonClicked, currentIndex]);
-
-  const handleIndex = (newIndex) => {
-    const carouselDataLength = carouselData.length - 1;
-    if (newIndex > carouselDataLength) {
-      return 0;
-    } else if (newIndex < 0) {
-      return carouselDataLength - 1;
-    }
-    return newIndex;
-  };
+  }, [buttonClicked, handleIndex]);
 
   const updateIndex = (index) => {
     setButtonClicked(true);
@@ -98,10 +102,14 @@ const SlidesImages = ({ data, category }) => {
       <Link to={routes.getProducts(filter)}>
         <img
           src={data}
-          className="w-full max-h-full object-cover"
+          className="w-[1500px] h-[600px] object-cover"
           alt="carousel-image"
         />
       </Link>
     </div>
   );
+};
+SlidesImages.propTypes = {
+  data: PropTypes.string.isRequired,
+  category: PropTypes.string.isRequired,
 };

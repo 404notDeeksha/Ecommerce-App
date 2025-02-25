@@ -3,6 +3,7 @@ import API from "./axiosInstance";
 export const getCarousel = async () => {
   try {
     const response = await API.get("/carousel/featured");
+    // console.log("GetCarousel Result", response);
     return response?.data;
   } catch (error) {
     if (error.response && error.response.data && error.response.data.message) {

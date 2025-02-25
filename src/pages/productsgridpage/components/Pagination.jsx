@@ -12,13 +12,13 @@ export const Pagination = ({
   skeleton,
   renderItem,
 }) => {
-  if (loading) return <>{skeleton}</>;
-
   const [currentPage, setCurrentPage] = useState(1);
   const totalPages = Math.ceil(data.length / itemsPerPage);
   const indexOfLastItem = currentPage * itemsPerPage;
   const indexOfFirstItem = indexOfLastItem - itemsPerPage;
   const currentItems = data.slice(indexOfFirstItem, indexOfLastItem);
+
+  if (loading) return <>{skeleton}</>;
 
   const handlePageChange = (pageNumber) => {
     setCurrentPage(pageNumber);

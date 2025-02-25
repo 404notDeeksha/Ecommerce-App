@@ -10,9 +10,9 @@ export const Cartpage = () => {
           <div className="text-xs">
             The price and availability of items at Amazon.in are subject to
             change. The shopping cart is a temporary place to store a list of
-            your items and reflects each item's most recent price. Do you have a
-            promotional code? We'll ask you to enter your claim code when it's
-            time to pay.
+            your items and reflects each item&apos;s most recent price. Do you
+            have a promotional code? We&apos;ll ask you to enter your claim code
+            when it&apos;s time to pay.
           </div>
         </div>
       </div>
