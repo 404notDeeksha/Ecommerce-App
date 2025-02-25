@@ -4,6 +4,7 @@ import ArrowForwardIosIcon from "@mui/icons-material/ArrowForwardIos";
 import { SliderSkeleton } from "./SliderSkeleton";
 import { getCarousel } from "../../../api/protectedApi";
 import { Link } from "react-router-dom";
+import { routes } from "./../../../routes/routes";
 
 export const Slider = () => {
   const [currentIndex, setCurrentIndex] = useState(0);
@@ -17,7 +18,7 @@ export const Slider = () => {
         const result = await getCarousel();
         if (result) {
           setLoading(false);
-          if (result.success) {
+          if (result?.success) {
             setCarouselData(result.data);
           }
         }
@@ -94,7 +95,7 @@ const SlidesImages = ({ data, category }) => {
   const filter = `category=${category}`;
   return (
     <div className="cursor-pointer">
-      <Link to={`/products?category=${category}`}>
+      <Link to={routes.getProducts(filter)}>
         <img
           src={data}
           className="w-full max-h-full object-cover"

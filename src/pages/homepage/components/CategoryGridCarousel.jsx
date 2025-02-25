@@ -94,7 +94,7 @@ Grid.propTypes = {
 GridCardImage.propTypes = {
   caption: PropTypes.string.isRequired,
   image: PropTypes.string.isRequired,
-  category: PropTypes.string.isRequired,
-  brand: PropTypes.string.isRequired,
-  subCategory: PropTypes.string.isRequired,
+  category: PropTypes.string,
+  brand: PropTypes.string,
+  subCategory: PropTypes.string,
 };

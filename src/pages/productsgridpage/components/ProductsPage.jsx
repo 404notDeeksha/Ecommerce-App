@@ -9,51 +9,63 @@ import { getFilteredProducts } from "../../../api/protectedApi";
 export const ProductsPage = () => {
   const [productsCollection, setProductsCollection] = useState([]);
   const [loading, setLoading] = useState(true);
+  const [error, setError] = useState(null);
 
   const location = useLocation();
   const query = new URLSearchParams(location.search);
   const filter = query.toString();
-
   const ITEM_PER_PAGE = 50;
-  console.log("Filter", filter);
+
   useEffect(() => {
     const fetchProducts = async () => {
+      setLoading(true);
+      setError(null);
       try {
         const result = await getFilteredProducts(filter);
-        if (result) {
-          console.log("result-products", result);
-          setLoading(false);
-          if (result.success) {
-            setProductsCollection(result.data);
-          } else {
-            setProductsCollection([]);
-            console.log(result.message);
-          }
+        if (result && result?.success) {
+          setProductsCollection(result.data);
+        } else {
+          setProductsCollection([]);
+          setError(result?.message || "No products found");
         }
-      } catch (error) {
-        console.error("Error fetching products:", error);
+      } catch (err) {
+        console.error("Error fetching products:", err);
+        setError("Error fetching products");
+      } finally {
+        setLoading(false);
       }
     };
 
     fetchProducts();
   }, [filter]);
 
+  if (error) {
+    return (
+      <div className="bg-white">
+        <div className="w-full min-w-[996px] max-w-[1500px] my-0 py-3.5 flex mx-auto pt-5 ">
+          <h2 className="font-bold text-xl my-5">{error}</h2>
+        </div>
+      </div>
+    );
+  }
+
   return (
     <div className="bg-white">
-      <div className="w-full min-w-[996px] max-w-[1500px]  my-0 py-3.5 bg-[#fff]  flex pt-5 mx-auto">
-        {/* <div className="w-[300px] px-2">Filters</div> */}
+      <div className="w-full min-w-[996px] max-w-[1500px] my-0 py-3.5 bg-white flex pt-5 mx-auto">
         <div className="flex-1">
           <h2 className="font-bold text-xl my-5 mb-10">Results</h2>
           <div className="flex flex-wrap gap-2">
-            <Pagination itemsPerPage={ITEM_PER_PAGE} loading={loading}>
-              {loading ? (
+            <Pagination
+              itemsPerPage={ITEM_PER_PAGE}
+              loading={loading}
+              data={productsCollection}
+              skeleton={
                 <Skeleton Component={ProductCardSkeleton} repeatations={10} />
-              ) : (
-                productsCollection.map((product, index) => {
-                  return <ProductCard product={product} key={index} />;
-                })
+              }
+              renderItem={(product, index) => (
+                <ProductCard product={product} key={index} />
               )}
-            </Pagination>
+            />
           </div>
         </div>
       </div>

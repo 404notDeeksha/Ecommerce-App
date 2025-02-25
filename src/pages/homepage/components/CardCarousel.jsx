@@ -4,6 +4,7 @@ import { getImages } from "./../../../utils/common-utils";
 import { MultiCardCarouselSkeleton } from "./MultiCardCarouselSkeleton";
 import { getProducts } from "../../../api/protectedApi";
 import { routes } from "../../../routes/routes";
+import PropTypes from "prop-types";
 
 export const MultiCardCarousel = ({ title, category, query }) => {
   const maxScrollWidth = useRef(0);
@@ -28,7 +29,7 @@ export const MultiCardCarousel = ({ title, category, query }) => {
       }
     };
     fetchData();
-  }, []);
+  }, [category, query]);
 
   const movePrev = () => {
     if (currentIndex > 0) {
@@ -76,7 +77,6 @@ export const MultiCardCarousel = ({ title, category, query }) => {
       <div className="my-2.5 flex items-center">
         <h2 className="text-black font-bold text-[21px]">{title}</h2>
         <Link to={routes.getProducts(filter)}>
-          {/* <Link to={`/products?category=${category}&&${query}`}> */}
           <span className="text-sm pl-4">See all offers</span>
         </Link>
       </div>
@@ -141,7 +141,7 @@ const MultiCarouselRightButton = ({ moveNext, isDisabled }) => {
 const MultiImageCarousel = ({ dataset, carousel }) => {
   return (
     <div ref={carousel} className="carousel-container">
-      {dataset.map((product, index) => {
+      {dataset?.map((product, index) => {
         if (index > 14) {
           return null;
         }
@@ -164,4 +164,31 @@ const MultiImageCarousel = ({ dataset, carousel }) => {
       })}
     </div>
   );
+};
+
+MultiCardCarousel.propTypes = {
+  title: PropTypes.string.isRequired,
+  category: PropTypes.string.isRequired,
+  query: PropTypes.string.isRequired,
+};
+
+MultiCarouselLeftButton.propTypes = {
+  movePrev: PropTypes.func.isRequired,
+  isDisabled: PropTypes.func.isRequired,
+};
+
+MultiCarouselRightButton.propTypes = {
+  moveNext: PropTypes.func.isRequired,
+  isDisabled: PropTypes.func.isRequired,
+};
+
+MultiImageCarousel.propTypes = {
+  dataset: PropTypes.arrayOf(
+    PropTypes.shape({
+      productId: PropTypes.string.isRequired,
+      productName: PropTypes.string.isRequired,
+      images: PropTypes.arrayOf(PropTypes.string),
+    })
+  ),
+  carousel: PropTypes.shape({ current: PropTypes.instanceOf(Element) }),
 };
