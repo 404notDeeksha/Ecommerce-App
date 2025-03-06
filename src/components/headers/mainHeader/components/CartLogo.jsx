@@ -8,7 +8,7 @@ export const CartLogo = () => {
 
   return (
     <div className=" flex-col relative text-[#fff] hover-header cursor-pointer gap-3 px-5 py-0.5  border  ">
-      <div className="text-orange-500 inline ml-0.5 text-sm font-[500] ">
+      <div className="text-orange-500 inline ml-1.5 text-sm font-[500] ">
         {itemsNumberInCart}
       </div>
 
