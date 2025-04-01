@@ -6,7 +6,7 @@ export const NotFound = () => {
     <div className="flex flex-col items-center justify-center h-screen text-center bg-gray-100 p-6">
       <h1 className="text-5xl font-bold text-red-600">404</h1>
       <p className="mt-4 text-xl text-gray-700">
-        Oops! The page you're looking for doesn't exist.
+        Oops! The page you`&apos;`re looking for doesn`&apos;`t exist.
       </p>
       <p className="text-gray-500">It might have been moved or deleted.</p>
 
