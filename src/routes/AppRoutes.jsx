@@ -11,6 +11,7 @@ import { PasswordAuthPage } from "../pages/login/PasswordAuthPage";
 import { EmailAuthPage } from "../pages/login/EmailAuthPage";
 import { ProtectedRoute } from "./ProtectedRoute";
 import { routes } from "./routes";
+import { NotFound } from "../components/NotFound";
 
 export const AppRoutes = () => {
   return (
@@ -37,7 +38,7 @@ export const AppRoutes = () => {
           <Route path={routes.cart} element={<Cartpage />} />
         </Route>
       </Route>
-      <Route path="*" element={<Navigate to={routes.signup} />} />
+      <Route path="*" element={<NotFound />} />
     </Routes>
   );
 };
