@@ -12,7 +12,6 @@ export const ProtectedRoute = () => {
       dispatch(inactiveOverlay()); // Cleanup on unmount
     };
   }, [dispatch]);
-  console.log("Auth", isAuthenticated);
   if (isAuthenticated === undefined) return null;
   return (
     <>{isAuthenticated ? <Outlet /> : <Navigate to={routes.loginEmail} />}</>
