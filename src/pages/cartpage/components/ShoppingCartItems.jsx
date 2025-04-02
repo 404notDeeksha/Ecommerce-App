@@ -109,7 +109,6 @@ export const ShoppingCartItems = () => {
 
 const ProductCard = ({ product, index, userId, productId, setCartData }) => {
   const handleDelete = async () => {
-    console.log("clicking");
     try {
       const result = await deleteCartProduct(userId, productId);
       if (result.success) {
@@ -178,7 +177,7 @@ const QuantityUpdationButton = ({ qty, userId, productId, setCartData }) => {
   };
 
   const handleDecrementQuantity = (qty) => {
-    if (qty === 1) {
+    if (qty === 0) {
       return null;
     }
     backendData(qty);
