@@ -13,29 +13,31 @@ export const ProtectedRoute = () => {
   const dispatch = useDispatch();
 
   useEffect(() => {
+    const fetchQty = async () => {
+      if (!user?.id) return; // Early return instead of conditional useEffect
+
+      try {
+        const qty = await getCartQty(user.id);
+        dispatch(setCartQuantity(qty.data));
+
+        if (qty.data === 0) {
+          dispatch(setCartQuantity(0));
+        }
+      } catch (error) {
+        console.error("Error fetching cart quantity:", error);
+      }
+    };
+
+    fetchQty();
+  }, [user?.id, data.items, dispatch]);
+
+  useEffect(() => {
     return () => {
       dispatch(inactiveOverlay());
     };
   }, [dispatch]);
 
   if (isAuthenticated === undefined) return null;
-
-  useEffect(() => {
-    if (user?.id) {
-      const fetchQty = async () => {
-        try {
-          const qty = await getCartQty(user?.id);
-          dispatch(setCartQuantity(qty.data));
-          if (qty.data === 0) {
-            dispatch(setCartQuantity(0));
-          }
-        } catch (error) {
-          console.error("Error fetching cart quantity:", error);
-        }
-      };
-      fetchQty();
-    }
-  }, [user?.id, data.items]);
 
   return (
     <>{isAuthenticated ? <Outlet /> : <Navigate to={routes.loginEmail} />}</>
