@@ -62,7 +62,7 @@ export const PasswordAuthPage = () => {
           </label>
 
           <input
-            type="text"
+            type="password"
             className="w-full px-2 py-1 border-2 border-black border-solid mt-2 mb-2"
             value={password}
             required
