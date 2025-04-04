@@ -3,7 +3,7 @@ import { Pagination } from "./Pagination";
 import { useLocation } from "react-router-dom";
 import { ProductCard } from "./ProductCard";
 import { ProductCardSkeleton } from "./ProductCardSkeleton";
-import { Skeleton } from "./../../../components/Skeleton";
+import { Skeleton } from "../../../components/Skeleton";
 import { getFilteredProducts } from "../../../api/protectedApi";
 
 export const ProductsPage = () => {
@@ -52,10 +52,10 @@ export const ProductsPage = () => {
   return (
     <div className="bg-white">
       <div className="w-full min-w-[996px] max-w-[1500px] my-0 py-3.5 bg-white flex pt-5 mx-auto">
-        <div className="w-[300px] font-bold text-xl my-5 mb-10">
+        {/* <div className="w-[300px] font-bold text-xl my-5 mb-10">
           <h1>Filters</h1>
           <div className=""></div>
-        </div>
+        </div> */}
         <div className="flex-1">
           <h1 className="font-bold text-xl my-5 mb-10">Results</h1>
           <div className="flex flex-wrap gap-2">

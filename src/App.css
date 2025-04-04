@@ -11,8 +11,7 @@
     @apply w-20 h-full max-h-[250px] absolute top-[100px] cursor-pointer z-[50] pl-[3px] visible;
   }
  
-  
-  
+   
 
   .shopContent {
     @apply w-full max-w-[1480px] px-2.5 ms-auto me-auto;
