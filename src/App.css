@@ -10,18 +10,8 @@
   .arrow-carousel {
     @apply w-20 h-full max-h-[250px] absolute top-[100px] cursor-pointer z-[50] pl-[3px] visible;
   }
-
-  .card-grids {
-    @apply py-2.5 w-full max-w-[1480px] ms-auto me-auto flex justify-between gap-4 z-[5];
-  }
-
-  .card-grid {
-    @apply flex flex-col px-5  max-w-[350px] min-w-[300px] h-full min-h-[330px] bg-white pt-5 pb-[15px] justify-between;
-  }
-
-  .card-grid-data {
-    @apply grid gap-3 grid-cols-2 grid-flow-row;
-  }
+ 
+   
 
   .shopContent {
     @apply w-full max-w-[1480px] px-2.5 ms-auto me-auto;

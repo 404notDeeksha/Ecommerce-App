@@ -14,7 +14,7 @@ export const CategoryGridCarousel = ({
   label4,
 }) => {
   return (
-    <div className="card-grids relative">
+    <div className=" py-2.5 w-full max-w-[1480px] mx-auto flex  justify-center gap-4 z-[5] relative">
       <Grid data={data1} label={label1} />
       <Grid data={data2} label={label2} />
       <Grid data={data3} label={label3} />
@@ -25,9 +25,9 @@ export const CategoryGridCarousel = ({
 
 const Grid = ({ data, label }) => {
   return (
-    <div className="card-grid pb-10">
+    <div className="flex flex-col px-5  max-w-[350px] min-w-[300px] h-[330px] bg-white pt-5 justify-between pb-10">
       <h2 className="text-xl font-bold pb-2.5">{label}</h2>
-      <div className="card-grid-data ">
+      <div className="grid gap-3 grid-cols-2 grid-flow-row ">
         {data?.map((ele) => {
           return (
             <GridCardImage

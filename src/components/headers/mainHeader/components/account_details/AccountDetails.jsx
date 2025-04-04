@@ -9,7 +9,6 @@ import {
 export const AccountDetails = () => {
   const userData = useSelector((state) => state?.auth?.user?.name);
   const name = userData?.trim().split(" ")[0] || "signin";
-  console.log(name);
   const dispatch = useDispatch();
 
   const handleMouseOver = () => {

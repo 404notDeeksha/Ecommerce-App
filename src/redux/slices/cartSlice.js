@@ -1,20 +1,20 @@
 import { createSlice } from "@reduxjs/toolkit";
 
-const initialState = { data: {} };
+const initialState = { data: {}, totalQuantity: 0 };
 
 const cartSlice = createSlice({
   name: "cart",
   initialState,
   reducers: {
     setCart: (state, action) => {
-      //   console.log(`Updating state`);
-      // console.log(`action`, action);
       state.data = action.payload;
-      // console.log("STATE", state.data);
+    },
+    setCartQuantity: (state, action) => {
+      state.totalQuantity = action.payload; // Set the quantity from backend
     },
   },
 });
 
-export const { setCart } = cartSlice.actions;
+export const { setCart, setCartQuantity } = cartSlice.actions;
 
 export default cartSlice.reducer;

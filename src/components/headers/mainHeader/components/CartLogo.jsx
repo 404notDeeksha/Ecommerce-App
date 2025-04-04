@@ -1,15 +1,13 @@
 import { FiShoppingCart } from "react-icons/fi";
-import { getTotalQtyFromCart } from "../../../../utils/common-utils";
 import { useSelector } from "react-redux";
 
 export const CartLogo = () => {
-  const cartItems = useSelector((state) => state.cart.data.items);
-  let itemsNumberInCart = getTotalQtyFromCart(cartItems);
+  const cartItems = useSelector((state) => state.cart.totalQuantity);
 
   return (
     <div className=" flex-col relative text-[#fff] hover-header cursor-pointer gap-3 px-5 py-0.5  border  ">
       <div className="text-orange-500 inline ml-1.5 text-sm font-[500] ">
-        {itemsNumberInCart}
+        {cartItems}
       </div>
 
       <div className="flex gap-3 mb-2">

@@ -1,4 +1,4 @@
-import  { useEffect, useState } from "react";
+import { useEffect, useState } from "react";
 import { LogoBlack } from "./LogoBlack";
 import { Link, useLocation, useNavigate } from "react-router-dom";
 import { verifyPassword } from "../../api/auth";
@@ -62,7 +62,7 @@ export const PasswordAuthPage = () => {
           </label>
 
           <input
-            type="text"
+            type="password"
             className="w-full px-2 py-1 border-2 border-black border-solid mt-2 mb-2"
             value={password}
             required

@@ -3,7 +3,6 @@ import API from "./axiosInstance";
 export const getCarousel = async () => {
   try {
     const response = await API.get("/carousel/featured");
-    // console.log("GetCarousel Result", response);
     return response?.data;
   } catch (error) {
     if (error.response && error.response.data && error.response.data.message) {
@@ -76,6 +75,19 @@ export const addToCart = async (body) => {
 export const getCart = async (userId) => {
   try {
     const response = await API.get(`/cart/${userId}`);
+    return response?.data;
+  } catch (error) {
+    if (error.response?.data?.message) {
+      throw new Error(error.response.data.message);
+    } else {
+      throw new Error("Something went wrong. Please try again.");
+    }
+  }
+};
+// api/cart/quantity/:userId
+export const getCartQty = async (userId) => {
+  try {
+    const response = await API.get(`/cart/quantity/${userId}`);
     return response?.data;
   } catch (error) {
     if (error.response?.data?.message) {
