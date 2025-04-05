@@ -29,7 +29,7 @@ A full-featured ecommerce frontend built using **React** + **Vite**, styled with
 
 ### 🧾 Product Page
 
-[![Product Page](./screenshots/productpage.png)](./screenshots/productpage.png)
+[![Product Page](./screenshots/product.png)](./screenshots/product.png)
 
 ### 🗂️ Products Grid Page
 
