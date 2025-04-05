@@ -1,116 +1,48 @@
-Amazon-Clone E-commerce App
+# 🛍️ Ecommerce App (Amazon Inspired)
 
-An Amazon-inspired full-stack e-commerce application built with modern technologies, designed to deliver a seamless and responsive shopping experience.
+A full-featured ecommerce frontend built using **React** + **Vite**, styled with **Tailwind CSS**, and connected to a secure backend.
 
-🚀 Live Demo
+<br/>
 
-Live App Link (coming soon..)
+## 🔗 Live Demo
 
-🛠️ Tech Stack
+🌐 [ecommerce-app-techwithdeekksha.vercel.app](https://ecommerce-app-techwithdeekksha.vercel.app)
 
-Frontend: React.js, Vite, Redux, Tailwind Css
+<br/>
 
-Backend: Node.js, Express.js, MongoDB
+## ✨ Features
 
-State Management: Redux, Redux Persist
+- 🛒 **Cart System** – Add, update, and remove items from the cart  
+- 🔍 **Product Filtering** – Browse by categories  
+- 📱 **Responsive Design** – Looks great on all devices  
+- ⚡️ **Vite Powered** – Fast development and optimized builds  
+- 🧼 **Clean UI** – Minimal, elegant, and user-focused  
+- 🔐 **Secure Backend** – CORS configured and ready for integration  
 
-Authentication: JWT with HTTP-only cookies
+<br/>
 
-UI/UX: Portals for modals/popovers, responsive design
+## 🧠 Tech Stack
 
-📂 Features
+| Frontend | Styling     | State & Utils | Hosting  |
+|----------|-------------|---------------|----------|
+| React    | TailwindCSS | Axios         | Vercel   |
+| Vite     | —           | —             |          |
 
-User authentication (sign-up, login, logout)
+<br/>
 
-Browse products with search & category filters
+## 🚀 Getting Started
 
-Add/remove products to/from the cart
+To run this project locally:
 
-Real-time cart updates
+```bash
+# 1. Clone the repo
+git clone https://github.com/Deek1995/amazon-frontend.git
 
-Secure checkout process
+# 2. Navigate to the project folder
+cd amazon-frontend
 
-API integration with CRUD operations
-
-Error handling and form validation
-
-🚀 Performance Optimizations
-
-Code splitting & lazy loading for faster page loads
-
-Optimized API queries with indexing
-
-Lighthouse score optimization for performance & accessibility
-
-📦 Key Dependencies
-
-React, React-DOM: Core library for building the UI.
-
-React Router DOM: For client-side routing and navigation.
-
-Redux Toolkit & Redux Persist: State management and session persistence.
-
-Axios: For handling API requests.
-
-Framer Motion: For animations and transitions.
-
-React Icons & MUI Icons: For scalable, customizable icons.
-
-Tailwind CSS & @tailwindcss/forms: Utility-first styling and form enhancements.
-
-UUID: For generating unique identifiers.
-
-🛠️ Development & Build Tools
-
-Vite: For fast development and optimized production builds.
-
-ESLint & Plugins: For code linting and maintaining best practices.
-
-PostCSS & Autoprefixer: For CSS transformations and vendor prefixing.
-
-🛠️ Installation
-
-Clone the repository:
-
-git clone https://github.com/yourusername/amazon-clone.git
-cd amazon-clone
-
-Frontend setup:
-
-cd frontend
+# 3. Install dependencies
 npm install
+
+# 4. Start the dev server
 npm run dev
-
-Backend setup:
-
-cd backend
-npm install
-nodemon index.js
-
-Environment variables: Create a .env file in the root folder and configure your MongoDB URI, JWT secret, and frontend URL.
-
-Example .env file:
-
-MONGO_URI=your_mongodb_uri
-JWT_SECRET=your_jwt_secret
-FRONTEND_URL=http://localhost:5173
-
-🚀 Deployment
-
-Frontend: Deploy with Vercel or Netlify
-
-Backend: Deploy with Vercel (serverless functions) or Render
-
-📘 Future Improvements
-
-Payment gateway integration
-
-Order history & tracking
-
-Product reviews & ratings
-
-Admin dashboard for product management
-
-🏁 Conclusion
-
-This project showcases my ability to build a scalable, secure, and feature-rich e-commerce platform. It reflects my skills in full-stack development, performance optimization, and delivering a responsive, user-friendly experience.
