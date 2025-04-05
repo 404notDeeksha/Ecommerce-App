@@ -21,6 +21,16 @@ A full-featured ecommerce frontend built using **React** + **Vite**, styled with
 
 <br/>
 
+## 🖼️ Screenshots
+
+### 🏠 Home Page
+[![Home Page](./screenshots/home.png)](./screenshots/home.png)
+
+### 🛒 Cart Page
+[![Cart Page](./screenshots/cart.png)](./screenshots/cart.png)
+
+
+
 ## 🧠 Tech Stack
 
 | Frontend | Styling     | State & Utils | Hosting  |
