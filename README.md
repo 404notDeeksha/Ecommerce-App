@@ -12,31 +12,43 @@ A full-featured ecommerce frontend built using **React** + **Vite**, styled with
 
 ## ✨ Features
 
-- 🛒 **Cart System** – Add, update, and remove items from the cart  
-- 🔍 **Product Filtering** – Browse by categories  
-- 📱 **Responsive Design** – Looks great on all devices  
-- ⚡️ **Vite Powered** – Fast development and optimized builds  
-- 🧼 **Clean UI** – Minimal, elegant, and user-focused  
-- 🔐 **Secure Backend** – CORS configured and ready for integration  
+- 🛒 **Cart System** – Add, update, and remove items from the cart
+- 🔍 **Product Filtering** – Browse by categories
+- 📱 **Responsive Design** – Looks great on all devices
+- ⚡️ **Vite Powered** – Fast development and optimized builds
+- 🧼 **Clean UI** – Minimal, elegant, and user-focused
+- 🔐 **Secure Backend** – CORS configured and ready for integration
 
 <br/>
 
 ## 🖼️ Screenshots
 
 ### 🏠 Home Page
+
 [![Home Page](./screenshots/home.png)](./screenshots/home.png)
 
+### 🧾 Product Page
+
+[![Product Page](./screenshots/productpage.png)](./screenshots/productpage.png)
+
+### 🗂️ Products Grid Page
+
+[![Products Grid](./screenshots/productsgrid.png)](./screenshots/productsgrid.png)
+
+### 📚 Sidebar Modal
+
+[![Sidebar Modal](./screenshots/sidebar.png)](./screenshots/sidebar.png)
+
 ### 🛒 Cart Page
+
 [![Cart Page](./screenshots/cart.png)](./screenshots/cart.png)
-
-
 
 ## 🧠 Tech Stack
 
-| Frontend | Styling     | State & Utils | Hosting  |
-|----------|-------------|---------------|----------|
-| React    | TailwindCSS | Axios         | Vercel   |
-| Vite     | —           | —             |          |
+| Frontend | Styling     | State & Utils | Hosting |
+| -------- | ----------- | ------------- | ------- |
+| React    | TailwindCSS | Axios         | Vercel  |
+| Vite     | —           | —             |         |
 
 <br/>
 
@@ -56,3 +68,4 @@ npm install
 
 # 4. Start the dev server
 npm run dev
+```
