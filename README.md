@@ -36,10 +36,10 @@ To run this project locally:
 
 ```bash
 # 1. Clone the repo
-git clone https://github.com/Deek1995/amazon-frontend.git
+git clone https://github.com/Deek1995/ecommerce-frontend.git
 
 # 2. Navigate to the project folder
-cd amazon-frontend
+cd ecommerce-frontend
 
 # 3. Install dependencies
 npm install
