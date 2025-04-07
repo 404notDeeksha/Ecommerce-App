@@ -10,6 +10,15 @@ A full-featured ecommerce frontend built using **React** + **Vite**, styled with
 
 <br/>
 
+## 🔐 Demo Login
+
+Use the following credentials to test the application:
+
+**Email**: guest@user.com  
+**Password**: Guest@123
+
+</br>
+
 ## ✨ Features
 
 - 🛒 **Cart System** – Add, update, and remove items from the cart
