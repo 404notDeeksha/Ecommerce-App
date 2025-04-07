@@ -21,10 +21,6 @@ export const EmailAuthPage = () => {
         <LogoBlack />
         <EmailAuthForm />
 
-        <div className="text-sm text-gray-500 mt-2">
-          <div>Guest login: guest@user.com</div>
-          <div>Guest password: Guest@123</div>
-        </div>
         <div className="w-[350px] m-auto text-sm my-10">
           <div className="text-xs text-center p-2 ">New to Amazon?</div>
           <button className="w-full rounded border-2 p-2">

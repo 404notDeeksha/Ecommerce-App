@@ -27,6 +27,11 @@ export const EmailAuthForm = () => {
       <div className="rounded-lg border-[1px] border-[#ddd] py-5 px-6 mb-[22px] w-[350px] m-auto text-xs leading-5">
         <h1 className="font-normal mb-3.5 text-[28px] leading-5 ">Sign in</h1>
 
+        <div className="text-sm text-gray-500 my-4">
+          <div>Guest Login: guest@user.com</div>
+          <div>Guest password: Guest@123</div>
+        </div>
+
         <form className="my-2.5 " onSubmit={(e) => handleSubmit(e)}>
           <label className="font-bold">Email</label>
 
