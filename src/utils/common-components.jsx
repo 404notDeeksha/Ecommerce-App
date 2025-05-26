@@ -1,6 +1,7 @@
+import PropTypes from "prop-types";
 import { BounceLoader } from "react-spinners";
 
-export const LoaderData = ({isLoading}) => {
+export const LoaderData = ({ isLoading }) => {
   return (
     <>
       {isLoading && (
@@ -18,7 +19,11 @@ export const LoaderData = ({isLoading}) => {
     </>
   );
 };
-export const override = {
+const override = {
   display: "block",
   margin: "0 auto",
+};
+
+LoaderData.propTypes = {
+  isLoading: PropTypes.bool.isRequired,
 };
