@@ -2,18 +2,26 @@ import { useEffect } from "react";
 import { LogoBlack } from "./LogoBlack";
 import { EmailAuthForm } from "./EmailAuthForm";
 import { Link, useNavigate } from "react-router-dom";
+import { BounceLoader } from "react-spinners";
 import { useSelector } from "react-redux";
 import { routes } from "../../routes/routes";
+
+const override = {
+  display: "block",
+  margin: "0 auto",
+};
 
 export const EmailAuthPage = () => {
   const isAuthenticated = useSelector((state) => state.auth.isAuthenticated);
   const navigate = useNavigate();
+  const isLoading = useSelector((state) => state.loader.loading);
 
   useEffect(() => {
     if (isAuthenticated) {
       navigate(routes.home);
     }
   }, [isAuthenticated, navigate]);
+
 
   return (
     <div className="bg-white h-screen">
@@ -28,6 +36,15 @@ export const EmailAuthPage = () => {
           </button>
         </div>
       </div>
+
+      <BounceLoader
+        color="#FFD814"
+        loading={Boolean(isLoading)}
+        cssOverride={override}
+        size={100}
+        aria-label="Loading Spinner"
+        data-testid="loader"
+      />
     </div>
   );
 };

@@ -6,6 +6,13 @@ import { useDispatch } from "react-redux";
 import { loginSuccess } from "../../redux/slices/authSlice";
 import { useSelector } from "react-redux";
 import { routes } from "../../routes/routes";
+import { BounceLoader } from "react-spinners";
+import { loading } from "../../redux/slices/loaderSlice";
+
+const override = {
+  display: "block",
+  margin: "0 auto",
+};
 
 export const PasswordAuthPage = () => {
   const [password, setPassword] = useState("");
@@ -15,6 +22,7 @@ export const PasswordAuthPage = () => {
   const email = location.state; // navigating from EmailAuthForm
   const dispatch = useDispatch();
   const isAuthenticated = useSelector((state) => state?.auth?.isAuthenticated);
+  const isLoading = useSelector((state) => state.loader.loading);
 
   useEffect(() => {
     if (isAuthenticated) {
@@ -24,16 +32,19 @@ export const PasswordAuthPage = () => {
 
   const handleSubmit = (e) => {
     e.preventDefault();
+    dispatch(loading(true));
     const fetchUserData = async () => {
       try {
         const result = await verifyPassword({ email, password });
         if (result.success) {
           setErrorMsg(false);
           dispatch(loginSuccess({ user: result.user }));
+          dispatch(loading(false));
           navigate(routes.home);
         }
       } catch (err) {
         console.log("Error in verifying Account", err);
+        dispatch(loading(false));
         if (!err.response.data.success) {
           setErrorMsg("Wrong password entered!");
           setPassword("");
@@ -78,6 +89,15 @@ export const PasswordAuthPage = () => {
           </button>
         </form>
       </div>
+
+      <BounceLoader
+        color="#FFD814"
+        loading={Boolean(isLoading)}
+        cssOverride={override}
+        size={100}
+        aria-label="Loading Spinner"
+        data-testid="loader"
+      />
     </div>
   );
 };
