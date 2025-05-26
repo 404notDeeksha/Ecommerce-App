@@ -90,14 +90,16 @@ export const PasswordAuthPage = () => {
         </form>
       </div>
 
-      <BounceLoader
-        color="#FFD814"
-        loading={Boolean(isLoading)}
-        cssOverride={override}
-        size={100}
-        aria-label="Loading Spinner"
-        data-testid="loader"
-      />
+      {isLoading && (
+            <BounceLoader
+              color="#FFD814"
+              loading={true}
+              cssOverride={override}
+              size={100}
+              aria-label="Loading Spinner"
+              data-testid="loader"
+            />
+          )}
     </div>
   );
 };

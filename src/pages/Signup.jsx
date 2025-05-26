@@ -8,6 +8,8 @@ import { FiEye } from "react-icons/fi";
 import { FaRegEyeSlash } from "react-icons/fa6";
 import { loginSuccess } from "../redux/slices/authSlice";
 import { routes } from "../routes/routes";
+import { loading } from "../redux/slices/loaderSlice";
+import { BounceLoader } from "react-spinners";
 
 export const Signup = () => {
   const [formData, setFormData] = useState({
@@ -22,6 +24,12 @@ export const Signup = () => {
   const isAuthenticated = useSelector((state) => state.auth.isAuthenticated);
   const navigate = useNavigate();
   const dispatch = useDispatch();
+  const isLoading = useSelector((state) => state.loader.loading);
+
+  const override = {
+    display: "block",
+    margin: "0 auto",
+  };
 
   useEffect(() => {
     if (isAuthenticated) {
@@ -52,6 +60,7 @@ export const Signup = () => {
 
   const handleSubmit = async (e) => {
     e.preventDefault();
+    dispatch(loading(true));
     let newErrors = {};
     if (!formData.name.trim()) newErrors.name = "Name is required";
     if (!validateEmail(formData.email))
@@ -61,6 +70,10 @@ export const Signup = () => {
       newErrors.confirmPassword = "Passwords do not match";
 
     setErrors(newErrors);
+    if (Object.keys(newErrors).length) {
+      dispatch(loading(false));
+      return;
+    }
 
     if (!Object.keys(newErrors).length) {
       try {
@@ -71,11 +84,13 @@ export const Signup = () => {
         });
         if (result.success) {
           console.log("Account created");
+          dispatch(loading(false));
           dispatch(loginSuccess({ user: result.data }));
           navigate(routes.home);
         }
       } catch (error) {
         if (error.message) {
+          dispatch(loading(false));
           setErrors((prevErrors) => ({
             ...prevErrors,
             email: error.message,
@@ -84,7 +99,6 @@ export const Signup = () => {
       }
     }
   };
-
   return (
     <>
       <div className="bg-white h-screen text-black">
@@ -205,6 +219,17 @@ export const Signup = () => {
               </div>
             </div>
           </div>
+
+          {isLoading && (
+            <BounceLoader
+              color="#FFD814"
+              loading={true}
+              cssOverride={override}
+              size={100}
+              aria-label="Loading Spinner"
+              data-testid="loader"
+            />
+          )}
         </div>
       </div>
     </>
