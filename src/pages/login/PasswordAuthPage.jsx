@@ -6,13 +6,8 @@ import { useDispatch } from "react-redux";
 import { loginSuccess } from "../../redux/slices/authSlice";
 import { useSelector } from "react-redux";
 import { routes } from "../../routes/routes";
-import { BounceLoader } from "react-spinners";
 import { loading } from "../../redux/slices/loaderSlice";
-
-const override = {
-  display: "block",
-  margin: "0 auto",
-};
+import { LoaderData } from "../../utils/common-components";
 
 export const PasswordAuthPage = () => {
   const [password, setPassword] = useState("");
@@ -45,7 +40,7 @@ export const PasswordAuthPage = () => {
       } catch (err) {
         console.log("Error in verifying Account", err);
         dispatch(loading(false));
-        if (!err.response.data.success) {
+        if (!err.response || !err.response.data) {
           setErrorMsg("Wrong password entered!");
           setPassword("");
         }
@@ -90,14 +85,7 @@ export const PasswordAuthPage = () => {
         </form>
       </div>
 
-      <BounceLoader
-        color="#FFD814"
-        loading={Boolean(isLoading)}
-        cssOverride={override}
-        size={100}
-        aria-label="Loading Spinner"
-        data-testid="loader"
-      />
+      <LoaderData isLoading={isLoading} />
     </div>
   );
 };

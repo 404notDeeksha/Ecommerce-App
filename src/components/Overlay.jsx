@@ -17,7 +17,7 @@ const Overlay = () => {
     SEARCHBAR: { component: null, parentClass: " z-[4]" },
     TOOLTIP_MAIN_HEADER: { component: null, parentClass: "  z-[4] " },
     SIDEBAR: { component: <Sidebar />, parentClass: "  z-[6] " },
-    TOOLTIP_CATEGORY_HEADER: { component: null, parentClass: "  z-[2] " },
+    TOOLTIP_CATEGORY_HEADER: { component: null, parentClass: "  z-[2] " }
   };
 
   const currentContent = componentMap[contentKey];
@@ -32,7 +32,7 @@ const Overlay = () => {
   return (
     <Portal>
       <div
-        className={`fixed top-0 left-0 h-full w-full bg-blackTransparent ${currentContent.parentClass}`}
+        className={`fixed top-0 left-0 h-full w-full bg-blackTransparent  ${currentContent.parentClass}`}
         onClick={() => clickOverlay()}
       >
         <div className="" onClick={(e) => e.stopPropagation()}>
