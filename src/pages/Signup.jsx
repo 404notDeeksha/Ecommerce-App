@@ -9,7 +9,8 @@ import { FaRegEyeSlash } from "react-icons/fa6";
 import { loginSuccess } from "../redux/slices/authSlice";
 import { routes } from "../routes/routes";
 import { loading } from "../redux/slices/loaderSlice";
-import { BounceLoader } from "react-spinners";
+import { LoaderData } from "../utils/common-components";
+
 
 export const Signup = () => {
   const [formData, setFormData] = useState({
@@ -25,11 +26,6 @@ export const Signup = () => {
   const navigate = useNavigate();
   const dispatch = useDispatch();
   const isLoading = useSelector((state) => state.loader.loading);
-
-  const override = {
-    display: "block",
-    margin: "0 auto",
-  };
 
   useEffect(() => {
     if (isAuthenticated) {
@@ -220,16 +216,7 @@ export const Signup = () => {
             </div>
           </div>
 
-          {isLoading && (
-            <BounceLoader
-              color="#FFD814"
-              loading={true}
-              cssOverride={override}
-              size={100}
-              aria-label="Loading Spinner"
-              data-testid="loader"
-            />
-          )}
+          <LoaderData isLoading={isLoading} />
         </div>
       </div>
     </>

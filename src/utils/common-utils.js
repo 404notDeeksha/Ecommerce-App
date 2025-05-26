@@ -1,3 +1,4 @@
+
 export const getImages = (image) => {
   return image?.replace("via.placeholder.com", "placehold.co");
 };
