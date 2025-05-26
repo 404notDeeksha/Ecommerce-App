@@ -40,7 +40,7 @@ export const PasswordAuthPage = () => {
       } catch (err) {
         console.log("Error in verifying Account", err);
         dispatch(loading(false));
-        if (!err.response.data.success) {
+        if (!err.response || !err.response.data) {
           setErrorMsg("Wrong password entered!");
           setPassword("");
         }
