@@ -29,8 +29,6 @@ Backend: [https://ecommerce-dep-techwithdeekksha.vercel.app](https://ecommerce-d
 [![Vite](https://img.shields.io/badge/Vite-646CFF?style=for-the-badge&logo=vite&logoColor=FFD62E)](https://vitejs.dev/)
 [![TailwindCSS](https://img.shields.io/badge/Tailwind_CSS-38B2AC?style=for-the-badge&logo=tailwind-css&logoColor=white)](https://tailwindcss.com/)
 [![Redux Toolkit](https://img.shields.io/badge/Redux_Toolkit-593D88?style=for-the-badge&logo=redux&logoColor=white)](https://redux-toolkit.js.org/)
-[![Node.js](https://img.shields.io/badge/Node.js-43853D?style=for-the-badge&logo=node-dot-js&logoColor=white)](https://nodejs.org/)
-[![Express.js](https://img.shields.io/badge/Express.js-000000?style=for-the-badge&logo=express&logoColor=white)](https://expressjs.com/)
 [![Vercel](https://img.shields.io/badge/Vercel-000000?style=for-the-badge&logo=vercel&logoColor=white)](https://vercel.com/)
 
 <br/>
@@ -69,10 +67,10 @@ To run this project locally:
 
 ```bash
 # 1. Clone the repo
-git clone https://github.com/Deek1995/ecommerce-frontend.git
+git clone https://github.com/404notDeeksha/Ecommerce-App.git
 
 # 2. Navigate to the project folder
-cd ecommerce-frontend
+cd Ecommerce-App
 
 # 3. Install dependencies
 npm install
