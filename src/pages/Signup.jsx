@@ -11,7 +11,6 @@ import { routes } from "../routes/routes";
 import { loading } from "../redux/slices/loaderSlice";
 import { LoaderData } from "../utils/common-components";
 
-
 export const Signup = () => {
   const [formData, setFormData] = useState({
     name: "",
@@ -79,10 +78,8 @@ export const Signup = () => {
           password: formData.password,
         });
         if (result.success) {
-          console.log("Account created");
-          dispatch(loading(false));
           dispatch(loginSuccess({ user: result.data }));
-          navigate(routes.home);
+          dispatch(loading(false));
         }
       } catch (error) {
         if (error.message) {

@@ -14,8 +14,7 @@ export const ProtectedRoute = () => {
 
   useEffect(() => {
     const fetchQty = async () => {
-      if (!user?.id) return; // Early return instead of conditional useEffect
-
+      if (!user?.id) return;
       try {
         const qty = await getCartQty(user.id);
         dispatch(setCartQuantity(qty.data));

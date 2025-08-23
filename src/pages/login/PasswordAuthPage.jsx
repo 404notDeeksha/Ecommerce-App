@@ -35,7 +35,6 @@ export const PasswordAuthPage = () => {
           setErrorMsg(false);
           dispatch(loginSuccess({ user: result.user }));
           dispatch(loading(false));
-          navigate(routes.home);
         }
       } catch (err) {
         console.log("Error in verifying Account", err);
