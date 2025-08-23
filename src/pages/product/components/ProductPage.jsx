@@ -70,8 +70,10 @@ export const ProductPage = () => {
         },
       ],
     };
+
     try {
       const result = await addToCart(body);
+
       if (result?.success) {
         console.log("Product added in cart");
         navigate(routes.cart);
@@ -188,12 +190,13 @@ export const ProductPage = () => {
             <div className=" text-lg font-bold">
               {convertNumberInNumerals(productData.price)}
             </div>
+
             <label className="text-sm">Quantity:</label>
             <select
               id="qty"
               className=" w-28 border border-gray-400 rounded text-center text-sm py-1 px-5 bg-gray-200 "
               value={quantity}
-              onChange={(e) => setQuantity(e.target.value)}
+              onChange={(e) => setQuantity(Number(e.target.value))}
             >
               {[...Array(20).keys()].map((item, index) => {
                 return (

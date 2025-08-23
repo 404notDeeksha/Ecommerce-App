@@ -57,7 +57,9 @@ export const ProductsPage = () => {
           <div className=""></div>
         </div> */}
         <div className="flex-1">
-          <h1 className="font-bold text-xl my-5 mb-10">Results</h1>
+          <h1 className="font-bold text-xl my-5 mb-10 border-gray-500 bg-gray-300 rounded-xl w-fit px-3 py-2">
+            Results
+          </h1>
           <div className="flex flex-wrap gap-2">
             <Pagination
               itemsPerPage={ITEM_PER_PAGE}
