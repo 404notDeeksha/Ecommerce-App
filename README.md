@@ -36,7 +36,7 @@ Backend: [https://ecommerce-dep-techwithdeekksha.vercel.app](https://ecommerce-d
 ## ✨ Features
 
 - 🛒 **Cart System** – Add, update, and remove items from the cart
-- 🔍 **Product Filtering** – Browse by categories
+- 🔍 **Product Filtering** – Browse by categories & sub categories
 - 📱 **Responsive Design** – Looks great on all devices
 - ⚡️ **Vite Powered** – Fast development and optimized builds
 - 🧼 **Clean UI** – Minimal, elegant, and user-focused
@@ -82,10 +82,15 @@ npm run dev
 ## 🎓 What I Built & Learned
 
 - State management with Redux Toolkit
-- JWT-based authentication.
+- Implemented server-to-client integration by configuring CORS for secure API communication.
 - RESTful API integration
 - Responsive design principles
 - Full-stack deployment on Vercel
+
+## 🚀 Upcoming Features
+
+- Integration of additional product filters (e.g., brands, prices, discounts etc.)
+- Automated tests for CI/CD pipeline (in development)
 
 ## 📄 License
 
