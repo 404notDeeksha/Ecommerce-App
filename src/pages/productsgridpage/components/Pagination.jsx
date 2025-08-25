@@ -42,7 +42,7 @@ export const Pagination = ({
           Previous
         </div>
         <ul className="flex">
-          {Array.from({ length: totalPages }, (_, index) => (
+          {Array.from({ length: 3 }, (_, index) => (
             <li
               key={index}
               className={`p-4 px-6 cursor-pointer ${
