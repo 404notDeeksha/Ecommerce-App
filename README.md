@@ -1,5 +1,5 @@
 # Ecommerce-App (Amazon Inspired)
-[![MIT License](https://img.shields.io/github/license/404notDeeksha/Ecommerce-App?style=flat-square)](https://github.com/404notDeeksha/Ecommerce-App/blob/main/LICENSE)
+[![MIT License](https://img.shields.io/github/license/404notDeeksha/Ecommerce-App?style=flat-square)](https://github.com/404notDeeksha/Ecommerce-App/blob/main/License)
 
 A responsive e-commerce web application inspired by Amazon. It allows users to browse and filter products, manage their cart, and securely log in to access personalized features.
 
