@@ -4,6 +4,8 @@ import { Provider } from "react-redux";
 import store, { persistor } from "./redux/store.js";
 import { PersistGate } from "redux-persist/integration/react";
 import { LoaderData } from "./utils/common-components.jsx";
+import AppErrorBoundary from "./components/AppErrorBoundary.jsx";
+import { ErrorToast, GlobalErrorStyles } from "./components/ErrorToast.jsx";
 
 ReactDOM.createRoot(document.getElementById("root")).render(
   <Provider store={store}>
@@ -15,6 +17,10 @@ ReactDOM.createRoot(document.getElementById("root")).render(
       }
       persistor={persistor}
     ></PersistGate>
-    <App />
+    <AppErrorBoundary>
+      <GlobalErrorStyles />
+      <ErrorToast />
+      <App />
+    </AppErrorBoundary>
   </Provider>
 );

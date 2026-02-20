@@ -17,7 +17,7 @@ export const ProtectedRoute = () => {
       if (!user?.id) return;
       try {
         const qty = await getCartQty(user.id);
-        dispatch(setCartQuantity(qty.data));
+        dispatch(setCartQuantity(qty?.data));
 
         if (qty.data === 0) {
           dispatch(setCartQuantity(0));
