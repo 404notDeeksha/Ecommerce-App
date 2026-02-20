@@ -243,10 +243,10 @@ export const footer1Links = [
   {
     title: "Get to Know Us",
     data: [
-      { id: 989435, name: "About Us" },
-      { id: 347078, name: "Careers" },
-      { id: 217399, name: "Press Releases" },
-      { id: 762217, name: "Amazon Science" },
+      { id: 989435, name: "About Us", path: "/about-us" },
+      { id: 347078, name: "Careers", path: "" },
+      { id: 217399, name: "Privacy", path: "/privacy" },
+      { id: 762217, name: "Terms and Conditions", path: "/terms-and-conditions" },
     ],
   },
   {
