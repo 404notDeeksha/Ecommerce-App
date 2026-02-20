@@ -9,17 +9,19 @@ export const ConnnectionsBuildingFooter = () => {
       {footer1Links?.map((data, index) => {
         return (
           <div
-            key={index}
+            key={data.title}
             className=" py-0 px-2.5 gap-2
           align-top text-[#DDD] "
           >
             <div className=" font-bold text-[#FFF] mt-1.5 mb-3.5 text-base ">
               {data.title}
             </div>
+
+            {/* Get to Know Us List */}
             <ul className="flex flex-col gap-3">
               {data.data?.map((ele, index) => {
                 return (
-                  <li key={index} className=" hover:underline cursor-pointer">
+                  <li key={ele.id} className=" hover:underline cursor-pointer">
                     {ele.name}
                   </li>
                 );
