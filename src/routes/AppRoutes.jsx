@@ -12,6 +12,9 @@ import { EmailAuthPage } from "../pages/login/EmailAuthPage";
 import { ProtectedRoute } from "./ProtectedRoute";
 import { routes } from "./routes";
 import { NotFound } from "../components/NotFound";
+import { AboutUs } from "../pages/information/AboutUs";
+import { Privacy } from "../pages/information/Privacy";
+import { TermsConditions } from "../pages/information/TermsConditions";
 
 export const AppRoutes = () => {
   return (
@@ -19,6 +22,8 @@ export const AppRoutes = () => {
       <Route path={routes.signup} element={<Signup />} />
       <Route path={routes.loginEmail} element={<EmailAuthPage />} />
       <Route path={routes.loginPassword} element={<PasswordAuthPage />} />
+
+      {/* Protected Routes */}
       <Route element={<ProtectedRoute />}>
         <Route
           path="/"
@@ -36,6 +41,11 @@ export const AppRoutes = () => {
           <Route path={routes.products} element={<ProductsPage />} />
           <Route path={routes.product} element={<ProductPage />} />
           <Route path={routes.cart} element={<Cartpage />} />
+
+          {/* Information pages */}
+          <Route path={routes.aboutUs} element={<AboutUs />} />
+          <Route path={routes.privacy} element={<Privacy />} />
+          <Route path={routes.terms} element={<TermsConditions />} />
         </Route>
       </Route>
       <Route path="*" element={<NotFound />} />
