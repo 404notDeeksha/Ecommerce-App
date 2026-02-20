@@ -98,6 +98,6 @@ This project is licensed under the MIT License - see the [LICENSE](/LICENSE.md) 
 
 ## 👋 Connect With Me
 
-- Email: deeksha14.developer@gmail.com
+- Email: deeksha.developer@proton.me
 - GitHub: [@404notDeeksha](https://github.com/404notDeeksha)
 - LinkedIn: [My LinkedIn Profile](https://www.linkedin.com/in/deek1995)
