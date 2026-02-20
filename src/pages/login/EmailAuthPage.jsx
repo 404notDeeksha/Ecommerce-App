@@ -31,6 +31,10 @@ export const EmailAuthPage = () => {
         </div>
       </div>
 
+      <div className="my-5 text-center">
+        This is a demo project. Do not use real credentials.
+      </div>
+
       <LoaderData isLoading={isLoading} />
     </div>
   );

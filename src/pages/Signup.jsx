@@ -197,10 +197,6 @@ export const Signup = () => {
               </button>
             </form>
 
-            <div className="my-5 text-xs">
-              This is a demo project. Do not use real credentials.
-            </div>
-
             <div className="my-2 flex">
               Already have an account?
               <div className="text-[#0066c0] flex flex-row gap-2">
@@ -213,6 +209,9 @@ export const Signup = () => {
           </div>
 
           <LoaderData isLoading={isLoading} />
+        </div>
+        <div className="my-5 text-center ">
+          This is a demo project. Do not use real credentials.
         </div>
       </div>
     </>
