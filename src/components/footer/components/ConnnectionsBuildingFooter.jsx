@@ -1,3 +1,4 @@
+import { Link } from "react-router-dom";
 import { footer1Links } from "../../../utils/common-consts";
 
 export const ConnnectionsBuildingFooter = () => {
@@ -22,7 +23,11 @@ export const ConnnectionsBuildingFooter = () => {
               {data.data?.map((ele, index) => {
                 return (
                   <li key={ele.id} className=" hover:underline cursor-pointer">
-                    {ele.name}
+                    {ele.path ? (
+                      <Link to={ele.path}>{ele.name}</Link>
+                    ) : (
+                      ele.name
+                    )}
                   </li>
                 );
               })}

@@ -5,11 +5,13 @@ import { TermsConditionsFooter } from "./components/TermsConditionsFooter";
 
 export const Footer = () => {
   return (
-    <div className=" my-0 pb-0 bg-[#232F3E]  text-white   min-w-[1000px] relative">
+    <footer className=" my-0 pb-0 bg-[#232F3E]  text-white   min-w-[1000px] relative" role="contentinfo" aria-label="Website footer">
       <TopNavigationFooter />
-      <ConnnectionsBuildingFooter />
+      <nav aria-label="Footer navigation">
+        <ConnnectionsBuildingFooter />
+      </nav>
       <OtherServicesFooter />
       <TermsConditionsFooter />
-    </div>
+    </footer>
   );
 };
