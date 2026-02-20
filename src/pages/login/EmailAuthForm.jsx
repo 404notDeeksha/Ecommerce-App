@@ -56,9 +56,9 @@ export const EmailAuthForm = () => {
             Continue
           </button>
         </form>
-        <span className="text-sm">
+        <div className="my-5 text-xs">
           This is a demo project. Do not use real credentials.
-        </span>
+        </div>
       </div>
     </>
   );

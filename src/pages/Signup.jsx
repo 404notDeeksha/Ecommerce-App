@@ -198,8 +198,7 @@ export const Signup = () => {
             </form>
 
             <div className="my-5 text-xs">
-              By creating an account or logging in, you agree to Amazon’s
-              Conditions of Use and Privacy Policy.
+              This is a demo project. Do not use real credentials.
             </div>
 
             <div className="my-2 flex">
