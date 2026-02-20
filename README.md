@@ -9,7 +9,7 @@ Deployed and ready to help you make shopping fun!
 
 ## 🔗 Live Demo
 
-Frontend: [[https://ecommerceapp-demo.vercel.app](https://ecommerceapp-demo.vercel.app))  
+Frontend: [https://ecommerceapp-demo.vercel.app](https://ecommerceapp-demo.vercel.app)  
 Backend: [https://ecommerce-dep-techwithdeekksha.vercel.app](https://ecommerce-dep-techwithdeekksha.vercel.app/api/test)
 
 <br/>
