@@ -97,6 +97,7 @@ export const ProductPage = () => {
             <img
               src={getImages(productData.images && productData.images[0])}
               className="w-full h-auto"
+              aria-label="product-image"
             />
           </div>
 

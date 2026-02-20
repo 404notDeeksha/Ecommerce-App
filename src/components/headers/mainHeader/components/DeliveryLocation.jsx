@@ -14,9 +14,13 @@ export const DeliveryLocation = () => {
     <div
       className=" hover-header ml-[4px] cursor-pointer"
       onClick={handleClick}
+      onKeyDown={(e) => e.key === "Enter" && handleClick()}
+      role="button"
+      aria-label={isEmpty(pincode) ? "Enter delivery pincode" : `Delivery to ${pincode}`}
+      tabIndex={0}
     >
       <div className="flex text-white my-[15px] mr-[2px] px-[9px] box-border leading-3 float-none gap-2 items-center">
-        <LocationIcon className="w-[15px] h-[18px] scale-x-[1.2] scale-y-[1.1]" />
+        <LocationIcon className="w-[15px] h-[18px] scale-x-[1.2] scale-y-[1.1]" aria-hidden="true" />
 
         <span className="flex flex-col gap-1 ">
           {!isEmpty(pincode) ? (
