@@ -27,6 +27,7 @@ export const EmailAuthForm = () => {
       setErrorMsg("Account not Registered!");
     }
   };
+
   return (
     <>
       <div className="rounded-lg border-[1px] border-[#ddd] py-5 px-6 mb-[22px] w-[350px] m-auto text-xs leading-5">

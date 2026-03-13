@@ -60,8 +60,6 @@ export const getFilteredProducts = async (filter) => {
 };
 
 export const addToCart = async (body) => {
-  console.log("Adding to cart api",body);
-
   try {
     const response = await API.post("/cart", body);
     return response?.data;

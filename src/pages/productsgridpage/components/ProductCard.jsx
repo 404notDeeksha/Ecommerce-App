@@ -67,7 +67,9 @@ export const ProductCard = ({ product }) => {
         <div className="font-bold text-3xl mt-1">
           {convertNumberInNumerals(product.price)}
         </div>
-        <div className="text-sm my-2 border-green-300 bg-green-300 rounded-xl px-2.5 py-1">Free Delivery</div>
+        <div className="text-sm my-2 border-green-300 bg-green-300 rounded-xl px-2.5 py-1">
+          Free Delivery
+        </div>
 
         <button
           className="border-yellow-500 rounded-3xl bg-yellow-500 text-black px-3 py-1  inline text-sm"
