@@ -16,11 +16,12 @@ ReactDOM.createRoot(document.getElementById("root")).render(
         </>
       }
       persistor={persistor}
-    ></PersistGate>
-    <AppErrorBoundary>
-      <GlobalErrorStyles />
-      <ErrorToast />
-      <App />
-    </AppErrorBoundary>
+    >
+      <AppErrorBoundary>
+        <GlobalErrorStyles />
+        <ErrorToast />
+        <App />
+      </AppErrorBoundary>
+    </PersistGate>
   </Provider>
 );
