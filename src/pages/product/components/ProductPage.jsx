@@ -75,7 +75,9 @@ export const ProductPage = () => {
       const result = await addToCart(body);
 
       if (result?.success) {
-        console.log("Product added in cart");
+        if (import.meta.env.DEV) {
+          console.log("Product added to cart");
+        }
         navigate(routes.cart);
       } else {
         alert("Failed to add product to cart");
