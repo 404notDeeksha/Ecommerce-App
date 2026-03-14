@@ -35,7 +35,9 @@ export const ProductCard = ({ product }) => {
 
     try {
       const response = await addToCart(body);
-      console.log("Data sent Successfully", response.data);
+      if (import.meta.env.DEV) {
+        console.log("Product added to cart");
+      }
       navigate(routes.cart); // navigating to ShoppingCartItems
     } catch (err) {
       console.log("Error getting data", err);
