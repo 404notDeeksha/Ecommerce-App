@@ -113,10 +113,9 @@ const ProductCard = ({ product, index, userId, productId, setCartData }) => {
       const result = await deleteCartProduct(userId, productId);
       if (result.success) {
         setCartData(result.data);
-        console.log(
-          "Product Deletion Data from cart sent Successfully",
-          result.data
-        );
+        if (import.meta.env.DEV) {
+          console.log("Product Deletion Data from cart sent Successfully");
+        }
       }
     } catch (err) {
       console.log("Error sending data", err);
@@ -168,7 +167,9 @@ const QuantityUpdationButton = ({ qty, userId, productId, setCartData }) => {
     try {
       const result = await updateCartQty(userId, productId, qty);
       if (result.success) {
-        console.log("qty updated", result.data);
+        if (import.meta.env.DEV) {
+          console.log("Quantity updated");
+        }
         setCartData(result.data);
       }
     } catch (err) {
