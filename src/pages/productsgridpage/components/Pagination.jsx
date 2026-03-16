@@ -1,4 +1,3 @@
-import { useState } from "react";
 import {
   MdOutlineKeyboardArrowLeft,
   MdKeyboardArrowRight,
@@ -7,72 +6,118 @@ import PropTypes from "prop-types";
 
 export const Pagination = ({
   itemsPerPage,
+  totalItems,
+  currentPage,
+  totalPages,
   loading,
-  data,
+  onPageChange,
   skeleton,
   renderItem,
+  data,
 }) => {
-  const [currentPage, setCurrentPage] = useState(1);
-  const totalPages = Math.ceil(data.length / itemsPerPage);
-  const indexOfLastItem = currentPage * itemsPerPage;
-  const indexOfFirstItem = indexOfLastItem - itemsPerPage;
-  const currentItems = data.slice(indexOfFirstItem, indexOfLastItem);
-
   if (loading) return <>{skeleton}</>;
 
-  const handlePageChange = (pageNumber) => {
-    setCurrentPage(pageNumber);
+  const getPageNumbers = () => {
+    const pages = [];
+    const maxVisible = 3;
+    
+    if (totalPages <= maxVisible) {
+      for (let i = 1; i <= totalPages; i++) {
+        pages.push(i);
+      }
+    } else {
+      let start = Math.max(1, currentPage - Math.floor(maxVisible / 2));
+      let end = Math.min(totalPages, start + maxVisible - 1);
+      
+      if (end - start < maxVisible - 1) {
+        start = Math.max(1, end - maxVisible + 1);
+      }
+      
+      for (let i = start; i <= end; i++) {
+        pages.push(i);
+      }
+    }
+    
+    return pages;
   };
+
+  const handlePrev = () => {
+    if (currentPage > 1) {
+      onPageChange(currentPage - 1);
+    }
+  };
+
+  const handleNext = () => {
+    if (currentPage < totalPages) {
+      onPageChange(currentPage + 1);
+    }
+  };
+
+  const handlePageClick = (page) => {
+    if (page !== currentPage) {
+      onPageChange(page);
+    }
+  };
+
+  if (!data || data.length === 0) {
+    return null;
+  }
 
   return (
     <>
       <div className="flex flex-wrap gap-2">
-        {currentItems.map((item, index) => renderItem(item, index))}
+        {data.map((item, index) => renderItem(item, index))}
       </div>
-      <div className="flex border-gray-200 border items-center rounded-xl w-max mx-auto mt-20">
-        <div
-          className={`flex items-center p-4 cursor-pointer ${
-            currentPage === 1
-              ? "opacity-25 cursor-not-allowed pointer-events-none"
-              : ""
-          }`}
-          onClick={() => handlePageChange(currentPage - 1)}
-        >
-          <MdOutlineKeyboardArrowLeft />
-          Previous
+      {totalPages > 0 && (
+        <div className="flex border-gray-200 border items-center rounded-xl w-max mx-auto mt-20">
+          <div
+            className={`flex items-center p-4 cursor-pointer ${
+              currentPage === 1
+                ? "opacity-25 cursor-not-allowed pointer-events-none"
+                : ""
+            }`}
+            onClick={handlePrev}
+          >
+            <MdOutlineKeyboardArrowLeft />
+            Previous
+          </div>
+          <ul className="flex">
+            {getPageNumbers().map((page) => (
+              <li
+                key={page}
+                className={`p-4 px-6 cursor-pointer ${
+                  currentPage === page ? "active font-bold" : ""
+                }`}
+                onClick={() => handlePageClick(page)}
+              >
+                {page}
+              </li>
+            ))}
+          </ul>
+          <div
+            className={`flex items-center p-4 px-6 cursor-pointer ${
+              currentPage === totalPages
+                ? "opacity-25 cursor-not-allowed pointer-events-none"
+                : ""
+            }`}
+            onClick={handleNext}
+          >
+            Next
+            <MdKeyboardArrowRight />
+          </div>
         </div>
-        <ul className="flex">
-          {Array.from({ length: 3 }, (_, index) => (
-            <li
-              key={index}
-              className={`p-4 px-6 cursor-pointer ${
-                currentPage === index + 1 ? "active font-bold" : ""
-              }`}
-              onClick={() => handlePageChange(index + 1)}
-            >
-              {index + 1}
-            </li>
-          ))}
-        </ul>
-        <div
-          className={`flex items-center p-4 px-6 cursor-pointer ${
-            currentPage === totalPages
-              ? "opacity-25 cursor-not-allowed pointer-events-none"
-              : ""
-          }`}
-          onClick={() => handlePageChange(currentPage + 1)}
-        >
-          Next
-          <MdKeyboardArrowRight />
-        </div>
-      </div>
+      )}
     </>
   );
 };
 
 Pagination.propTypes = {
   itemsPerPage: PropTypes.number.isRequired,
+  totalItems: PropTypes.number,
+  currentPage: PropTypes.number,
+  totalPages: PropTypes.number,
   loading: PropTypes.bool.isRequired,
+  onPageChange: PropTypes.func.isRequired,
   data: PropTypes.array.isRequired,
   skeleton: PropTypes.node.isRequired,
   renderItem: PropTypes.func.isRequired,
