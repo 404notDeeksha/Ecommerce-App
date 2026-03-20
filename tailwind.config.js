@@ -17,11 +17,6 @@ export default {
         blackTransparent: "rgba(0, 0, 0, 0.5)",
       },
     },
-    screens: {
-      mobile: { max: "640px" },
-      tablet: { min: "641px", max: "1024px" },
-      laptop: { min: "1025px" },
-    },
   },
   variants: {
     extend: {

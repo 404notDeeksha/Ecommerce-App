@@ -17,7 +17,7 @@ export const CartLogo = () => {
 
       <div className="flex gap-3 mb-2">
         <FiShoppingCart className=" scale-[1.5]" aria-hidden="true" />
-        <div className="text-[14px] font-bold mobile:hidden">Cart</div>
+        <div className="text-[14px] font-bold sm:hidden">Cart</div>
       </div>
     </div>
   );
