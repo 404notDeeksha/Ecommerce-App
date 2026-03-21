@@ -5,7 +5,7 @@ import { TermsConditionsFooter } from "./components/TermsConditionsFooter";
 
 export const Footer = () => {
   return (
-    <footer className=" my-0 pb-0 bg-[#232F3E]  text-white   min-w-[1000px] relative" role="contentinfo" aria-label="Website footer">
+    <footer className=" my-0 pb-0 bg-[#232F3E]  text-white   relative" role="contentinfo" aria-label="Website footer">
       <TopNavigationFooter />
       <nav aria-label="Footer navigation">
         <ConnnectionsBuildingFooter />

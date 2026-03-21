@@ -3,7 +3,7 @@ import { footer2Links } from "../../../utils/common-consts";
 export const OtherServicesFooter = () => {
   return (
     <div className="mt-7 mb-0 py-7 text-xs text-center      leading-[18px]  bg-[#131A22] text-[#DDD]  ">
-      <ul className="max-w-[1000px] my-0 m-auto w-full grid grid-cols-4 grid-rows-2 gap-y-2 gap-x-5 text-left">
+      <ul className="max-w-7xl my-0 m-auto w-full grid grid-cols-4 grid-rows-2 gap-y-2 gap-x-5 text-left">
         {footer2Links.map((ele, index) => {
           return (
             <li

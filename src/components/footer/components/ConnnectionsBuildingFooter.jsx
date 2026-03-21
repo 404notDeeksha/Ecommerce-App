@@ -5,7 +5,7 @@ export const ConnnectionsBuildingFooter = () => {
   return (
     <div
       className="flex flex-row gap-x-[10%] w-full m-auto 
-    max-w-[1000px] text-sm leading-5"
+    max-w-7xl text-sm leading-5"
     >
       {footer1Links?.map((data, index) => {
         return (
