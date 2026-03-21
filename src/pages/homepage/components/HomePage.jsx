@@ -10,18 +10,20 @@ import { MultiCardCarousel } from "./CardCarousel";
 
 export const HomePage = () => {
   return (
-    <div className="min-w-[1000px] mx-auto overflow-clip relative z-[2]">
+    <div className="mx-auto overflow-clip relative z-[2]">
       <Slider />
-      <CategoryGridCarousel
-        data1={homeDecor}
-        data2={appliances}
-        data3={headphones}
-        data4={beauty}
-        label1="Revamp your home in style"
-        label2="Appliances for your home"
-        label3="Starting 149 |  HeadPhones"
-        label4="Beauty & Makeup"
-      />
+      <div className="">
+        <CategoryGridCarousel
+          data1={homeDecor}
+          data2={appliances}
+          data3={headphones}
+          data4={beauty}
+          label1="Revamp your home in style"
+          label2="Appliances for your home"
+          label3="Starting 149 |  HeadPhones"
+          label4="Beauty & Makeup"
+        />
+      </div>
       <MultiCardCarousel
         title="Bestsellers from Beauty"
         category="beautyAndMakeup"
