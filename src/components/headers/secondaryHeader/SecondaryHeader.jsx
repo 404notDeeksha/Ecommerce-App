@@ -3,9 +3,11 @@ import { CategoryLinks } from "./CategoryLinks";
 
 export const SecondaryHeader = () => {
   return (
-    <div className=" @apply max-h-[39px] bg-amazon_light  text-white text-[14px] min-w-[1000px] flex relative z-[3]">
+    <div className="max-h-[39px] bg-amazon_light text-white text-[14px] flex relative z-[3] overflow-x-auto">
       <SideBarButton />
-      <CategoryLinks />
+      <div className="hidden md:flex">
+        <CategoryLinks />
+      </div>
     </div>
   );
 };
