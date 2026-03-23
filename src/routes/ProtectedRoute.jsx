@@ -1,44 +1,20 @@
-import { Navigate, Outlet } from "react-router-dom";
-import { useDispatch, useSelector } from "react-redux";
-import { inactiveOverlay } from "../redux/slices/overlaySlice";
-import { useEffect } from "react";
-import { routes } from "./routes";
-import { getCartQty } from "../api/protectedApi";
-import { setCartQuantity } from "../redux/slices/cartSlice";
+import { Navigate } from "react-router-dom";
+import { routes } from "@config/routes.js";
+import { useSelector } from "react-redux";
+import PropTypes from "prop-types";
 
-export const ProtectedRoute = () => {
+const ProtectedRoute = ({ children }) => {
   const isAuthenticated = useSelector((state) => state.auth.isAuthenticated);
-  const user = useSelector((state) => state.auth.user);
-  const data = useSelector((state) => state.cart.data);
-  const dispatch = useDispatch();
 
-  useEffect(() => {
-    const fetchQty = async () => {
-      if (!user?.id) return;
-      try {
-        const qty = await getCartQty(user.id);
-        dispatch(setCartQuantity(qty?.data));
+  if (!isAuthenticated) {
+    return <Navigate to={routes.loginEmail} replace />;
+  }
 
-        if (qty.data === 0) {
-          dispatch(setCartQuantity(0));
-        }
-      } catch (error) {
-        console.error("Error fetching cart quantity:", error);
-      }
-    };
-
-    fetchQty();
-  }, [user?.id, data.items, dispatch]);
-
-  useEffect(() => {
-    return () => {
-      dispatch(inactiveOverlay());
-    };
-  }, [dispatch]);
-
-  if (isAuthenticated === undefined) return null;
-
-  return (
-    <>{isAuthenticated ? <Outlet /> : <Navigate to={routes.loginEmail} />}</>
-  );
+  return children;
 };
+
+ProtectedRoute.propTypes = {
+  children: PropTypes.node.isRequired,
+};
+
+export default ProtectedRoute;

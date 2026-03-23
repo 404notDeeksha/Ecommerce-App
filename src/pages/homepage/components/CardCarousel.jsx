@@ -73,14 +73,14 @@ export const MultiCardCarousel = ({ title, category, query }) => {
   return loading ? (
     <MultiCardCarouselSkeleton />
   ) : (
-    <div className="relative overflow-hidden mx-auto  bg-white  mb-5 px-5 py-2.5 max-w-[1480px] ">
+    <div className="relative overflow-hidden mx-auto bg-white mb-5 px-5 py-2.5 max-w-[1480px]">
       <div className="my-2.5 flex items-center">
         <h2 className="text-black font-bold text-[21px]">{title}</h2>
         <Link to={routes.getProducts(filter)}>
           <span className="text-sm pl-4">See all offers</span>
         </Link>
       </div>
-      <div className="flex justify-between absolute w-full max-w-[1440px]  max-h-[200px] h-full ">
+      <div className="flex justify-between absolute w-full max-w-[1440px] max-h-[200px] h-full">
         <MultiCarouselLeftButton movePrev={movePrev} isDisabled={isDisabled} />
         <MultiCarouselRightButton moveNext={moveNext} isDisabled={isDisabled} />
       </div>
@@ -93,22 +93,11 @@ const MultiCarouselLeftButton = ({ movePrev, isDisabled }) => {
   return (
     <button
       onClick={movePrev}
-      className=" w-10 h-[50%] text-center bg-white text-slate-800  hover:text-black disabled:opacity-50 z-10 p-0 m-0 transition-all ease-in-out duration-300  my-auto"
+      className="w-10 h-[50%] text-center bg-white text-slate-800 hover:text-black disabled:opacity-50 z-10 p-0 m-0 transition-all ease-in-out duration-300 my-auto"
       disabled={isDisabled("prev")}
     >
-      <svg
-        xmlns="http://www.w3.org/2000/svg"
-        className="h-12 w-20 -ml-5"
-        fill="none"
-        viewBox="0 0 24 24"
-        stroke="currentColor"
-        strokeWidth={2}
-      >
-        <path
-          strokeLinecap="round"
-          strokeLinejoin="round"
-          d="M15 19l-7-7 7-7"
-        />
+      <svg xmlns="http://www.w3.org/2000/svg" className="h-12 w-20 -ml-5" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}>
+        <path strokeLinecap="round" strokeLinejoin="round" d="M15 19l-7-7 7-7" />
       </svg>
     </button>
   );
@@ -116,25 +105,16 @@ const MultiCarouselLeftButton = ({ movePrev, isDisabled }) => {
 
 const MultiCarouselRightButton = ({ moveNext, isDisabled }) => {
   return (
-    <>
-      <button
-        onClick={moveNext}
-        className=" w-10 h-[50%] text-center bg-white text-black disabled:opacity-25  z-10 p-0 m-0 transition-all ease-in-out duration-300 my-auto"
-        disabled={isDisabled("next")}
-      >
-        <svg
-          xmlns="http://www.w3.org/2000/svg"
-          className="h-12 w-20 -ml-5"
-          fill="none"
-          viewBox="0 0 24 24"
-          stroke="currentColor"
-          strokeWidth={2}
-        >
-          <path strokeLinecap="round" strokeLinejoin="round" d="M9 5l7 7-7 7" />
-        </svg>
-        <span className="sr-only">Next</span>
-      </button>
-    </>
+    <button
+      onClick={moveNext}
+      className="w-10 h-[50%] text-center bg-white text-black disabled:opacity-25 z-10 p-0 m-0 transition-all ease-in-out duration-300 my-auto"
+      disabled={isDisabled("next")}
+    >
+      <svg xmlns="http://www.w3.org/2000/svg" className="h-12 w-20 -ml-5" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}>
+        <path strokeLinecap="round" strokeLinejoin="round" d="M9 5l7 7-7 7" />
+      </svg>
+      <span className="sr-only">Next</span>
+    </button>
   );
 };
 
@@ -146,10 +126,7 @@ const MultiImageCarousel = ({ dataset, carousel }) => {
           return null;
         }
         return (
-          <div
-            key={index}
-            className="text-center relative w-52 h-52 snap-start"
-          >
+          <div key={index} className="text-center relative w-52 h-52 snap-start">
             <Link to={routes.getProduct(product.productId)}>
               <div className="h-full w-full aspect-square block bg-origin-padding bg-left-top bg-cover bg-no-repeat z-0">
                 <img
@@ -170,25 +147,4 @@ MultiCardCarousel.propTypes = {
   title: PropTypes.string.isRequired,
   category: PropTypes.string.isRequired,
   query: PropTypes.string.isRequired,
-};
-
-MultiCarouselLeftButton.propTypes = {
-  movePrev: PropTypes.func.isRequired,
-  isDisabled: PropTypes.func.isRequired,
-};
-
-MultiCarouselRightButton.propTypes = {
-  moveNext: PropTypes.func.isRequired,
-  isDisabled: PropTypes.func.isRequired,
-};
-
-MultiImageCarousel.propTypes = {
-  dataset: PropTypes.arrayOf(
-    PropTypes.shape({
-      productId: PropTypes.string.isRequired,
-      productName: PropTypes.string.isRequired,
-      images: PropTypes.arrayOf(PropTypes.string),
-    })
-  ),
-  carousel: PropTypes.shape({ current: PropTypes.instanceOf(Element) }),
 };

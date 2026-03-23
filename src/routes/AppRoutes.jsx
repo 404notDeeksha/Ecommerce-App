@@ -1,27 +1,31 @@
-import { Routes, Route, Navigate, Outlet } from "react-router-dom";
-import { Signup } from "../pages/Signup";
-import { MainHeader } from "./../components/headers/mainHeader/MainHeader";
-import { SecondaryHeader } from "./../components/headers/secondaryHeader/SecondaryHeader";
-import { Footer } from "./../components/footer/Footer";
-import { HomePage } from "../pages/homepage/components/HomePage";
-import { ProductsPage } from "../pages/productsgridpage/components/ProductsPage";
-import { ProductPage } from "../pages/product/components/ProductPage";
-import { Cartpage } from "../pages/cartpage/components/Cartpage";
-import { PasswordAuthPage } from "../pages/login/PasswordAuthPage";
-import { EmailAuthPage } from "../pages/login/EmailAuthPage";
-import { ProtectedRoute } from "./ProtectedRoute";
-import { routes } from "./routes";
-import { NotFound } from "../components/NotFound";
-import { AboutUs } from "../pages/information/AboutUs";
-import { Privacy } from "../pages/information/Privacy";
-import { TermsConditions } from "../pages/information/TermsConditions";
+import { Routes, Route } from "react-router-dom";
+import { routes } from "@config/routes.js";
+import ProtectedRoute from "./protectedRoute.jsx";
+import { MainHeader, SecondaryHeader } from "@components/layout/header/index.js";
+import { Footer } from "@components/layout/footer/index.jsx";
+import { Sidebar } from "@components/layout/sidebar/index.jsx";
+import { NotFound } from "@components/common/notFound.jsx";
+import { HomePage } from "@pages/HomePage/index.jsx";
+import { ProductsPage } from "@pages/ProductsPage/index.jsx";
+import { ProductPage } from "@pages/ProductPage/index.jsx";
+import { CartPage } from "@pages/CartPage/index.jsx";
+import { AboutUs } from "@pages/Info/aboutUs.jsx";
+import { Privacy } from "@pages/Info/privacy.jsx";
+import { TermsConditions } from "@pages/Info/termsConditions.jsx";
+import { EmailAuthPage, PasswordAuthPage } from "@pages/Auth/LoginPage/index.js";
+import { SignupPage } from "@pages/Auth/SignupPage/index.jsx";
 
 const Layout = ({ children }) => {
   return (
-    <Routes>
-      <Route path={routes.signup} element={<Signup />} />
-      <Route path={routes.loginEmail} element={<EmailAuthPage />} />
-      <Route path={routes.loginPassword} element={<PasswordAuthPage />} />
+    <>
+      <MainHeader />
+      <SecondaryHeader />
+      <Sidebar />
+      {children}
+      <Footer />
+    </>
+  );
+};
 
 export const AppRoutes = () => {
   return (
