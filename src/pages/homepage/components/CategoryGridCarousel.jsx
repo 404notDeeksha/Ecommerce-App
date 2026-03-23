@@ -1,6 +1,6 @@
 import { useNavigate } from "react-router-dom";
 import { v4 as uuid } from "uuid";
-import { routes } from "./../../../routes/routes";
+import { routes } from "@config/routes.js";
 import PropTypes from "prop-types";
 
 export const CategoryGridCarousel = ({

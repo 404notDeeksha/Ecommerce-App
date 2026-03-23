@@ -1,7 +1,7 @@
 import { describe, it, expect, beforeEach } from "vitest";
 import { configureStore } from "@reduxjs/toolkit";
-import errorReducer from "../redux/slices/errorSlice";
-import { setGlobalError, clearGlobalError } from "../redux/slices/errorSlice";
+import errorReducer from "@redux/slices/errorSlice.js";
+import { setGlobalError, clearGlobalError } from "@redux/slices/errorSlice.js";
 
 const createTestStore = () => configureStore({
   reducer: {
@@ -14,10 +14,6 @@ describe("errorHandler utility", () => {
 
   beforeEach(() => {
     store = createTestStore();
-    // Override the store import in errorHandler
-    vi.doMock("../redux/store", () => ({
-      store: createTestStore(),
-    }));
   });
 
   it("setGlobalError creates error with default values", () => {
@@ -58,13 +54,11 @@ describe("errorHandler utility", () => {
     store.dispatch(setGlobalError({ message: "Test error 1", duration: 10000 }));
     const errorId = store.getState().error.globalError.id;
     
-    // Add more errors by manually checking the reducer behavior
     store.dispatch(setGlobalError({ message: "Test error 2", duration: 10000 }));
     
     store.dispatch(clearGlobalError(errorId));
     
     const state = store.getState().error;
-    // After clearing first error, the queue should have the second error
     expect(state.globalError.message).toBe("Test error 2");
   });
 });

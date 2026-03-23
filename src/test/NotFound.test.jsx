@@ -3,8 +3,8 @@ import { render, screen } from "@testing-library/react";
 import { BrowserRouter } from "react-router-dom";
 import { Provider } from "react-redux";
 import { configureStore } from "@reduxjs/toolkit";
-import authReducer from "../redux/slices/authSlice";
-import { NotFound } from "../components/NotFound";
+import authReducer from "@redux/slices/authSlice.js";
+import { NotFound } from "@components/common/notFound.jsx";
 
 const renderWithRouter = (component) => {
   return render(

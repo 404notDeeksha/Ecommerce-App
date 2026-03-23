@@ -1,6 +1,6 @@
 import { describe, it, expect, beforeEach } from "vitest";
 import { configureStore } from "@reduxjs/toolkit";
-import authReducer, { loginSuccess, logout } from "../redux/slices/authSlice";
+import authReducer, { loginSuccess, logout } from "@redux/slices/authSlice.js";
 
 describe("authSlice", () => {
   let store;

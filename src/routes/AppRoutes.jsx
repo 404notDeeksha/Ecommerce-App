@@ -16,39 +16,92 @@ import { AboutUs } from "../pages/information/AboutUs";
 import { Privacy } from "../pages/information/Privacy";
 import { TermsConditions } from "../pages/information/TermsConditions";
 
-export const AppRoutes = () => {
+const Layout = ({ children }) => {
   return (
     <Routes>
       <Route path={routes.signup} element={<Signup />} />
       <Route path={routes.loginEmail} element={<EmailAuthPage />} />
       <Route path={routes.loginPassword} element={<PasswordAuthPage />} />
 
-      {/* Protected Routes */}
-      <Route element={<ProtectedRoute />}>
+export const AppRoutes = () => {
+  return (
+    <>
+      <Routes>
         <Route
-          path="/"
+          path={routes.signup}
+          element={<SignupPage />}
+        />
+        <Route
+          path={routes.loginEmail}
+          element={<EmailAuthPage />}
+        />
+        <Route
+          path={routes.loginPassword}
+          element={<PasswordAuthPage />}
+        />
+        <Route
+          path={routes.home}
           element={
-            <>
-              <MainHeader />
-              <SecondaryHeader />
-              <Outlet />
-              <Footer />
-            </>
+            <Layout>
+              <HomePage />
+            </Layout>
           }
-        >
-          <Route index element={<Navigate to={routes.home} />} />
-          <Route path={routes.home} element={<HomePage />} />
-          <Route path={routes.products} element={<ProductsPage />} />
-          <Route path={routes.product} element={<ProductPage />} />
-          <Route path={routes.cart} element={<Cartpage />} />
-
-          {/* Information pages */}
-          <Route path={routes.aboutUs} element={<AboutUs />} />
-          <Route path={routes.privacy} element={<Privacy />} />
-          <Route path={routes.terms} element={<TermsConditions />} />
-        </Route>
-      </Route>
-      <Route path="*" element={<NotFound />} />
-    </Routes>
+        />
+        <Route
+          path={routes.products}
+          element={
+            <Layout>
+              <ProductsPage />
+            </Layout>
+          }
+        />
+        <Route
+          path={routes.product}
+          element={
+            <Layout>
+              <ProductPage />
+            </Layout>
+          }
+        />
+        <Route
+          path={routes.cart}
+          element={
+            <ProtectedRoute>
+              <Layout>
+                <CartPage />
+              </Layout>
+            </ProtectedRoute>
+          }
+        />
+        <Route
+          path={routes.aboutUs}
+          element={
+            <Layout>
+              <AboutUs />
+            </Layout>
+          }
+        />
+        <Route
+          path={routes.privacy}
+          element={
+            <Layout>
+              <Privacy />
+            </Layout>
+          }
+        />
+        <Route
+          path={routes.terms}
+          element={
+            <Layout>
+              <TermsConditions />
+            </Layout>
+          }
+        />
+        <Route
+          path="*"
+          element={<NotFound />}
+        />
+      </Routes>
+    </>
   );
 };

@@ -1,20 +1,14 @@
 import { useCallback, useEffect, useState } from "react";
-import { FaMinus } from "react-icons/fa6";
-import { FaPlus } from "react-icons/fa6";
-import {
-  getImages,
-  convertNumberInNumerals,
-  getTotalQtyFromCart,
-} from "../../../utils/common-utils";
-import { ShoppingCartSkeleton } from "./ShoppingCartSkeleton";
-import { Skeleton } from "../../../components/Skeleton";
+import { FaMinus, FaPlus } from "react-icons/fa6";
+import { getImages, convertNumberInNumerals, getTotalQtyFromCart } from "@utils/commonUtils";
+import { ShoppingCartSkeleton } from "./shoppingCartSkeleton";
+import { Skeleton } from "@components/feedback/skeleton";
 import { Link } from "react-router-dom";
-import { EmptyCartPage } from "./EmptyCart";
+import { EmptyCartPage } from "./emptyCartPage";
 import isEmpty from "lodash.isempty";
 import { useDispatch, useSelector } from "react-redux";
-import { setCart } from "../../../redux/slices/cartSlice";
-import { getCart, updateCartQty } from "../../../api/protectedApi";
-import { deleteCartProduct } from "./../../../api/protectedApi";
+import { setCart } from "@redux/slices/cartSlice";
+import { getCart, updateCartQty, deleteCartProduct } from "@api/cart/index.js";
 import PropTypes from "prop-types";
 
 export const ShoppingCartItems = () => {

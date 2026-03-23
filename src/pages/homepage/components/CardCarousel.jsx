@@ -1,9 +1,9 @@
 import { useState, useRef, useEffect } from "react";
 import { Link } from "react-router-dom";
-import { getImages } from "./../../../utils/common-utils";
-import { MultiCardCarouselSkeleton } from "./MultiCardCarouselSkeleton";
-import { getProducts } from "../../../api/protectedApi";
-import { routes } from "../../../routes/routes";
+import { getImages } from "@utils/commonUtils";
+import { MultiCardCarouselSkeleton } from "./multiCardCarouselSkeleton";
+import { getProducts } from "@api/products/index.js";
+import { routes } from "@config/routes.js";
 import PropTypes from "prop-types";
 
 export const MultiCardCarousel = ({ title, category, query }) => {

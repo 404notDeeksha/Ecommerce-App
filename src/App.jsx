@@ -1,8 +1,8 @@
-import "./App.css";
+import "@styles/globals.css";
 import { BrowserRouter as Router } from "react-router-dom";
-import Overlay from "./components/Overlay";
-import ScrollToTop from "./components/ScrollToTop";
-import { AppRoutes } from "./routes/AppRoutes";
+import Overlay from "@components/common/overlay.jsx";
+import ScrollToTop from "@components/common/scrollToTop.jsx";
+import { AppRoutes } from "./routes/appRoutes.jsx";
 
 function App() {
   return (

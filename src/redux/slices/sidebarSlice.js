@@ -1,5 +1,5 @@
 import { createSlice } from "@reduxjs/toolkit";
-import { SIDEBAR_STATE } from "../../utils/common-consts";
+import { SIDEBAR_STATE } from "@utils/commonConsts";
 
 const initialState = { state: SIDEBAR_STATE.NONE };
 

@@ -1,6 +1,6 @@
 import { describe, it, expect, beforeEach } from "vitest";
 import { configureStore } from "@reduxjs/toolkit";
-import errorReducer, { setGlobalError, clearGlobalError, clearAllErrors } from "../redux/slices/errorSlice";
+import errorReducer, { setGlobalError, clearGlobalError, clearAllErrors } from "@redux/slices/errorSlice.js";
 
 describe("errorSlice", () => {
   let store;

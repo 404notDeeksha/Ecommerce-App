@@ -1,5 +1,5 @@
-import { store } from "../redux/store";
-import { setGlobalError, clearGlobalError } from "../redux/slices/errorSlice";
+import { store } from "@redux/store.js";
+import { setGlobalError, clearGlobalError } from "@redux/slices/errorSlice.js";
 
 export const showError = (message, duration = 5000) => {
   store.dispatch(

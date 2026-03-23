@@ -1,10 +1,9 @@
-import { useCallback, useEffect } from "react";
-import { useState } from "react";
+import { useCallback, useEffect, useState } from "react";
 import ArrowForwardIosIcon from "@mui/icons-material/ArrowForwardIos";
-import { SliderSkeleton } from "./SliderSkeleton";
-import { getCarousel } from "../../../api/protectedApi";
+import { SliderSkeleton } from "./sliderSkeleton";
+import { getCarousel } from "@api/products/index.js";
 import { Link } from "react-router-dom";
-import { routes } from "./../../../routes/routes";
+import { routes } from "@config/routes.js";
 import PropTypes from "prop-types";
 
 export const Slider = () => {
