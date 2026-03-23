@@ -25,7 +25,7 @@ export const CategoryGridCarousel = ({
 
 const Grid = ({ data, label }) => {
   return (
-    <div className="flex flex-col px-5  max-w-[350px] min-w-[300px] h-[330px] bg-white pt-5 justify-between pb-10">
+    <div className="flex flex-col px-5 w-full max-w-[350px] h-[350px] bg-white pt-5 justify-between pb-10">
       <h2 className="text-xl font-bold pb-2.5">{label}</h2>
       <div className="grid gap-3 grid-cols-2 grid-flow-row ">
         {data?.map((ele) => {
@@ -65,12 +65,15 @@ const GridCardImage = ({ caption, image, category, brand, subCategory }) => {
   };
 
   return (
-    <div className="justify-between cursor-pointer" onClick={handleClick}>
-      <img
-        src={image}
-        className=" object-fill aspect-auto w-[150px] h-[92px]"
-      />
-      <div className="text-[12px] overflow-ellipsis leading-5">{caption}</div>
+    <div
+      className="flex flex-col justify-between cursor-pointer h-[140px]"
+      onClick={handleClick}
+    >
+      <img src={image} className=" w-full h-[92px] object-cover" />
+
+      <div className="text-[12px] leading-5 line-clamp-2 h-[40px]">
+        {caption}
+      </div>
     </div>
   );
 };
