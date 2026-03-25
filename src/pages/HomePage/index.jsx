@@ -1,12 +1,12 @@
-import { Slider } from "./components/slider";
-import { CategoryGridCarousel } from "./components/categoryGridCarousel";
+import { Slider } from "./components/Slider";
+import { CategoryGridCarousel } from "./components/CategoryGridCarousel";
 import {
   appliances,
   headphones,
   homeDecor,
   beauty,
 } from "./data/categoryGridCarousel";
-import { MultiCardCarousel } from "./components/cardCarousel";
+import { MultiCardCarousel } from "./components/CardCarousel";
 
 export const HomePage = () => {
   return (

@@ -2,7 +2,7 @@ import { useSelector, useDispatch } from "react-redux";
 import Portal from "./Portal";
 import { inactiveOverlay } from "../redux/slices/overlaySlice";
 import { PopoverBox } from "./PopoverBox";
-import { Sidebar } from "../components/sidebar/Sidebar";
+import { Sidebar } from "./layout/sidebar/index.jsx";
 import { closeSidebar } from "../redux/slices/sidebarSlice";
 
 const Overlay = () => {
