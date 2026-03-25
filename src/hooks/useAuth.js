@@ -9,46 +9,33 @@ export const useAuth = () => {
   const isAuthenticated = useSelector((state) => state.auth.isAuthenticated);
 
   const signup = useCallback(async ({ name, email, password }) => {
-    try {
-      const result = await signupUser({ name, email, password });
-      if (result.success) {
-        dispatch(loginSuccess({ user: result.data }));
-      }
-      return result;
-    } catch (error) {
-      throw error;
+    const result = await signupUser({ name, email, password });
+    if (result.success) {
+      dispatch(loginSuccess({ user: result.data }));
     }
+    return result;
   }, [dispatch]);
 
   const loginWithEmail = useCallback(async ({ email }) => {
-    try {
-      const result = await verifyEmail({ email });
-      return result;
-    } catch (error) {
-      throw error;
-    }
+    const result = await verifyEmail({ email });
+    return result;
   }, []);
 
   const loginWithPassword = useCallback(async ({ email, password }) => {
-    try {
-      const result = await verifyPassword({ email, password });
-      if (result.success) {
-        dispatch(loginSuccess({ user: result.data }));
-      }
-      return result;
-    } catch (error) {
-      throw error;
+    const result = await verifyPassword({ email, password });
+    if (result.success) {
+      dispatch(loginSuccess({ user: result.data }));
     }
+    return result;
   }, [dispatch]);
 
   const signout = useCallback(async () => {
     try {
       await logoutUser();
-      dispatch(logout());
-    } catch (error) {
-      dispatch(logout());
-      throw error;
+    } catch {
+      // Ignore API errors, continue with local logout
     }
+    dispatch(logout());
   }, [dispatch]);
 
   return {

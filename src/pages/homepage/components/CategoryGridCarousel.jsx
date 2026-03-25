@@ -14,7 +14,7 @@ export const CategoryGridCarousel = ({
   label4,
 }) => {
   return (
-    <div className="py-2.5 w-full max-w-[1480px] mx-auto grid grid-cols-1 sm:grid-cols-2 xl:grid-cols-4 gap-4 px-4 z-[5] place-items-center relative">
+    <div className="py-2.5 w-full max-w-[1480px] mx-auto grid grid-cols-1 sm:grid-cols-2 xl:grid-cols-4 gap-4 z-[5] place-items-center relative">
       <Grid data={data1} label={label1} />
       <Grid data={data2} label={label2} />
       <Grid data={data3} label={label3} />
