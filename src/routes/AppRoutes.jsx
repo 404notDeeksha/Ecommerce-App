@@ -1,6 +1,6 @@
 import { Routes, Route } from "react-router-dom";
 import { routes } from "@config/routes.js";
-import ProtectedRoute from "./protectedRoute.jsx";
+import ProtectedRoute from "./ProtectedRoute.jsx";
 import {
   MainHeader,
   SecondaryHeader,
