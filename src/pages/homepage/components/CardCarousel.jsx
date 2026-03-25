@@ -73,18 +73,22 @@ export const MultiCardCarousel = ({ title, category, query }) => {
   return loading ? (
     <MultiCardCarouselSkeleton />
   ) : (
-    <div className="relative overflow-hidden mx-auto bg-white mb-5 px-5 py-2.5 max-w-[1480px]">
+    <div className="relative overflow-visible mx-auto bg-white mb-5 px-5 py-2.5 max-w-[1480px]">
       <div className="my-2.5 flex items-center">
         <h2 className="text-black font-bold text-[21px]">{title}</h2>
         <Link to={routes.getProducts(filter)}>
           <span className="text-sm pl-4">See all offers</span>
         </Link>
       </div>
-      <div className="flex justify-between absolute w-full max-w-[1440px] max-h-[200px] h-full">
-        <MultiCarouselLeftButton movePrev={movePrev} isDisabled={isDisabled} />
-        <MultiCarouselRightButton moveNext={moveNext} isDisabled={isDisabled} />
+      <div className="relative">
+        <div className="flex justify-between absolute inset-0 max-h-[200px] h-full z-10">
+          <MultiCarouselLeftButton movePrev={movePrev} isDisabled={isDisabled} />
+          <MultiCarouselRightButton moveNext={moveNext} isDisabled={isDisabled} />
+        </div>
+        <div className="overflow-hidden">
+          <MultiImageCarousel dataset={data} carousel={carousel} />
+        </div>
       </div>
-      <MultiImageCarousel dataset={data} carousel={carousel} />
     </div>
   );
 };
@@ -93,10 +97,10 @@ const MultiCarouselLeftButton = ({ movePrev, isDisabled }) => {
   return (
     <button
       onClick={movePrev}
-      className="w-10 h-[50%] text-center bg-white text-slate-800 hover:text-black disabled:opacity-50 z-10 p-0 m-0 transition-all ease-in-out duration-300 my-auto"
+      className="w-12 sm:w-14 h-[50%] text-center bg-white text-slate-800 hover:text-black disabled:opacity-50 z-10 p-0 m-0 transition-all ease-in-out duration-300 my-auto shadow-md rounded"
       disabled={isDisabled("prev")}
     >
-      <svg xmlns="http://www.w3.org/2000/svg" className="h-12 w-20 -ml-5" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}>
+      <svg xmlns="http://www.w3.org/2000/svg" className="h-10 w-10 sm:h-12 sm:w-12 mx-auto" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}>
         <path strokeLinecap="round" strokeLinejoin="round" d="M15 19l-7-7 7-7" />
       </svg>
     </button>
@@ -107,10 +111,10 @@ const MultiCarouselRightButton = ({ moveNext, isDisabled }) => {
   return (
     <button
       onClick={moveNext}
-      className="w-10 h-[50%] text-center bg-white text-black disabled:opacity-25 z-10 p-0 m-0 transition-all ease-in-out duration-300 my-auto"
+      className="w-12 sm:w-14 h-[50%] text-center bg-white text-black disabled:opacity-25 z-10 p-0 m-0 transition-all ease-in-out duration-300 my-auto shadow-md rounded"
       disabled={isDisabled("next")}
     >
-      <svg xmlns="http://www.w3.org/2000/svg" className="h-12 w-20 -ml-5" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}>
+      <svg xmlns="http://www.w3.org/2000/svg" className="h-10 w-10 sm:h-12 sm:w-12 mx-auto" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}>
         <path strokeLinecap="round" strokeLinejoin="round" d="M9 5l7 7-7 7" />
       </svg>
       <span className="sr-only">Next</span>

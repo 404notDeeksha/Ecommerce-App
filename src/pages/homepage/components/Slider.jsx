@@ -57,7 +57,7 @@ export const Slider = () => {
     <>
       {loading ? <SliderSkeleton /> : (
         <div className="relative w-full flex justify-center">
-          <div className="relative w-full max-w-[1500px] h-[300px] sm:h-[350px] md:h-[400px] lg:h-[500px] xl:h-[600px]">
+          <div className="relative w-full max-w-[1500px] max-h-[300px]">
             <div className="absolute top-1/2 left-0 right-0 flex justify-between items-center pointer-events-none">
               <div className="absolute left-2 -translate-y-1/2 flex items-center p-2 cursor-pointer pointer-events-auto" onClick={() => updateIndex(currentIndex - 1)}>
                 <ArrowForwardIosIcon className="rotate-180 scale-[1.7]" />
@@ -66,7 +66,7 @@ export const Slider = () => {
                 <ArrowForwardIosIcon className="scale-[1.7]" />
               </div>
             </div>
-            {currentImage && <SlidesImages data={currentImage?.category_image_address} category={currentImage?.category} />}
+            {currentImage && <SlidesImages data={currentImage?.category_image_address} category={currentImage?.category} className="w-full" />}
           </div>
         </div>
       )}
@@ -77,9 +77,9 @@ export const Slider = () => {
 const SlidesImages = ({ data, category }) => {
   const filter = `category=${category}`;
   return (
-    <div className="cursor-pointer w-full h-full">
-      <Link to={routes.getProducts(filter)} className="w-full h-full block">
-        <img src={data} className="w-full h-full object-cover" alt="carousel-image" />
+    <div className="cursor-pointer">
+      <Link to={routes.getProducts(filter)}>
+        <img src={data} className="w-[1500px] h-[600px] object-cover" alt="carousel-image" />
       </Link>
     </div>
   );
