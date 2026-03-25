@@ -1,7 +1,10 @@
 import { Routes, Route } from "react-router-dom";
 import { routes } from "@config/routes.js";
 import ProtectedRoute from "./protectedRoute.jsx";
-import { MainHeader, SecondaryHeader } from "@components/layout/header/index.js";
+import {
+  MainHeader,
+  SecondaryHeader,
+} from "@components/layout/header/index.js";
 import { Footer } from "@components/layout/footer/index.jsx";
 import { Sidebar } from "@components/layout/sidebar/index.jsx";
 import { NotFound } from "@components/common/notFound.jsx";
@@ -12,7 +15,10 @@ import { CartPage } from "@pages/CartPage/index.jsx";
 import { AboutUs } from "@pages/Info/aboutUs.jsx";
 import { Privacy } from "@pages/Info/privacy.jsx";
 import { TermsConditions } from "@pages/Info/termsConditions.jsx";
-import { EmailAuthPage, PasswordAuthPage } from "@pages/Auth/LoginPage/index.js";
+import {
+  EmailAuthPage,
+  PasswordAuthPage,
+} from "@pages/Auth/LoginPage/index.js";
 import { SignupPage } from "@pages/Auth/SignupPage/index.jsx";
 
 const Layout = ({ children }) => {
@@ -33,18 +39,9 @@ export const AppRoutes = () => {
   return (
     <>
       <Routes>
-        <Route
-          path={routes.signup}
-          element={<SignupPage />}
-        />
-        <Route
-          path={routes.loginEmail}
-          element={<EmailAuthPage />}
-        />
-        <Route
-          path={routes.loginPassword}
-          element={<PasswordAuthPage />}
-        />
+        <Route path={routes.signup} element={<SignupPage />} />
+        <Route path={routes.loginEmail} element={<EmailAuthPage />} />
+        <Route path={routes.loginPassword} element={<PasswordAuthPage />} />
         <Route
           path={routes.home}
           element={
@@ -103,10 +100,7 @@ export const AppRoutes = () => {
             </Layout>
           }
         />
-        <Route
-          path="*"
-          element={<NotFound />}
-        />
+        <Route path="*" element={<NotFound />} />
       </Routes>
     </>
   );
