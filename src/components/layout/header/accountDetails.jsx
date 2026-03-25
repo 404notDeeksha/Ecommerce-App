@@ -21,17 +21,17 @@ export const AccountDetails = () => {
       onMouseOver={handleMouseOver}
       onMouseOut={() => dispatch(inactiveOverlay())}
     >
-      <div className="text-[12px]">
+      <div className="text-[12px] text-white lg:text-inherit">
         Hello,
         <span className="ml-1">{name}</span>
       </div>
-      <div className="text-[14px] text-nowrap font-bold -mt-1">
+      <div className="text-[14px] text-nowrap font-bold -mt-1 text-white lg:text-inherit">
         Account & Lists
       </div>
 
       <DropDownIcon
         className="scale-[1.3] min-w-4 min-h-4 absolute right-1 bottom-[13px] 
-        text-[#e6e6e6]"
+        text-white lg:text-[#e6e6e6]"
       />
       <AccountMenu />
     </div>

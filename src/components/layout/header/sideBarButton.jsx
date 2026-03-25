@@ -20,7 +20,7 @@ export const SideBarButton = () => {
       aria-label="Open navigation menu"
       tabIndex={0}
     >
-      <HamBurgerMenu className="scale-y-[1.9] scale-x-[1.6] ml-4 mt-1 mr-2" aria-hidden="true" />
+      <HamBurgerMenu className="scale-y-[1.9] scale-x-[1.6] mt-1 mr-2" aria-hidden="true" />
       <span className="sr-only">All</span>
       <span aria-hidden="true">All</span>
     </div>

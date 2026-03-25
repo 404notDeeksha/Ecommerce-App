@@ -19,7 +19,9 @@ const Layout = ({ children }) => {
   return (
     <>
       <MainHeader />
-      <SecondaryHeader />
+      <div className="hidden lg:block">
+        <SecondaryHeader />
+      </div>
       <Sidebar />
       {children}
       <Footer />

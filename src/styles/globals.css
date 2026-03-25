@@ -34,7 +34,7 @@
 
 
   .amazon-logo{
-    @apply flex cursor-pointer hover-header px-2 py-4 box-border
+    @apply flex cursor-pointer hover-header px-2 box-border items-center
   }
   .amazon-logo-image{
     @apply object-contain h-[30px] w-[97px] scale-95
