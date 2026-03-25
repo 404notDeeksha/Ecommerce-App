@@ -1,6 +1,6 @@
 import { useEffect, useState } from "react";
 import { Link, useNavigate } from "react-router-dom";
-import { LogoBlack } from "@pages/Auth/LoginPage/LogoBlack";
+import { LogoBlack } from "@pages/Auth/LoginPage/logoBlack";
 import { RiArrowDropRightFill } from "react-icons/ri";
 import { useDispatch, useSelector } from "react-redux";
 import { signupUser } from "@api/auth/index.js";
