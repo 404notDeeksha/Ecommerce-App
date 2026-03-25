@@ -5,7 +5,7 @@ import {
   headphones,
   homeDecor,
   beauty,
-} from "./data/categoryGridCarousel";
+}   from "./data/CategoryGridCarousel";
 import { MultiCardCarousel } from "./components/CardCarousel";
 
 export const HomePage = () => {
