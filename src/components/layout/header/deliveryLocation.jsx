@@ -19,14 +19,11 @@ export const DeliveryLocation = () => {
       aria-label={isEmpty(pincode) ? "Enter delivery pincode" : `Delivery to ${pincode}`}
       tabIndex={0}
     >
-      <div className="flex text-white my-[15px] mr-[2px] px-[9px] box-border leading-3 float-none gap-2 items-center">
+      <div className="flex text-white items-center gap-1 px-2">
         <LocationIcon className="w-[15px] h-[18px] scale-x-[1.2] scale-y-[1.1]" aria-hidden="true" />
 
-        <span className="lg:hidden flex flex-col gap-0">
-          <span className="text-[10px] font-normal leading-[12px]">Deliver to</span>
-          <span className="text-[14px] font-bold leading-[16px]">
-            {isEmpty(pincode) ? "Pincode" : pincode}
-          </span>
+        <span className="lg:hidden text-[11px] font-medium whitespace-nowrap">
+          {isEmpty(pincode) ? "Enter Pincode" : pincode}
         </span>
 
         <span className="hidden lg:flex flex-col gap-1">

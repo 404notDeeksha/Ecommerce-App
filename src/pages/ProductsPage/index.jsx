@@ -121,8 +121,8 @@ export const ProductsPage = () => {
   if (error && !productsCollection.length) {
     return (
       <div className="bg-white">
-        <div className="w-full min-w-[996px] max-w-[1500px] my-0 py-3.5 flex mx-auto pt-5 ">
-          <h2 className="font-bold text-xl my-5">{error}</h2>
+        <div className="w-full max-w-[1500px] my-0 py-3.5 px-4 mx-auto pt-5">
+          <h2 className="font-bold text-lg sm:text-xl my-5">{error}</h2>
         </div>
       </div>
     );
@@ -156,14 +156,14 @@ export const ProductsPage = () => {
 
   return (
     <div className="bg-white">
-      <div className="w-full min-w-[996px] max-w-[1500px] my-0 py-3.5 px-4 bg-white flex pt-5 mx-auto gap-6">
-        <div className="min-w-[220px] font-bold text-xl my-5 mb-10 flex flex-col gap-2 border-gray-500 bg-gray-300/80 rounded-xl px-3 py-4 h-fit">
+      <div className="w-full max-w-[1500px] my-0 py-3.5 px-4 bg-white flex flex-col lg:flex-row pt-5 mx-auto gap-4 lg:gap-6">
+        <div className="w-full lg:w-auto lg:min-w-[220px] font-bold text-base lg:text-xl my-2 lg:my-5 lg:mb-10 flex flex-col gap-2 border-gray-500 bg-gray-300/80 rounded-xl px-3 py-4 h-fit">
           <h1 className="w-fit">Filters</h1>
-          <div className="space-y-5">
+          <div className="space-y-4 lg:space-y-5">
             <div>
-              <label className="block text-lg mb-1">Sort By</label>
+              <label className="block text-base lg:text-lg mb-1">Sort By</label>
               <select
-                className="w-full py-2 px-2 rounded border bg-gray-50"
+                className="w-full py-2 px-2 rounded border bg-gray-50 text-sm lg:text-base"
                 value={sortBy && sortOrder ? `${sortBy}-${sortOrder}` : ""}
                 onChange={handleSortChange}
               >
@@ -177,10 +177,10 @@ export const ProductsPage = () => {
             </div>
 
             <div>
-              <label className="block text-lg mb-1">Category</label>
+              <label className="block text-base lg:text-lg mb-1">Category</label>
               <select
                 name="category"
-                className="w-full py-2 px-2 rounded border bg-gray-50"
+                className="w-full py-2 px-2 rounded border bg-gray-50 text-sm lg:text-base"
                 value={filters.category}
                 onChange={handleChange}
               >
@@ -194,10 +194,10 @@ export const ProductsPage = () => {
             </div>
 
             <div>
-              <label className="block text-lg mb-1">Subcategory</label>
+              <label className="block text-base lg:text-lg mb-1">Subcategory</label>
               <select
                 name="subCategory"
-                className="w-full py-2 px-2 rounded border bg-gray-50"
+                className="w-full py-2 px-2 rounded border bg-gray-50 text-sm lg:text-base"
                 value={filters.subCategory}
                 onChange={handleChange}
               >
@@ -213,7 +213,7 @@ export const ProductsPage = () => {
         </div>
 
         <div className="flex-1">
-          <h1 className="font-bold text-xl my-5 mb-10 border-gray-500 bg-gray-300 rounded-xl w-fit px-3 py-2">
+          <h1 className="font-bold text-base lg:text-xl my-2 lg:my-5 mb-4 lg:mb-10 border-gray-500 bg-gray-300 rounded-xl w-fit px-3 py-2">
             Results {pagination.total > 0 && `(${pagination.total} products)`}
           </h1>
           <div className="flex flex-wrap gap-2">

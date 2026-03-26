@@ -1,6 +1,13 @@
-import { Routes, Route } from "react-router-dom";
+import { Routes, Route, Navigate } from "react-router-dom";
 import { routes } from "@config/routes.js";
 import ProtectedRoute from "./ProtectedRoute.jsx";
+import { useSelector } from "react-redux";
+
+// Root route: redirects "/" to "/home" when user session is active
+const RootRoute = () => {
+  const isAuthenticated = useSelector((state) => state.auth.isAuthenticated);
+  return <Navigate to={routes.home} replace />;
+};
 import {
   MainHeader,
   SecondaryHeader,
@@ -39,6 +46,7 @@ export const AppRoutes = () => {
   return (
     <>
       <Routes>
+        <Route path="/" element={<RootRoute />} />
         <Route path={routes.signup} element={<SignupPage />} />
         <Route path={routes.loginEmail} element={<EmailAuthPage />} />
         <Route path={routes.loginPassword} element={<PasswordAuthPage />} />

@@ -42,19 +42,23 @@ export const ShoppingCartItems = () => {
   return (
     <>
       {loading ? <Skeleton Component={ShoppingCartSkeleton} repeatations={1} /> : (
-        <div className="flex justify-between">
-          <div className="mr-5 mb-5 p-5 bg-white flex-1">
-            <div className="text-3xl mb-4">Shopping Cart</div>
+        <div className="flex flex-col lg:flex-row justify-between">
+          <div className="w-full lg:w-[65%] mr-0 lg:mr-5 mb-4 lg:mb-5 p-4 lg:p-5 bg-white flex-1">
+            <div className="text-2xl lg:text-3xl mb-4">Shopping Cart</div>
+            <div className="flex lg:hidden flex-row justify-between items-center bg-gray-100 p-3 mb-4 rounded">
+              <span className="text-sm">Subtotal ({getTotalQtyFromCart(cartDataInternal.items)} items):</span>
+              <span className="font-bold">{convertNumberInNumerals(cartDataInternal?.totalPrice)}</span>
+            </div>
             <div className="border-b-2 border-gray-300"></div>
             {cartDataInternal?.items?.map((product, index) => (
               <ProductCard key={index} product={product} index={0} userId={cartDataInternal.userId} productId={product.productId} setCartData={setCartData} />
             ))}
-            <div className="text-lg text-right">
+            <div className="hidden lg:flex text-base lg:text-lg text-right mt-4 lg:mt-0 lg:pt-4 lg:border-t-2 lg:border-gray-300">
               Subtotal ({getTotalQtyFromCart(cartDataInternal.items)} items):
-              <span className="font-bold ml-4">{convertNumberInNumerals(cartDataInternal?.totalPrice)}</span>
+              <span className="font-bold ml-2 lg:ml-4">{convertNumberInNumerals(cartDataInternal?.totalPrice)}</span>
             </div>
           </div>
-          <div className="font-bold text-lg">
+          <div className="hidden lg:block w-full lg:w-[32%] font-bold text-lg mb-4 lg:mb-0">
             <div className="bg-white p-4 pb-6">
               <span>Subtotal ({getTotalQtyFromCart(cartDataInternal.items)} items):</span>
               <span className="ml-4">{convertNumberInNumerals(cartDataInternal?.totalPrice)}</span>
@@ -77,29 +81,34 @@ const ProductCard = ({ product, index, userId, productId, setCartData }) => {
     } catch (err) { console.log("Error sending data", err); }
   };
 
+  const productLink = product.productId ? `/products/product/${product.productId}` : `/products/product/${productId}`;
+
   return (
     <>
-      <div className="p-3 flex justify-between">
-        <img src={getImages(product.images[index++])} className="w-44" />
-        <div className="text-lg flex-1 pl-4">
-          <Link to={`/products/product/${product.productId}`}>
-            <div className="font-bold cursor-pointer">{product.productDescription}</div>
+      <div className="p-3 flex flex-col sm:flex-row justify-between gap-4">
+        <img src={getImages(product.images[index++])} className="w-full sm:w-44 h-44 sm:h-auto object-cover" />
+        <div className="text-base sm:text-lg flex-1">
+          <Link to={productLink}>
+            <div className="font-bold cursor-pointer hover:text-amazon_orange transition-colors">{product.productDescription}</div>
           </Link>
           <div className="text-sm mt-0.5 font-[500]">{product.productName}</div>
           <div className="text-xs mt-2">Gift Options not available</div>
-          <ul className="flex text-sm mt-2 items-center">
-            <QuantityUpdationButton qty={product.quantity} userId={userId} productId={product.productId} setCartData={setCartData} />
-            <li className="mx-2">|</li>
-            <li className="cursor-pointer" onClick={handleDelete}>Delete</li>
-            <li className="mx-2">|</li>
-            <li className="">Save for Later</li>
-            <li className="mx-2">|</li>
-            <li className="">See more like this</li>
-            <li className="mx-2">|</li>
-            <li className="">Share</li>
-          </ul>
+          <div className="flex flex-wrap gap-2 sm:gap-0 text-sm mt-2 sm:items-center">
+            <QuantityUpdationButton qty={product.quantity} userId={userId} productId={product.productId || productId} setCartData={setCartData} />
+            <span className="hidden sm:inline mx-2">|</span>
+            <button className="sm:inline cursor-pointer hover:text-red-500" onClick={handleDelete}>Delete</button>
+            <span className="hidden sm:inline mx-2">|</span>
+            <span className="hidden sm:inline cursor-pointer">Save for Later</span>
+            <span className="hidden sm:inline mx-2">|</span>
+            <span className="hidden sm:inline cursor-pointer">See more like this</span>
+            <span className="hidden sm:inline mx-2">|</span>
+            <span className="hidden sm:inline cursor-pointer">Share</span>
+          </div>
+          <div className="flex sm:block justify-between items-center mt-2 sm:mt-0">
+            <div className="sm:hidden font-bold text-base">{convertNumberInNumerals(product.price)}</div>
+          </div>
         </div>
-        <div className="font-bold text-base">{convertNumberInNumerals(product.price)}</div>
+        <div className="hidden sm:block font-bold text-base ml-8">{convertNumberInNumerals(product.price)}</div>
       </div>
       <div className="border-b-2 border-gray-300 my-4"></div>
     </>

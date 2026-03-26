@@ -8,6 +8,12 @@ const cartSlice = createSlice({
   reducers: {
     setCart: (state, action) => {
       state.data = action.payload;
+      if (action.payload?.items) {
+        state.totalQuantity = action.payload.items.reduce(
+          (sum, item) => sum + (item.quantity || 0),
+          0
+        );
+      }
     },
     setCartQuantity: (state, action) => {
       state.totalQuantity = action.payload; // Set the quantity from backend
