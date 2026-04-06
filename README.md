@@ -4,6 +4,7 @@
 [![MIT License](https://img.shields.io/github/license/404notDeeksha/Ecommerce-App?style=flat-square)](https://github.com/404notDeeksha/Ecommerce-App/blob/main/License)
 [![PRs Welcome](https://img.shields.io/badge/PRs-welcome-brightgreen.svg)](https://github.com/404notDeeksha/Ecommerce-App/pulls)
 [![Deploy with Vercel](https://img.shields.io/badge/deploy%20with-vercel-100000?style=flat-square&logo=vercel&logoColor=white)](https://vercel.com/new/clone?repository-url=https://github.com/404notDeeksha/Ecommerce-App)
+![Responsive](https://img.shields.io/badge/responsive-mobile%20%7C%20tablet%20%7C%20desktop-blue)
 
 A responsive e-commerce web application inspired by Amazon. It allows users to browse and filter products, manage their cart, and securely log in to access personalized features.
 
