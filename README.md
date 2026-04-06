@@ -3,7 +3,7 @@
 ![Version](https://img.shields.io/badge/version-1.0.0-blue)
 [![MIT License](https://img.shields.io/github/license/404notDeeksha/Ecommerce-App?style=flat-square)](https://github.com/404notDeeksha/Ecommerce-App/blob/main/License)
 [![PRs Welcome](https://img.shields.io/badge/PRs-welcome-brightgreen.svg)](https://github.com/404notDeeksha/Ecommerce-App/pulls)
-[![Deploy with Vercel](https://vercel.com/button)](https://vercel.com/new/clone?repository-url=https://github.com/404notDeeksha/Ecommerce-App)
+[![Deploy with Vercel](https://img.shields.io/badge/deploy%20with-vercel-100000?style=flat-square&logo=vercel&logoColor=white)](https://vercel.com/new/clone?repository-url=https://github.com/404notDeeksha/Ecommerce-App)
 
 A responsive e-commerce web application inspired by Amazon. It allows users to browse and filter products, manage their cart, and securely log in to access personalized features.
 
@@ -70,7 +70,7 @@ Backend: [https://ecommerce-dep-techwithdeekksha.vercel.app](https://ecommerce-d
 - 🔐 **Secure Backend** – CORS configured and ready for integration
 - 🚨 **Error Boundaries** – Graceful error handling with fallbacks
 - 🔔 **Toast Notifications** – Real-time feedback to users
-- 📦 **State Persistence** – Redux Persist keeps auth state across sessions
+- 📦 **State Persistence** – Redux Persist keeps auth & cart state across sessions
 - ✨ **Animations** – Smooth transitions with Framer Motion
 - 🧪 **Tested** – Vitest for unit and integration tests
 
@@ -138,23 +138,23 @@ VITE_BASE_URL=https://your-backend.vercel.app/api
 
 ```
 src/
-├── api/           # API endpoints & axios setup
-├── components/    # Reusable UI components
-│   ├── common/    # Generic components (Loader, Portal, etc.)
-│   ├── feedback/ # Toasts, notifications
-│   └── layout/    # Header, Footer, Sidebar
-├── config/        # App configuration
-├── hooks/         # Custom React hooks
-├── pages/         # Page components
-│   ├── Auth/      # Login, Signup
-│   ├── CartPage/  # Shopping cart
-│   ├── HomePage/  # Landing page
-│   └── ProductsPage/ # Product listing
-├── redux/         # State management
-│   └── slices/    # auth, cart, error, loader, etc.
-├── routes/        # Route definitions
-├── styles/        # Global styles
-└── utils/         # Helper functions
+├── api/               # API endpoints & axios setup
+├── components/        # Reusable UI components
+│   ├── common/        # Generic components (Loader, Portal, etc.)
+│   ├── feedback/      # Toasts, notifications, error boundaries
+│   └── layout/        # Header, Footer, Sidebar
+├── config/            # App configuration
+├── hooks/             # Custom React hooks
+├── pages/             # Page components
+│   ├── Auth/          # Login, Signup
+│   ├── CartPage/      # Shopping cart
+│   ├── HomePage/      # Landing page
+│   └── ProductsPage/  # Product listing
+├── redux/             # State management
+│   └── slices/         # auth, cart, error, loader, etc.
+├── routes/            # Route definitions
+├── styles/            # Global styles
+└── utils/             # Helper functions
 ```
 
 ## 🎓 What I Built & Learned
@@ -170,7 +170,6 @@ src/
 
 ## 🚀 Upcoming Features
 
-- [ ] Cart state persistence (save cart across sessions)
 - [ ] Additional product filters (brands, price range, discounts)
 - [ ] Checkout flow with payment integration
 - [ ] Order history and tracking
@@ -197,8 +196,8 @@ A: Set `VITE_BASE_URL` in your `.env` file. In development, use `http://localhos
 **Q: How do I run tests?**  
 A: Run `npm run test` for watch mode or `npm run test:run` for a single run.
 
-**Q: Why isn't my cart data persisting?**  
-A: Currently, only auth state is persisted via Redux Persist. Cart data resets on page reload (see Upcoming Features).
+**Q: Does cart data persist across sessions?**  
+A: Yes! Both auth and cart state are persisted via Redux Persist. Your cart items and login state will survive page refreshes and browser restarts.
 
 ## 🐛 Troubleshooting
 
