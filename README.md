@@ -20,7 +20,8 @@ A responsive e-commerce web application inspired by Amazon. It allows users to b
 - [Environment Setup](#-environment-setup)
 - [Available Scripts](#-available-scripts)
 - [Project Structure](#-project-structure)
-- [What I Built & Learned](#-what-i-built--learned)
+- [Engineering Decisions](#️-engineering-decisions)
+- [Challenges & Solutions](#️-challenges--solutions)
 - [Upcoming Features](#-upcoming-features)
 - [Contributing](#-contributing)
 - [FAQ](#-faq)
@@ -158,16 +159,25 @@ src/
 └── utils/             # Helper functions
 ```
 
-## 🎓 What I Built & Learned
+## ⚙️ Engineering Decisions
 
 - **State Management** – Redux Toolkit with slices pattern for cart, auth, errors, and UI state
-- **Server Integration** – Axios client with interceptors for API communication
+- **Server Integration** – Axios client for API communication with centralized error handling
 - **Error Handling** – React Error Boundary for graceful failure recovery
 - **Responsive Design** – Mobile-first approach with Tailwind CSS
 - **Authentication Flow** – JWT-based login/signup with protected routes
 - **Performance** – Vite-powered fast builds with code splitting
 - **Testing** – Unit tests with Vitest and React Testing Library
 - **Deployment** – CI/CD pipeline on Vercel with environment configuration
+
+## ⚠️ Challenges & Solutions
+
+| Challenge | Problem | Solution |
+|-----------|---------|----------|
+| **State loss on refresh** | Cart & auth state resetting on page reload | Redux Persist persists state in localStorage |
+| **Protected route bypass** | Users accessing protected pages via direct URL without auth | Route guards in `ProtectedRoute.jsx` check auth state before rendering |
+| **UI flickering on load** | Poor UX during data fetch | Error boundaries + skeleton loaders + toast notifications |
+| **API error handling** | Inconsistent error responses causing unpredictable UI | Centralized error slice with Redux for state-based error display |
 
 ## 🚀 Upcoming Features
 
