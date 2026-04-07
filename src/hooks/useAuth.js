@@ -11,7 +11,7 @@ export const useAuth = () => {
   const signup = useCallback(async ({ name, email, password }) => {
     const result = await signupUser({ name, email, password });
     if (result.success) {
-      dispatch(loginSuccess({ user: result.data }));
+      dispatch(loginSuccess({ user: result.data, refreshToken: result.refreshToken }));
     }
     return result;
   }, [dispatch]);
@@ -24,14 +24,14 @@ export const useAuth = () => {
   const loginWithPassword = useCallback(async ({ email, password }) => {
     const result = await verifyPassword({ email, password });
     if (result.success) {
-      dispatch(loginSuccess({ user: result.data }));
+      dispatch(loginSuccess({ user: result.data, refreshToken: result.refreshToken }));
     }
     return result;
   }, [dispatch]);
 
-  const signout = useCallback(async () => {
+  const signout = useCallback(async (refreshToken) => {
     try {
-      await logoutUser();
+      await logoutUser(refreshToken);
     } catch {
       // Ignore API errors, continue with local logout
     }

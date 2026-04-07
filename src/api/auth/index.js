@@ -51,9 +51,13 @@ export const verifyPassword = async (userData) => {
   }
 };
 
-export const logoutUser = async () => {
+export const logoutUser = async (refreshToken) => {
   try {
-    await axios.post(`${URL.USER_API}/logout`, {}, { withCredentials: true });
+    await axios.post(
+      `${URL.USER_API}/logout`,
+      { refreshToken: refreshToken || "" },
+      { withCredentials: true }
+    );
   } catch (error) {
     if (error.response && error.response.data && error.response.data.message) {
       throw new Error(error.response.data.message);

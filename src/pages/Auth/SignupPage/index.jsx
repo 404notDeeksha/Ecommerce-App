@@ -78,7 +78,7 @@ export const SignupPage = () => {
           password: formData.password,
         });
         if (result.success) {
-          dispatch(loginSuccess({ user: result.data }));
+          dispatch(loginSuccess({ user: result.data, refreshToken: result.refreshToken }));
           dispatch(loading(false));
         }
       } catch (error) {

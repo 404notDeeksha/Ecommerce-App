@@ -1,5 +1,5 @@
 import { accountMenu } from "@utils/commonConsts";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import { logoutUser } from "@api/auth/index.js";
 import { logout } from "@redux/slices/authSlice.js";
 import { useDispatch, useSelector } from "react-redux";
@@ -7,10 +7,18 @@ import { routes } from "@config/routes.js";
 
 export const AccountMenu = () => {
   const userData = useSelector((state) => state?.auth?.user);
+  const refreshToken = useSelector((state) => state?.auth?.refreshToken);
   const dispatch = useDispatch();
-  const onLogout = () => {
-    logoutUser();
+  const navigate = useNavigate();
+
+  const onLogout = async () => {
+    try {
+      await logoutUser(refreshToken);
+    } catch (error) {
+      console.log("Logout API error:", error.message);
+    }
     dispatch(logout());
+    navigate(routes.loginEmail);
   };
   return (
     <div

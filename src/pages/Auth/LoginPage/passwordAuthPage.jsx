@@ -33,7 +33,7 @@ export const PasswordAuthPage = () => {
         const result = await verifyPassword({ email, password });
         if (result.success) {
           setErrorMsg(false);
-          dispatch(loginSuccess({ user: result.data }));
+          dispatch(loginSuccess({ user: result.data, refreshToken: result.refreshToken }));
           dispatch(loading(false));
         }
       } catch (err) {
