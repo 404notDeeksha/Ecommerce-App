@@ -10,6 +10,7 @@ import { loginSuccess } from "@redux/slices/authSlice.js";
 import { routes } from "@config/routes.js";
 import { loading } from "@redux/slices/loaderSlice.js";
 import { LoaderData } from "@components/common/loaderData";
+import { useCart } from "@hooks/useCart.js";
 
 export const SignupPage = () => {
   const [formData, setFormData] = useState({
@@ -25,6 +26,7 @@ export const SignupPage = () => {
   const navigate = useNavigate();
   const dispatch = useDispatch();
   const isLoading = useSelector((state) => state.loader.loading);
+  const { fetchCart } = useCart();
 
   useEffect(() => {
     if (isAuthenticated) {
@@ -79,6 +81,7 @@ export const SignupPage = () => {
         });
         if (result.success) {
           dispatch(loginSuccess({ user: result.data, refreshToken: result.refreshToken }));
+          fetchCart();
           dispatch(loading(false));
         }
       } catch (error) {

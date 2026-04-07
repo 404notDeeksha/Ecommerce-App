@@ -2,12 +2,12 @@ import { useEffect, useState } from "react";
 import { LogoBlack } from "./logoBlack";
 import { Link, useLocation, useNavigate } from "react-router-dom";
 import { verifyPassword } from "@api/auth/index.js";
-import { useDispatch } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 import { loginSuccess } from "@redux/slices/authSlice.js";
-import { useSelector } from "react-redux";
 import { routes } from "@config/routes.js";
 import { loading } from "@redux/slices/loaderSlice.js";
 import { LoaderData } from "@components/common/loaderData";
+import { useCart } from "@hooks/useCart.js";
 
 export const PasswordAuthPage = () => {
   const [password, setPassword] = useState("");
@@ -18,6 +18,7 @@ export const PasswordAuthPage = () => {
   const dispatch = useDispatch();
   const isAuthenticated = useSelector((state) => state?.auth?.isAuthenticated);
   const isLoading = useSelector((state) => state.loader.loading);
+  const { fetchCart } = useCart();
 
   useEffect(() => {
     if (isAuthenticated) {
@@ -34,6 +35,7 @@ export const PasswordAuthPage = () => {
         if (result.success) {
           setErrorMsg(false);
           dispatch(loginSuccess({ user: result.data, refreshToken: result.refreshToken }));
+          fetchCart();
           dispatch(loading(false));
         }
       } catch (err) {
