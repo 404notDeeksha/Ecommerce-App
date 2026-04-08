@@ -9,6 +9,7 @@ export const routes = {
   aboutUs: "/about-us",
   privacy: "/privacy",
   terms: "/terms-and-conditions",
+  adminProducts: "/admin/products",
   getProducts: (filter) => `/products?${filter}`,
   getProduct: (productId) => `/products/product/${productId}?`,
 };

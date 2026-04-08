@@ -1,6 +1,7 @@
 import { Routes, Route, Navigate } from "react-router-dom";
 import { routes } from "@config/routes.js";
 import ProtectedRoute from "./ProtectedRoute.jsx";
+import AdminGuard from "./AdminGuard.jsx";
 import { useSelector } from "react-redux";
 
 // Root route: redirects "/" to "/home" when user session is active
@@ -106,6 +107,17 @@ export const AppRoutes = () => {
             <Layout>
               <TermsConditions />
             </Layout>
+          }
+        />
+        <Route
+          path={routes.adminProducts}
+          element={
+            <AdminGuard>
+              <div className="p-6">
+                <h1 className="text-2xl font-bold">Admin Products</h1>
+                <p className="mt-2 text-gray-600">Admin panel coming soon...</p>
+              </div>
+            </AdminGuard>
           }
         />
         <Route path="*" element={<NotFound />} />
