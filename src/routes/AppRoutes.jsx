@@ -9,6 +9,7 @@ const RootRoute = () => {
   const isAuthenticated = useSelector((state) => state.auth.isAuthenticated);
   return <Navigate to={routes.home} replace />;
 };
+
 import {
   MainHeader,
   SecondaryHeader,
@@ -28,6 +29,8 @@ import {
   PasswordAuthPage,
 } from "@pages/Auth/LoginPage/index.js";
 import { SignupPage } from "@pages/Auth/SignupPage/index.jsx";
+import AdminLayout from "@pages/Admin/AdminLayout.jsx";
+import AdminProducts from "@pages/Admin/AdminProducts.jsx";
 
 const Layout = ({ children }) => {
   return (
@@ -113,10 +116,9 @@ export const AppRoutes = () => {
           path={routes.adminProducts}
           element={
             <AdminGuard>
-              <div className="p-6">
-                <h1 className="text-2xl font-bold">Admin Products</h1>
-                <p className="mt-2 text-gray-600">Admin panel coming soon...</p>
-              </div>
+              <AdminLayout>
+                <AdminProducts />
+              </AdminLayout>
             </AdminGuard>
           }
         />

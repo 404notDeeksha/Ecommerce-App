@@ -17,14 +17,19 @@ export const PasswordAuthPage = () => {
   const email = location.state;
   const dispatch = useDispatch();
   const isAuthenticated = useSelector((state) => state?.auth?.isAuthenticated);
+  const userRole = useSelector((state) => state?.auth?.user?.role);
   const isLoading = useSelector((state) => state.loader.loading);
   const { fetchCart } = useCart();
 
   useEffect(() => {
     if (isAuthenticated) {
-      navigate(routes.home);
+      if (userRole === "admin" || userRole === "product_manager") {
+        navigate(routes.adminProducts);
+      } else {
+        navigate(routes.home);
+      }
     }
-  }, [isAuthenticated, navigate]);
+  }, [isAuthenticated, userRole, navigate]);
 
   const handleSubmit = (e) => {
     e.preventDefault();
