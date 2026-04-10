@@ -15,7 +15,7 @@
 
 - ✅ **Full cart lifecycle** — Add, update, remove items with Redux Toolkit + persistence across sessions
 - ✅ **JWT authentication flow** — Protected routes, secure login/signup with token refresh
-- ✅ **Mobile-first responsive** — Tailwind CSS, works seamlessly on mobile/tablet/desktop
+- ✅ **Mobile-friendly responsive** — Tailwind CSS, works seamlessly on mobile/tablet/desktop
 - ✅ **Production-ready DX** — Vite builds, Vitest testing, ESLint, CI/CD on Vercel
 - ✅ **Polished UX** — Framer Motion animations, toast notifications, error boundaries, skeleton loaders
 
@@ -50,11 +50,13 @@
 
 ## 📊 Performance & Engineering
 
-- ⚡ **Vite-powered builds** — Sub-second dev server startup, optimized production bundles
-- 🧪 **Tested with Vitest** — Unit & integration tests for critical flows
-- 💾 **State persistence** — Auth & cart survive page refreshes via Redux Persist (localStorage)
-- 🛡️ **Error resilience** — React Error Boundaries prevent full app crashes
-- 🔐 **Route protection** — Guarded routes check auth state before rendering protected pages
+- ⚡⚡ ***Optimized builds with Vite*** — Sub-second dev startup, code-split production bundles
+- 🧪 ***Robust testing with Vitest*** — Unit & integration tests for critical user flows
+- 💾 ***Persistent global state*** — Auth & cart retained via Redux Persist (localStorage)
+- 🛡️ ***Resilient UI architecture*** — Error Boundaries + graceful fallbacks prevent full app crashes
+- 🔐 ***Secure route protection*** — Auth-based guarded routes with role-based access control
+- 🚀 ***Performance optimizations*** — Lazy loading, memoization, and debounced API calls reduce unnecessary re-renders
+- 📦 ***Scalable frontend architecture*** — Modular, feature-based structure with reusable components & hooks
 
 <details>
 <summary><strong>Click to expand — Deep Dive</strong></summary>
