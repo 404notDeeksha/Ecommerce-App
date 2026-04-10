@@ -10,7 +10,7 @@ export const convertNumberInNumerals = (number) => {
     style: "currency",
     currency: "INR",
   };
-  var formattedNum = number.toLocaleString("en-IN", options);
+  var formattedNum = number?.toLocaleString("en-IN", options);
   return formattedNum;
 };
 
