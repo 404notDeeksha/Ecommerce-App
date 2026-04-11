@@ -16,7 +16,7 @@
 - ✅ **Full cart lifecycle** — Add, update, remove items with Redux Toolkit + persistence across sessions
 - ✅ **JWT authentication flow** — Protected routes, secure login/signup with token refresh
 - ✅ **Mobile-friendly responsive** — Tailwind CSS, works seamlessly on mobile/tablet/desktop
-- ✅ **Production-ready DX** — Vite builds, Vitest testing, ESLint, CI/CD on Vercel
+- ✅ **Production-ready DX** — Vite builds, Vitest testing, ESLint
 - ✅ **Polished UX** — Framer Motion animations, toast notifications, error boundaries, skeleton loaders
 
 ---
@@ -145,11 +145,10 @@ npm run dev
 Create `.env` based on `.env.example`:
 
 ```bash
-# Development
-VITE_BASE_URL=http://localhost:8000/api
-
-# Production  
-VITE_BASE_URL=https://your-backend.vercel.app/api
+# Base API URL for backend
+# In development: Use http://localhost:8000/api
+# In production: Set this to your deployed backend URL
+VITE_BASE_URL=
 ```
 
 ### Available Scripts
@@ -173,6 +172,7 @@ VITE_BASE_URL=https://your-backend.vercel.app/api
 - [ ] Product reviews & ratings
 - [ ] Wishlist
 - [ ] i18n (Redux slice ready)
+- [ ] CI/CD pipeline on Vercel
 
 ---
 
