@@ -81,12 +81,14 @@ export const MultiCardCarousel = ({ title, category, query }) => {
         </Link>
       </div>
       <div className="relative">
-        <div className="flex justify-between absolute inset-0 max-h-[200px] h-full z-10">
-          <MultiCarouselLeftButton movePrev={movePrev} isDisabled={isDisabled} />
-          <MultiCarouselRightButton moveNext={moveNext} isDisabled={isDisabled} />
-        </div>
         <div className="overflow-hidden">
           <MultiImageCarousel dataset={data} carousel={carousel} />
+        </div>
+        <div className="absolute left-0 top-0 bottom-0 flex items-center z-10">
+          <MultiCarouselLeftButton movePrev={movePrev} isDisabled={isDisabled} />
+        </div>
+        <div className="absolute right-0 top-0 bottom-0 flex items-center z-10">
+          <MultiCarouselRightButton moveNext={moveNext} isDisabled={isDisabled} />
         </div>
       </div>
     </div>
@@ -130,7 +132,7 @@ const MultiImageCarousel = ({ dataset, carousel }) => {
           return null;
         }
         return (
-          <div key={index} className="text-center relative w-52 h-52 snap-start">
+          <div key={index} className="text-center relative w-52 h-52 snap-start z-0">
             <Link to={routes.getProduct(product.productId)}>
               <div className="h-full w-full aspect-square block bg-origin-padding bg-left-top bg-cover bg-no-repeat z-0">
                 <img

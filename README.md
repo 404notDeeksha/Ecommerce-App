@@ -2,7 +2,7 @@
 
 [![MIT License](https://img.shields.io/github/license/404notDeeksha/Ecommerce-App?style=flat-square)](https://github.com/404notDeeksha/Ecommerce-App/blob/main/License)
 [![Deploy with Vercel](https://img.shields.io/badge/deploy%20with-vercel-100000?style=flat-square&logo=vercel&logoColor=white)](https://vercel.com/new/clone?repository-url=https://github.com/404notDeeksha/Ecommerce-App)
-![Version](https://img.shields.io/badge/version-1.0.0-blue)
+![Version](https://img.shields.io/badge/version-0.0.0-blue)
 ![Responsive](https://img.shields.io/badge/responsive-mobile%20%7C%20tablet%20%7C%20desktop-blue)
 
 > A production-ready e-commerce frontend with cart management, JWT authentication, and real-time state persistence — inspired by Amazon's UX patterns.
@@ -44,7 +44,7 @@
 | **API** | Axios with interceptors |
 | **Animation** | Framer Motion |
 | **Testing** | Vitest + React Testing Library |
-| **Deployment** | Vercel (CI/CD) |
+| **Deployment** | Vercel |
 
 ---
 
@@ -178,7 +178,7 @@ VITE_BASE_URL=
 
 ## 📄 License
 
-MIT — see [LICENSE](./LICENSE.md)
+MIT — see [LICENSE](./LICENSE)
 
 ## 👤 Connect
 
