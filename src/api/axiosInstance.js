@@ -1,7 +1,8 @@
 import axios from "axios";
 import { URL } from "@config/index.js";
-import { getAccessToken, clearAccessToken, refreshAccessToken } from "@utils/authTokens.js";
+import { getAccessToken, setAccessToken, clearAccessToken, refreshAccessToken } from "@utils/authTokens.js";
 import store from "@redux/store.js";
+import { loginSuccess } from "@redux/slices/authSlice.js";
 
 const API = axios.create({
   baseURL: `${URL.BACKEND_URL}`,
@@ -63,11 +64,15 @@ API.interceptors.response.use(
           throw new Error("No refresh token available");
         }
 
-        const newToken = await refreshAccessToken(refreshToken);
-        processQueue(null, newToken);
+        const tokens = await refreshAccessToken(refreshToken);
+        store.dispatch(loginSuccess({ 
+          user: state.auth.user, 
+          refreshToken: tokens.refreshToken 
+        }));
+        processQueue(null, tokens.accessToken);
         _isRefreshing = false;
 
-        originalRequest.headers.Authorization = `Bearer ${newToken}`;
+        originalRequest.headers.Authorization = `Bearer ${tokens.accessToken}`;
         return API(originalRequest);
       } catch (refreshError) {
         processQueue(refreshError, null);

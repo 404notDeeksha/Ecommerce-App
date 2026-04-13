@@ -55,7 +55,10 @@ export const refreshAccessToken = async (refreshToken) => {
     );
     if (response.data?.accessToken) {
       setAccessToken(response.data.accessToken);
-      return response.data.accessToken;
+      return {
+        accessToken: response.data.accessToken,
+        refreshToken: response.data.refreshToken,
+      };
     }
     throw new Error("Refresh failed: no access token returned");
   } catch (error) {
