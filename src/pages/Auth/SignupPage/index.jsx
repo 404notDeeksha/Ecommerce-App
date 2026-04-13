@@ -7,6 +7,7 @@ import { signupUser } from "@api/auth/index.js";
 import { FiEye } from "react-icons/fi";
 import { FaRegEyeSlash } from "react-icons/fa6";
 import { loginSuccess } from "@redux/slices/authSlice.js";
+import { setAccessToken } from "@utils/authTokens.js";
 import { routes } from "@config/routes.js";
 import { loading } from "@redux/slices/loaderSlice.js";
 import { LoaderData } from "@components/common/loaderData";
@@ -80,6 +81,7 @@ export const SignupPage = () => {
           password: formData.password,
         });
         if (result.success) {
+          setAccessToken(result.accessToken);
           dispatch(loginSuccess({ user: result.data, refreshToken: result.refreshToken }));
           fetchCart();
           dispatch(loading(false));

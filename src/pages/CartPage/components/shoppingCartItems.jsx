@@ -23,9 +23,10 @@ export const ShoppingCartItems = () => {
   }, [dispatch]);
 
   useEffect(() => {
+    if (!userId) return;
     const fetchCartData = async () => {
       try {
-        const result = await getCart(userId);
+        const result = await getCart();
         if (result) {
           setLoading(false);
           if (result.success) setCartData(result.data);
@@ -51,7 +52,7 @@ export const ShoppingCartItems = () => {
             </div>
             <div className="border-b-2 border-gray-300"></div>
             {cartDataInternal?.items?.map((product, index) => (
-              <ProductCard key={index} product={product} index={0} userId={cartDataInternal.userId} productId={product.productId} setCartData={setCartData} />
+              <ProductCard key={index} product={product} index={0} productId={product.productId} setCartData={setCartData} />
             ))}
             <div className="hidden lg:flex text-base lg:text-lg text-right mt-4 lg:mt-0 lg:pt-4 lg:border-t-2 lg:border-gray-300">
               Subtotal ({getTotalQtyFromCart(cartDataInternal.items)} items):
@@ -73,10 +74,10 @@ export const ShoppingCartItems = () => {
   );
 };
 
-const ProductCard = ({ product, index, userId, productId, setCartData }) => {
+const ProductCard = ({ product, index, productId, setCartData }) => {
   const handleDelete = async () => {
     try {
-      const result = await deleteCartProduct(userId, productId);
+      const result = await deleteCartProduct(productId);
       if (result.success) setCartData(result.data);
     } catch (err) { console.log("Error sending data", err); }
   };
@@ -93,8 +94,8 @@ const ProductCard = ({ product, index, userId, productId, setCartData }) => {
           </Link>
           <div className="text-sm mt-0.5 font-[500]">{product.productName}</div>
           <div className="text-xs mt-2">Gift Options not available</div>
-          <div className="flex flex-wrap gap-2 sm:gap-0 text-sm mt-2 sm:items-center">
-            <QuantityUpdationButton qty={product.quantity} userId={userId} productId={product.productId || productId} setCartData={setCartData} />
+            <div className="flex flex-wrap gap-2 sm:gap-0 text-sm mt-2 sm:items-center">
+            <QuantityUpdationButton qty={product.quantity} productId={product.productId || productId} setCartData={setCartData} />
             <span className="hidden sm:inline mx-2">|</span>
             <button className="sm:inline cursor-pointer hover:text-red-500" onClick={handleDelete}>Delete</button>
             <span className="hidden sm:inline mx-2">|</span>
@@ -115,10 +116,10 @@ const ProductCard = ({ product, index, userId, productId, setCartData }) => {
   );
 };
 
-const QuantityUpdationButton = ({ qty, userId, productId, setCartData }) => {
+const QuantityUpdationButton = ({ qty, productId, setCartData }) => {
   const backendData = async (qty) => {
     try {
-      const result = await updateCartQty(userId, productId, qty);
+      const result = await updateCartQty(productId, qty);
       if (result.success) setCartData(result.data);
     } catch (err) { console.log("Error sending data", err); }
   };

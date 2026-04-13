@@ -4,6 +4,7 @@ import { Link, useLocation, useNavigate } from "react-router-dom";
 import { verifyPassword } from "@api/auth/index.js";
 import { useDispatch, useSelector } from "react-redux";
 import { loginSuccess } from "@redux/slices/authSlice.js";
+import { setAccessToken } from "@utils/authTokens.js";
 import { routes } from "@config/routes.js";
 import { loading } from "@redux/slices/loaderSlice.js";
 import { LoaderData } from "@components/common/loaderData";
@@ -39,6 +40,7 @@ export const PasswordAuthPage = () => {
         const result = await verifyPassword({ email, password });
         if (result.success) {
           setErrorMsg(false);
+          setAccessToken(result.accessToken);
           dispatch(loginSuccess({ user: result.data, refreshToken: result.refreshToken }));
           fetchCart();
           dispatch(loading(false));

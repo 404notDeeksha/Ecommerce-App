@@ -20,7 +20,6 @@ export const ProductCard = ({ product }) => {
 
   const onAddToCart = async () => {
     const body = {
-      userId: userId,
       items: [
         {
           productId: product.productId,

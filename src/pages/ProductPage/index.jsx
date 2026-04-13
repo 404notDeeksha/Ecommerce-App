@@ -56,7 +56,6 @@ export const ProductPage = () => {
   const handleAddToCart = async () => {
     if (!userId || !productData) return;
     const body = {
-      userId: userId,
       items: [
         {
           productId: productData.productId,
