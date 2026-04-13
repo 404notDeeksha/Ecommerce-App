@@ -1,6 +1,8 @@
 import axios from "axios";
+import API from "../axiosInstance.js";
 import { URL } from "@config/index.js";
 import { persistor } from "@redux/store.js";
+import { clearAccessToken } from "@utils/authTokens.js";
 
 export const signupUser = async (userData) => {
   try {
@@ -41,6 +43,7 @@ export const verifyPassword = async (userData) => {
         withCredentials: true,
       }
     );
+    console.log("USER response BE ->", response.data);
     return response.data;
   } catch (error) {
     if (error.response && error.response.data && error.response.data.message) {
@@ -52,18 +55,13 @@ export const verifyPassword = async (userData) => {
 };
 
 export const logoutUser = async (refreshToken) => {
+  clearAccessToken();
   try {
-    await axios.post(
-      `${URL.USER_API}/logout`,
-      { refreshToken: refreshToken || "" },
-      { withCredentials: true }
-    );
+    await API.post(`${URL.USER_API}/logout`, {
+      refreshToken: refreshToken || "",
+    });
   } catch (error) {
-    if (error.response && error.response.data && error.response.data.message) {
-      throw new Error(error.response.data.message);
-    } else {
-      throw new Error("Something went wrong. Please try again.");
-    }
+    // Clear state regardless of API error
   }
   persistor.purge();
 };
