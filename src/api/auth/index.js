@@ -43,7 +43,6 @@ export const verifyPassword = async (userData) => {
         withCredentials: true,
       }
     );
-    console.log("USER response BE ->", response.data);
     return response.data;
   } catch (error) {
     if (error.response && error.response.data && error.response.data.message) {
