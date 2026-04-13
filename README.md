@@ -29,6 +29,7 @@
 
 | Products Grid | Cart |
 |--------------|------|
+| ![Products](./screenshots/productsgrid.png) | ![Cart](./screenshots/cart.png) |
 
 ---
 
