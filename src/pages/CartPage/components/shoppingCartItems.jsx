@@ -9,11 +9,13 @@ import isEmpty from "lodash.isempty";
 import { useDispatch, useSelector } from "react-redux";
 import { setCart } from "@redux/slices/cartSlice";
 import { getCart, updateCartQty, deleteCartProduct } from "@api/cart/index.js";
+import { LoaderData } from "@components/common/loaderData";
 import PropTypes from "prop-types";
 
 export const ShoppingCartItems = () => {
   const [cartDataInternal, setCartDataInternal] = useState({});
   const [loading, setLoading] = useState(true);
+  const [isFetching, setIsFetching] = useState(false);
   const userId = useSelector((state) => state?.auth?.user?.id);
   const dispatch = useDispatch();
 
@@ -24,19 +26,23 @@ export const ShoppingCartItems = () => {
 
   useEffect(() => {
     if (!userId) return;
+    setIsFetching(true);
     const fetchCartData = async () => {
       try {
         const result = await getCart();
-        if (result) {
-          setLoading(false);
-          if (result.success) setCartData(result.data);
-        }
+        setIsFetching(false);
+        setLoading(false);
+        if (result?.success) setCartData(result.data);
       } catch (error) {
+        setIsFetching(false);
+        setLoading(false);
         console.error("Error in retrieving data", error);
       }
     };
     fetchCartData();
   }, [userId, setCartData]);
+
+  if (loading && isFetching) return <LoaderData isLoading={true} />;
 
   if (isEmpty(cartDataInternal) || isEmpty(cartDataInternal?.items)) return <EmptyCartPage />;
 
