@@ -49,7 +49,7 @@ export const clearAccessToken = () => {
 export const refreshAccessToken = async (refreshToken) => {
   try {
     const response = await axios.post(
-      `${URL.USER_API}/refresh-token`,
+      `${URL.BACKEND_URL}/auth/refresh-token`,
       { refreshToken },
       { withCredentials: true }
     );
