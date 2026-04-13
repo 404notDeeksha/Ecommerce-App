@@ -99,6 +99,7 @@
 | **Protected route bypass** | `ProtectedRoute.jsx` enforces auth checks before render |
 | **UI flickering** | Skeleton loaders + error boundaries + toast feedback |
 | **API error inconsistency** | Centralized error slice normalizes all API failures |
+| **Cart not loading after login** | Fixed race condition — backend extracts userId from JWT |
 
 ---
 
@@ -117,7 +118,8 @@ src/
 │   ├── Auth/         # Login, Signup
 │   ├── CartPage/     # Shopping cart
 │   ├── HomePage/     # Landing
-│   └── ProductsPage/ # Product listing
+│   ├── ProductsPage/ # Product listing
+│   └── ProductPage/  # Single product view
 ├── redux/
 │   └── slices/       # auth, cart, error, loader
 ├── routes/           # Route definitions
@@ -161,6 +163,33 @@ VITE_BASE_URL=
 | `npm run preview` | Preview build |
 | `npm run test` | Run tests (watch) |
 | `npm run test:run` | Run tests once |
+
+---
+
+## 🧠 Learnings
+
+### JWT Token Storage — Memory + Redux Persist Hybrid
+
+Instead of storing JWTs in **httpOnly cookies** (the recommended production approach), this app uses a **hybrid memory + localStorage** strategy:
+
+- **accessToken** → stored in a JavaScript module-level variable (memory). Attached to every API request via axios interceptors. Short-lived (~15 min). Dies on page close — invisible to XSS.
+- **refreshToken** → stored in Redux, persisted to localStorage via Redux Persist. Used to obtain new access tokens on expiry.
+
+**Why not httpOnly cookies?**
+
+httpOnly cookies are the gold standard for production apps — they're immune to XSS and ideal for high-stakes applications. However, they introduce **CORS complexity** that can be difficult to manage when the frontend and backend are on different origins (e.g., dev at `localhost:3000` vs production at `vercel.app` and `render.com`). For portfolio/side projects where you're iterating fast across multiple hosting platforms, managing `Access-Control-Allow-Origin` headers, `SameSite` policies, and credential flags on every environment becomes a significant time sink. The hybrid approach gives you the same security guarantees for a short-lived access token while avoiding cross-origin deployment headaches entirely — a pragmatic trade-off that you still see in industry applications, particularly SPAs and internal tools.
+
+### Cart API Authentication Fix
+
+During development, users reported that cart data wasn't loading after login. Investigation revealed:
+
+1. **Race condition**: The cart fetch was called immediately after dispatching login, but Redux state hadn't updated yet with the user data.
+2. **API design**: The backend extracts `userId` directly from the JWT token (`req.user.userId`), not from request parameters — more secure.
+
+**Solution implemented:**
+- Modified cart APIs to work with JWT-authenticated backend (no userId parameter needed)
+- Backend validates token and extracts userId server-side
+- This prevents client-side userId tampering
 
 ---
 

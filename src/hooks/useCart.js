@@ -11,7 +11,7 @@ export const useCart = () => {
   const fetchCart = useCallback(async () => {
     if (!userId) return;
     try {
-      const result = await getCart(userId);
+      const result = await getCart();
       if (result?.success) {
         dispatch(setCart(result.data));
       }
@@ -25,7 +25,7 @@ export const useCart = () => {
   const updateQuantity = useCallback(async (productId, qty) => {
     if (!userId) return;
     try {
-      const result = await updateCartQty(userId, productId, qty);
+      const result = await updateCartQty(productId, qty);
       if (result?.success) {
         dispatch(setCart(result.data));
       }
@@ -39,7 +39,7 @@ export const useCart = () => {
   const removeFromCart = useCallback(async (productId) => {
     if (!userId) return;
     try {
-      const result = await deleteCartProduct(userId, productId);
+      const result = await deleteCartProduct(productId);
       if (result?.success) {
         dispatch(setCart(result.data));
       }
@@ -53,10 +53,7 @@ export const useCart = () => {
   const addItemToCart = useCallback(async (item) => {
     if (!userId) return;
     try {
-      const body = {
-        userId,
-        items: [item],
-      };
+      const body = { items: [item] };
       const result = await addToCart(body);
       return result;
     } catch (error) {

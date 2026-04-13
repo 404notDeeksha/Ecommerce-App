@@ -2,7 +2,7 @@ import API from "../axiosInstance.js";
 
 export const addToCart = async (body) => {
   try {
-    const response = await API.post("/cart", body);
+    const response = await API.post("/cart", { items: body.items });
     return response?.data;
   } catch (error) {
     if (error.response?.data?.message) {
@@ -13,9 +13,9 @@ export const addToCart = async (body) => {
   }
 };
 
-export const getCart = async (userId) => {
+export const getCart = async () => {
   try {
-    const response = await API.get(`/cart/${userId}`);
+    const response = await API.get("/cart");
     return response?.data;
   } catch (error) {
     if (error.response?.data?.message) {
@@ -26,9 +26,9 @@ export const getCart = async (userId) => {
   }
 };
 
-export const getCartQty = async (userId) => {
+export const getCartQty = async () => {
   try {
-    const response = await API.get(`/cart/quantity/${userId}`);
+    const response = await API.get("/cart/quantity");
     return response?.data;
   } catch (error) {
     if (error.response?.data?.message) {
@@ -39,9 +39,9 @@ export const getCartQty = async (userId) => {
   }
 };
 
-export const updateCartQty = async (userId, productId, qty) => {
+export const updateCartQty = async (productId, qty) => {
   try {
-    const response = await API.put(`/cart/${userId}/${productId}/${qty}`);
+    const response = await API.put(`/cart/${productId}/${qty}`);
     return response?.data;
   } catch (error) {
     if (error.response?.data?.message) {
@@ -52,9 +52,9 @@ export const updateCartQty = async (userId, productId, qty) => {
   }
 };
 
-export const deleteCartProduct = async (userId, productId) => {
+export const deleteCartProduct = async (productId) => {
   try {
-    const response = await API.delete(`/cart/${userId}/${productId}`);
+    const response = await API.delete(`/cart/${productId}`);
     return response?.data;
   } catch (error) {
     if (error.response?.data?.message) {
