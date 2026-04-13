@@ -71,11 +71,14 @@
 
 ### API Layer
 - **Axios** with centralized interceptors for auth token injection
+- Automatic token refresh on 401 responses
 - Dedicated `api/` module with endpoint definitions and error transformation
 
 ### Authentication Flow
 - JWT-based login/signup with protected routes
-- Token stored via Redux state, auto-attached to API requests
+- **Hybrid token storage**: accessToken in memory (XSS-safe), refreshToken in Redux Persist
+- Axios interceptor automatically attaches tokens to requests
+- Auto-refresh on token expiry via interceptor
 - `ProtectedRoute.jsx` guards prevent unauthorized access
 
 ### UI/UX Engineering
