@@ -5,14 +5,16 @@ export const ConnectionsBuildingFooter = () => {
   return (
     <div
       className="flex flex-row gap-x-[10%] w-full m-auto 
-    max-w-7xl text-sm leading-5"
+    max-w-7xl text-sm leading-5 sm:items-start justify-center"
     >
       {footer1Links?.map((data, index) => {
+        const visibleOnAllScreens = index < 2;
         return (
           <div
             key={data.title}
-            className=" py-0 px-2.5 gap-2
-          align-top text-[#DDD] "
+            className={`py-0 px-2.5 gap-2 align-top text-[#DDD] ${
+              visibleOnAllScreens ? "block" : "hidden sm:block"
+            }`}
           >
             <div className=" font-bold text-[#FFF] mt-1.5 mb-3.5 text-base ">
               {data.title}
