@@ -66,7 +66,7 @@ export const Slider = () => {
                 <ArrowForwardIosIcon className="scale-[1.7]" />
               </div>
             </div>
-            {currentImage && <SlidesImages data={currentImage?.category_image_address} category={currentImage?.category} className="w-full" />}
+            {currentImage && <SlidesImages data={currentImage?.categoryImageAddress} category={currentImage?.categoryId} className="w-full" />}
           </div>
         </div>
       )}
