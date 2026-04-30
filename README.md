@@ -5,7 +5,7 @@
 ![Version](https://img.shields.io/badge/version-0.0.0-blue)
 ![Responsive](https://img.shields.io/badge/responsive-mobile%20%7C%20tablet%20%7C%20desktop-blue)
 
-> A production-ready e-commerce frontend with cart management, JWT authentication, and real-time state persistence — inspired by Amazon's UX patterns.
+> A production-ready e-commerce frontend with cart management, JWT authentication, and persistent state — inspired by Amazon's UX patterns.
 
 **[Live Demo](https://ecommerceapp-demo.vercel.app)** • **[Backend Repo](https://github.com/404notDeeksha/Ecommerce-App-Backend)**
 
@@ -15,6 +15,7 @@
 
 - ✅ **Full cart lifecycle** — Add, update, remove items with Redux Toolkit + persistence across sessions
 - ✅ **JWT authentication flow** — Protected routes, secure login/signup with token refresh
+- ✅ **Role-Based Access Control (RBAC)** — Admin panel with CRUD operations guarded by 3 roles and 4 granular permissions
 - ✅ **Mobile-friendly responsive** — Tailwind CSS, works seamlessly on mobile/tablet/desktop
 - ✅ **Production-ready DX** — Vite builds, Vitest testing, ESLint
 - ✅ **Polished UX** — Framer Motion animations, toast notifications, error boundaries, skeleton loaders
@@ -54,12 +55,27 @@
 - 🧪 ***Robust testing with Vitest*** — Unit & integration tests for critical user flows
 - 💾 ***Persistent global state*** — Auth & cart retained via Redux Persist (localStorage)
 - 🛡️ ***Resilient UI architecture*** — Error Boundaries + graceful fallbacks prevent full app crashes
-- 🔐 ***Secure route protection*** — Auth-based guarded routes with role-based access control
-- 🚀 ***Performance optimizations*** — Lazy loading, memoization, and debounced API calls reduce unnecessary re-renders
+- 🔐 ***Secure route protection + RBAC*** — `ProtectedRoute` for auth-guarded routes, `AdminGuard` with 3 roles and 4 granular permissions
+- 🚀 ***Performance optimizations*** — Debounced API calls and optimized state updates reduce unnecessary re-renders
 - 📦 ***Scalable frontend architecture*** — Modular, feature-based structure with reusable components & hooks
 
 <details>
 <summary><strong>Click to expand — Deep Dive</strong></summary>
+
+---
+
+## 📈 Impact & Metrics
+
+- **17 RESTful API endpoints** across 4 modules (auth, products, cart, admin) with centralized axios interceptors for token injection and automatic error transformation
+- **8 Redux slices** (auth, cart, error, loader, sidebar, overlay, location, language) with selective persistence — cart + auth survive page refresh via Redux Persist + localStorage
+- **Dual-token JWT authentication** with hybrid memory + localStorage storage — access token in module-level memory (XSS-safe), refresh token in Redux Persist, with queue-based auto-refresh on 401 responses preventing concurrent refresh storms
+- **Role-Based Access Control (RBAC)** with 3 roles (`admin`, `product_manager`, `user`) and 4 granular permissions (`product:create`, `product:read`, `product:update`, `product:delete`) — `AdminGuard` + `ProtectedRoute` enforce route-level and operation-level access
+- **50+ reusable components** organized across layout (header with 14 sub-components, footer, sidebar), feedback (error boundaries, toasts, skeletons), and common (portal, overlay, popover) categories
+- **Debounced filter search (500ms)** with URL-synced query parameters — users can share filtered + paginated product views directly via link
+- **Admin product management panel** with full CRUD operations (create, update, delete) using MUI Dialogs, guarded by role-based permission hooks (`useHasPermission`, `useHasRole`, `useUserRole`)
+- **5 unit/integration test suites** using Vitest + React Testing Library covering auth slice, error slice, error toast (auto-dismiss, aria attributes), error handler utilities, and 404 page
+- **Mobile-responsive UI** with Tailwind CSS across 3 device breakpoints (mobile/tablet/desktop), with Framer Motion slide animations for sidebar and skeleton loaders eliminating layout shift
+- **Vercel-managed CI/CD** with `vercel.json` build config, SPA routing rewrites, and preview deployments per pull request
 
 ---
 
@@ -71,8 +87,9 @@
 
 ### API Layer
 - **Axios** with centralized interceptors for auth token injection
-- Automatic token refresh on 401 responses
-- Dedicated `api/` module with endpoint definitions and error transformation
+- Automatic token refresh on 401 responses (queue-based to prevent concurrent refresh)
+- Dedicated `api/` modules: auth, products (search/filters/pagination), cart, admin (CRUD)
+- Centralized error transformation across all API calls
 
 ### Authentication Flow
 - JWT-based login/signup with protected routes
@@ -80,6 +97,7 @@
 - Axios interceptor automatically attaches tokens to requests
 - Auto-refresh on token expiry via interceptor
 - `ProtectedRoute.jsx` guards prevent unauthorized access
+- `AdminGuard.jsx` enforces role-based access (admin, product_manager) for admin routes
 
 ### UI/UX Engineering
 - **Framer Motion** for smooth page transitions and micro-interactions
@@ -90,7 +108,7 @@
 ### Testing Strategy
 - **Vitest** for fast unit tests
 - **React Testing Library** for component integration tests
-- Focused on critical paths: cart operations, auth flow, routing
+- 5 test suites covering: auth slice, error slice, error toast (auto-dismiss, aria attributes), error handler utilities, 404 page
 
 ---
 
@@ -110,24 +128,48 @@
 
 ```
 src/
-├── api/               # Axios setup + endpoint definitions
-├── components/       # Reusable UI components
-│   ├── common/       # Loader, Portal, etc.
-│   ├── feedback/     # Toasts, error boundaries
-│   └── layout/       # Header, Footer, Sidebar
-├── config/           # App configuration
-├── hooks/            # Custom React hooks
+├── api/
+│   ├── admin/products.js     # Create, update, delete products
+│   ├── auth/index.js         # Signup, email auth, password auth, logout
+│   ├── cart/index.js         # Add, get, update quantity, delete cart items
+│   ├── products/index.js     # Get carousel, list, filter, single product
+│   └── axiosInstance.js      # Axios setup + interceptors (auth token, refresh)
+├── assets/
+│   └── images/               # Static images (flag, logos, etc.)
+├── components/
+│   ├── common/               # Overlay, Portal, PopoverBox, NotFound, ScrollToTop, LoaderData
+│   ├── feedback/             # ErrorBoundary, ErrorToast, Skeleton
+│   └── layout/
+│       ├── footer/           # Main footer, top navigation, connections, other services, terms footer
+│       ├── header/           # MainHeader, SecondaryHeader, SearchBar, CartLogo, AccountMenu, DeliveryLocation, LanguageSelection, etc.
+│       └── sidebar/          # Sidebar, Navbar, Categories
+├── config/                   # App configuration (routes, constants)
+├── hooks/                    # useAuth, useCart, useDebounce, useHasRole
 ├── pages/
-│   ├── Auth/         # Login, Signup
-│   ├── CartPage/     # Shopping cart
-│   ├── HomePage/     # Landing
-│   ├── ProductsPage/ # Product listing
-│   └── ProductPage/  # Single product view
+│   ├── Admin/
+│   │   ├── AdminLayout.jsx   # Admin page wrapper
+│   │   └── AdminProducts.jsx # Product CRUD with RBAC
+│   ├── Auth/
+│   │   ├── LoginPage/        # Email auth, password auth, popup login
+│   │   └── SignupPage/       # User registration
+│   ├── CartPage/
+│   │   └── components/       # ShoppingCartItems, EmptyCartPage, Skeletons
+│   ├── HomePage/
+│   │   ├── components/       # Slider, CategoryGridCarousel, MultiCardCarousel, Skeletons
+│   │   └── data/             # Category grid data
+│   ├── Info/                 # AboutUs, Privacy, TermsConditions
+│   ├── ProductPage/
+│   │   ├── components/       # Product detail skeleton
+│   │   └── utils/            # Currency formatting
+│   └── ProductsPage/
+│       └── components/       # ProductCard, Pagination, Skeletons
 ├── redux/
-│   └── slices/       # auth, cart, error, loader
-├── routes/           # Route definitions
-├── styles/           # Global styles
-└── utils/            # Helpers
+│   ├── slices/               # auth, cart, error, loader, sidebar, overlay, location, language
+│   └── store.js              # Redux store + persist config
+├── routes/                   # appRoutes.jsx, ProtectedRoute.jsx, AdminGuard.jsx
+├── styles/                   # Global Tailwind styles
+├── test/                     # Vitest test suites + setup
+└── utils/                    # authTokens, errorHandler, commonUtils, commonConsts
 ```
 
 ---
@@ -181,18 +223,6 @@ Instead of storing JWTs in **httpOnly cookies** (the recommended production appr
 **Why not httpOnly cookies?**
 
 httpOnly cookies are the gold standard for production apps — they're immune to XSS and ideal for high-stakes applications. However, they introduce **CORS complexity** that can be difficult to manage when the frontend and backend are on different origins (e.g., dev at `localhost:3000` vs production at `vercel.app` and `render.com`). For portfolio/side projects where you're iterating fast across multiple hosting platforms, managing `Access-Control-Allow-Origin` headers, `SameSite` policies, and credential flags on every environment becomes a significant time sink. The hybrid approach gives you the same security guarantees for a short-lived access token while avoiding cross-origin deployment headaches entirely — a pragmatic trade-off that you still see in industry applications, particularly SPAs and internal tools.
-
-### Cart API Authentication Fix
-
-During development, users reported that cart data wasn't loading after login. Investigation revealed:
-
-1. **Race condition**: The cart fetch was called immediately after dispatching login, but Redux state hadn't updated yet with the user data.
-2. **API design**: The backend extracts `userId` directly from the JWT token (`req.user.userId`), not from request parameters — more secure.
-
-**Solution implemented:**
-- Modified cart APIs to work with JWT-authenticated backend (no userId parameter needed)
-- Backend validates token and extracts userId server-side
-- This prevents client-side userId tampering
 
 ---
 
