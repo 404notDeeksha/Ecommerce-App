@@ -34,6 +34,12 @@
 
 ---
 
+## 🏗️ Architecture
+
+![Architecture Diagram](docs/architecture/ECOM.drawio.png)
+
+---
+
 ## ⚡ Tech Stack
 
 | Category | Technologies |
